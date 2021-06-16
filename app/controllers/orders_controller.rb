@@ -43,14 +43,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
