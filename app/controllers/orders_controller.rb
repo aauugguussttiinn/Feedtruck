@@ -3,45 +3,43 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   # GET /orders/1
   def show
+    @orders = current_user.orders
   end
 
   # GET /orders/new
   def new
-    @order = Order.new
-  end
-
-  # GET /orders/1/edit
-  def edit
+    @cart = current_user.cart
+    @total_price = @cart.total_price
   end
 
   # POST /orders
   def create
-    @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    @cart = current_user.cart
+    @total_price = @cart.total_price
+    # Before the rescue, at the beginning of the method
+    @stripe_amount = @total_price * 100
+    begin
+        customer = Stripe::Customer.create({
+        email: @customer.email,
+        source: params[:stripeToken],
+        })
+        charge = Stripe::Charge.create({
+        customer: customer.id,
+        amount: @stripe_amount.to_i,
+        description: "Réglez maintenant votre panier",
+        currency: 'eur',
+        })
+    rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_order_path
     end
   end
 
-  # PATCH/PUT /orders/1
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: "Order was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

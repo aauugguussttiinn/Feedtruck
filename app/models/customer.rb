@@ -6,4 +6,5 @@ class Customer < ApplicationRecord
 
   belongs_to :location
   has_many :orders
+  has_one :cart
 end

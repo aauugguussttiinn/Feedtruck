@@ -1,0 +1,2 @@
+module CartContentHelper
+end
