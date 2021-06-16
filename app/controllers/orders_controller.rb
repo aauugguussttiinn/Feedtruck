@@ -38,6 +38,21 @@ class OrdersController < ApplicationController
         flash[:error] = e.message
         redirect_to new_order_path
     end
+
+    # After the rescue, if the payment succeeded
+
+    @order = Order.new(user: current_user, total_price: @total_price, stripe_customer_id: customer.id)
+        
+    if @order.save
+        @cart_contents.each do |order_element|
+            OrderContent.create(item: order_element.item, order: @order)
+            order_element.destroy
+        end
+    else
+        flash.now[:notice] = "Houston on a un problème"
+        render :new
+    end
+
   end
 
 
