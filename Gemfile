@@ -79,3 +79,4 @@ gem 'stripe'
 # Get nice icons from FA
 gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 4.5.0'
+gem 'letter_opener', '~> 1.7'
