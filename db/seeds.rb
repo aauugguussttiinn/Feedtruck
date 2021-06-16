@@ -18,8 +18,11 @@ Location.destroy_all
 p "Destroying Item... #{Item.count} "
 Item.destroy_all
 
-# p "Destroying Cart... #{Cart.count} "
-# Cart.destroy_all
+p "Destroying Cart... #{Cart.count} "
+Cart.destroy_all
+
+p "Destroying CartContent... #{CartContent.count} "
+CartContent.destroy_all
 
 p "Destroying Order... #{Order.count} "
 Order.destroy_all
