@@ -1,33 +1,38 @@
 <footer class="footer">
-  <div class="content columns">
-    <div class="column is-3 is-flex is-align-items-center is-justify-content-center">
-      <a href="#">
-        <%= image_tag("logo.png", style:"max-height: 150px")%>
-      </a>
+    <div class="content">
+        
+        <div class="columns">
+            <%= image_tag("logo.png", style:"max-height: 100px",alt: "logo")%>
+            <div class="column">  
+                <h4>Feedtruck SAS</h4>
+                <p>8 rue Jeanne d’Asnieres</p>
+                <p> 92110 Clichy</p>
+                <p> 01 84 20 22 46</p>  
+            </div>
+            <div class="column  is-flex is-flex-direction-column">
+                <h4>PLAN DU SITE</h4>
+                <a href="#">Accueil</a>
+                <a href="#">Votre compte</a>
+                <a href="#">Nous contacter</a>
+                <a href="#">Notre équipe</a>
+            </div>
+            <div class="column  is-flex is-flex-direction-column">
+                <h4>RESSOURCES</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Dossier de presse</a>
+                <a href="#">Jobs</a>
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">CGV</a>
+            </div>
+            <div class="column  ">
+                <h4 class="is-flex is-flex-direction-row is-align-item-center">NOS RESEAUX SOCIAUX</h4>
+                <i class="web-color fab fa-facebook-square fa-3x pr-2"></i>
+                <i class="web-color fab fa-instagram fa-3x pr-2"></i>
+                <i class="web-color fab fa-twitter-square fa-3x"></i>                 
+            </div>
+
+        </div>
+    
     </div>
-    <div class="column is-3 is-flex is-align-items-center is-justify-content-center">
-      <ul class="footer_ul">
-        <li><p class="h4">Plan du site</p></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-      </ul>
-    </div>
-    <div class="column is-3 is-flex is-align-items-center is-justify-content-center">
-      <ul class="">
-        <li><p class="">Ressources</p></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-        <li><a href="#" class="web-color">Some text</a></li>
-      </ul>
-    </div>
-    <div class="column is-3 is-flex is-flex-direction-column is-justify-content-center">
-      <p class="has-text-centered mb-4">Nos réseaux sociaux</p>
-      <ul class="is-flex is-flex-direction-row is-justify-content-space-around mt-4">
-        <li><a href="#"><i class="web-color fab fa-facebook-square fa-3x"></i></a></li>
-        <li><a href="#"><i class="web-color fab fa-instagram fa-3x"></i></a></li>
-        <li><a href="#"><i class="web-color fab fa-twitter-square fa-3x"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+</footer>   
