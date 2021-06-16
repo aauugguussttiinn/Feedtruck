@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>navbar</title>
+</head>
+<body>
+    <nav class="navbar has-shadow is-white" hrole="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="icons/logo.png" style="max-height: 80px" >
+                <div class="brand-name">
+                    <p class="is-size-4 has-text-weight-bold">feedtruck</p>
+                </div>
+            </a>      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>      
+        <div id="main-navbar" class="navbar-menu">
+          <div class="navbar-end">           
+            <div class="navbar-item">
+                <div class="cart is-flex">
+                    <div class="cart-icon">
+                        <img src="icons/bag-dark.png" alt="cart-icon">
+                    </div>
+                    <div class="cart-items-count"  style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
+                        <p class="has-text-centered" style="color: white;">0</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button signup-button is-rounded">
+                  S'inscrire
+                </a>
+                <a class="button login-button is-rounded is-light">
+                  Se connecter
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+    
+</body>
+</html>
