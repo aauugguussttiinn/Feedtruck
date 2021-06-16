@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<h1>Items de <%= link_to "#{@foodtruck.name}", foodtruck_path(@foodtruck.id) %> </h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= item.name %></td>
+        <td><%= link_to 'Show', foodtruck_item_path(item.foodtruck.id, item.id) %></td>
+        <td><%= link_to 'Edit', edit_foodtruck_item_path(item.foodtruck.id, item.id) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'New Item', new_foodtruck_item_path %>

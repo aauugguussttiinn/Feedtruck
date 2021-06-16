@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to "Items de #{@foodtruck.name}", foodtruck_items_path(@foodtruck.id) %> |
 <%= link_to 'Edit', edit_foodtruck_path(@foodtruck) %> |
 <%= link_to 'Back', foodtrucks_path %>
