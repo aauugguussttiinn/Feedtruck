@@ -145,18 +145,6 @@
 }
 
 
-.footer {
-  width:100%;
-  height:5%; 
-  position:absolute;
-  bottom:0;
-  left:0;
-}
-
 .web-color{
   color: #ff3068;
-}
-
-li {
-  list-style: none;
 }
