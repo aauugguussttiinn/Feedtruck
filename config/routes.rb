@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   devise_for :customers
 
   resource :customer do
-    resource :cart, only: [:show, :create]
     resources :orders, except: [:destroy]
+    resource :cart, only: [:show, :create] do
+      resources :cart_contents, only: [:show, :new, :create, :destroy]
+    end
   end
   resources :foodtrucks do
     resources :items do
-      resources :cart_contents, only: [:show, :new, :create, :destroy]
     end
   end
 end

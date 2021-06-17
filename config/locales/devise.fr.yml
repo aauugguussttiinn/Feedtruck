@@ -63,3 +63,17 @@ fr:
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  activerecord:
+    attributes:
+      customer:
+        password: "- Votre mot de passe"
+        current_password: "- Votre mot de passe actuel"
+    errors:
+      models:
+        customer:
+          attributes:
+            password:
+              blank: "doit obligatoirement être renseigné"
+              too_short: "renseigné est trop court"
+            current_password:
+              blank : "doit obligatoirement être renseigné"

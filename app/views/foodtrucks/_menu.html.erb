@@ -17,7 +17,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing...
                     </p>
                     <div class="box-footer">
-                        <%= link_to foodtruck_item_cart_contents_path(foodtruck.id, item.id), class: "button cart-button", method:'post' do %>
+                        <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button", method:'post' do %>
                             <span class="icon is-small">
                             <%= image_tag("bag.png")%>
                             </span>
@@ -36,5 +36,3 @@
         <%end%>                                             
     </div>
 </div>
-
-    
