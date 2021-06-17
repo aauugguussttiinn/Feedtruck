@@ -17,6 +17,15 @@
     font-family: 'Manrope', sans-serif;
  
 }
+.hero>.hero-body{
+    padding: 0 0 3em 1.5em;
+}
+.hero>.hero-body>.hero-content{
+    padding: 10px;
+    width: 600px;
+    margin-top: 0;
+
+}
 .hero>.hero-body>.hero-content>.title{
     font-family: 'Source Serif Pro', serif;
     color: rgb(59, 59, 59);
@@ -27,6 +36,11 @@
     color: black;
     font-size: 20px;
 } 
+.hero-image img{
+    width: 900px;
+    border-radius: 36px 51px 27px 59px / 0px 0px 0px 62px; 
+ 
+}
 .foodtrucks-list{
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
@@ -148,3 +162,4 @@
 .web-color{
   color: #ff3068;
 }
+
