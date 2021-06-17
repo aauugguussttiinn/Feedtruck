@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "foodtrucks#index"
+  root "static_pages#homepage"
 
   devise_for :customers
   resources :orders, except: [:destroy]

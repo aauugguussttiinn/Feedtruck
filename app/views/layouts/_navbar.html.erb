@@ -1,38 +1,70 @@
-<nav class="navbar has-shadow is-white" hrole="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+<nav class="navbar has-shadow is-white"   hrole="navigation" aria-label="main navigation">
+    <div class="navbar-brand is-flex is-align-items-center">
+        <%= link_to root_path do %>
+            <span class="navbar-item">
                <%= image_tag("logo.png", style:"max-height: 80px")%>
                 <div class="brand-name">
                     <p class="is-size-4 has-text-weight-bold">feedtruck</p>
                 </div>
-            </a>      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            </span>
+        <%end%>            
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
-        </div>      
-        <div id="main-navbar" class="navbar-menu">
-          <div class="navbar-end">           
+        </a>
+    </div>
+           
+    <div id="main-navbar" class="navbar-menu">
+        <div class="navbar-end is-flex is-align-items-center is-justify-content-center ">           
             <div class="navbar-item">
-                <div class="cart is-flex">
-                    <div class="cart-icon">
-                      <%= button_to customer_cart_path, method: :get do %>
-                        <%= image_tag("bag-dark.png", alt:"cart-icon")%>
-                      <% end %>
+                <%= link_to customer_cart_path do%>
+                    <div class="cart is-flex">
+                        <div class="cart-icon">
+                            <%= image_tag("bag-dark.png", alt:"cart-icon")%>
+                        </div>
+                        <div class="cart-items-count"  style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
+                            <p class="has-text-centered" style="color: white;">0</p>
+                        </div>
                     </div>
-                    <div class="cart-items-count"  style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
-                        <p class="has-text-centered" style="color: white;">0</p>
+                <%end%>
+            </div> 
+            <%if !customer_signed_in? %>           
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <%= link_to "S'inscrire", new_customer_registration_path, class: "button signup-button is-rounded" %>
+                        <%= link_to "Se connecter",  new_customer_session_path, class:"button login-button is-rounded is-light" %>
                     </div>
                 </div>
-            </div>            
-            <div class="navbar-item">
-              <div class="buttons">
-                <%= link_to "S'inscrire", new_customer_registration_path, class: "button signup-button is-rounded" %>
-                <%= link_to "Se connecter",  new_customer_session_path, class:"button login-button is-rounded is-light" %>
-                <%= link_to "Se déconnecter",  destroy_customer_session_path, method: "delete", class:"button login-button is-rounded is-light" %>
-              </div>
-            </div>
-          </div>
+            <%else%>
+                <div class="navbar-item">
+                    <div class="dropdown customer-profile is-hoverable is-right  ">
+                        <div class="dropdown-trigger">
+                            <div class="profile-button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <i class="fas fa-user-circle fa-2x"></i>               
+                                <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <%=link_to  edit_customer_registration_path, class: "dropdown-item" do %>
+                                Mes infos
+                                <%end%>
+                                <a href="#" class="dropdown-item">   
+                                Mes commandes passées
+                                </a>
+                                <hr class="dropdown-divider">
+                                <%=link_to destroy_customer_session_path, class: "dropdown-item", method: :delete do %>
+                                <i class="fas fa-power-off"></i>
+                                Déconnexion
+                                <%end%>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            <%end%>
         </div>
-</nav>  
+    </div>
+</nav>

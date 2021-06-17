@@ -1,4 +1,4 @@
-<%= form_with(model: customer, local: true) do |form| %>
+<%= form_with model: @customers, url: customer_path(@customers), method: "patch", local: true do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
