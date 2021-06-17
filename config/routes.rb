@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root "static_pages#homepage"
 
   devise_for :customers
-  resources :orders, except: [:destroy]
+
   resource :customer do
     resource :cart, only: [:show, :create]
+    resources :orders, except: [:destroy]
   end
   resources :foodtrucks do
     resources :items do

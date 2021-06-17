@@ -22,8 +22,6 @@ class OrdersController < ApplicationController
   def create
     @cart = current_customer.cart
     @total_price = @cart.total_price
-    puts "$"*60
-    puts params
     @foodtruck = @cart.items.first != nil ? @cart.items.first.foodtruck : @order.foodtruck
 
     # Before the rescue, at the beginning of the method
@@ -43,9 +41,9 @@ class OrdersController < ApplicationController
         @order = Order.new(customer: current_customer, stripe_customer_id: customer.id, foodtruck: @foodtruck)
         if @order.save
           flash[:success] = "Vous avez bien payé #{@total_price}"
-          redirect_to foodtrucks_path
+          redirect_to customer_orders_path
         else
-          flash.now[:notice] = "Houston on a un problème"
+          flash.now[:error] = "Houston on a un problème"
           render :new
         end    
       end
