@@ -4,6 +4,24 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "customers/shared/error_messages", resource: resource %>
+      <div class="field mx-5 my-3">
+            <%= f.label :first_name, "Prénom", class: "label" %>
+            <div class="control has-icons-left my-3">
+              <%= f.text_field :first_name, autofocus: true, class: "input", placeholder: "Prénom" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-child web-color"></i>
+              </span>
+            </div> 
+          </div>
+
+          <div class="field mx-5 my-3">
+            <%= f.label :last_name, "Nom de famille", class: "label" %>
+            <div class="control has-icons-left my-3">
+              <%= f.text_field :last_name, autofocus: true, class: "input", placeholder: "Nom de famille" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-child web-color"></i>
+              </span>
+             </div> 
 
       <div class="field mx-5 my-3">
         <%= f.label :email, class: "label" %>
@@ -45,7 +63,7 @@
       </div>
 
       <div class="field mx-5 my-3">
-        <%= f.label :current_password, "Mot de Passe actuel", class: "label" %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password, "Mot de Passe actuel", class: "label" %> <i>(Nous avons besoin de votre mot de passe actuel pour valider les changements)</i><br />
         <div class="control has-icons-left">
           <%= f.password_field :current_password, class: "input", autocomplete: "current-password" %>
           <span class="icon is-small is-left">
