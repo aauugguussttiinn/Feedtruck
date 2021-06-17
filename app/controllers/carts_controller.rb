@@ -2,8 +2,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1
   def show
-    @customer = current_customer
-    @cart = @current_customer.cart
+    @cart = current_customer.cart
     @cart_contents = CartContent.where(cart: @cart)
   end
 
