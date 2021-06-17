@@ -17,12 +17,12 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing...
                     </p>
                     <div class="box-footer">
-                        <button class="button cart-button">
+                        <%= button_to foodtruck_item_cart_contents_path(item.foodtruck.id, item.id), class: "button cart-button", method:'post' do %>
                             <span class="icon is-small">
                             <%= image_tag("bag.png")%>
                             </span>
                             <span>Ajouter au panier</span>
-                        </button>
+                        <% end %>
                     </div>
             </div>
             <figure class="box-img image">
