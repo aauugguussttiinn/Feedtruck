@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+
+<% @cart.items.each do |item| %>
+  <%= item.name %>
+<% end %>
+<%= link_to 'Back', root_path %>
