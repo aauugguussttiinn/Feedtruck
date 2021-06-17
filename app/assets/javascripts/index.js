@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('click', () => {
 
   // Mobile menu
   const burgerIcon = document.querySelector('.navbar-burger');
