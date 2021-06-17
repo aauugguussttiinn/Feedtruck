@@ -16,9 +16,11 @@ class Order < ApplicationRecord
 
   def total_price
     unless self.order_contents == nil
-        self.order_contents.map {|order_content| order_content.item.price}.reduce(:+)
+      self.order_contents.map {|order_content| order_content.item.price}.reduce(:+)
     else
-        return 0
+      return 0
+    end
+  end
   
   def transfer_from_cart
     self.customer.cart.cart_contents.each do |cart_content|
@@ -26,4 +28,5 @@ class Order < ApplicationRecord
       cart_content.destroy
     end
   end
+
 end
