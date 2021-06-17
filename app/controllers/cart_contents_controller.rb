@@ -1,4 +1,5 @@
 class CartContentsController < ApplicationController
+  before_action :authenticate_customer!, only: %i[ create ]
   before_action :set_cart_content, only: %i[ show edit update destroy ]
   
   def create
@@ -23,4 +24,4 @@ class CartContentsController < ApplicationController
   def cart_content_params
     params.require(:cart_content)
   end
-end
+end 
