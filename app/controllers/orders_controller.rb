@@ -3,55 +3,57 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = current_user.orders
+    @orders = current_customer.orders
   end
 
   # GET /orders/1
   def show
-    @orders = current_user.orders
+    @orders = current_customer.orders
   end
 
   # GET /orders/new
   def new
-    @cart = current_user.cart
+    @cart = current_customer.cart
     @total_price = @cart.total_price
   end
 
   # POST /orders
   def create
-    @cart = current_user.cart
+    @cart = current_customer.cart
     @total_price = @cart.total_price
+    puts "$"*60
+    puts params
+    @foodtruck = @cart.items.first != nil ? @cart.items.first.foodtruck : @order.foodtruck
+
     # Before the rescue, at the beginning of the method
     @stripe_amount = @total_price * 100
     begin
-        customer = Stripe::Customer.create({
-        email: @customer.email,
-        source: params[:stripeToken],
-        })
-        charge = Stripe::Charge.create({
-        customer: customer.id,
-        amount: @stripe_amount.to_i,
-        description: "Réglez maintenant votre panier",
-        currency: 'eur',
-        })
+      customer = Stripe::Customer.create({
+      email: current_customer.email,
+      source: params[:stripeToken],
+      })
+      charge = Stripe::Charge.create({
+      customer: customer.id,
+      amount: @stripe_amount.to_i,
+      description: "Réglez maintenant votre panier",
+      currency: 'eur',
+      })
+      if customer && charge.paid
+        @order = Order.new(customer: current_customer, stripe_customer_id: customer.id, foodtruck: @foodtruck)
+        if @order.save
+          flash[:success] = "Vous avez bien payé #{@total_price}"
+          redirect_to foodtrucks_path
+        else
+          flash.now[:notice] = "Houston on a un problème"
+          render :new
+        end    
+      end
     rescue Stripe::CardError => e
-        flash[:error] = e.message
-        redirect_to new_order_path
+      flash[:error] = e.message
+      redirect_to new_order_path
     end
 
     # After the rescue, if the payment succeeded
-
-    @order = Order.new(user: current_user, total_price: @total_price, stripe_customer_id: customer.id)
-        
-    if @order.save
-        @cart_contents.each do |order_element|
-            OrderContent.create(item: order_element.item, order: @order)
-            order_element.destroy
-        end
-    else
-        flash.now[:notice] = "Houston on a un problème"
-        render :new
-    end
 
   end
 
