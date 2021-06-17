@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-	</head>
-	<body>
-		<h1>Salut !</h1>
-		<p> Nous avons bien recu ta commande</p>
-		<p> À bientot !</p>
-
-	</body>
-</html>
+<% if @customer.first_name != nil %>
+  <p>Salut <%= @customer.first_name %> !</p>
+<% else %>
+  <p>Salut !</p>
+<% end %>
+</br>
+<p>Nous avons bien reçu votre commande est l'avons transmise à <%= %> qui va se charger de la préparer.</p>
+</br>
+<p>Ci dessous vous trouverez le récapitulatif de votre commande :</p>
+<ul>
+  <% @order_contents.map do |order_content| %>
+	<li><%= order_contents.name %></li>
+  <% end %>
+</ul>
+</br>
+<p>Prix total : <%= @total_price %> €</p>
+</br>
+<p>Vous pouvez également accéder au détail de votre commande depuis votre espace client, dans l'onglet mes commandes : <%= @url %>.</p>
+</br>
+<p>À très bientôt, l'équipe FeedTruck !</p>

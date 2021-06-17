@@ -1,6 +1,19 @@
-Salut !
-==========================================================
+<% if @customer.first_name != nil %>
+  Salut <%= @customer.first_name %> !
+<% else %>
+  Salut !
+<% end %>
 
-Nous avons bien recu ta commande
+Nous avons bien reçu votre commande est l'avons transmise à <%= %> qui va se charger de la préparer.
 
-A bientot !
+Ci dessous vous trouverez le récapitulatif de votre commande :
+  <% @order_contents.map do |order_content| %>
+	- <%= order_contents.name %></li>
+  <% end %>
+
+
+Prix total : <%= @total_price %> €
+
+Vous pouvez également accéder au détail de votre commande depuis votre espace client, dans l'onglet mes commandes : <%= @url %>.
+
+À très bientôt, l'équipe FeedTruck !
