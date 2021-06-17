@@ -192,3 +192,40 @@
     width: 400px;
    
 }
+
+.user-avatar>img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.user-infos{
+    margin-bottom: 100px;
+}
+
+.profile-my-orders>.box{
+    padding: 15px 25px;
+}
+
+.profile-my-orders>.box>.box-img>img{
+    width: 150px;
+    border-radius: 5px;
+}
+.profile-my-orders>.box>.box-content>.title{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.profile-my-orders>.box>.box-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+}
+.profile-my-orders>.box>.box-content>.box-footer>.button{
+    background-color:#ff517f;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+
+}
+
