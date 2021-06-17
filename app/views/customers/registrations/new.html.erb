@@ -40,12 +40,13 @@
       </div>
 
       <div class="actions is-flex is-justify-content-center my-4">
-        <%= f.submit "S'inscrire" %>
+        <%= f.submit "S'inscrire", class: "button is-pink is-rounded" %>
       </div>
-      <div class="has-text-centered my-4">
-        <p>Déja inscrit ? Connectez-vous ici : <%= render "customers/shared/links" %></p>
-      </div>
+
     <% end %>
+    <div class="has-text-centered my-4">
+      <p>Déja inscrit ? Connectez-vous ici : <%= render "customers/shared/links" %></p>
+    </div>
   </div>
 </div>
 
