@@ -8,7 +8,8 @@ class Customer < ApplicationRecord
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Adresse email non valide" }
   validates :password,
     presence: true,
-    length: { in: 6..20 }
+    length: { in: 6..20 },
+    on: :create
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
