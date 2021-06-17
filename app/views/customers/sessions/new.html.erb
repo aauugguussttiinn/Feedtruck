@@ -21,7 +21,7 @@
       </div>
 
       <div class="field mx-5">
-        <%= f.label :password, class: "label" %>
+        <%= f.label :password, "Mot de passe", class: "label" %>
         <div class="control has-icons-left">
           <%= f.password_field :password, class: "input", autocomplete: "current-password", placeholder: "Mot de passe"%>
           <span class="icon is-small is-left">
@@ -33,7 +33,7 @@
       <% if devise_mapping.rememberable? %>
         <div class="field mx-5">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label :remember_me, "Se souvenir de moi" %>
         </div>
       <% end %>
 

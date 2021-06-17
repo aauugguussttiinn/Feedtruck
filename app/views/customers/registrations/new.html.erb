@@ -17,9 +17,9 @@
       </div>
 
       <div class="field">
-        <%= f.label :password, class: "label" %>
+        <%= f.label :password, "Mot de Passe", class: "label" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> caractères minimum)</em>
         <% end %><br />
         <div class="control has-icons-left">
           <%= f.password_field :password, class: "input", autocomplete: "new-password", placeholder: "Mot de passe" %>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, class: "label" %>
+        <%= f.label :password_confirmation, "Confirmer votre mot de passe", class: "label" %>
         <div class="control has-icons-left">
           <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password" %>
           <span class="icon is-small is-left">
