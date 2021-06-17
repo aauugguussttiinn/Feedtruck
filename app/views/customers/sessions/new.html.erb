@@ -1,26 +1,50 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="columns is-centered mt-6">
+  <div class="column is-5 is-narrow has-text-centered">
+    <%= image_tag("signup_customers.jpg", style:"max-height: 400px")%>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="column is-7 is-narrow ">
+    <div class= "is-flex is-justify-content-center">
+      <%= image_tag("logo.png", style:"max-height: 80px")%>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "customers/shared/error_messages", resource: resource %>
+
+      <div class="field mx-5">
+        <%= f.label :email, class: "label" %>
+        <div class="control has-icons-left">
+          <%= f.email_field :email, autofocus: true, class: "input", autocomplete: "email", placeholder: "Email" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope web-color"></i>
+            </span>
+        </div>
+      </div>
+
+      <div class="field mx-5">
+        <%= f.label :password, "Mot de passe", class: "label" %>
+        <div class="control has-icons-left">
+          <%= f.password_field :password, class: "input", autocomplete: "current-password", placeholder: "Mot de passe"%>
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock web-color"></i>
+          </span>
+        </div> 
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field mx-5">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Se souvenir de moi" %>
+        </div>
+      <% end %>
+
+      <div class="actions is-flex is-justify-content-center my-4">
+        <%= f.submit "Connexion", class: "button is-pink is-rounded" %>
+      </div>
+
+    <% end %>
+    <div class="has-text-centered my-4">
+      <p>Pas encore inscrit : <%= render "customers/shared/links" %></p>
+    </div>
+    
   </div>
-<% end %>
-
-<%= render "customers/shared/links" %>
+</div>

@@ -1,4 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<% @cart_contents.sort.each do |cart_content| %>
+  <tr class="table-light" id="<%= cart_content.created_at%>">
+    <td class="border-0 align-middle"><strong><%= cart_content.item.name %><br /></strong></td>
+    <td class="border-0 align-middle"><strong><%= cart_content.item.price %>€<br /></strong></td>
+    <td><%= link_to "", foodtruck_item_cart_contents_path(cart_content.item.foodtruck.id, cart_content.item.id), method: :delete, remote: true %></td>
+  </tr>
+<%end%>
+
+<%= button_to orders_path, class: "button cart-button", method:'post' do %>
+  <span>Passer commande</span>
+<% end %>
+
+<%= link_to 'Back', root_path %>

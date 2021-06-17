@@ -1,0 +1,29 @@
+<div class="section">
+    <div class="container foodtrucks-list">
+        <% foodtrucks.each do |foodtruck| %>
+            <%= link_to foodtruck_path(foodtruck.id)  do%>
+            <div class="card index-card">
+                <div class="card-image">
+                    <figure class="image  is-4by3">
+                        <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
+                    </figure>
+                </div>       
+                <div class="card-content">                    
+                    <div class="card-media is-flex is-align-items-center ">                        
+                        <div class="foodtruck-banner">
+                            <figure class="image is-48x48">
+                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                        </div>               
+                        <div class="foodtruck-info ml-5">
+                            <p class="title is-size-4"><%= foodtruck.name %></p>
+                            <p class="subtitle is-size-6"> Spécialités italiennes</p>
+                        </div>
+                    </div>      
+                </div>                
+            </div>
+            <%end%> 
+        <%end%>             
+    </div>
+</div>
+    

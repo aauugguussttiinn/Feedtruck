@@ -5,11 +5,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   
+    <script src="https://kit.fontawesome.com/eb8c289520.js" crossorigin="anonymous"></script>
+</head>
 
   <body>
-    <%= yield %>
+    <%=render 'layouts/navbar'%>
+        <%= yield %>
+    <%=render 'layouts/footer'%> 
+    
   </body>
 </html>
