@@ -1,13 +1,14 @@
 class Customer < ApplicationRecord
   after_create :add_cart
+  after_create :welcome_send
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  after_create :welcome_send
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :location
+  has_one :location
   has_many :orders
   has_one :cart
 
