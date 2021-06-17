@@ -3,11 +3,10 @@ class CartContentsController < ApplicationController
   before_action :set_cart_content, only: %i[ show edit update destroy ]
   
   def create
-    puts params
     @cart_content = CartContent.new(cart: current_customer.cart, item_id: params[:item_id])
     respond_to do |format|
       if @cart_content.save
-        format.html { redirect_back fallback_location: root_path, notice: "cart_content was successfully created." }
+        format.html { redirect_back fallback_location: root_path, flash: { success: "1 #{@cart_content.item.name} à bien été ajouté au panier"} }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
