@@ -52,9 +52,9 @@
                                 <%=link_to  customer_path, class: "dropdown-item" do %>
                                 Mes infos
                                 <%end%>
-                                <a href="#" class="dropdown-item">   
+                                <%=link_to  customer_orders_path, class: "dropdown-item" do %>
                                 Mes commandes passées
-                                </a>
+                                <%end%>
                                 <hr class="dropdown-divider">
                                 <%=link_to destroy_customer_session_path, class: "dropdown-item", method: :delete do %>
                                 <i class="fas fa-power-off"></i>

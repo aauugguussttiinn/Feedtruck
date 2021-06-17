@@ -1,35 +1,63 @@
-<div class="columns"> 
-  <div class="card column is-5">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="content">
-        <p class="title is-5">Mon profil</p>
-        <div class="media-content">
-          <p class="subtitle is-6">Nom : <%= @current_customer.last_name%></p>
-          <p class="subtitle is-6">Prénom : <%= @current_customer.first_name %></p>
-          <p class="subtitle is-6">Email : <%= @current_customer.email %></p>
-          <p class="subtitle is-6">Localisation : <%= @current_customer.location_id %></p>
-        </div>
-      </div>
+<div class="section  ">
+    <div class="container user-infos">
+        <div class="columns is-centered "> 
+            <div class="box column is-5 ">
+                <div class="box-content">
+                    <figure class="image user-avatar is-128x128">
+                        <img src="https://images.unsplash.com/photo-1606383068250-4ac2043f4ff5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
+                    </figure>
+                    <div class="content">
+                        <p class="title is-size-4">Mon profil</p>
+                        <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
+                        <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
+                        <p class="is-size-6">Email : <%= @current_customer.email %></p>
+                        <p class="is-size-6">Localisation : <%= @current_customer.location_id %></p>
+                    </div>
+                    <div class="buttons">
+                        <div class="update-profile-btn mr-5">
+                            <%= link_to "Modifier mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
+                        </div>
+                        <div class="update-id-btn">
+                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-pink is-rounded", style: "border: transparent" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-5">
+                <div class="monthy-expenses box">
+                    <p class="title is-size-5"> Dépensé en bouffe ce mois</p>
+                    <p class="is-size-3">399€</p>
+                </div>
+                <div class="profile-my-orders box">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="title is-size-5"> Ma dernière commande</p>
+                        <div class="show-orders-btn">
+                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-link is-rounded", style: "border: transparent" %>
+                        </div>
+                    </div>
+                    <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                        <div class="box-content">             
+                            <p class="foodtruck-name title">
+                                Papa Johnny
+                            </p>
+                            <p class="order-date subtitle">
+                                Le 12/03/2021
+                            </p>
+                            <p class="order-cost is-size-6 mb-5">
+                                Payé: 45,56€
+                            </p>
+                        </div>
+                        <div class="box-img is-hidden-mobile image">    
+                            <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="foodtruck-img" class="foodtruck-img">                    
+                        </div>                                   
+                    </div>
 
-      <div class="content columns">
-        <div class="column is-6">
-          <%= link_to "Modifier mon profil", edit_customer_path, class: "button is-pink is-rounded" %>
-        </div>
-        <div class="column is-6">
-          <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-pink is-rounded" %>
-        </div>
-      </div>
-    </div>
-  </div>
+                    
 
-  <div class="column is-7">
-    <div class="columns">
-      <%= link_to "Voir toutes mes commandes", class: "button is-pink is-rounded column is-6" %>
+                </div>
+            </div> 
+        </div>
     </div>
-  </div>
 </div>
+
+    
