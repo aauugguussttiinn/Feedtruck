@@ -2,6 +2,7 @@ class CartContentsController < ApplicationController
   before_action :set_cart_content, only: %i[ show edit update destroy ]
   
   def create
+    puts params
     @cart_content = CartContent.new(cart: current_customer.cart, item_id: params[:item_id])
     respond_to do |format|
       if @cart_content.save
