@@ -11,7 +11,7 @@
                         <%= item.name %>
                     </p>
                     <p class="item-price subtitle">
-                        7,99€
+                        <%= item.price %><span> €</span>
                     </p>
                     <p class="description mb-5">
                         Lorem ipsum dolor sit amet consectetur adipisicing...
@@ -22,12 +22,20 @@
                             <%= image_tag("bag.png")%>
                             </span>
                             <span>Ajouter au panier</span>
+                            <%= button_to customer_cart_cart_contents_path(item.id), method: :post do %>
+                                <span class="fas fa-cart-arrow-down">button</span>
+                            <% end %>
                         </button>
                     </div>
             </div>
             <figure class="box-img image">
                 <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-            </figure>                                   
+            </figure>
+            <figure class="box-img image">
+                <% if item.picture.attached? %>
+                    <%= image_tag item.picture, alt: "Thumbnail [100%x225]" %>
+                <%end%>
+            </figure>                                     
         </div>
         <%end%>                                             
     </div>

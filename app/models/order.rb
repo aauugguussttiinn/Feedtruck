@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-  after_create :order_customer_send
+  after_create :order_send
 
   belongs_to :customer
   belongs_to :foodtruck
@@ -17,8 +17,9 @@ class Order < ApplicationRecord
     end
   end
 
-  def order_customer_send
+  def order_send
     CustomerMailer.order_email(self.customer).deliver_now
+    FoodtruckMailer.order_email(self.foodtruck).deliver_now
   end
     
 end
