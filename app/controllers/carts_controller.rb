@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_customer!, only: %i[ show ]
 
   # GET /carts/1
   def show

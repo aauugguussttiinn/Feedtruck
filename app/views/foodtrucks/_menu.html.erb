@@ -17,7 +17,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing...
                     </p>
                     <div class="box-footer">
-                        <%= button_to foodtruck_item_cart_contents_path(foodtruck.id, item.id), class: "button cart-button", method:'post' do %>
+                        <%= link_to foodtruck_item_cart_contents_path(foodtruck.id, item.id), class: "button cart-button", method:'post' do %>
                             <span class="icon is-small">
                             <%= image_tag("bag.png")%>
                             </span>
@@ -26,15 +26,15 @@
                     </div>
             </div>
             <figure class="box-img image">
-                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-            </figure>
-            <figure class="box-img image">
                 <% if item.picture.attached? %>
                     <%= image_tag item.picture, alt: "Thumbnail [100%x225]" %>
+                <%else%>
+                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
                 <%end%>
             </figure>                                     
         </div>
         <%end%>                                             
     </div>
 </div>
+
     
