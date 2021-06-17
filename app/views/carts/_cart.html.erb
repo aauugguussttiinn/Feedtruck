@@ -50,7 +50,7 @@
                 <!-- <button class="button checkout-button is-rounded mt-5">
                     <p>Stripe ici</p>
                 </button> -->
-                <%= form_tag orders_path do %>
+                <%= form_tag customer_orders_path do %>
                     <article>
                     <% if flash[:error].present? %>
                         <div id="error_explanation">
