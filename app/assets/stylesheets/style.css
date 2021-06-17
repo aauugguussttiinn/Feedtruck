@@ -167,3 +167,28 @@
     color : white;
     background-color: #ff3068;
 }
+.cart-item>.box-body>.box-img>img{
+    width: 100px;
+
+}
+.cart-item>.quantity>button{
+    background-color:#c0c0c0;
+    border: transparent;
+    border-radius: 5px;
+
+}
+.shopping-cart>.order-infos>.checkout-button{
+    background-color: #ff3068;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    border: transparent;
+}
+.shopping-cart>.cart-box{
+    padding-bottom: 80px;
+}
+
+.shopping-cart>.order-infos{
+height: 250px;
+width: 400px;
+   
+}

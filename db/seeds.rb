@@ -45,11 +45,11 @@ p Location.create(name: "Parie 10eme", adress: "Place de la République")
 p "-" * 50
 
 p 'CUSTOMERS'
-p Customer.create(email: "augustin.thp@yopmail.com", password: "azerty1234", first_name: "Augustin", last_name: "Berne", location: Location.find(3))
-p Customer.create(email: "nicolas.thp@yopmail.com", password: "azerty1234", first_name: "Nicolas", last_name: "Heckman", location: Location.find(1))
-p Customer.create(email: "julien.thp@yopmail.com", password: "azerty1234", first_name: "Julien", last_name: "Parrat", location: Location.find(2))
-p Customer.create(email: "florent.thp@yopmail.com", password: "azerty1234", first_name: "Florent", last_name: "Ngongang", location: Location.find(4))
-p Customer.create(email: "mathieu.thp@yopmail.com", password: "azerty1234", first_name: "Mathieu", last_name: "Paradis", location: Location.find(5))
+p Customer.create(email: "augustin.thp@yopmail.com", password: "azerty1234", first_name: "Augustin", last_name: "Berne")
+p Customer.create(email: "nicolas.thp@yopmail.com", password: "azerty1234", first_name: "Nicolas", last_name: "Heckman")
+p Customer.create(email: "julien.thp@yopmail.com", password: "azerty1234", first_name: "Julien", last_name: "Parrat")
+p Customer.create(email: "florent.thp@yopmail.com", password: "azerty1234", first_name: "Florent", last_name: "Ngongang")
+p Customer.create(email: "mathieu.thp@yopmail.com", password: "azerty1234", first_name: "Mathieu", last_name: "Paradis")
 
 p "-" * 50
 
