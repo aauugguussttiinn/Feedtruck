@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-
+  after_save :transfer_from_cart
   after_create :order_customer_send
 
   belongs_to :customer
@@ -20,5 +20,11 @@ class Order < ApplicationRecord
   def order_customer_send
     CustomerMailer.order_email(self.customer).deliver_now
   end
-    
+  
+  def transfer_from_cart
+    self.customer.cart.cart_contents.each do |cart_content|
+      OrderContent.create(item: cart_content.item, order: self)
+      cart_content.destroy
+    end
+  end
 end

@@ -4,4 +4,7 @@
 <% @cart.items.each do |item| %>
   <%= item.name %>
 <% end %>
+<%= button_to orders_path, class: "button cart-button", method:'post' do %>
+  <span>Passer commande</span>
+<% end %>
 <%= link_to 'Back', root_path %>
