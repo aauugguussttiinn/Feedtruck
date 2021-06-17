@@ -27,7 +27,12 @@
             </div>
             <figure class="box-img image">
                 <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-            </figure>                                   
+            </figure>
+            <figure class="box-img image">
+                <% if item.picture.attached? %>
+                    <%= image_tag item.picture, alt: "Thumbnail [100%x225]" %>
+                <%end%>
+            </figure>                                     
         </div>
         <%end%>                                             
     </div>
