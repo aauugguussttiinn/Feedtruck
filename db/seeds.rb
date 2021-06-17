@@ -33,14 +33,13 @@ OrderContent.destroy_all
 p "-" * 50
 p "-" * 50
 
-
 p 'LOCATIONS'
-p Location.create(name: "Parie 2eme", adress: "Place de l'Opéra")
-p Location.create(name: "Parie 4eme", adress: "Métro Hôtel de Ville")
-p Location.create(name: "Parie 5eme", adress: "Métro Place Monge")
-p Location.create(name: "Parie 7eme", adress: "Place des Fêtes")
-p Location.create(name: "Parie 8eme", adress: "Rue des Francs-Bourgeois")
-p Location.create(name: "Parie 10eme", adress: "Place de la République")
+p Location.create(name: "Paris 3eme", adress: "Métro Rambuteau")
+p Location.create(name: "Paris 4eme", adress: "Métro Hôtel de Ville")
+p Location.create(name: "Paris 5eme", adress: "Métro Place Monge")
+p Location.create(name: "Paris 9eme", adress: "Place de l'Opéra")
+p Location.create(name: "Paris 10eme", adress: "Place de la République")
+p Location.create(name: "Paris 19eme", adress: "Place des Fêtes")
 
 p "-" * 50
 
@@ -71,10 +70,10 @@ p Item.create(name: "Fish burger", description: "poisson panné,  salade, tomate
 p Item.create(name: "Chicken burger", description: "poulet panné, salade, tomate, oignon, mayonaise", price: 7.50, foodtruck_id: 1)
 p Item.create(name: "Veggie burger", description: "steak vegan, salade, tomate, noix de cajou, ketchup", price: 8, foodtruck_id: 1)
 p Item.create(name: "Bacon burger", description: "steak de boeuf x2, bacon grillé x3, fromage x2, moutarde", price: 8, foodtruck_id: 1)
-p Item.create(name: "Double Cheeseburger", description: "steak de boeuf x2, salade, tomate, cornichon, oignon, fromage x4, ketchup", price: 9.5, foodtruck_id: 1)
+p Item.create(name: "Double Cheeseburger", description: "steak de boeuf x2, salade, tomate, cornichon, oignon, fromage x4, ketchup", price: 9.50, foodtruck_id: 1)
 p Item.create(name: "Triple’O burger", description: "steak de boeuf x3, salade, tomate, cornichon, oeuf,  fromage x3, ketchup", price: 11, foodtruck_id: 1)
 p Item.create(name: "Frites", description: "pomme de terre frites", price: 4, foodtruck_id: 1)
-p Item.create(name: "Onions rings", description: "onion fris", price: 3.5, foodtruck_id: 1)
+p Item.create(name: "Onions rings", description: "onion fris", price: 3.50, foodtruck_id: 1)
 
 p 'Items - foodtruck 2'
 p Item.create(name: "Nigiri saumon x2", description: "saumon, riz", price: 2.50, foodtruck_id: 2)
@@ -86,9 +85,9 @@ p Item.create(name: "Sashimi saumon x8", description: "saumon", price: 6, foodtr
 p Item.create(name: "Sashimi thon x8", description: "thon", price: 8, foodtruck_id: 2)
 p Item.create(name: "Crevettes tempura x3", description: "crevette", price: 4, foodtruck_id: 2)
 p Item.create(name: "Gyoza poulet x4", description: "poulet, chou, ail, oignon, ciboulette", price: 4, foodtruck_id: 2)
-p Item.create(name: "Gyoza veggie x4", description: "chou, carotte, oignon, poireau", price: 3.5, foodtruck_id: 2)
-p Item.create(name: "Sashimi bowl", description: "tranche de saumon x6, tranche de saumon x6, riz, salade d’algues", price: 3.5, foodtruck_id: 2)
-p Item.create(name: "Tempura bowl", description: "riz, salade de chou, gyoza poulet x3, crevette tempura x3, avocat, graine de sésame", price: 3.5, foodtruck_id: 2)
+p Item.create(name: "Gyoza veggie x4", description: "chou, carotte, oignon, poireau", price: 3.50, foodtruck_id: 2)
+p Item.create(name: "Sashimi bowl", description: "tranche de saumon x6, tranche de saumon x6, riz, salade d’algues", price: 3.50, foodtruck_id: 2)
+p Item.create(name: "Tempura bowl", description: "riz, salade de chou, gyoza poulet x3, crevette tempura x3, avocat, graine de sésame", price: 3.50, foodtruck_id: 2)
 
 p 'Items - foodtruck 3'
 p Item.create(name: "Salade niçoise", description: "mesclun, oeuf, thon, olive, tomates, poivron, anchois", price: 6.50, foodtruck_id: 3)
@@ -104,11 +103,11 @@ p Item.create(name: "Salade de riz", description: "riz, tomate, maïs, thon, oli
 
 p 'Items - foodtruck 4'
 p Item.create(name: "Pizza margherita", description: "tomate, mozzarella, basilique", price: 8.50, foodtruck_id: 4)
-p Item.create(name: "Pizza pepperoni", description: "tomate, peppéroni, emmental", price: 9.5, foodtruck_id: 4)
+p Item.create(name: "Pizza pepperoni", description: "tomate, peppéroni, emmental", price: 9.50, foodtruck_id: 4)
 p Item.create(name: "Pizza 4 fromages", description: "tomate, parmesan, mozzarella, gorgonzola, fromage de chèvre", price: 10, foodtruck_id: 4)
-p Item.create(name: "Pizza végétarienne", description: "tomate, poivron, courgette, maïs, olives", price: 10.5, foodtruck_id: 4)
-p Item.create(name: "Pizza piquante", description: "tomate, emmental, peppéroni, piment", price: 10.5, foodtruck_id: 4)
-p Item.create(name: "Pizza champignon", description: "tomate, emmental, jambon, champignons", price: 10.5, foodtruck_id: 4)
+p Item.create(name: "Pizza végétarienne", description: "tomate, poivron, courgette, maïs, olives", price: 10.50, foodtruck_id: 4)
+p Item.create(name: "Pizza piquante", description: "tomate, emmental, peppéroni, piment", price: 10.50, foodtruck_id: 4)
+p Item.create(name: "Pizza champignon", description: "tomate, emmental, jambon, champignons", price: 10.50, foodtruck_id: 4)
 p Item.create(name: "Pizza bacon", description: "tomate, emmental, bacon ", price: 11, foodtruck_id: 4)
 p Item.create(name: "Pizza hawaïenne", description: "tomate, emmental, jambon, ananas", price: 11, foodtruck_id: 4)
 p Item.create(name: "Pizza napolitaine", description: "tomate, oignon, emmental, olives, anchoix, câpres", price: 12, foodtruck_id: 4)
@@ -118,11 +117,11 @@ p 'Items - foodtruck 5'
 p Item.create(name: "Beef tacos", description: "viande de boeuf, tomate, haricots rouges, poivron, oignon, fromage, tabasco", price: 8, foodtruck_id: 5)
 p Item.create(name: "Porc tacos", description: "viande de porc, tomate, haricots rouges, poivron, oignon, fromage, tabasco", price: 7, foodtruck_id: 5)
 p Item.create(name: "Fish tacos", description: "thon, tomate, haricots rouges, poivron, avocat, oignon", price: 7, foodtruck_id: 5)
-p Item.create(name: "Buritto", description: "galette de blé, viande de boeuf, tomate, salade, haricots noirs, poivron, oignon, fromage, crème fraiche", price: 9.5, foodtruck_id: 5)
+p Item.create(name: "Buritto", description: "galette de blé, viande de boeuf, tomate, salade, haricots noirs, poivron, oignon, fromage, crème fraiche", price: 9.50, foodtruck_id: 5)
 p Item.create(name: "Buritto bowl", description: "riz, viande de boeuf, tomate, salade, haricots noirs, poivron, oignon, fromage, crème fraiche", price: 10, foodtruck_id: 5)
-p Item.create(name: "Cheese quesadillas", description: "galette de maïs, fromage, oignon", price: 7.5, foodtruck_id: 5)
-p Item.create(name: "Chicken quesadillas", description: "galette de maïs, poulet, fromage, oignon, champignons, poivron", price: 8.5, foodtruck_id: 5)
-p Item.create(name: "Nachos", description: "chips tortilla, fromage, tomate, haricots rouges, maïs, oignon, guacamole, crème fraiche", price: 8.5, foodtruck_id: 5)
+p Item.create(name: "Cheese quesadillas", description: "galette de maïs, fromage, oignon", price: 7.50, foodtruck_id: 5)
+p Item.create(name: "Chicken quesadillas", description: "galette de maïs, poulet, fromage, oignon, champignons, poivron", price: 8.50, foodtruck_id: 5)
+p Item.create(name: "Nachos", description: "chips tortilla, fromage, tomate, haricots rouges, maïs, oignon, guacamole, crème fraiche", price: 8.50, foodtruck_id: 5)
 
 p 'Items - foodtruck 6'
 p Item.create(name: "Beyond meat burger", description: "steak vegan, salade, tomate, graine de sésame, avocat", price: 8, foodtruck_id: 6)

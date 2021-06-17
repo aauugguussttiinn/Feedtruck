@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!, only: %i[ create ]
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders
@@ -52,11 +53,7 @@ class OrdersController < ApplicationController
       flash[:error] = e.message
       redirect_to new_order_path
     end
-
-    # After the rescue, if the payment succeeded
-
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
