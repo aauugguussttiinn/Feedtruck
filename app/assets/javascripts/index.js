@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile menu
     const burgerIcon = document.querySelector('.navbar-burger');
-    const navbarMenu = document.querySelector('#main-navbar');
+    const navbarMenu = document.querySelector('.navbar-menu');
     burgerIcon.addEventListener('click', () =>{
         navbarMenu.classList.toggle('is-active')
 
@@ -18,3 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
