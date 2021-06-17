@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :set_foodtruck, only: %i[ show edit update destroy index new]
 
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.all.where(foodtruck_id: @foodtruck.id)
   end
 
   # GET /items/1
@@ -57,8 +58,12 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
+    def set_foodtruck
+      @foodtruck = Foodtruck.find(params[:foodtruck_id])
+    end
+
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :description, :price, :picture, :foodtruck_id)
+      params.require(:item).permit(:name, :description, :price, :picture, :foodtruck_id, :id)
     end
 end

@@ -1,0 +1,35 @@
+
+<div class="section">
+    <div class=" container box is-flex is-flex-direction-column is-align-items-center item-list"> 
+        <p class="title py-5">
+            Le menu chez <%= foodtruck.name %>
+        </p>
+        <% foodtruck.items.each do |item| %>          
+        <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between">
+            <div class="box-content">             
+                    <p class="item-title title">
+                        <%= item.name %>
+                    </p>
+                    <p class="item-price subtitle">
+                        7,99€
+                    </p>
+                    <p class="description mb-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing...
+                    </p>
+                    <div class="box-footer">
+                        <button class="button cart-button">
+                            <span class="icon is-small">
+                            <%= image_tag("bag.png")%>
+                            </span>
+                            <span>Ajouter au panier</span>
+                        </button>
+                    </div>
+            </div>
+            <figure class="box-img image">
+                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+            </figure>                                   
+        </div>
+        <%end%>                                             
+    </div>
+</div>
+    

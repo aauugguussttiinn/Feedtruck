@@ -1,0 +1,165 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Source+Serif+Pro:wght@700&family=Tenor+Sans&display=swap');
+.brand-name{
+    font-family: 'Source Serif Pro', serif;
+    font-size: 100px ;
+    color: rgb(37, 37, 37);
+}
+.login-button{
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+}
+
+.signup-button{
+    background-color: #ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+ 
+}
+.hero>.hero-body{
+    padding: 0 0 3em 1.5em;
+}
+.hero>.hero-body>.hero-content{
+    padding: 10px;
+    width: 600px;
+    margin-top: 0;
+
+}
+.hero>.hero-body>.hero-content>.title{
+    font-family: 'Source Serif Pro', serif;
+    color: rgb(59, 59, 59);
+    font-size: 60px;
+}
+.hero>.hero-body>.hero-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    font-size: 20px;
+} 
+.hero-image img{
+    width: 900px;
+    border-radius: 36px 51px 27px 59px / 0px 0px 0px 62px; 
+ 
+}
+.foodtrucks-list{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+	grid-gap: 80px;
+}
+
+.foodtrucks-list>.index-card{
+	height: max-content;
+}
+.foodtrucks-list>.index-card>.card-content>.card-media>.foodtruck-info>.title{
+    font-family: 'Tenor sans', sans-serif;
+}
+.foodtrucks-list>.index-card>.card-content>.card-media>.foodtruck-info>.subtitle{
+    font-family: 'Manrope', sans-serif;
+}
+
+.item-list>.box{
+    padding: 15px 25px;
+}
+
+.item-list>.box>.box-img>img{
+    width: 200px;
+    border-radius: 5px;
+}
+.item-list>.box>.box-content>.title{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+.item-list>.box>.box-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+}
+.item-list>.box>.box-content>.box-footer>.button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+
+}
+.others-food-list{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+	grid-gap: 80px;
+}
+.others-food-list>.card>.card-content>.cart-button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+}
+.others-food-list>.card>.card-content>.title{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.others-food-list>.card>.card-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+
+}
+.orders-list>.box{
+    padding: 15px 25px;
+}
+
+.orders-list>.box>.box-img>img{
+    width: 200px;
+    border-radius: 5px;
+}
+.orders-list>.box>.box-content>.title{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+.orders-list>.box>.box-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+}
+.orders-list>.box>.box-content>.box-footer>.button{
+    background-color:#ff517f;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+
+}
+.show-foodtruck>.banner{
+    background-image: url("https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+}
+.show-foodtruck>.foodtruck-infos>.like-section>.box>button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+
+}
+.show-foodtruck>.foodtruck-infos>.header>.foodtruck-name{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+}
+.show-foodtruck>.foodtruck-infos>.header>.speciality{
+    font-family: 'Manrope', sans-serif;
+}
+.show-foodtruck>.foodtruck-infos>.header>.options{
+    font-family: 'Manrope', sans-serif;
+}
+.show-foodtruck>.foodtruck-infos>.like-section>.box{
+    font-family: 'Manrope', sans-serif;
+}
+
+
+.web-color{
+  color: #ff3068;
+}
+
