@@ -6,5 +6,5 @@ class Foodtruck < ApplicationRecord
 
   has_many :items
   has_many :orders
-  has_many_attached :photos
+  has_one_attached :pictures
 end
