@@ -2,7 +2,11 @@
     <div class="columns is-centered is-flex is-flex-wrap-wrap " >   
         <div class="column box my-order-content is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
             <p class="title is-size-4 has-text-centered">Ma commande du <%= order.created_at.strftime("%d/%m/%Y") %> </p>
-            <p class="subtitle has-text-centered"> Chez <%= order.order_contents.first.item.foodtruck.name %> </p>
+            <p class="subtitle has-text-centered">
+            <%=link_to foodtruck_path(order.order_contents.first.item.foodtruck.id)do%>
+             Chez <%= order.order_contents.first.item.foodtruck.name %>
+             <%end%>
+            </p>
             <% order.order_contents.each do |content| %>
                 <div class=" my-order-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
                     <div class="box-body my-2 is-flex is-align-items-center">
