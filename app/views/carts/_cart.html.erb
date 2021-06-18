@@ -1,10 +1,45 @@
 <div class="section">
         <div class="columns is-flex is-flex-wrap-wrap shopping-cart">
             
-            <div class=" column box cart-box is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
+            <div class=" column box cart-box is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">  
                 <p class="title">Mon Panier</p>
                 <% cart_content.sort.each do |content| %>
+
                     <div class=" cart-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                        <div class="box-body my-2 is-flex is-align-items-center">
+                            <figure class="box-img image mr-5">
+                                <% if content.item.picture.attached? %>
+                                    <%= image_tag content.item.picture, alt: "Thumbnail [100%x225]" %>
+                                <%else%>
+                                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                                <%end%>
+                            </figure>
+                            <div class="box-content mr-5">             
+                                <p class="item-title title is-size-5">
+                                    <%= content.item.name %>
+                                </p>
+                                <p class="item-price subtitle">
+                                    <%=content.item.description.truncate_words(3)%>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="is-flex my-2 is-align-items-center">
+
+
+                            <div class="quantity-x-item-price is-size-4 mr-5">
+                                <p class="is-size-5 has-text-weight-bold"><%= sprintf "%.2f", content.item.price %>€</p>
+                            </div> 
+
+
+                            <%=button_to customer_cart_cart_content_path(content.id), class: "delete-btn", method: :delete do%>
+                                <i class="fas fa-trash"></i>
+                            <%end%>
+                        </div>
+                    </div> 
+
+
+                    <!-- ********************** The code in this section is commented out because it will be impleted later. It is not a MVP feature ********************************** -->
+                    <!--<div class=" cart-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
                         <div class="box-body my-2 is-flex is-align-items-center">
                             <figure class="box-img image mr-5">
                                 <% if content.item.picture.attached? %>
@@ -23,6 +58,7 @@
                             </div>
                         </div>
                         <div class="is-flex my-2 is-align-items-center">
+
                             <div class="quantity mr-5">
                                 <button class="plus-btn" type="button" name="button" style="width: 30px;">
                                     <i class="fas fa-plus"></i>
@@ -31,25 +67,39 @@
                                 <button class="minus-btn" type="button" name="button"  style="width: 30px;">
                                     <i class="fas fa-minus"></i>
                                 </button>
-                            </div>
+                            </div> 
+
                             <div class="quantity-x-item-price is-size-4 mr-5">
-                                <p class="is-size-5 has-text-weight-bold">7,99€</p>
-                            </div>
+                                <p class="is-size-5 has-text-weight-bold"><%= sprintf "%.2f", content.item.price %>€</p>
+                            </div> 
+
+
                             <%=button_to customer_cart_cart_content_path(content.id), class: "delete-btn", method: :delete do%>
                                 <i class="fas fa-trash"></i>
                             <%end%>
                         </div>
-                    </div>
+                    </div> -->
+                    <!-- ********************** Closing the section mentioned above ********************************** -->
+
+
+
+
+
+
+
                 <%end%>                                 
             </div>
             <div class="column order-infos box ml-3 mt-3">
                 <div class="my-4">
                     <p class="mb-2 is-size-5"><%=@cart.items.count%> articles</p>
                     <p class="is-size-5">Total TTC: <strong><%= sprintf "%.2f", @cart.total_price %>€</strong></p>
-                </div>               
+                </div>   
+
+                <!-- ********************** The code in this section is commented out because it will be impleted later. We will taylor made the appearance of the stripe button ********************************** -->
                 <!-- <button class="button checkout-button is-rounded mt-5">
                     <p>Stripe ici</p>
                 </button> -->
+
                 <%= form_tag customer_orders_path do %>
                     <article>
                     <% if flash[:error].present? %>
@@ -61,6 +111,7 @@
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                         data-description="Paiement de votre commande"
+                        data-email=<%= current_customer.email %>
                         data-amount="<%= @cart.total_price*100 %>"
                         data-locale="auto"
                         data-currency="eur">
