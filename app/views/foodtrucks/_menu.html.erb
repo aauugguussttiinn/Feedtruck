@@ -14,7 +14,7 @@
                         <%= sprintf "%.2f", item.price %><span> €</span>
                     </p>
                     <p class="description mb-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing...
+                        <%= item.description.truncate_words(6)%>
                     </p>
                     <div class="box-footer">
                         <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button", method:'post' do %>
