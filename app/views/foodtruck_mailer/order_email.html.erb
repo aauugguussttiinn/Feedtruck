@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-	</head>
-	<body>
-		<h1>Salut !</h1>
-		<p> Vous avez recu une nouvelle commande</p>
-		<p> À bientot !</p>
 
-	</body>
-</html>
+<p>Cher partenaire !</p>
+</br>
+<p>Vous avez reçu une nouvelle commande.</p>
+<p>Voici le contenu de la commande :</p>
+<ul>
+  <% @order_contents.map do |order_content| %>
+	<li><%= order_content.item.name %></li>
+  <% end %>
+</ul>
+</br>
+<p>Cette commande est à remettre à <%= @customer.first_name %> <%= @customer.last_name%>.</p>
+</br>
+<p>Vous pouvez également accéder aux détails de la commande depuis votre espace membre, dans l'onglet mes commandes : <a href="<%= @url %>">Mes commandes</a>.</p>
+</br>
+<p>À très bientôt, l'équipe FeedTruck !</p>

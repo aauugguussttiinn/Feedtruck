@@ -4,7 +4,11 @@ class FoodtruckMailer < ApplicationMailer
   def order_email(foodtruck)
     @foodtruck = foodtruck
     @order = @foodtruck.orders.last
-    @url = 'https://feedtruck.herokuapp.com/'
+    @customer = @order.customer
+    @order_contents = @order.order_contents   
+    @total_price = @order.total_price
+    @url = 'https://feedtruck.herokuapp.com/foodtruck/orders'
     mail(to: @foodtruck.email, subject: 'Vous avez reçu une nouvelle commande')
   end
+
 end
