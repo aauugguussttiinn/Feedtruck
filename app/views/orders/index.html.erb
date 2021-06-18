@@ -1,7 +1,7 @@
 
 <div class="section">
-    <div class=" container box is-flex is-flex-direction-column is-align-items-center item-list"> 
-        <p class="title py-5">
+    <div class=" container py-5 box is-flex is-flex-direction-column is-align-items-center item-list"> 
+        <p class="title has-text-centered is-size-4-mobile py-5">
             Voici vos commandes, <%= current_customer.first_name %>
         </p>
         <% @orders.each do |order| %>          
@@ -11,13 +11,13 @@
                           <%= order.order_contents.first.item.foodtruck.name %>
                       </p>
                       <p class="description">
-                          <span>Total TTC: <%= order.total_price %> €</span>
+                          <span>Payé: <%= order.total_price %> €</span>
                       </p>
                       <p class="description">
                           <%= order.created_at.strftime("%d/%m/%Y") %>
                       </p>
                       <div class="box-footer mt-3 mb-2">
-                        <%= link_to 'Show', customer_order_path(order), class: "button checkout-button is-rounded" %>
+                        <%= link_to 'Voir plus', customer_order_path(order), class: "button checkout-button is-rounded" %>
                       </div>
               </div>
               <figure class="box-img image">
