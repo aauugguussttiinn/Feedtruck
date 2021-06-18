@@ -11,7 +11,7 @@
                           <%= order.order_contents.first.item.foodtruck.name %>
                       </p>
                       <p class="description">
-                          <span>Payé: <%= order.total_price %> €</span>
+                          <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
                       </p>
                       <p class="description">
                           <%= order.created_at.strftime("%d/%m/%Y") %>

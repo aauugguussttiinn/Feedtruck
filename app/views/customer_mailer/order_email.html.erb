@@ -13,7 +13,7 @@
   <% end %>
 </ul>
 </br>
-<p>Prix total : <%= @total_price %> €</p>
+<p>Prix total : <%= sprintf "%.2f", @total_price %> €</p>
 </br>
 <p>Vous pouvez également accéder au détail de votre commande depuis votre espace client, dans l'onglet mes commandes : <a href="<%= @url %>">Mes commandes</a>.</p>
 </br>

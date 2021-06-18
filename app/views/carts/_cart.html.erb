@@ -18,7 +18,7 @@
                                     <%= content.item.name %>
                                 </p>
                                 <p class="item-price subtitle">
-                                    <%=content.item.price%>€
+                                    <%=sprintf "%.2f", content.item.price%>€
                                 </p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
             <div class="column order-infos box ml-3 mt-3">
                 <div class="my-4">
                     <p class="mb-2 is-size-5"><%=@cart.items.count%> articles</p>
-                    <p class="is-size-5">Total TTC: <strong><%= @cart.total_price %>€</strong></p>
+                    <p class="is-size-5">Total TTC: <strong><%= sprintf "%.2f", @cart.total_price %>€</strong></p>
                 </div>               
                 <!-- <button class="button checkout-button is-rounded mt-5">
                     <p>Stripe ici</p>
