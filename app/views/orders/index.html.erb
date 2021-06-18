@@ -11,13 +11,13 @@
                           <%= order.order_contents.first.item.foodtruck.name %>
                       </p>
                       <p class="description">
-                          <span>Total TTC: <%= order.total_price %> €</span>
+                          <span>Payé: <%= order.total_price %> €</span>
                       </p>
                       <p class="description">
                           <%= order.created_at.strftime("%d/%m/%Y") %>
                       </p>
                       <div class="box-footer mt-3 mb-2">
-                        <%= link_to 'Show', customer_order_path(order), class: "button checkout-button is-rounded" %>
+                        <%= link_to 'Voir plus', customer_order_path(order), class: "button checkout-button is-rounded" %>
                       </div>
               </div>
               <figure class="box-img image">

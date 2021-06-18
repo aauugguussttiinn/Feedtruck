@@ -162,6 +162,9 @@
 .web-color{
   color: #ff3068;
 }
+.icon-color{
+    color: #00C4A7;
+}
 
 .is-pink{
     color : white;
@@ -224,8 +227,21 @@
     background-color:#ff517f;
     color: white;
     border: transparent;
-    font-family: 'Manrope', sans-serif;
+    
     font-size: 15px;
 
 }
-
+.login-form>.title{
+    font-family: 'Tenor sans', sans-serif;
+    
+}
+.login-form{
+    font-family: 'Manrope', sans-serif;
+}
+.signup-form>.title{
+    font-family: 'Tenor sans', sans-serif;
+    
+}
+.signup-form{
+    font-family: 'Manrope', sans-serif;
+}
