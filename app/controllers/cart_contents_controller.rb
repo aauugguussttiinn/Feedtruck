@@ -14,4 +14,31 @@ class CartContentsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @cart_content = CartContent.where(id: params[:id]).first
+    respond_to do |format|
+      format.html do
+        if @cart_content != nil
+          @cart_content.destroy
+          flash[:notice] = "L'item a été retiré du panier"
+          redirect_back fallback_location: root_path
+        else
+          flash[:error] = "On a un probleme Houston"
+          redirect_back fallback_location: root_path
+        end
+      end
+  
+      format.js do
+        if @cart_content != nil
+          @cart_content.destroy
+          flash[:notice] = "L'item a été retiré du panier"
+          render fallback_location: root_path
+        else
+          flash[:error] = "On a un probleme Houston"
+          redirect_back fallback_location: root_path
+        end
+      end
+    end
+  end 
 end 
