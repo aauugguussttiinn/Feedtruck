@@ -34,12 +34,12 @@ p "-" * 50
 p "-" * 50
 
 p 'LOCATIONS'
-p Location.create(name: "Paris 3eme", adress: "Métro Rambuteau")
-p Location.create(name: "Paris 4eme", adress: "Métro Hôtel de Ville")
-p Location.create(name: "Paris 5eme", adress: "Métro Place Monge")
-p Location.create(name: "Paris 9eme", adress: "Place de l'Opéra")
-p Location.create(name: "Paris 10eme", adress: "Place de la République")
-p Location.create(name: "Paris 19eme", adress: "Place des Fêtes")
+p Location.create(name: "Paris 3ème", adress: "Métro Rambuteau")
+p Location.create(name: "Paris 4ème", adress: "Métro Hôtel de Ville")
+p Location.create(name: "Paris 5ème", adress: "Métro Place Monge")
+p Location.create(name: "Paris 9ème", adress: "Place de l'Opéra")
+p Location.create(name: "Paris 10ème", adress: "Place de la République")
+p Location.create(name: "Paris 19ème", adress: "Place des Fêtes")
 
 p "-" * 50
 
@@ -56,7 +56,7 @@ p 'FOODTRUCKS'
 p Foodtruck.create(email: "burgerqueen@yopmail.com", password: "azerty1234", name: "Burger Queen", description: "Burger Queen c'est du boeuf et de l'amour ! Du boeuf d'élevage d'une qualité exceptionnelle haché sur place, associé à des fromages tranchés à la main, des sauces préparées avec amour et des frites coupées par nos soins. Un amour fou dans la manière d'aborder notre métier, de concevoir nos recettes, et de recevoir nos clients. Voici nos passages : Lundi (4ème), Mardi (10ème), Mercredi (4ème), Jeudi (19eme), Vendredi (3ème)")
 p Foodtruck.create(email: "wesushi@yopmail.com", password: "azerty1234", name: "We Sushi", description: "We Sushi bouge un peu partout près de chez vous. Sans cesse à la recherche de nouveaux pied-à-terre, découvrez où et quand vous pourrez déguster nos sushis. Retrouvez-nous près de chez vous : Lundi (3ème), Mardi (5ème), Mercredi (19ème), Jeudi (10eme), Vendredi (4ème)")
 p Foodtruck.create(email: "saladbar@yopmail.com", password: "azerty1234", name: "Salad bar", description: "Salade fraîche, salade gourmande... venez découvrir celle qui vous convient. Avec notre grand choix de salades, vous êtes sûr de trouver votre bonheur. Nous serons près de chez vous : Lundi (9ème), Mardi (5ème), Mercredi (9ème), Jeudi (5eme), Vendredi (9ème)")
-p Foodtruck.create(email: "pappajohnny@yopmail.com", password: "azerty1234", name: "Pappa Johnny", description: "Johnny a grandi à Palerme au coeur de notre belle Italia, dans une famille ou le métier se transmet de père en fils. On parie que vous craquerez pour l'authenticité de ses pizzas ? Où retrouver Pappa Johnny ? Lundi (10ème), Mardi (3ème), Mercredi (4ème), Jeudi (19eme), Vendredi (10ème)")
+p Foodtruck.create(email: "pappajohnny@yopmail.com", password: "azerty1234", name: "Pappa Johnny", description: "Johnny a grandi à Palerme au coeur de notre belle Italia, dans une famille ou le métier se transmet de père en fils. On parie que vous craquerez pour l'authenticité de ses pizzas (bon ok, il considère que la pizza sucrée est une hérésie) ? Où retrouver Pappa Johnny ? Lundi (10ème), Mardi (3ème), Mercredi (4ème), Jeudi (19eme), Vendredi (10ème)")
 p Foodtruck.create(email: "tacotruck@yopmail.com", password: "azerty1234", name: "Taco Truck", description: "Vous avez une bonne grosse dale en lendemain de soirée ? Tacos is the new kebab, et vous pourrez toujours compter sur Taco Truck pour vous requinquer ! Venez donc nous rendre visite : Lundi (19ème), Mardi (3ème), Mercredi (10ème), Jeudi (5eme), Vendredi (3ème)")
 p Foodtruck.create(email: "veganplace@yopmail.com", password: "azerty1234", name: "Vegan place", description: "QUe de fraicheur dans nos assiettes! Nous ne cuisinons qu'avec les produits les plus frais pour régaler vos papilles ! On vous attend avec impatience : Lundi (19ème), Mardi (10ème), Mercredi (9ème), Jeudi (5eme), Vendredi (4ème)")
 
@@ -124,7 +124,7 @@ p Item.create(name: "Nachos", description: "chips tortilla, fromage, tomate, har
 
 p 'Items - foodtruck 6'
 p Item.create(name: "Beyond meat burger", description: "steak vegan, salade, tomate, graines de sésame, avocat", price: 8, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_veggie-burger.jpg'), filename: 'f6-veggie-burger.jpg')
-p Item.create(name: "Buddha Bowl", description: "avocat, pois chiches, patate douce, riz blanc, citron", price: 8, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_buddha-bowl.jpg'), filename: 'f6-buddha-bowl.jpg')
-p Item.create(name: "Taboulé revisité", description: "semoule, romarin, tomate, orange, poivron", price: 8, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_taboule-revisite.jpg'), filename: 'f6-taboule-revisite.jpg')
+p Item.create(name: "Buddha Bowl", description: "avocat, pois chiches, patate douce, riz blanc, citron", price: 13, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_buddha-bowl.jpg'), filename: 'f6-buddha-bowl.jpg')
+p Item.create(name: "Taboulé revisité", description: "semoule, romarin, tomate, orange, poivron", price: 10, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_taboule-revisite.jpg'), filename: 'f6-taboule-revisite.jpg')
 p Item.create(name: "Nouilles sautées", description: "nouilles, poivrons, piment, brocolis, graines de sésame", price: 8, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_nouilles-sautees.jpg'), filename: 'f6-noodles.jpg')
-p Item.create(name: "Tartines", description: "épinards, avocat, graines de sésame, pain de mie", price: 8, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_tartines.jpg'), filename: 'f6-tartines.jpg')
+p Item.create(name: "Tartines", description: "épinards, avocat, graines de sésame, pain de mie", price: 7, foodtruck_id: 6).picture.attach(io: File.open('public/foodtruck-6_tartines.jpg'), filename: 'f6-tartines.jpg')
