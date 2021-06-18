@@ -5,10 +5,10 @@ class Cart < ApplicationRecord
     has_many :items, through: :cart_contents
 
     def total_price
-        unless self.items == nil
+        unless self.items.first.nil?
             self.items.map {|item| item.price}.reduce(:+)
         else
-            return 0
+            return 0            
         end
     end
 end

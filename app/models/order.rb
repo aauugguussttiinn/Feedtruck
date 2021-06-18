@@ -14,7 +14,7 @@ class Order < ApplicationRecord
   end
 
   def total_price
-    unless self.order_contents == nil
+    unless self.order_contents.first.nil?
       self.order_contents.map {|order_content| order_content.item.price}.reduce(:+)
     else
       return 0

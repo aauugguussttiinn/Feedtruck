@@ -5,6 +5,11 @@ class CartsController < ApplicationController
   def show
     @cart = current_customer.cart
     @cart_contents = CartContent.where(cart: @cart)
+    puts "/" *150
+    puts @cart.total_price.inspect
+    puts @cart.inspect
+    puts @cart.items.inspect
+    puts @cart.items.first.inspect
   end
 
   private

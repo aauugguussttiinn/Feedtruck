@@ -12,7 +12,9 @@
             <div class="column  is-flex is-flex-direction-column">
                 <h4>PLAN DU SITE</h4>
                 <%=link_to  root_path do %>Accueil<%end%>
-                <%=link_to  customer_path do %>Mon compte<%end%>
+                <% if current_customer %>
+                    <%=link_to  customer_path do %>Mon compte<%end%>
+                <% end %>
                 <%=link_to  contact_path do %>Nous contacter<%end%>
                 <%=link_to  team_path do %>Notre équipe<%end%>
             </div>
@@ -21,7 +23,7 @@
                 <p class="mb-1">FAQ</p>
                 <p class="mb-1">Dossier de presse</p>
                 <p class="mb-1">Jobs</p>
-                <p class="mb-1">Menptions légales</p>
+                <p class="mb-1">Mentions légales</p>
                 <p class="mb-1">Politique de confidentialité</p>
                 <p class="mb-1">CGV</p>
             </div>

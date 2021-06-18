@@ -29,11 +29,11 @@
                     <div class="is-flex my-2 is-align-items-center">
                         <div class="quantity mr-5">
                             <p class="button is-outlined">
-                            3
+                            1
                             </p>
                         </div>
                         <div class="quantity-x-item-price mr-5">
-                            <p class="is-size-5 has-text-weight-bold ">7,99€</p>
+                            <p class="is-size-5 has-text-weight-bold "><%=sprintf "%.2f",content.item.price%>€</p>
                         </div>
                         <%= link_to root_path, class: "button show-item-button is-rounded is-danger is-light" do %>
                             <span>Voir le plat</span>
