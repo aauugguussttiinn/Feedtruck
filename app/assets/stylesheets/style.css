@@ -245,3 +245,10 @@
 .signup-form{
     font-family: 'Manrope', sans-serif;
 }
+.my-order-content{
+    padding: 40px;
+}
+.my-order-item>.box-body>.box-img>img{
+    width: 120px;
+    border-radius: 5px;
+}
