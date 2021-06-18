@@ -35,7 +35,7 @@
                             <div class="quantity-x-item-price is-size-4 mr-5">
                                 <p class="is-size-5 has-text-weight-bold">7,99€</p>
                             </div>
-                            <%=button_to class: "delete-btn", method: :delete do%>
+                            <%=button_to customer_cart_cart_content_path(content.id), class: "delete-btn", method: :delete do%>
                                 <i class="fas fa-trash"></i>
                             <%end%>
                         </div>
