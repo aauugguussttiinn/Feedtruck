@@ -34,27 +34,26 @@
                             <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-link is-rounded", style: "border: transparent" %>
                         </div>
                     </div>
-                    <%= link_to customer_order_path(current_customer.orders.last) do %>
-                        <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
-                            <div class="box-content">             
-                                <p class="foodtruck-name title">
-                                    <%= current_customer.orders.last.foodtruck.name%>
-                                </p>
-                                <p class="order-date subtitle">
-                                    Le  <%= current_customer.orders.last.created_at.strftime("%d/%m/%Y") %>
-                                </p>
-                                <p class="order-cost is-size-6 mb-5">
-                                    Payé:  <%= sprintf "%.2f", current_customer.orders.last.total_price%>€
-                                </p>
+                    <%if current_customer.orders.count > 0 %>
+                        <%= link_to customer_order_path(current_customer.orders.last) do %>
+                            <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                                <div class="box-content">             
+                                    <p class="foodtruck-name title">
+                                        <%= current_customer.orders.last.foodtruck.name%>
+                                    </p>
+                                    <p class="order-date subtitle">
+                                        Le  <%= current_customer.orders.last.created_at.strftime("%d/%m/%Y") %>
+                                    </p>
+                                    <p class="order-cost is-size-6 mb-5">
+                                        Payé:  <%= sprintf "%.2f", current_customer.orders.last.total_price%>€
+                                    </p>
+                                </div>
+                                <div class="box-img is-hidden-mobile image">    
+                                    <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="foodtruck-img" class="foodtruck-img">                    
+                                </div>                                   
                             </div>
-                            <div class="box-img is-hidden-mobile image">    
-                                <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="foodtruck-img" class="foodtruck-img">                    
-                            </div>                                   
-                        </div>
+                        <%end%>
                     <%end%>
-
-                    
-
                 </div>
             </div> 
         </div>
