@@ -1,25 +1,43 @@
-<h2>Change your password</h2>
+<div class="columns mt-6">
+  <div class="column is-half is-offset-one-quarter">
+    <h2 class="title has-text-centered">Définissez un nouveau mot de passe</h2>
+    <div class= "is-flex is-justify-content-center">
+      <%= image_tag("logo.png", style:"max-height: 80px")%>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "customers/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+      <div class="field">
+        <%= f.label :password, "Nouveau Mot de Passe", class: "label" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caractères minimum)</em>
+        <% end %>
+        <div class="control has-icons-left">
+          <%= f.password_field :password, class: "input", autocomplete: "new-password", placeholder: "Nouveau Mot de passe" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock web-color"></i>
+          </span>
+        </div> 
+      </div>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirmer votre mot de passe", class: "label" %>
+          <div class="control has-icons-left">
+            <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password", placeholder: "Confirmez le nouveau Mot de passe" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock web-color"></i>
+            </span>
+          </div>
+      </div>
+
+      <div class="actions is-flex is-justify-content-center my-4">
+        <%= f.submit "Confirmer la modification", class: "button is-pink is-rounded" %>
+      </div>
+
+    <% end %> 
+    <div class="has-text-centered my-4">
+      <%= render "customers/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "customers/shared/links" %>
+</div>
