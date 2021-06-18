@@ -255,7 +255,7 @@
 
 .team-list>.box{
     padding: 15px 25px;
-    box-shadow: 0 0.5em 1em -0.125em rgb(255 48 104 / 40%);
+    box-shadow: 0 0.5em 1em -0.125em rgb(255, 48, 104 / 40%);
 }
 
 .team-list>.box>.box-img>img{
