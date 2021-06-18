@@ -1,6 +1,16 @@
-Salut !
-==========================================================
 
-Vous avez recu une nouvelle comamnde
+Cher partenaire !
 
-A bientot !
+Vous avez reçu une nouvelle commande.
+Voici le contenu de la commande :
+
+<% @order_contents.map do |order_content| %>
+  - <%= order_content.item.name %>
+<% end %>
+
+
+Cette commande est à remettre à <%= @customer.first_name %> <%= @customer.last_name%>.
+
+Vous pouvez également accéder aux détails de la commande depuis votre espace membre, dans l'onglet mes commandes : <%= @url %>.
+
+À très bientôt, l'équipe FeedTruck !

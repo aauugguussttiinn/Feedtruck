@@ -4,16 +4,16 @@
   Salut !
 <% end %>
 
-Nous avons bien reçu votre commande est l'avons transmise à <%= %> qui va se charger de la préparer.
+Nous avons bien reçu votre commande est l'avons transmise à <%= @foodtruck %> qui va se charger de la préparer.
 
 Ci dessous vous trouverez le récapitulatif de votre commande :
   <% @order_contents.map do |order_content| %>
-	- <%= order_contents.name %></li>
+	- <%= order_content.item.name %></li>
   <% end %>
 
 
 Prix total : <%= @total_price %> €
 
-Vous pouvez également accéder au détail de votre commande depuis votre espace client, dans l'onglet mes commandes : <%= @url %>.
+Vous pouvez également accéder aux détails de votre commande depuis votre espace client, dans l'onglet mes commandes, via l'adresse suivante : <%= @url %>.
 
 À très bientôt, l'équipe FeedTruck !

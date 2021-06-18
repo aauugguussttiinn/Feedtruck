@@ -1,11 +1,12 @@
 class Order < ApplicationRecord
   after_save :transfer_from_cart
-  after_create :order_send
+  after_save :order_send
 
   belongs_to :customer
   belongs_to :foodtruck
   has_many :order_contents
   has_many :items, through: :order_contents
+
 
   def order_send
     CustomerMailer.order_email(self.customer).deliver_now
