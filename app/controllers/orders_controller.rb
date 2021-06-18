@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
       if customer && charge.paid
         @order = Order.new(customer: current_customer, stripe_customer_id: customer.id, foodtruck: @foodtruck)
         if @order.save
-          flash[:success] = "Vous avez bien payé #{@total_price} €"
+          flash[:success] = "Vous avez bien payé #{sprintf "%.2f", @total_price} €"
           redirect_to customer_orders_path
         else
           flash.now[:error] = "Houston on a un problème"
