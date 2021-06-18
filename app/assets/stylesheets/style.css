@@ -62,7 +62,9 @@
 }
 
 .item-list>.box>.box-img>img{
-    width: 200px;
+    object-fit: cover;
+    height: 10rem;
+    width: 10rem;
     border-radius: 5px;
 }
 .item-list>.box>.box-content>.title{
@@ -75,6 +77,35 @@
     font-size: 20px;
 }
 .item-list>.box>.box-content>.box-footer>.button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+
+}
+
+
+.orders-item-list>.box{
+    padding: 15px 25px;
+}
+
+.orders-item-list>.box>.box-img>img{
+    object-fit: cover;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 5px;
+}
+.orders-item-list>.box>.box-content>.title{
+    font-family: 'Tenor sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+.orders-item-list>.box>.box-content>.subtitle{
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+}
+.orders-item-list>.box>.box-content>.box-footer>.button{
     background-color:#ff3068;
     color: white;
     border: transparent;
@@ -103,31 +134,6 @@
 .others-food-list>.card>.card-content>.subtitle{
     font-family: 'Manrope', sans-serif;
     font-size: 20px;
-
-}
-.orders-list>.box{
-    padding: 15px 25px;
-}
-
-.orders-list>.box>.box-img>img{
-    width: 200px;
-    border-radius: 5px;
-}
-.orders-list>.box>.box-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-.orders-list>.box>.box-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-}
-.orders-list>.box>.box-content>.box-footer>.button{
-    background-color:#ff517f;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
 
 }
 .show-foodtruck>.banner{
@@ -171,8 +177,10 @@
     background-color: #ff3068;
 }
 .cart-item>.box-body>.box-img>img{
-    width: 100px;
-
+    object-fit: cover;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5px;
 }
 .cart-item>.quantity>button{
     background-color:#c0c0c0;
@@ -191,8 +199,8 @@
 }
 
 .shopping-cart>.order-infos{
-    height: 250px;
-    width: 400px;
+    max-height: 12rem;
+    min-width: 5rem;
    
 }
 
@@ -206,24 +214,26 @@
     margin-bottom: 100px;
 }
 
-.profile-my-orders>.box{
+.profile-my-orders>a>.box{
     padding: 15px 25px;
 }
 
-.profile-my-orders>.box>.box-img>img{
-    width: 150px;
+.profile-my-orders>a>.box>.box-img>img{
+    object-fit: cover;
+    height: 6rem;
+    width: 8rem;
     border-radius: 5px;
 }
-.profile-my-orders>.box>.box-content>.title{
+.profile-my-orders>a>.box>.box-content>.title{
     font-family: 'Tenor sans', sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
-.profile-my-orders>.box>.box-content>.subtitle{
+.profile-my-orders>a>.box>.box-content>.subtitle{
     font-family: 'Manrope', sans-serif;
     font-size: 15px;
 }
-.profile-my-orders>.box>.box-content>.box-footer>.button{
+.profile-my-orders>a>.box>.box-content>.box-footer>.button{
     background-color:#ff517f;
     color: white;
     border: transparent;
@@ -249,7 +259,9 @@
     padding: 40px;
 }
 .my-order-item>.box-body>.box-img>img{
-    width: 120px;
+    object-fit: cover;
+    height: 8rem;
+    width: 8rem;
     border-radius: 5px;
 }
 
@@ -259,6 +271,9 @@
 }
 
 .team-list>.box>.box-img>img{
+    object-fit: cover;
+    height: 20rem;
+    width: 20rem;
     border-radius: 5px;
 }
 .team-list>.box>.box-content>.title{

@@ -1,12 +1,12 @@
 <div class="section">
-        <div class="columns is-flex is-flex-wrap-wrap shopping-cart">
+        <div class="columns shopping-cart">
             
             <div class=" column box cart-box is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
                 <p class="title">Mon Panier</p>
                 <% cart_content.sort.each do |content| %>
                     <div class=" cart-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
-                        <div class="box-body my-2 is-flex is-align-items-center">
-                            <figure class="box-img image mr-5">
+                        <div class="box-body my-2 is-flex is-flex-wrap-wrap is-align-items-center">
+                            <figure class="box-img mb-2 cart-item image mr-5">
                                 <% if content.item.picture.attached? %>
                                     <%= image_tag content.item.picture, alt: "Thumbnail [100%x225]" %>
                                 <%else%>
@@ -22,8 +22,8 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="is-flex my-2 is-align-items-center">
-                            <div class="quantity mr-5">
+                        <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">
+                            <div class="quantity mb-2 mr-5">
                                 <button class="plus-btn" type="button" name="button" style="width: 30px;">
                                     <i class="fas fa-plus"></i>
                                 </button>
