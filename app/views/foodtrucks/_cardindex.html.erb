@@ -5,9 +5,11 @@
             <%= link_to foodtruck_path(foodtruck.id)  do%>
             <div class="card index-card">
                 <div class="card-image">
-                    <figure class="image  is-4by3">
-                        <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
-                    </figure>
+                    <% if foodtruck.pictures.attached? %>
+                        <%= image_tag foodtruck.pictures, alt: "Thumbnail [100%x225]" %>
+                    <%else%>
+                        <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                    <%end%>
                 </div>       
                 <div class="card-content">                    
                     <div class="card-media is-flex is-align-items-center ">                        
