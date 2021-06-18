@@ -1,5 +1,5 @@
 class FoodtruckMailer < ApplicationMailer
-  default from: 'bonjour@feedtruck.com'
+  default from: 'bonjour.feedtruck@yopmail.com'
  
   def order_email(foodtruck)
     @foodtruck = foodtruck
