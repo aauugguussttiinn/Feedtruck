@@ -1,5 +1,5 @@
 class CustomerMailer < ApplicationMailer
-  default from: 'bonjour@feedtruck.com'
+  default from: 'bonjour.feedtruck@yopmail.com'
 
   def welcome_email(customer)
     @customer = customer  
