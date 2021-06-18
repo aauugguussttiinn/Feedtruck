@@ -61,13 +61,14 @@ fr:
       not_found: "n'a pas été trouvé(e)"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
-        one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
-        other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+        one: "1 erreur est survenue :"
+        other: "%{count} erreurs sont survenues :"
   activerecord:
     attributes:
       customer:
         password: "- Votre mot de passe"
         current_password: "- Votre mot de passe actuel"
+        password_confirmation: "- Vos deux mots de passe"
     errors:
       models:
         customer:
@@ -77,3 +78,5 @@ fr:
               too_short: "renseigné est trop court"
             current_password:
               blank : "doit obligatoirement être renseigné"
+            password_confirmation:
+              confirmation: "doivent être les mêmes"  
