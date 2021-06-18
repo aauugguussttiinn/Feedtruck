@@ -12,7 +12,7 @@ Ci dessous vous trouverez le récapitulatif de votre commande :
   <% end %>
 
 
-Prix total : <%= @total_price %> €
+Prix total : <%= sprintf "%.2f", @total_price %> €
 
 Vous pouvez également accéder aux détails de votre commande depuis votre espace client, dans l'onglet mes commandes, via l'adresse suivante : <%= @url %>.
 
