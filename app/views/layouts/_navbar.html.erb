@@ -25,7 +25,7 @@
                                 <%= image_tag("bag-dark.png", alt:"cart-icon")%>
                             </div>
                             <div class="cart-items-count"  style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
-                                <p class="has-text-centered" style="color: white;"><%= current_customer.cart.items.count %></p>
+                                <p class="has-text-centered" id="cart-count" style="color: white;"><%= current_customer.cart.items.count %></p>
                             </div>
                         </div>
                     <%end%>
