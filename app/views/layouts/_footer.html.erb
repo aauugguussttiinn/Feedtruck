@@ -1,15 +1,15 @@
-<footer class="footer">
+<footer class="footer py-4">
     <div class="content">
         
         <div class="columns">
-            <%= image_tag("logo.png", style:"max-height: 100px",alt: "logo")%>
-            <div class="column">  
+            <%= image_tag("logo.png", style:"max-height: 100px",alt: "logo", class:"is-flex footer-picture")%>
+            <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">  
                 <h4>Feedtruck SAS</h4>
                 <p>8 rue Jeanne d’Asnières</p>
                 <p> 92110 Clichy</p>
                 <p> 01 84 20 22 46</p>  
             </div>
-            <div class="column  is-flex is-flex-direction-column">
+            <div class="column  is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
                 <h4>PLAN DU SITE</h4>
                 <%=link_to  root_path do %>Accueil<%end%>
                 <% if current_customer %>
@@ -18,7 +18,7 @@
                 <%=link_to  contact_path do %>Nous contacter<%end%>
                 <%=link_to  team_path do %>Notre équipe<%end%>
             </div>
-            <div class="column  is-flex is-flex-direction-column">
+            <div class="column  is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
                 <h4>RESSOURCES</h4>
                 <p class="mb-1">FAQ</p>
                 <p class="mb-1">Dossier de presse</p>
@@ -27,11 +27,13 @@
                 <p class="mb-1">Politique de confidentialité</p>
                 <p class="mb-1">CGV</p>
             </div>
-            <div class="column  ">
-                <h4 class="is-flex is-flex-direction-row is-align-item-center">NOS RÉSEAUX SOCIAUX</h4>
-                <i class="web-color fab fa-facebook-square fa-3x pr-2"></i>
-                <i class="web-color fab fa-instagram fa-3x pr-2"></i>
-                <i class="web-color fab fa-twitter-square fa-3x"></i>                 
+            <div class="column is-half-mobile is-offset-one-quarter-mobile footer-column">
+                <h4 class="has-text-centered mb-6">NOS RÉSEAUX SOCIAUX</h4>
+                <div class="is-flex is-flex-direction-row is-justify-content-space-around">
+                  <i class="web-color fab fa-facebook-square fa-3x pr-2"></i>
+                  <i class="web-color fab fa-instagram fa-3x pr-2"></i>
+                  <i class="web-color fab fa-twitter-square fa-3x"></i>            
+                </div>     
             </div>
 
         </div>
