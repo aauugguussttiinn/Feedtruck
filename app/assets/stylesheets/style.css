@@ -286,6 +286,8 @@
     font-size: 20px;
 }
 
+/* Content below is for footer */
+
 html,
 body {
     min-height: 100vh;
@@ -295,6 +297,17 @@ body {
 body > footer {
     margin-top: auto;
 }
+
+/* Content below are fonts */
+
+.tenor {
+  font-family: 'Tenor sans', sans-serif;
+}
+
+.manrope {
+  font-family: 'Manrope', sans-serif;
+}
+/* Content below is only for mobile devices */
 
 @media screen and (max-width: 768px) {
     .footer-column {
