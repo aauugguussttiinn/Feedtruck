@@ -373,5 +373,10 @@ body > footer {
     object-fit: cover;
 }
 
+.box-dashboard {
+    height: 10em;
+}
 
-
+.is-underlined {
+    text-decoration: underline;
+}
