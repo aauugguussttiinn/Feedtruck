@@ -1,0 +1,17 @@
+<%= form_with(model: foodtruck_item, local: true) do |form| %>
+  <% if foodtruck_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(foodtruck_item.errors.count, "error") %> prohibited this foodtruck_item from being saved:</h2>
+
+      <ul>
+      <% foodtruck_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

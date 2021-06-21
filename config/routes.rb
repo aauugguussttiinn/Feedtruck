@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'contact', to:'static_pages#contact'
 
   devise_for :customers
-
+  devise_for :foodtrucks,
+              path: 'myfoodtruck/foodtrucks',
+              controllers: { sessions: 'myfoodtruck/sessions', registrations: 'myfoodtruck/registrations', passwords: 'myfoodtruck/passwords' }
   resource :customer do
     resources :orders, except: [:destroy]
     resource :cart, only: [:show, :create] do
@@ -17,4 +19,14 @@ Rails.application.routes.draw do
     resources :items do
     end
   end
+
+  namespace :myfoodtruck do
+    root 'myfoodtruck#dashboard'
+    resource :dashboard
+    resource :foodtruck, only: [:show, :edit, :update, :destroy] do
+      resources :items
+      resources :orders, only: [:index, :show, :update, :edit]
+    end
+  end
+
 end
