@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#homepage"
   get 'team', to: 'static_pages#team'
   get 'contact', to:'static_pages#contact'
+  get 'cgv', to:'static_pages#cgv'
 
   devise_for :customers
 

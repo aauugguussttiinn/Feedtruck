@@ -282,6 +282,21 @@
     justify-content: center;
 }
 
+.ol-1 {
+    counter-reset: item
+}
+
+.li-1 {
+    display: block
+}
+
+.li-1:before {
+    content: counters(item, ".") " ";
+    counter-increment: item;
+    font-weight: bold
+}
+
+
 /* Content below is for footer */
 
 html,
