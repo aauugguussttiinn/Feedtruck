@@ -1,4 +1,4 @@
-class Feedtruck::DashboardsController < ApplicationController
+class Myfoodtruck::DashboardsController < ApplicationController
   before_action :set_foodtruck_dashboard, only: %i[ show edit update destroy ]
 
   # GET /foodtruck/dashboards or /foodtruck/dashboards.json
