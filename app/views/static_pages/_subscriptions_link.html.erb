@@ -1,0 +1,44 @@
+<div class=" section subscriptions-link ">
+    <div class="columns has-text-centered is-centered ">
+        <div class="foodtruck-link column is-4 ">
+            <div class="box-header">
+                <%= image_tag("foodtruck_illustration.png", alt:"image", style:"width: 20rem;")%>
+            </div>
+            <div class="box-body ">
+                <p class="title is-size-4 tenor">
+                    je suis un chef 
+                </p>
+                <p class="subtitle px-5 is-size-6 manrope">
+                    Inscrivez sur sur notre site, référencez votre foodtruck et commencez à
+                    gagner de l'argent
+                </p>
+                <%=link_to foodtrucks_path, class:"web-color" do %>
+                    <strong>Je m'inscris</strong>
+                    <i class="fas web-color fa-arrow-right"></i>
+                <%end%>
+
+            </div>
+
+        </div>
+        <div class="customer-link column is-4 ">
+            <div class="box-header">
+                <%= image_tag("gourmet_illustration.png", alt:"image", style:"width: 20rem;")%>
+            </div>
+            <div class="box-body">
+                <p class="title is-size-4 tenor">
+                    Je suis un gourmet
+                </p>
+                <p class="subtitle px-5 is-size-6 manrope">
+                    Nos chefs en foodtruck vous régalent
+                        de délicieux plats chaque jour, juste en bàs de chez vous
+                </p>
+                <%=link_to new_customer_registration_path, class:"web-color" do %>
+                    <strong>Je me fais plaisir</strong>
+                    <i class="fas web-color fa-arrow-right"></i>
+                <%end%>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
