@@ -1,5 +1,11 @@
 class FoodtruckMailer < ApplicationMailer
   default from: 'bonjour.feedtruck@yopmail.com'
+
+  def welcome_email(foodtruck)
+    @foodtruck = foodtruck  
+    @url = 'https://feedtruck.herokuapp.com/myfoodtruck/foodtrucks/sign_in'
+    mail(to: @foodtruck.email, subject: 'Bienvenue sur FeedTruck')
+  end
  
   def order_email(foodtruck)
     @foodtruck = foodtruck
