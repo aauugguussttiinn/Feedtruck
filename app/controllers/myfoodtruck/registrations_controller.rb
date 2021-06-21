@@ -1,2 +1,2 @@
-class Myfoodtruck::RegistrationsController < Devise::SessionsController
+class Myfoodtruck::RegistrationsController < Devise::RegistrationsController
 end
