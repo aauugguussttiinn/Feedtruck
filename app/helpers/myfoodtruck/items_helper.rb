@@ -1,0 +1,2 @@
+module Myfoodtruck::ItemsHelper
+end
