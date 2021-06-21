@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'contact', to:'static_pages#contact'
 
   devise_for :customers
-  devise_for :foodtrucks
-
+  devise_for :foodtrucks,
+              path: 'foodtruck/foodtrucks',
+              controllers: { sessions: 'foodtruck/sessions', registrations: 'foodtruck/registrations', passwords: 'foodtruck/passwords' }
   resource :customer do
     resources :orders, except: [:destroy]
     resource :cart, only: [:show, :create] do
