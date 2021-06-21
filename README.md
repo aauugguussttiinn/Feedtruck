@@ -9,7 +9,7 @@
 
 
 <p align="center" >
-  <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere-feedtruck.png" alt="banniere_feedtruck"/></a>
+  <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere_feedtruck.png" alt="banniere_feedtruck"/></a>
 </p>
 
 
