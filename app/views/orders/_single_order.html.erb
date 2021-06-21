@@ -35,7 +35,7 @@
                         <div class="quantity-x-item-price mr-5">
                             <p class="is-size-5 has-text-weight-bold "><%=sprintf "%.2f",content.item.price%>€</p>
                         </div>
-                        <%= link_to root_path, class: "button show-item-button is-rounded is-danger is-light" do %>
+                        <%= link_to foodtruck_item_path(content.item.foodtruck.id, content.item.id ), class: "button show-item-button is-rounded is-danger is-light" do %>
                             <span>Voir le plat</span>
                         <% end %>
                     </div>
