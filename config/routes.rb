@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :customers
   devise_for :foodtrucks,
-              path: 'foodtruck/foodtrucks',
-              controllers: { sessions: 'foodtruck/sessions', registrations: 'foodtruck/registrations', passwords: 'foodtruck/passwords' }
+              path: 'feedtruck/foodtrucks',
+              controllers: { sessions: 'feedtruck/sessions', registrations: 'feedtruck/registrations', passwords: 'feedtruck/passwords' }
   resource :customer do
     resources :orders, except: [:destroy]
     resource :cart, only: [:show, :create] do
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :foodtruck do
-    root 'foodtruck#dashboard'
+  namespace :feedtruck do
+    root 'feedtruck#dashboard'
     resource :dashboard
     resource :foodtruck, only: [:show, :edit, :update, :destroy] do
       resources :items

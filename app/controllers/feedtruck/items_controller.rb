@@ -1,4 +1,4 @@
-class Foodtruck::ItemsController < ApplicationController
+class Feedtruck::ItemsController < ApplicationController
   before_action :set_foodtruck_item, only: %i[ show edit update destroy ]
 
   # GET /foodtruck/items or /foodtruck/items.json
