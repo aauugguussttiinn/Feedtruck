@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
   validates :email,
     presence: true,
     uniqueness: true,
-    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Adresse email non valide" }
+    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
   validates :password,
     presence: true,
     length: { in: 6..20 },

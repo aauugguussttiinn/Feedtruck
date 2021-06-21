@@ -68,12 +68,12 @@
                         <% end %>
                         </article>
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                            data-description="Paiement de votre commande"
-                            data-amount="<%= @cart.total_price*100 %>"
-                            data-email=<%= current_customer.email %>
-                            data-locale="auto"
-                            data-currency="eur">
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="Paiement de votre commande"
+                        data-amount="<%= @cart.total_price*100 %>"
+                        data-email=<%= current_customer.email %>
+                        data-locale="auto"
+                        data-currency="eur">
                         </script>
                     <% end %>
                 <% end %>
