@@ -7,11 +7,12 @@
   The Hacking project is an intensive tech bootcamp that works without teacher nor school. The strength of THP is its community. Indeed, THP relies on peer-learning to pass on skills and knowledges. To know more, click on the link on the banner.
 </div>
 
+
 <p align="center" >
-  <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere.png" alt="banniere_feedtruck"/></a>
+  <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere-feedtruck.png" alt="banniere_feedtruck"/></a>
 </p>
 
-# Welcome on FeedTruck, our final group project of THE HACKING PROJECT
+
 
 ## Description :
 Feedtruck is an application that connects individuals with foodtrucks around their homes in Paris.
@@ -40,4 +41,4 @@ It allows to develop a close relationship with the restaurant owners and to deve
 
 
 ## How to use it :
- - Go to [FeedTruck](https://feedtruck.herokuapp.com) and enjoy the experience
+ - Go to the [FeedTruck app](https://feedtruck.herokuapp.com) and enjoy the experience
