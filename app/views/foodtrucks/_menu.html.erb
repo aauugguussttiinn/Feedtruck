@@ -17,7 +17,7 @@
                         <%= item.description.truncate_words(6)%>
                     </p>
                     <div class="box-footer">
-                        <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button", method:'post' do %>
+                        <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button", method:'post', remote: true do %>
                             <span class="icon is-small">
                             <%= image_tag("bag.png")%>
                             </span>

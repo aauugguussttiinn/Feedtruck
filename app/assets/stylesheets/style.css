@@ -285,3 +285,40 @@
     font-family: 'Manrope', sans-serif;
     font-size: 20px;
 }
+
+/* Content below is for footer */
+
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body > footer {
+    margin-top: auto;
+}
+
+/* Content below are fonts */
+
+.tenor {
+  font-family: 'Tenor sans', sans-serif;
+}
+
+.manrope {
+  font-family: 'Manrope', sans-serif;
+}
+/* Content below is only for mobile devices */
+
+@media screen and (max-width: 768px) {
+    .footer-column {
+        align-items: center;
+    }
+
+    .footer-picture {
+       
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 20%;
+    }
+  }
