@@ -265,25 +265,21 @@
     border-radius: 5px;
 }
 
-.team-list>.box{
+.team-list{
     padding: 15px 25px;
     box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
+
 }
 
-.team-list>.box>.box-img>img{
-    object-fit: cover;
-    height: 20rem;
-    width: 20rem;
-    border-radius: 5px;
+.team-column-right{
+    text-align: right;
 }
-.team-list>.box>.box-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-.team-list>.box>.box-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+
+
+.team-list-image {
+
+    display: flex;
+    justify-content: center;
 }
 
 /* Content below is for footer */
@@ -307,6 +303,7 @@ body > footer {
 .manrope {
   font-family: 'Manrope', sans-serif;
 }
+
 /* Content below is only for mobile devices */
 
 @media screen and (max-width: 768px) {
@@ -321,4 +318,19 @@ body > footer {
         margin-right: auto;
         width: 20%;
     }
+
+
+    .team-column{
+        align-items: center;
+    }
+
+    .team-column-right{
+        align-items: center;
+    }
+    .team-list{
+        margin-left: 1em ;
+        margin-right: 1em ;
+    }
   }
+
+
