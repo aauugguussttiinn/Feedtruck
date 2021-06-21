@@ -1,0 +1,2 @@
+module Foodtruck::RegistrationsHelper
+end

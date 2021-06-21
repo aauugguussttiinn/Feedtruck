@@ -1,0 +1,2 @@
+module Foodtruck::SessionsHelper
+end
