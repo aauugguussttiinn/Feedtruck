@@ -1,0 +1,16 @@
+
+<div class="section">
+    <div class=" container is-flex is-flex-direction-column is-align-items-center item-list"> 
+        <p class="title has-text-centered is-size-3-mobile is-size-4 py-5">
+            Aujourd'hui <%= foodtruck.name %> est a cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+        </p>
+       
+        <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap-reverse">
+            
+            <iframe src=" <%= Location.find(foodtruck.location_id).url_map %> " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                             
+        </div>
+                                            
+    </div>
+</div>

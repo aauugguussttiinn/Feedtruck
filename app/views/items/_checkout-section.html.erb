@@ -1,0 +1,69 @@
+<div class="section">
+    <div class="columns is-variable is-0 is-centered is-vcentered is-multiline checkout-section">
+        <div class="column has-text-centered is-6">
+            <%= image_tag(item.picture, alt:"image", style:" height: 25rem; width: 30rem; object-fit: cover; border-radius: 5px;")%>
+        </div>
+        <div class="column is-6">
+            <p class="title">
+                <%=item.name%>
+            </p>
+            <p class="subtitle">
+            <%=item.description%>
+            </p>
+            <p class="price is-size-4">
+            <%=item.price%>€
+            </p>
+            <div class="quantity is-flex is-align-items-center">
+                <div class="mr-5">
+                    <button class="plus-btn" type="button" name="button" style="width: 30px;">
+                    <i class="fas fa-plus"></i>
+                    </button>
+                    <input type="text" name="name" value="1" class="is-normal has-text-centered" style="width: 40px; height: 25px;">
+                    <button class="minus-btn" type="button" name="button"  style="width: 30px;">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button is-pink", style:"border: transparent", method:'post', remote: true do %>
+                    <span class="icon is-small">
+                    <%= image_tag("bag.png")%>
+                    </span>
+                    <span>Ajouter au panier</span>
+                <% end %>
+
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs is-boxed">
+            <ul>
+                <li class="is-active" data-target="product-description">
+                    <a>A propos du plat</a>
+                </li>
+                <li data-target="additionnal-infos">
+                    <a>Autres infos</a>
+                </li>
+            </ul>
+        </div>
+        <div id="tab-content" class="px-2">
+            <div id="product-description">
+                <h3 class="is-size-5 title">A propos du plat</h3>
+                <p class="manrope">
+                    <%= item.description %>
+                </p>
+            </div>
+            <div id="additionnal-infos" class="is-hidden">
+                <h3 class="is-size-5 title"> Autres infos</h3>
+                <p class="manrope">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum omnis 
+                    porro tempore hic minima nihil odio sunt fugit, ipsam similique!
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
