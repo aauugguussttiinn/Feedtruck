@@ -66,17 +66,21 @@ fr:
   activerecord:
     attributes:
       customer:
+        email: "- L'email renseigné"
         password: "- Votre mot de passe"
-        current_password: "- Votre mot de passe actuel"
         password_confirmation: "- Vos deux mots de passe"
+        current_password: "- Votre mot de passe actuel"
     errors:
       models:
         customer:
           attributes:
+            email:
+              invalid: "est dans un format invalide"
             password:
               blank: "doit obligatoirement être renseigné"
               too_short: "renseigné est trop court"
             current_password:
               blank : "doit obligatoirement être renseigné"
+              invalid: "ne correspond pas à celui que vous avez renseigné"
             password_confirmation:
               confirmation: "doivent être les mêmes"  

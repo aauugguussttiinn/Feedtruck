@@ -2,7 +2,7 @@
 <div class="section">
     <div class=" container py-5 box is-flex is-flex-direction-column is-align-items-center orders-item-list"> 
         <p class="title has-text-centered is-size-4-mobile py-5">
-            Voici vos commandes, <%= current_customer.first_name %>
+            Voici vos commandes <%= current_customer.first_name %>
         </p>
         <% @orders.each do |order| %>          
           <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap-reverse ">
