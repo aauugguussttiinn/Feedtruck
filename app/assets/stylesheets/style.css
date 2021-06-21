@@ -333,9 +333,9 @@ body > footer {
     }
   }
 
-  }
+  /* End of mobile css */
 
-  .title{
+.title{
     font-family: 'Tenor sans', sans-serif;
 }
 .subtitle{
