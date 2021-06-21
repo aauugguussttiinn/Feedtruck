@@ -11,4 +11,7 @@ class StaticPagesController < ApplicationController
   def cgv
   end
 
+  def faq
+  end
+
 end
