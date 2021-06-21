@@ -59,6 +59,6 @@ class FoodtrucksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def foodtruck_params
-      params.permit(:email, :password, :password_confirmation)
+      params.permit(:email, :password)
     end
 end
