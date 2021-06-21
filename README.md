@@ -8,7 +8,7 @@
 </div>
 
 <p align="center" >
-  <a href="https://feedtruck.herokuapp.com"><img src="banniere_feedtruck.png" alt="banniere_feedtruck"/></a>
+  <a href="https://feedtruck.herokuapp.com"><img src="banniere.png" alt="banniere_feedtruck"/></a>
 </p>
 
 # Welcome on FeedTruck, our final group project of THE HACKING PROJECT
