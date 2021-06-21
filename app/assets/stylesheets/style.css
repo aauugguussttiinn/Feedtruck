@@ -282,6 +282,21 @@
     justify-content: center;
 }
 
+.ol-1 {
+    counter-reset: item
+}
+
+.li-1 {
+    display: block
+}
+
+.li-1:before {
+    content: counters(item, ".") " ";
+    counter-increment: item;
+    font-weight: bold
+}
+
+
 /* Content below is for footer */
 
 html,
@@ -331,6 +346,11 @@ body > footer {
         margin-left: 1em ;
         margin-right: 1em ;
     }
+
+    .order-infos {
+        align-items: center;
+    }
+
   }
 
   /* End of mobile css */
@@ -380,3 +400,21 @@ body > footer {
 .is-underlined {
     text-decoration: underline;
 }
+
+.container-iframe {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+  
+  /* Then style the iframe to fit in the container div with full height and width */
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
