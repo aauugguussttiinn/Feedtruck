@@ -335,6 +335,27 @@ body > footer {
 
   /* End of mobile css */
 
+    /* Content below is only for small mobile devices */
+
+    @media screen and (max-width: 500px) {
+        .index-items {
+            display: flex;
+            flex-wrap: wrap-reverse;
+    
+        }
+    
+        .index-items>* {
+            flex: 1 1 100%;
+        }
+    
+        .index-items-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+      /* End of small mobile css */
+  
 .title{
     font-family: 'Tenor sans', sans-serif;
 }
@@ -344,4 +365,12 @@ body > footer {
 .subscriptions-link{
     background-color: #ffe0e7;
 }
+
+.menu-item-img {
+    width: 7em;
+    height: 7em;
+    border-radius: 1em;
+}
+
+
 
