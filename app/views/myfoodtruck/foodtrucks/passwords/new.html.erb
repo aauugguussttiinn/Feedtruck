@@ -1,0 +1,30 @@
+<div class="columns mt-6">
+  <div class="column is-half is-offset-one-quarter">
+    <h2 class="title has-text-centered">Vous avez oublié votre mot de passe ?</h2>
+    <div class= "is-flex is-justify-content-center">
+      <%= image_tag("logo.png", style:"max-height: 80px")%>
+    </div>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "myfoodtruck/foodtrucks/shared/error_messages", resource: resource %>
+
+      <div class="field mx-5 my-3">
+        <%= f.label :email, class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.email_field :email, autofocus: true, class: "input", autocomplete: "email", placeholder: "Votre Email" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope web-color"></i>
+            </span>
+        </div>
+      </div>
+
+      <div class="actions is-flex is-justify-content-center my-4">
+        <%= f.submit "Envoyer la demande de réinitialisation", class: "button is-pink is-rounded" %>
+      </div>
+
+    <% end %> 
+    <div class="has-text-centered my-4">
+      <%= render "myfoodtruck/foodtrucks/shared/links" %>
+    </div>
+  </div>
+</div>

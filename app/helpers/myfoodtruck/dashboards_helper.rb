@@ -1,0 +1,2 @@
+module Myfoodtruck::DashboardsHelper
+end

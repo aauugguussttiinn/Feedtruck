@@ -1,9 +1,18 @@
-<p align="center" >
-<a href="https://www.thehackingproject.org/"><img src="https://miro.medium.com/max/3150/1*jA8tdomUF7TSMCVtXyfejA.png" alt="logo_feedtruck"/></a>
-<a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/main/app/assets/images/logo.png" alt="logo_feedtruck"/></a>
- </p>
-
 # Welcome on FeedTruck, our final group project of THE HACKING PROJECT
+
+<div>
+  <p align="center" >
+    <a href="https://www.thehackingproject.org/"><img src="https://i0.wp.com/chromebooklive.com/wp-content/uploads/2018/11/the_hacking_project_logo.png?resize=620%2C171&ssl=1" alt="thp_thp"/></a>
+  </p>
+  The Hacking project is an intensive tech bootcamp that works without teacher nor school. The strength of THP is its community. Indeed, THP relies on peer-learning to pass on skills and knowledges. To know more, click on the link on the banner.
+</div>
+</br>
+
+<p align="center" >
+  <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere_feedtruck.png" alt="banniere_feedtruck"/></a>
+</p>
+
+
 
 ## Description :
 Feedtruck is an application that connects individuals with foodtrucks around their homes in Paris.
@@ -32,4 +41,4 @@ It allows to develop a close relationship with the restaurant owners and to deve
 
 
 ## How to use it :
- - Go to [FeedTruck](https://feedtruck.herokuapp.com)
+ - Go to the [FeedTruck app](https://feedtruck.herokuapp.com) and enjoy the experience
