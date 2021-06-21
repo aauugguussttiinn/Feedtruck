@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'contact', to:'static_pages#contact'
 
   devise_for :customers
+  devise_for :foodtrucks
 
   resource :customer do
     resources :orders, except: [:destroy]
@@ -17,4 +18,14 @@ Rails.application.routes.draw do
     resources :items do
     end
   end
+
+  namespace :foodtruck do
+    root 'foodtruck#dashboard'
+    resource :dashboard
+    resource :foodtruck, only: [:show, :edit, :update, :destroy] do
+      resources :items
+      resources :orders, only: [:index, :show, :update, :edit]
+    end
+  end
+
 end
