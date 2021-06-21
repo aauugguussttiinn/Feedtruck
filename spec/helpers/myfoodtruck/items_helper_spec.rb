@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the Foodtruck::DashboardsHelper. For example:
+# the Foodtruck::ItemsHelper. For example:
 #
-# describe Foodtruck::DashboardsHelper do
+# describe Foodtruck::ItemsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe Foodtruck::DashboardsHelper, type: :helper do
+RSpec.describe Myfoodtruck::ItemsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
