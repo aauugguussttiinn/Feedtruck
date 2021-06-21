@@ -323,5 +323,13 @@ body > footer {
     }
   }
 
-
+  .title{
+    font-family: 'Tenor sans', sans-serif;
+}
+.subtitle{
+    font-family: 'Manrope', sans-serif;
+}
+.subscriptions-link{
+    background-color: #ffe0e7;
+}
 
