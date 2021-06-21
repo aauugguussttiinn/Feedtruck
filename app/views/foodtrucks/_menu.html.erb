@@ -3,35 +3,33 @@
         <p class="title has-text-centered is-size-3-mobile py-5">
             Le menu chez <%= foodtruck.name %>
         </p>
-        <% foodtruck.items.each do |item| %>          
-        <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap-reverse">
-            <div class="box-content ">             
-                    <p class="item-title title">
-                        <%= item.name %>
-                    </p>
-                    <p class="item-price subtitle">
-                        <%= sprintf "%.2f", item.price %><span> €</span>
-                    </p>
-                    <p class="description mb-5">
-                        <%= item.description.truncate_words(6)%>
-                    </p>
-                    <div class="box-footer">
-                        <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button", method:'post', remote: true do %>
-                            <span class="icon is-small">
-                            <%= image_tag("bag.png")%>
-                            </span>
-                            <span>Ajouter au panier</span>
-                        <% end %>
-                    </div>
+        
+        <% foodtruck.items.each do |item| %>                    
+            <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap-reverse">
+                <div class="box-content ">             
+                        <p class="item-title title">
+                            <%= item.name %>
+                        </p>
+                        <p class="item-price subtitle">
+                            <%= sprintf "%.2f", item.price %><span> €</span>
+                        </p>
+                        <p class="description mb-5">
+                            <%= item.description.truncate_words(6)%>
+                        </p>
+                        <div class="box-footer">
+                            <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button" do %>
+                                <span>Voir plus</span>
+                            <% end %>
+                        </div>
+                </div>
+                <div class="box-img pb-2 image">
+                    <% if item.picture.attached? %>
+                        <%= image_tag item.picture, alt: "food-img", class: "menu-item-img" %>
+                    <%else%>
+                        <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                    <%end%>
+                </div>                                  
             </div>
-            <figure class="box-img pb-2 image">
-                <% if item.picture.attached? %>
-                    <%= image_tag item.picture, alt: "food-img", class: "menu-item-img" %>
-                <%else%>
-                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-                <%end%>
-            </figure>                                     
-        </div>
         <%end%>                                             
     </div>
 </div>
