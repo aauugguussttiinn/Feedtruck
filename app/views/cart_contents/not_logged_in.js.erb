@@ -1,0 +1,12 @@
+body = document.body;
+navbar = document.querySelector(".navbar");
+section = document.querySelector(".section");
+
+flash = document.createElement("div")
+flash.innerHTML = "Vous devez vous connecter ou vous inscrire pour continuer.";
+flash.classList.add("is-warning");
+flash.classList.add("notification");
+
+if (body.childNodes[3] == section) {
+  body.insertBefore(flash, navbar.nextSibling);
+}

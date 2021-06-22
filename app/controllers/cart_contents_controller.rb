@@ -1,6 +1,6 @@
 class CartContentsController < ApplicationController
   include CartContentHelper
-  before_action :authenticate_customer!, only: %i[ create ]
+  before_action :authenticate_cust!, only: %i[ create destroy ]
   
   def create
     @item = Item.find(params[:item])

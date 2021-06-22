@@ -7,4 +7,12 @@ module ApplicationHelper
       when 'alert' then "is-warning"
     end
   end
+
+  def authenticate_cust!
+    unless current_customer
+      respond_to do |format|
+        format.js { render :file => "/app/views/cart_contents/not_logged_in.js.erb" }
+      end
+    end
+  end
 end
