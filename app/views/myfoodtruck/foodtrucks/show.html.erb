@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_myfoodtruck_foodtruck_path(@myfoodtruck_foodtruck) %> |
-<%= link_to 'Back', myfoodtruck_foodtruck_path %>
+<%= render partial: 'foodtrucks/firstsection', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+<%= render partial: 'foodtrucks/menu', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+<%= render partial: 'foodtrucks/location', locals: {foodtruck: @myfoodtruck_foodtruck} %>

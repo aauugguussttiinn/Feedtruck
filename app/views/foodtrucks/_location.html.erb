@@ -2,7 +2,11 @@
 <div class="section">
     <div class=" container is-flex is-flex-direction-column is-align-items-center item-list"> 
         <p class="title has-text-centered is-size-3-mobile is-size-4 py-5">
-            Aujourd'hui <%= foodtruck.name %> est a cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+            <%if !current_myfoodtruck_foodtruck %>
+                Aujourd'hui <%= foodtruck.name %> est à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+            <%else%>
+                Aujourd'hui vous êtes à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+            <%end%>
         </p>
         <div class="container-iframe">
 
