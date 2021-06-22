@@ -1,74 +1,75 @@
 
 <section class="hero is-medium">
-  <p class="title has-text-centered tenor">Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
-
+  <div class="dashboard-header has-text-centered" , style="background-image: url(<%= rails_blob_url(current_myfoodtruck_foodtruck.pictures) %>); height: 250px;">
+    <p class="title tenor is-size-4-mobile px-3" style="color: white; background-color: #ff3068" >Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
   </div>
 </section>
 
-<section class="section m-1 columns">
-  <div class="column is-7">
-    <h2 class="subtitle tenor has-text-centered">Mes commandes en cours</h2>
-      <% @orders.each do |order| %>          
-        <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
-          <div class="box-content index-items-content">             
-            <p class="item-title title mb-3 mt-2">
-              <%= order.order_contents.first.item.foodtruck.name %>
-            </p>
-            <p class="description">
-              <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
-            </p>
-            <p class="description">
-              <%= order.created_at.strftime("%d/%m/%Y") %>
-            </p>
-            <div class="box-footer mt-3 mb-2">
-              <%= link_to 'Voir plus', myfoodtruck_foodtruck_order_path(order), class: "button checkout-button is-rounded" %>
+<section class="section">
+  <div class="columns">
+    <div class="column is-7 box">
+      <div class="tabs dashboard-tabs is-boxed">
+        <ul>
+          <li class="is-active" data-to_select="orders">
+            <a>Mes commandes</a>
+          </li>
+          <li data-to_select="sales">
+            <a>Mes ventes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="px-2" id="dashboard-tab-content">
+        <div id="orders">
+          <h2 class="title is-size-5-mobile tenor">Mes commandes en cours</h2>
+          <% @orders.sort.reverse.each do |order| %>          
+            <div class="box column is-6 is-flex is-align-items-center is-justify-content-space-between index-items">
+              <div class="box-content index-items-content">             
+                <p class="item-title title is-size-5 mb-3 mt-2">
+                  <%= order.created_at.strftime("Passée le %d/%m/%Y") %>
+                </p>
+                <p class="description subtitle mt-2">
+                  <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
+                </p>
+                <div class="box-footer mt-3 mb-2">
+                  <%= link_to 'Voir plus', myfoodtruck_foodtruck_order_path(order), class: "button checkout-button is-rounded is-pink", style: "border: transparent" %>
+                </div>
+              </div>
+              <div class="box-content index-items-content">
+                <% if order.order_contents.first.item.picture.attached? %>
+                  <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                <%else%>
+                  <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                <%end%>   
+              </div>                              
+            </div>
+          <%end%> 
+        </div>
+        <div id="sales" class="column is-hidden">
+          <h2 class="title tenor">Mes ventes</h2>
+          <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+            <div class="box box-dashboard">
+              <div class="box-content mb-3">
+                  <h3 class="title tenor is-underlined">Aujourd'hui</h3>
+              </div>  
+              <div class="box-footer">
+                <h3 class="subtitle manrope ">Total des ventes : 870,60€</h3>
+              </div>  
+            </div>
+            <div class="box box-dashboard">
+              <div class="box-content mb-3">
+                <h3 class="title tenor is-underlined">Ce mois</h3>
+              </div>  
+              <div class="box-footer">  
+                <h3 class="subtitle manrope">Total des ventes : 1870,60€</h3>
+              </div>  
             </div>
           </div>
-          <div class="box-content index-items-content">
-            <% if order.order_contents.first.item.picture.attached? %>
-              <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-            <%else%>
-              <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-            <%end%>   
-          </div>                              
         </div>
-      <%end%> 
-  </div>
-  <div class="column is-5-desktop">
-    <h2 class="subtitle tenor ml-4 has-text-centered">Mes ventes</h2>
-    <div class="box">
-      <div class="box box-dashboard">
-        <div class="box-content mb-3">
-            <h3 class="title tenor has-text-centered is-underlined">Aujourd'hui</h3>
-        </div>  
-        <div class="box-footer">
-          <h3 class="subtitle manrope has-text-centered">Total des ventes : 870,60€</h3>
-        </div>  
-      </div>
-      <div class="box box-dashboard">
-        <div class="box-content mb-3">
-          <h3 class="title tenor has-text-centered is-underlined">Ce mois</h3>
-        </div>  
-        <div class="box-footer">  
-          <h3 class="subtitle manrope has-text-centered">Total des ventes : 1870,60€</h3>
-        </div>  
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section m-1 columns" style="min-height: 25em;">
-  
-  <div class="column is-7 ">
-    <div class="is-flex is-flex-direction-column ">
-      <h2 class="subtitle tenor ml-4 has-text-centered">Aujourd'hui vous êtes attendu à </h2>
-      <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>  
-  </div>
-  <div class="column is-5 is-12-mobile">
-    <div class="columns is-flex-direction-column is-align-items-center">
-      <h2 class="column is-12 subtitle tenor ml-4 has-text-centered">Mes likes pour demain</h2>
-      <table class="table is-fullwidth">
+    <div class="column is-5">
+      <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes likes pour demain</h2>
+      <table class="table is-fullwidth" style="min-height: 15rem;">
         <tbody>
           <tr class="border-dashboard">
             <th class="">1.</th>
@@ -87,6 +88,15 @@
           </tr>
         </tbody>
       </table>
+    </div> 
+  </div>
+</section>
+
+<section class="section m-1 columns is-centered " style="min-height: 20em;"> 
+  <div class="column is-7 ">
+    <div class="is-flex is-flex-direction-column ">
+      <h2 class="title has-text-centered is-size-4  tenor ml-4">Aujourd'hui vous êtes attendu à <%= Location.find(current_myfoodtruck_foodtruck.location_id).adress%></h2>
+      <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>  
   </div>
 </section>
