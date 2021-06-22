@@ -2,7 +2,7 @@ class CustomerMailer < ApplicationMailer
   default from: 'bonjour.feedtruck@yopmail.com'
 
   def welcome_email(customer)
-    @customer = customer  
+    @customer = customer
     @url = 'https://feedtruck.herokuapp.com/customers/sign_in'
     mail(to: @customer.email, subject: 'Bienvenue sur FeedTruck')
   end
