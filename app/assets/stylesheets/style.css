@@ -296,6 +296,27 @@
     font-weight: bold
 }
 
+.home-pictures-container {
+    object-fit: cover;
+    max-width: 25rem;
+    max-height: 25rem;
+    border-radius: 1rem;
+}
+
+.home-pictures-column-right{
+    text-align: right;
+}
+
+.homepage-list{
+    padding: 15px 25px;
+    box-shadow:none;
+}
+
+.image-fit {
+    object-fit: cover;
+}
+
+
 
 /* Content below is for footer */
 
@@ -349,6 +370,14 @@ body > footer {
 
     .order-infos {
         align-items: center;
+    }
+
+    .home-pictures-column-right{
+        text-align: left;
+    }
+
+    .image-fit{
+        margin-top: 2rem;
     }
 
   }
