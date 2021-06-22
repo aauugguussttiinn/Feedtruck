@@ -15,5 +15,3 @@ if (body.childNodes[3] == section) {
   document.getElementById('flash').remove();
   body.insertBefore(flash, navbar.nextSibling);
 }
-
-console.log("<%= j render partial: "layouts/flash", locals: { flash: flash } %>")

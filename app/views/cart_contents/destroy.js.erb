@@ -10,3 +10,18 @@ else {
   document.getElementById("cart-nb-article").innerText = "<%= current_customer.cart.items.count %> articles";
 }
 
+navbar = document.querySelector(".navbar");
+section = document.querySelector(".section");
+body = document.body;
+
+flash = document.createElement("div")
+flash.setAttribute("id", "flash")
+flash.innerHTML = "<%= j render partial: "layouts/flash", locals: { flash: flash } %>"
+
+
+if (body.childNodes[3] == section) {
+  body.insertBefore(flash, navbar.nextSibling);
+} else {
+  document.getElementById('flash').remove();
+  body.insertBefore(flash, navbar.nextSibling);
+}

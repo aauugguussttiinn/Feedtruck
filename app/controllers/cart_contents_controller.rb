@@ -33,11 +33,9 @@ class CartContentsController < ApplicationController
       format.js do
         if @cart_content != nil
           @cart_content.destroy
-          flash[:notice] = "L'item a été retiré du panier"
-          render fallback_location: root_path
+          flash.now[:notice] = "L'item a été retiré du panier"
         else
-          flash[:error] = "On a un probleme Houston"
-          redirect_back fallback_location: root_path
+          flash[:alert] = "On a un probleme Houston"
         end
       end
     end
