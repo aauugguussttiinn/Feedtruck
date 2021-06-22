@@ -136,11 +136,14 @@
     font-size: 20px;
 
 }
-.show-foodtruck>.banner{
-    background-image: url("https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+.show-foodtruck>.banner-img{
+    width: 100%;
+    height: 100%;
+    @include background-image();
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
+ 
 }
 .show-foodtruck>.foodtruck-infos>.like-section>.box>button{
     background-color:#ff3068;

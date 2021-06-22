@@ -1,8 +1,19 @@
 <div class="section">
     <div class=" container box is-flex is-flex-direction-column is-align-items-center item-list"> 
-        <p class="title has-text-centered is-size-3-mobile py-5">
-            Le menu chez <%= foodtruck.name %>
-        </p>
+        <%if !current_myfoodtruck_foodtruck %>
+            <p class="title has-text-centered is-size-3-mobile py-5">
+                Le menu chez <%= foodtruck.name %>
+            </p>
+        <%else%>
+            <div class="menu-foodtruck has-text-centered mb-5 is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center">
+                <<p class="title mb-2 mr-2 is-size-3-mobile is-size-2 ">
+                    Mes plats
+                </p>
+                <%=link_to root_path, class:"button add-food-btn is-link", style:"border: transparent;" do%>
+                    <span>Rajouter un plat</span>
+                <%end%>
+            </div>
+        <%end%>
         
         <% foodtruck.items.each do |item| %>                    
             <div class="box column is-7 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap-reverse">
@@ -17,9 +28,15 @@
                             <%= item.description.truncate_words(6)%>
                         </p>
                         <div class="box-footer">
-                            <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button" do %>
-                                <span>Voir plus</span>
-                            <% end %>
+                            <%if !current_myfoodtruck_foodtruck %>
+                                <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button" do %>
+                                    <span>Voir plus</span>
+                                <% end %>
+                            <%else%>
+                                <%= link_to edit_foodtruck_item_path(foodtruck.id, item.id), class: "button edit-food-button" do %>
+                                    <span>Modifier ce plat</span>
+                                <% end %>
+                            <%end%>
                         </div>
                 </div>
                 <div class="box-img pb-2 image">
