@@ -32,6 +32,11 @@
                                 <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button" do %>
                                     <span>Voir plus</span>
                                 <% end %>
+                                <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button is-pink", style:"border: transparent", method:'post', remote: true do %>
+                                    <span class="icon is-small">
+                                    <%= image_tag("bag.png")%>
+                                    </span>
+                                <% end %>
                             <%else%>
                                 <%= link_to edit_foodtruck_item_path(foodtruck.id, item.id), class: "button edit-food-button" do %>
                                     <span>Modifier ce plat</span>
