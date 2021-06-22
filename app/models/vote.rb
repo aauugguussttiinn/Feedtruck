@@ -8,7 +8,7 @@ class Vote < ApplicationRecord
     
   def has_customer_voted_last_24h?
     errors.add(:vote, "Vous avez déjà vote pour la periode en cours.") unless
-    Vote.where(customer: self.customer) != nil && Time.now > Vote.where(customer: self.customer).last.updated_at + 86400
+    Vote.where(customer: self.customer).count == 0 || Time.now > Vote.where(customer: self.customer).last.updated_at + 86400
 
   end
 
