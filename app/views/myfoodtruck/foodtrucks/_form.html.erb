@@ -1,17 +1,34 @@
-<%= form_with(model: foodtruck, local: true) do |form| %>
-  <% if foodtruck.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(foodtruck.errors.count, "error") %> prohibited this foodtruck from being saved:</h2>
+<div class="columns mt-6">
+  <div class="column is-half is-offset-one-quarter">
+    <h2 class="title has-text-centered">Editez votre identité</h2>
 
-      <ul>
-      <% foodtruck.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= form_with url: myfoodtruck_foodtruck_path(@myfoodtruck_foodtrucks), method: "patch", local: true do |f| %>
+          <div class="field mx-5 my-3">
+            <%= f.label :name, "Nom de votre foodtruck", class: "label" %>
+            <div class="control has-icons-left my-3">
+              <%= f.text_field :name, autofocus: true, class: "input", placeholder: "Nom" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-child web-color"></i>
+              </span>
+            </div> 
+          </div>
+
+          <div class="field mx-5 my-3">
+            <%= f.label :description, "Votre description", class: "label" %>
+            <div class="control has-icons-left my-3">
+              <%= f.text_field :description, autofocus: true, class: "input", placeholder: "Description" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-child web-color"></i>
+              </span>
+             </div> 
+          </div>
+        <div class="is-flex is-justify-content-center my-5">
+          <%= f.submit "Mettre à jour", class: "button is-pink is-rounded"%>
+        </div>
+
+        <div class="pt-4 has-text-centered">
+          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path %>
+        </div> 
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
-<% end %>
+ </div> 

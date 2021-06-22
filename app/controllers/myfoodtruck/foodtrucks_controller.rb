@@ -30,7 +30,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def foodtruck_foodtruck_params
-      params.fetch(:myfoodtruck_foodtruck, {})
+    def myfoodtruck_foodtruck_params
+      params.permit(:email, :password, :description, :name)
     end
 end
