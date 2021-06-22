@@ -1,47 +1,50 @@
 
 <div class="section">
     <div class="show-foodtruck container">
-        <div class="banner" style="height: 300px;">
+        <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;" > 
         </div>
-        <div class="foodtruck-infos box is-flex is-justify-content-space-between is-align-items-center is-flex-wrap-wrap pt-5">
-            <div class="header">
+        <div class="foodtruck-infos columns box pt-5">
+            <div class="header column is-9", style="padding: 0 2rem;">
                 <p class="foodtruck-name is-size-3-mobile is-size-2">
                     <%= foodtruck.name %>
                 </p>
-                <p class="speciality is-size-6-mobile is-size-5">
+                <p class="speciality is-size-6-mobile is-size-6">
                     <%= foodtruck.description %>
                 </p>
-
             </div>
-
-<!-- ********************** The code in this section is commented out because it is neither linked nor required in the MVP ********************************** -->
-
-<!--            <div class="like-section">
-                <div class="box mt-5 has-text-centered">
-                    <div class="price">
-                        <p class="title is-size-5">
-                            15€/personne
-                        </p>
+            <%if !current_myfoodtruck_foodtruck %>
+                <div class="like-section column is-3">
+                    <div class="box mt-5 has-text-centered">
+                        <div class="price">
+                            <p class="title is-size-5">
+                                15€/personne
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="subtile py-5 is-size-6">
+                                Demain le 23/04/2021
+                            </p>
+                        </div>
+                        <button class="button like-button">
+                            <span class="icon is-small">
+                            <%= image_tag("like.png")%>
+                            </span>
+                            <span>Viens chez moi</span>
+                        </button>
                     </div>
-                    <div class="date">
-                        <p class="subtile py-5 is-size-6">
-                            Demain le 23/04/2021
-                        </p>
-                    </div>
-                    <button class="button like-button">
-                        <span class="icon is-small">
-                        <%= image_tag("like.png")%>
-                        </span>
-                        <span>Viens chez moi</span>
-                    </button>
                 </div>
-            </div>
+            <%else%>
+                <div class="edit-profil-section" , style="padding: 1rem 2rem;">
+                    <%=link_to  edit_myfoodtruck_foodtruck_path, class:"button edit-profil-btn is-success mb-4", style:"border: transparent;" do%>
+                        <span>Modifier mon profil</span>
+                    <%end%>
+                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button edit-profil-btn is-pink", style:"border: transparent;"  do%>
+                        <span>Editer mes identifiants</span>
+                    <%end%>
+                </div>
+            <%end%>
         </div>
-        -->
-
-<!-- ********************** Closing the section with the like option********************************** -->
-
-
     </div>
 </div>
+
 
