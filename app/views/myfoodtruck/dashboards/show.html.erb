@@ -2,7 +2,6 @@
 <%= render partial: 'dashboard_tabs', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
 <%= render partial: 'location', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
 
-<<<<<<< HEAD
  
   </div>
 </section>
@@ -86,15 +85,12 @@
               <% until i >= @votes_ranking.length-1 %>
               
               <h3 class="subtitle manrope has-text-centered"><%= j+1 %>. <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %> - <%= @votes_ranking[i+1] %>  votes </h3>
-              <% i += 2 %>
-              <% j += 1 %>
+              <% i += 2 %><% j += 1 %>
               <% end %>
               
             </div>  
           </div>
         </div>
       </div>
-=======
 
 
->>>>>>> development

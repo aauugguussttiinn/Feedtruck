@@ -22,6 +22,24 @@
               </span>
              </div> 
           </div>
+
+
+          <div class="field mx-5 my-3">
+            <%= f.label :last_name, "Localisation", class: "label" %>
+            <div class="control">
+              <div class="select">
+                <select>
+                <% @locations.each do |l| %>
+                  <option><%= l.name %></option>
+                <% end %>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+
         <div class="is-flex is-justify-content-center my-5">
           <%= f.submit "Mettre à jour", class: "button is-pink is-rounded"%>
         </div>

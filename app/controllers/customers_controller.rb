@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    @locations = Location.all 
   end
 
   # POST /customers

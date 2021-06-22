@@ -10,11 +10,12 @@
                         <p class="title is-size-4">Mon profil</p>
                         <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
                         <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
+                        <p class="is-size-6">Localisation : <%= Location.find(@current_customer.location_id).adress %>, <%= Location.find(@current_customer.location_id).name %></p>
                         <p class="is-size-6">Email : <%= @current_customer.email %></p>
                     </div>
                     <div class="buttons">
                         <div class="update-profile-btn mr-5">
-                            <%= link_to "Modifier mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
+                            <%= link_to "Mettre à jours mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
                         </div>
                         <div class="update-id-btn">
                             <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-pink is-rounded", style: "border: transparent" %>
