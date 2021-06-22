@@ -319,6 +319,18 @@
     object-fit: cover;
 }
 
+.foodtruck-cover {
+    height: 10em;
+    
+    
+}
+
+.footruck-picture {
+    object-fit: cover;
+    max-height: 100%;
+    width: 100%;
+}
+
 
 
 /* Content below is for footer */
@@ -343,9 +355,14 @@ body > footer {
   font-family: 'Manrope', sans-serif;
 }
 
+/* Content below is only for tablet devices */
+
+
 /* Content below is only for mobile devices */
 
 @media screen and (max-width: 768px) {
+
+    
     .footer-column {
         align-items: center;
         text-align: center;
