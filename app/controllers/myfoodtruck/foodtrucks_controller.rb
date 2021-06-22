@@ -26,7 +26,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foodtruck_foodtruck
-      @myfoodtruck_foodtruck = Myfoodtruck::Foodtruck.find(params[:id])
+      @myfoodtruck_foodtruck = current_myfoodtruck_foodtruck
     end
 
     # Only allow a list of trusted parameters through.
