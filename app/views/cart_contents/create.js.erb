@@ -1,1 +1,19 @@
 document.getElementById("cart-count").innerText = "<%= current_customer.cart.items.count %>";
+
+navbar = document.querySelector(".navbar");
+section = document.querySelector(".section");
+body = document.body;
+
+flash = document.createElement("div")
+flash.setAttribute("id", "flash")
+flash.innerHTML = "<%= j render partial: "layouts/flash", locals: { flash: flash } %>"
+
+
+if (body.childNodes[3] == section) {
+  body.insertBefore(flash, navbar.nextSibling);
+} else {
+  document.getElementById('flash').remove();
+  body.insertBefore(flash, navbar.nextSibling);
+}
+
+console.log("<%= j render partial: "layouts/flash", locals: { flash: flash } %>")
