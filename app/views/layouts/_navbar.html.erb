@@ -122,9 +122,16 @@
                         </div>
                     </div>        
                 </div>
-
+            <% else %>         
+                <%=button_to destroy_myfoodtruck_foodtruck_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
+                    <i class="fas fa-power-off"></i>
+                    Déco_Foodtruck
+                <%end%>               
+                <%=button_to destroy_customer_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
+                    <i class="fas fa-power-off"></i>
+                    Déco_Customer
+                <%end%>
             <%end%>
-
         </div>
     </div>
 </nav>
