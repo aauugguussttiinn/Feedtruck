@@ -11,7 +11,8 @@ module ApplicationHelper
   def authenticate_cust!
     unless current_customer
       respond_to do |format|
-        format.js { render :file => "/app/views/cart_contents/not_logged_in.js.erb" }
+        format.js { redirect_back fallback_location: root_path,
+          flash: { alert: "Vous devez vous connecter ou vous inscrire pour continuer."}}
       end
     end
   end
