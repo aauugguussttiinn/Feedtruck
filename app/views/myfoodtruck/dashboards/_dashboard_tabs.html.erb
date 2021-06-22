@@ -1,0 +1,86 @@
+<section class="section">
+  <div class="columns">
+    <div class="column is-7 box">
+      <div class="tabs dashboard-tabs is-boxed">
+        <ul>
+          <li class="is-active" data-to_select="orders">
+            <a>Mes commandes</a>
+          </li>
+          <li data-to_select="sales">
+            <a>Mes ventes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="px-2" id="dashboard-tab-content">
+        <div id="orders">
+          <h2 class="title is-size-3-mobile tenor">Mes commandes</h2>
+          <% @orders.sort.reverse.each do |order| %>          
+            <div class="box column is-6 is-flex is-align-items-center is-justify-content-space-between index-items">
+              <div class="box-content index-items-content">             
+                <p class="item-title title is-size-5 mb-3 mt-2">
+                  <%= order.created_at.strftime("Passée le %d/%m/%Y") %>
+                </p>
+                <p class="description subtitle mt-2">
+                  <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
+                </p>
+                <div class="box-footer mt-3 mb-2">
+                  <%= link_to 'Voir plus', myfoodtruck_foodtruck_order_path(order), class: "button checkout-button is-rounded is-pink", style: "border: transparent" %>
+                </div>
+              </div>
+              <div class="box-content index-items-content">
+                <% if order.order_contents.first.item.picture.attached? %>
+                  <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                <%else%>
+                  <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                <%end%>   
+              </div>                              
+            </div>
+          <%end%> 
+        </div>
+        <div id="sales" class="column is-hidden">
+          <h2 class="title tenor is-size-3-mobile">Mes ventes</h2>
+          <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+            <div class="box box-dashboard" style=" box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);">
+              <div class="box-content mb-3">
+                  <h3 class="title tenor is-size-4-mobile is-underlined">Aujourd'hui</h3>
+              </div>  
+              <div class="box-footer">
+                <h3 class="subtitle manrope ">Total des ventes : 870,60€</h3>
+              </div>  
+            </div>
+            <div class="box box-dashboard" style=" box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);">
+              <div class="box-content mb-3">
+                <h3 class="title tenor is-size-4-mobile is-underlined">Ce mois</h3>
+              </div>  
+              <div class="box-footer">  
+                <h3 class="subtitle manrope">Total des ventes : 1870,60€</h3>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-5">
+      <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes likes pour demain</h2>
+      <table class="table is-fullwidth" style="min-height: 15rem;">
+        <tbody>
+          <tr class="border-dashboard">
+            <th class="">1.</th>
+            <td class=""><i class="fas fa-thumbs-up"></i></td>
+            <td class="">Paris 20</td>
+          </tr>
+          <tr class="border-dashboard">
+            <th class="">2.</th>
+            <td class=""><i class="fas fa-thumbs-up"></i></td>
+            <td class="">Paris 12</td>
+          </tr>
+          <tr class="border-dashboard">
+            <th class="">3.</th>
+            <td class=""><i class="fas fa-thumbs-up"></i></td>
+            <td class="">Paris 13</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  </div>
+</section>

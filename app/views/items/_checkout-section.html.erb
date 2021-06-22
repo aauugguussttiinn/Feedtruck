@@ -11,7 +11,7 @@
             <%=item.description%>
             </p>
             <p class="price is-size-4">
-            <%=item.price%>€
+            <%= sprintf('%.2f',  item.price) %>€
             </p>
             <div class="quantity is-flex is-align-items-center">
                 <div class="mr-5">
@@ -37,7 +37,7 @@
     </div>
 
     <div class="container">
-        <div class="tabs is-boxed">
+        <div class="tabs item-tabs is-boxed">
             <ul>
                 <li class="is-active" data-target="product-description">
                     <a>A propos du plat</a>
@@ -47,7 +47,7 @@
                 </li>
             </ul>
         </div>
-        <div id="tab-content" class="px-2">
+        <div id="item-tab-content" class="px-2">
             <div id="product-description">
                 <h3 class="is-size-5 title">A propos du plat</h3>
                 <p class="manrope">
