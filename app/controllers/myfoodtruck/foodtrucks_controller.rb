@@ -3,6 +3,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
 
   # GET /foodtruck/foodtrucks/1 or /foodtruck/foodtrucks/1.json
   def show
+
   end
 
   # GET /foodtruck/foodtrucks/1/edit
@@ -23,6 +24,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foodtruck_foodtruck
@@ -33,4 +35,5 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
     def foodtruck_foodtruck_params
       params.fetch(:myfoodtruck_foodtruck, {})
     end
+
 end
