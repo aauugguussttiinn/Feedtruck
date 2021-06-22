@@ -1,14 +1,14 @@
 window.addEventListener('turbolinks:load', () => {
-    var tabs = document.querySelectorAll('.tabs li');
-    var tabContentBoxes = document.querySelectorAll('#tab-content > div');
+    var itemTabs = document.querySelectorAll('.item-tabs li');
+    var itemTabContentBoxes = document.querySelectorAll('#item-tab-content > div');
 
-    tabs.forEach((tab)=>{
+    itemTabs.forEach((tab)=>{
         tab.addEventListener('click', ()=>{
-            tabs.forEach(item => item.classList.remove('is-active'))
+            itemTabs.forEach(item => item.classList.remove('is-active'))
             tab.classList.add('is-active');
 
             var target = tab.dataset.target;
-            tabContentBoxes.forEach(box => {
+            itemTabContentBoxes.forEach(box => {
                 if(box.getAttribute('id') === target){
                     box.classList.remove('is-hidden');      
                 }

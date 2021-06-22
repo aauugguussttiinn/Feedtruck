@@ -1,56 +1,71 @@
-<div class="section homepage-sections">
-    <div class=" first-section columns is-variable is-7 is-vcentered is-centered  mb-5">
-        <div class="column is-5 image">
-            <img src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", alt="image", style="width: 27rem; height: 20rem; object-fit: cover; border-radius: 5px;">
-        </div>
-        <div class="column is-5 section-body">
-            <p class="title is-size-4-mobile is-size-3">
-                Des foodtrucks aux bons petits plats, sains et engagés 
-            </p>
-            <p class="subtitle is-size-6-mobile is-size-5">
-                Nos sélectionnons les meilleurs foodtrucks de la capitale, en fonction 
-                de la qualité de leur cuisine, mais aussi de la provenance de leurs produits
-            </p>
-            <%=link_to new_customer_registration_path, class:"button is-rounded is-pink", style:"border: transparent" do%>
-                Je m'inscris comme gourmet
-            <%end%>
+<section class="section">
+  <div class="container">
+    <div class="columns is-variable">
+      <div class="column">
 
+        <div class="card is-horizontal columns homepage-list mb-6">
+          <div class="columns card-content column is-8 is-flex is-flex-direction-column mb-0 pb-0">
+            <p class="title is-size-2-mobile is-size-2 mr-3">
+              Des foodtrucks aux bons petits plats, sains et engagés
+            </p>
+            <p class="subtitle is-4 mt-2 manrope mr-3">
+              Nos sélectionnons les meilleurs foodtrucks de la capitale, en fonction 
+                de la qualité de leur cuisine, mais aussi de la provenance de leurs produits                 
+            </p>
+            <div class="is-6">
+                <%=link_to new_customer_registration_path, class:"button is-rounded is-pink", style:"border: transparent" do%>
+                    Je m'inscris comme gourmet
+                <%end%>
+            </div>
+          </div>
+          <div class="card-image is-12-mobile column team-list-image p-0">
+            <img class="image-fit" src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="image">
+          </div>
         </div>
-    </div>
-    <div class=" second-section columns is-variable is-7 is-flex is-flex-wrap-wrap-reverse is-justify-content-space-evenly is-align-items-center">
-        <div class="section-body column is-5">
-            <p class="title is-size-4-mobile is-size-3">
-                Une cuisine gourmande et variée
-            </p>
-            <p class="subtitle is-size-6-mobile is-size-5">
-                Plutôt sushi ou hamburger frites? choisissez parmi
-                plus de 300 foodtrucks, dans votre arrondissement et ailleurs dans Paris
-            </p>
-            <%=link_to foodtrucks_path, class:"button is-rounded is-pink", style:"border: transparent" do%>
-                Voir tous les foodtrucks
-            <%end%>
 
-        </div>
-        <div class="image is-6-mobile ">
-            <img src="https://images.unsplash.com/photo-1551276928-735cffcdcbc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=583&q=80" alt="image", style="width: 27rem; border-radius: 5px;">
-        </div>
-    </div>
-    <div class=" third-section  columns is-variable is-7 is-vcentered is-centered mb-5">
-        <div class="column is-5 image">
-            <img src="https://images.unsplash.com/photo-1550949987-440138d6550e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=589&q=80", alt="image", style="width: 27rem; border-radius: 5px;">
-        </div>
-        <div class="column is-5 section-body">
-            <p class="title is-size-4-mobile is-size-3">
-                Un système de vote astucieux pour votre plus grand plaisir 
+        <div class="card is-horizontal columns homepage-list is-flex is-flex-wrap-wrap-reverse mb-6">
+            <div class="card-image is-12-mobile column team-list-image p-0">
+                <img class="image-fit" src="https://images.unsplash.com/photo-1551276928-735cffcdcbc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=583&q=80" alt="image">
+            </div>
+          <div class="columns card-content column is-8 is-flex is-flex-direction-column home-pictures-column-right">
+            <p class="title is-size-2-mobile is-size-2">
+              Une cuisine gourmande et variée
             </p>
-            <p class="subtitle is-size-6-mobile is-size-5">
-                Depuis votre espace personnel, vous avez la possibilité chaque jour, de voter 
-                pour votre foodtruck favori, celui qui se déplacera le lendemain près de chez vous
+            <p class="subtitle is-4 mt-2 manrope">
+              Plutôt sushi ou hamburger frites?                 
             </p>
-            <button class="button is-rounded is-pink" style="border: transparent">
-                En savoir plus
-            </button>
+            <p class="subtitle is-4 manrope mb-6">
+              Choisissez parmi plus de 300 foodtrucks, dans votre arrondissement et ailleurs dans Paris                  
+            </p>
+            <div class="is-6">
+                <%=link_to foodtrucks_path, class:"button is-rounded is-pink", style:"border: transparent" do%>
+                    Voir tous les foodtrucks
+                <%end%>
+            </div>
+          </div>
+        </div>
 
+        <div class="card is-horizontal columns homepage-list mb-6">
+          <div class="columns card-content column is-8 is-flex is-flex-direction-column mb-0 pb-0">
+            <p class="title is-size-2-mobile is-size-2 mr-3">
+              Un système de vote astucieux pour votre plus grand plaisir
+            </p>
+            <p class="subtitle is-4 mt-2 manrope mr-3">
+              Depuis votre espace personnel, vous avez la possibilité chaque jour, de voter 
+                pour votre foodtruck favori, celui qui se déplacera le lendemain près de chez vous                 
+            </p>
+            <div class="is-6">
+                <%=link_to root_path, class:"button is-rounded is-pink", style:"border: transparent" do%>
+                    En savoir plus
+                <%end%>
+            </div>
+          </div>
+          <div class="card-image is-12-mobile column team-list-image p-0">
+            <img class="image-fit" src="https://images.unsplash.com/photo-1551276928-735cffcdcbc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=583&q=80" alt="image">
+          </div>
         </div>
+
+      </div>
     </div>
-</div>
+  </div>
+</section>

@@ -1,7 +1,8 @@
-<p class="title has-text-centered tenor">Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
-<section class="hero is-medium">
-  <div class="container">
+<%= render partial: 'header', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
+<%= render partial: 'dashboard_tabs', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
+<%= render partial: 'location', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
 
+<<<<<<< HEAD
  
   </div>
 </section>
@@ -93,3 +94,7 @@
           </div>
         </div>
       </div>
+=======
+
+
+>>>>>>> development
