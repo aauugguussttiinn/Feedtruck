@@ -2,7 +2,7 @@
   <div class="column is-half is-offset-one-quarter">
     <h2 class="title has-text-centered">Editez votre identité</h2>
 
-      <%= form_with url: myfoodtruck_foodtruck_path(@myfoodtruck_foodtrucks), method: "patch", local: true do |f| %>
+      <%= form_with(model: foodtruck, local: true) do |f| %>
           <div class="field mx-5 my-3">
             <%= f.label :name, "Nom de votre foodtruck", class: "label" %>
             <div class="control has-icons-left my-3">
