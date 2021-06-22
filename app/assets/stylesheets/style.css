@@ -347,7 +347,8 @@ body > footer {
 
 @media screen and (max-width: 768px) {
     .footer-column {
-        align-items: left;
+        align-items: center;
+        text-align: center;
     }
 
     .footer-picture {
