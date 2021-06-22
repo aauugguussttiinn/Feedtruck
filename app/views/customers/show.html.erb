@@ -24,8 +24,12 @@
             </div>
             <div class="column is-5">
                 <div class="monthy-expenses box">
-                    <p class="title is-size-5"> Dépensé en bouffe ce mois</p>
+                    <p class="title is-size-5"> Dépensé ce mois-ci</p>
                     <p class="is-size-3">399€</p>
+                </div>
+                                <div class="monthy-expenses box">
+                    <p class="title is-size-5"> Mes votes</p>
+                    <p class="is-size-3">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime('%d %m %Y') %></p>
                 </div>
                 <div class="profile-my-orders box">
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">

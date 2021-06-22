@@ -2,6 +2,7 @@
 <section class="hero is-medium">
   <div class="container">
 
+ 
   </div>
 </section>
 
@@ -35,7 +36,7 @@
         <%end%> 
     </div>
     <div class="column is-5-desktop">
-    <h2 class="subtitle tenor ml-4 has-text-centered">Mes ventes</h2>
+      <h2 class="subtitle tenor ml-4 has-text-centered">Mes ventes</h2>
       <div class="box">
         <div class="box box-dashboard">
           <div class="box-content mb-3">
@@ -56,4 +57,39 @@
       </div>
     </div>
 
+
 </section>
+
+      <div class="column is-5-desktop">
+        <h2 class="subtitle tenor ml-4 has-text-centered">Mes votes sur les dernieres 24h</h2>
+        <div class="box">
+          <div class="box box-dashboard">
+            <div class="box-content mb-3">
+              <h3 class="title tenor has-text-centered is-underlined">Aujourd'hui</h3>
+            </div>  
+            <div class="box-footer">
+              <h3 class="subtitle manrope has-text-centered"><%= @number_of_votes %> votes </h3>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="column is-5-desktop">
+        <h2 class="subtitle tenor ml-4 has-text-centered">Classement des votes</h2>
+        <div class="box">
+          <div class="box box-dashboard">
+            <div class="box-content mb-3">
+            </div>  
+            <div class="box-footer">
+              <% i = 0  %>
+              <% j = 0  %>
+              <% until i >= @votes_ranking.length-1 %>
+              
+              <h3 class="subtitle manrope has-text-centered"><%= j+1 %>. <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %> - <%= @votes_ranking[i+1] %>  votes </h3>
+              <% i += 2 %>
+              <% j += 1 %>
+              <% end %>
+              
+            </div>  
+          </div>
+        </div>
+      </div>

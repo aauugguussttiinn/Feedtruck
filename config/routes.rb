@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   resources :foodtrucks do
+    resources :votes, only: [:show, :create]
     resources :items do
     end
   end
