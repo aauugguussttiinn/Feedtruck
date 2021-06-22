@@ -15,7 +15,7 @@
         <div id="orders">
           <h2 class="title is-size-3-mobile tenor">Mes commandes</h2>
           <% @orders.sort.reverse.each do |order| %>          
-            <div class="box column is-6 is-flex is-align-items-center is-justify-content-space-between index-items">
+            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
               <div class="box-content index-items-content">             
                 <p class="item-title title is-size-5 mb-3 mt-2">
                   <%= order.created_at.strftime("Passée le %d/%m/%Y") %>
