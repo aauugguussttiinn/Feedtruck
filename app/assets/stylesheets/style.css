@@ -384,7 +384,13 @@ body > footer {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Content below is only for tablet devices */
+
+.item-picture {
+    object-fit: cover;
+    border-radius: 0.5rem;
+    max-height: 10rem;
+    height: 100%;
+}
 
 
 /* Content below is only for mobile devices */
