@@ -30,17 +30,15 @@ class Customer < ApplicationRecord
     CustomerMailer.welcome_email(self).deliver_now
   end
 
+
   def monthly_expenses
     if self.orders.any?
-      self.orders.map do |order|
-        if order.created_at > (Time.now - 1.month)
-          order.total_price
-        else
-          return 0
-        end
-      end.reduce(:+)
+      orders_of_the_month = self.orders.where("updated_at > ?", Date.today.at_beginning_of_month)  
+      orders_of_the_month.map{|order| order.total_price}.reduce(:+)
     else
       return 0
     end
   end
+
+
 end

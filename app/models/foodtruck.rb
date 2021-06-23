@@ -26,4 +26,14 @@ class Foodtruck < ApplicationRecord
     freq = freq.sort_by{|k, v| -v}.flatten
   end
 
+  def total_price_orders_current_day
+    orders_of_the_day = self.orders.where("updated_at > ?", Date.today)  
+    orders_of_the_day.map{|order| order.total_price}.reduce(:+)
+  end
+
+  def total_price_orders_current_month
+    orders_of_the_month = self.orders.where("updated_at > ?", Date.today.at_beginning_of_month)  
+    orders_of_the_month.map{|order| order.total_price}.reduce(:+)
+  end
+
 end

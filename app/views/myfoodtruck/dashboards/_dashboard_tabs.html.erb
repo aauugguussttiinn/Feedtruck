@@ -98,7 +98,7 @@
                                 <h3 class="title tenor is-size-4-mobile is-underlined">Aujourd'hui</h3>
                             </div>  
                             <div class="box-footer">
-                                <h3 class="subtitle manrope ">Total des ventes : 870,60€</h3>
+                                <h3 class="subtitle manrope ">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_day) %>€</h3>
                             </div>  
                         </div>
                         <div class="box box-dashboard pink-shadow">
@@ -106,7 +106,7 @@
                                 <h3 class="title tenor is-size-4-mobile is-underlined">Ce mois</h3>
                             </div>  
                             <div class="box-footer">  
-                                <h3 class="subtitle manrope">Total des ventes : 1870,60€</h3>
+                                <h3 class="subtitle manrope">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_month) %>€</h3>
                             </div>  
                         </div>
                     </div>
