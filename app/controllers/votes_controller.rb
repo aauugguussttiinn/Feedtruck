@@ -13,7 +13,7 @@ class VotesController < ApplicationController
       redirect_to @foodtruck
 
     else
-      flash.now[:notice] = "Action impossible"
+      flash[:error] = @vote.errors.full_messages
       redirect_to @foodtruck
     end
   end 

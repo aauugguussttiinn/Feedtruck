@@ -21,4 +21,47 @@ window.addEventListener('turbolinks:load', () => {
             })
         });
     });
+
 })
+
+//show order dashboard foodtruck
+
+window.addEventListener('turbolinks:load', () => {
+
+
+    var showOrderBtn = Array.from(document.querySelectorAll('#show-order-button'));
+    var modalBg = document.querySelectorAll('.modal-background');
+    var modal = Array.from(document.querySelectorAll('#foodtruck-show-order'));
+
+
+   
+
+    showOrderBtn.forEach((btn)=>{
+        btn.addEventListener('click', ()=>{
+            modal.forEach((mdl)=>{
+                if(showOrderBtn.indexOf(btn) === modal.indexOf(mdl)){
+                    mdl.classList.add('is-active');  
+                };
+                modalBg.forEach((bg)=>{
+                    bg.addEventListener('click', ()=>{
+                    mdl.classList.remove('is-active')
+                    
+                    });
+
+                });
+
+            });
+
+        });
+
+    });
+
+
+         
+
+
+
+})
+
+
+

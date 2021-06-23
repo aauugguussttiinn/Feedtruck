@@ -82,7 +82,6 @@
     border: transparent;
     font-family: 'Manrope', sans-serif;
     font-size: 15px;
-
 }
 
 
@@ -202,7 +201,7 @@
 }
 
 .shopping-cart>.order-infos{
-    max-height: 12rem;
+    max-height: 15rem;
     min-width: 5rem;
    
 }
@@ -334,7 +333,7 @@
 
 
   .stripe-button-el {
-    width: 10em;
+    width: 16.5em;
     border-radius: 0.2em !important;
     border: 0 !important;
     background-image: none !important;
@@ -347,13 +346,33 @@
     font-family: 'Manrope', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     font-weight: normal !important;
-    font-size: 1em !important;
+    font-size: 1rem !important;
     border-radius: 0.2em !important;
     border: 0 !important;
     background-image: none !important;
     background: #ff517f !important;
     background-color: #ff517f !important;
 }
+
+.pink-button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+}
+
+.item-picture {
+    object-fit: cover;
+    border-radius: 0.5rem;
+    max-height: 10rem;
+    height: 100%;
+}
+
+.font-equal {
+    font-size: 1rem !important;
+}
+
 
 /* Content below is for footer */
 
@@ -376,8 +395,6 @@ body > footer {
 .manrope {
   font-family: 'Manrope', sans-serif;
 }
-
-/* Content below is only for tablet devices */
 
 
 /* Content below is only for mobile devices */
