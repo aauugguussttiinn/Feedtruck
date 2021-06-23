@@ -27,13 +27,21 @@ class Foodtruck < ApplicationRecord
   end
 
   def total_price_orders_current_day
-    orders_of_the_day = self.orders.where("updated_at > ?", Date.today)  
-    orders_of_the_day.map{|order| order.total_price}.reduce(:+)
+    if self.orders.where("updated_at > ?", Date.today).any?
+      orders_of_the_day = self.orders.where("updated_at > ?", Date.today)  
+      orders_of_the_day.map{|order| order.total_price}.reduce(:+)
+    else
+      return 0
+    end
   end
 
   def total_price_orders_current_month
-    orders_of_the_month = self.orders.where("updated_at > ?", Date.today.at_beginning_of_month)  
-    orders_of_the_month.map{|order| order.total_price}.reduce(:+)
+    if self.orders.where("updated_at > ?", Date.today.at_beginning_of_month).any?
+      orders_of_the_month = self.orders.where("updated_at > ?", Date.today.at_beginning_of_month)  
+      orders_of_the_month.map{|order| order.total_price}.reduce(:+)
+    else
+      return 0
+    end
   end
 
 end
