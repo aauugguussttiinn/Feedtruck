@@ -69,7 +69,7 @@
                                     </p>
                                 </div>
                                 <div class="box-img is-hidden-mobile image">    
-                                    <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="foodtruck-img" class="foodtruck-img">                    
+                                    <img class="foodtruck-img" src="<%= rails_blob_url(current_customer.orders.last.foodtruck.pictures) %>" />                     
                                 </div>                                   
                             </div>
                         <%end%>
