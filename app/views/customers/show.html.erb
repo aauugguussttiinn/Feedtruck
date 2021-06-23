@@ -10,12 +10,18 @@
                         <p class="title is-size-4">Mon profil</p>
                         <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
                         <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
-                        <p class="is-size-6">Localisation : <%= Location.find(@current_customer.location_id).adress %>, <%= Location.find(@current_customer.location_id).name %></p>
+
+                        <% if current_customer_has_location? %>
+                            <p class="is-size-6">Localisation : <%= Location.find(@current_customer.location_id).adress %>, <%= Location.find(@current_customer.location_id).name %></p>
+                        <% else %>
+                         <p class="is-size-6">Localisation :</p>
+                        <% end %>
+
                         <p class="is-size-6">Email : <%= @current_customer.email %></p>
                     </div>
                     <div class="buttons">
                         <div class="update-profile-btn mr-5">
-                            <%= link_to "Mettre à jours mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
+                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
                         </div>
                         <div class="update-id-btn">
                             <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-pink is-rounded", style: "border: transparent" %>
@@ -30,7 +36,17 @@
                 </div>
                                 <div class="monthy-expenses box">
                     <p class="title is-size-5"> Mes votes</p>
-                    <p class="is-size-3">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime('%d %m %Y') %></p>
+
+                    <% if !current_customer_has_location? %>
+                        <p class="is-size-3">Vous devez renseigner une localisation pour pouvoir voter</p>
+                    <% elsif current_customer_has_location? && !voted_once? %>   
+                        <p class="is-size-3">Vous n'avez pas encore voté. Veuillez vous rendre sur la page du food truc de votre choix et cliquer sur le bouton viens chez moi</p>
+                    <% elsif current_customer_has_location? && !last_vote_over_24? %>
+                        <p class="is-size-3">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime('%d %m %Y') %></p>
+                        <p class="is-size-3">Veuillez attendre 24 heures pour voter à nouveau</p>
+                    <% elsif current_customer_has_location? && last_vote_over_24? %>
+                        <p class="is-size-3">Vous pouvez voter à nouveau</p>
+                    <% end %>
                 </div>
                 <div class="profile-my-orders box">
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
