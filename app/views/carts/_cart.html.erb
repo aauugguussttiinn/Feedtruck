@@ -4,7 +4,7 @@
             <div class="column box cart-box is-8 mx-3 mb-0 mt-3 is-flex is-flex-direction-column is-align-items-center">
                 <p class="title">Mon Panier</p>
                 <% cart_content.sort.each do |content| %>
-                    <div class="cart-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap", id="<%= content.created_at %>">
+                    <div class="cart-item box column is-8 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap", id="<%= content.created_at %>">
                         <div class="box-body my-2 is-flex is-flex-wrap-wrap is-align-items-center">
                             <figure class="box-img mb-2 cart-item image mr-5">
                                 <% if content.item.picture.attached? %>
@@ -20,7 +20,7 @@
                                 <div class="is-flex my-1 is-align-items-center">
                                     <div class="quantity mr-5">
                                         <p class="item-price subtitle">
-                                            <%=content.item.description.truncate_words(3)%>
+                                            <%=content.item.description.truncate(12)%>
                                         </p>
                                     </div>                      
                                 </div>
