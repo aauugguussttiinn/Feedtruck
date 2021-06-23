@@ -24,7 +24,7 @@
                                 <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
                                 </p>
                                 <div class="box-footer mt-3 mb-2">
-                                    <button  id="show-order-button", class="button show-order-button is-rounded is-primary", style= "border: transparent" >
+                                    <button  id="show-order-button", class="button show-order-button is-rounded is-primary">
                                         Voir plus
                                     </button>
                                 </div>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="column has-text-centered is-12">
                                         <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary ", style: "border: transparent" do %>
+                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary " do %>
                                             <span>La commande est prête</span>
                                         <% end %>       
 
@@ -93,7 +93,7 @@
                 <div id="sales" class="column is-hidden">
                     <h2 class="title tenor is-size-3-mobile">Mes ventes</h2>
                     <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
-                        <div class="box box-dashboard" style=" box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);">
+                        <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
                                 <h3 class="title tenor is-size-4-mobile is-underlined">Aujourd'hui</h3>
                             </div>  
@@ -101,7 +101,7 @@
                                 <h3 class="subtitle manrope ">Total des ventes : 870,60€</h3>
                             </div>  
                         </div>
-                        <div class="box box-dashboard" style=" box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);">
+                        <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
                                 <h3 class="title tenor is-size-4-mobile is-underlined">Ce mois</h3>
                             </div>  
@@ -117,7 +117,7 @@
 
         <div class="column is-5 ">
             <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes votes sur les dernieres 24h</h2>
-            <table class="table is-fullwidth" style="min-height: 15rem;">
+            <table class="table is-fullwidth dashboard-table">
                 <tbody>
                 
                 
@@ -130,8 +130,8 @@
                         <div class="is-flex is-align-items-center">
                             <% if @votes_ranking[i+1] != nil %>
                                 <i class="fas fa-thumbs-up fa-2x"></i>
-                                <div class="likes-count" style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
-                                    <p class="has-text-centered" id="likes-count" style="color: white;"><%= @votes_ranking[i+1] %></p>   
+                                <div class="likes-count likes-style">
+                                    <p class="has-text-centered" id="likes-count"><%= @votes_ranking[i+1] %></p>   
                                 </div>
                             <% end %>
                         </div>

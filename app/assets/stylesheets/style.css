@@ -638,3 +638,76 @@ input[type=number] {
 .pink-shadow {
     box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
 }
+
+.image-form-edit {
+    max-height: 80px;
+}
+
+.transparent-border {
+    border: transparent;
+}
+
+.new-session-image {
+    max-height: 500px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.padding-header-foodtruck {
+    padding: 0 2rem;
+}
+
+.padding-profil-section-foodtruck{
+    padding: 1rem 2rem;
+}
+
+.no-borders{
+    border:0;
+}
+
+.width-30{
+    width: 30px;
+}
+
+.width-50{
+    width: 50px;
+}
+
+.checkout-section-image {
+    height: 25rem;
+    width: 30rem; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+
+.item-other-image {
+    min-height: 10rem; 
+    min-width: 15rem; 
+    object-fit: cover;
+}
+
+.dashboard-table{
+    min-height: 15rem;
+}
+
+.likes-style{
+    background-color: black; 
+    border-radius: 50%; 
+    width: 25px; 
+    height: 25px;
+}
+
+#likes-count{
+    color: white;
+}
+
+.dashboard-location-section{
+    min-height: 20em;
+}
+
+.width-image-jumbotron{
+    width: 600px;
+}
+
+.style-subscription-image{
+    width: 20rem;
+}

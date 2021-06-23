@@ -1,7 +1,7 @@
 <div class="section">
     <div class="columns is-variable is-0 is-centered is-vcentered is-multiline checkout-section">
         <div class="column has-text-centered is-6">
-            <%= image_tag(item.picture, alt:"image", style:" height: 25rem; width: 30rem; object-fit: cover; border-radius: 5px;")%>
+            <%= image_tag(item.picture, alt:"image", class:"checkout-section-image")%>
         </div>
         <div class="column is-6">
             <p class="title">
@@ -16,9 +16,9 @@
             <div class="quantity is-flex is-align-items-center mt-4">
                 <%= form_with  url: customer_cart_cart_contents_path(item: item.id) do |f| %>
                     <div class="is-flex is-align-items-center">
-                        <span class= "is-rounded button" , style= " width: 30px;", id="plus-btn"><i class="fas fa-plus"></i></span>
-                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2", style: "width: 50px", value: '1' %>
-                        <span class= "is-rounded button" , style= " width: 30px;", id="minus-btn"><i class="fas fa-minus"></i></span>
+                        <span class= "is-rounded button width-30" , id="plus-btn"><i class="fas fa-plus"></i></span>
+                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 width-50", value: '1' %>
+                        <span class= "is-rounded button width-30" , id="minus-btn"><i class="fas fa-minus"></i></span>
                     </div>
                     <div class="actions mt-4">
                         <%= f.submit "Ajouter au panier", class: "button cart-button is-rounded is-primary" %>
