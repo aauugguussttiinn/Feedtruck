@@ -31,12 +31,16 @@ class Customer < ApplicationRecord
   end
 
   def monthly_expenses
-    self.orders.map do |order|
-      if order.created_at > (Time.now - 1.month)
-        order.total_price
-      else
-        return 0
-      end
-    end.reduce(:+)
+    if self.orders.any?
+      self.orders.map do |order|
+        if order.created_at > (Time.now - 1.month)
+          order.total_price
+        else
+          return 0
+        end
+      end.reduce(:+)
+    else
+      return 0
+    end
   end
 end
