@@ -13,53 +13,46 @@
             <%=link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button is-rounded is-secondary add-food-btn is-link", style:"border: transparent;" do%>
                 <span>Ajouter un plat</span>
             <%end%>
+            </br>
         <%end%>
         
         <% foodtruck.items.each do |item| %>
-            <section class="section">
-            <div class="container">
-                <div class="columns is-variable">
-                <div class="column is-half is-offset-one-quarter is-8-tablet is-offset-2-tablet">
-                    <div class="card is-horizontal columns team-list">
-                        <div class="card-content column is-8 is-flex is-flex-direction-column team-column">
-                            <p class="title is-5 mb-2 web-color tenor">
-                                <%= item.name %>
-                            </p>
-                            <p class="subtitle is-5 mt-2 manrope">
-                                <%= sprintf "%.2f", item.price %> €                 
-                            </p>
-                            <p class="description mb-5 manrope">
-                                <%=item.description.truncate(12)%>
-                            </p>
-                            <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
-                                <%if !current_myfoodtruck_foodtruck %>
-                                    <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-rounded is-primary mr-2" do %>
-                                        <span>Voir plus</span>
-                                    <% end %>
-                                    <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button cart-button is-primary mr-2", style:"border: transparent", method:'post', remote: true do %>
-                                        <span class="icon is-small">
-                                            <%= image_tag("bag.png")%>
-                                        </span>
-                                    <% end %>
-                                <%else%>
-                                    <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button is-rounded is-primary edit-food-button" do %>
-                                        <span>Modifier</span>
-                                    <% end %>
-                                <%end%>
-                            </div>
-                        </div>
-                        <figure class="box-img cart-item image is-align-self-center">
-                            <% if item.picture.attached? %>
-                                <%= image_tag item.picture, alt: "Thumbnail [100%x225]", class: "image-fit, item-picture " %>
-                            <%else%>
-                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                            <%end%>
-                        </figure>
+            <div class="box column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items pink-shadow">
+                <div class="box-content index-items-content">             
+                    <p class="title is-5 mb-2 web-color tenor">
+                        <%= item.name %>
+                    </p>
+                    <p class="subtitle is-5 mt-2 manrope">
+                        <%= sprintf "%.2f", item.price %> €                 
+                    </p>
+                    <p class="description mb-5 manrope">
+                        <%=item.description.truncate(20)%>
+                    </p>
+                    <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
+                        <%if !current_myfoodtruck_foodtruck %>
+                            <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-rounded is-primary mr-2" do %>
+                                <span>Voir plus</span>
+                            <% end %>
+                            <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button cart-button is-primary mr-2", style:"border: transparent", method:'post', remote: true do %>
+                                <span class="icon is-small">
+                                    <%= image_tag("bag.png")%>
+                                </span>
+                            <% end %>
+                        <%else%>
+                            <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button is-rounded is-primary edit-food-button" do %>
+                                <span>Modifier</span>
+                            <% end %>
+                        <%end%>
                     </div>
                 </div>
-                </div>
+                <div class="box-content index-items-content">
+                    <% if item.picture.attached? %>
+                        <%= image_tag item.picture, alt: "Thumbnail [100%x225]", class: "menu-item-img" %>
+                    <%else%>
+                        <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                    <%end%>
+                </div>                        
             </div>
-            </section>
         <%end%>                                             
     </div>
 </div>
