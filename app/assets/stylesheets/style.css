@@ -251,7 +251,6 @@
 
 /* Content above are buttons */
 
-
 /* Content below is text color */
 
 .is-text-primary {
@@ -278,9 +277,12 @@
     color: #e31102;
 }
 
-
 /* Content above is text color */
 
+
+.select select:not([multiple]) {
+    width: 150rem !important;
+}
 
 .cart-item>.box-body>.box-img>img{
     object-fit: cover;
