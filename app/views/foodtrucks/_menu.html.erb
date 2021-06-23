@@ -9,10 +9,11 @@
                 <p class="title mb-2 mr-2 is-size-3-mobile is-size-2 ">
                     Mes plats
                 </p>
-                <%=link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button add-food-btn is-link", style:"border: transparent;" do%>
-                    <span>Rajouter un plat</span>
-                <%end%>
             </div>
+            <%=link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button is-rounded is-secondary add-food-btn is-link", style:"border: transparent;" do%>
+                <span>Ajouter un plat</span>
+            <%end%>
+            </br>
         <%end%>
         
         <% foodtruck.items.each do |item| %>
@@ -38,8 +39,8 @@
                                 </span>
                             <% end %>
                         <%else%>
-                            <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button edit-food-button" do %>
-                                <span>Modifier ce plat là</span>
+                            <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button is-rounded is-primary edit-food-button" do %>
+                                <span>Modifier</span>
                             <% end %>
                         <%end%>
                     </div>
