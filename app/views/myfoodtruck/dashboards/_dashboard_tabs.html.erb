@@ -38,7 +38,7 @@
                             </div>                
                         </div>
 
-<!-----------------------------show order foodtruck ------------------------------------------------!>
+
                        
                         <div class="modal" id="foodtruck-show-order">
                             <div class="modal-background">
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                         </div> 
-<!------------------------------show order foodtruck --------------------------------!>                           
+
                     <%end%> 
                 </div>
                 <div id="sales" class="column is-hidden">
@@ -114,50 +114,40 @@
             </div>
         </div>
 
-<!-----------------------------Likes ------------------------------------------------!>
+
         <div class="column is-5 ">
-            <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes likes pour demain</h2>
+            <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes votes sur les dernieres 24h</h2>
             <table class="table is-fullwidth" style="min-height: 15rem;">
                 <tbody>
+                
+                
+                <% i = 0  %><% j = 0  %>
+                <% until i >= 5 %>
+
                 <tr class="border-dashboard">
-                    <th class="">1.</th>
-                    <td class="">
+                    <th class="is-vcentered"><%= j+1 %>.</th>
+                    <td class="is-vcentered">
                         <div class="is-flex is-align-items-center">
-                            <i class="fas fa-thumbs-up fa-2x"></i>
-                            <div class="likes-count" style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">                           
-                                <p class="has-text-centered" id="likes-count" style="color: white;">0</p>
-                            </div>
+                            <% if @votes_ranking[i+1] != nil %>
+                                <i class="fas fa-thumbs-up fa-2x"></i>
+                                <div class="likes-count" style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
+                                    <p class="has-text-centered" id="likes-count" style="color: white;"><%= @votes_ranking[i+1] %></p>   
+                                </div>
+                            <% end %>
                         </div>
                     </td>  
-                    <td class="">Paris 20</td>
+                    <td class="is-vcentered">
+                        <% if @votes_ranking[i+1] != nil %>
+                            <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
+                        <% end %>
+                    </td>
                 </tr>
-                <tr class="border-dashboard">
-                    <th class="">2.</th>
-                    <td class="">
-                        <div class="is-flex is-align-items-center">
-                            <i class="fas fa-thumbs-up fa-2x"></i>
-                            <div class="likes-count" style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">                           
-                                <p class="has-text-centered" id="likes-count" style="color: white;">0</p>
-                            </div>
-                        </div>
-                    </td>  
-                    <td class="">Paris 12</td>
-                </tr>
-                <tr class="border-dashboard">
-                    <th class="">3.</th>
-                    <td class="">
-                        <div class="is-flex is-align-items-center">
-                            <i class="fas fa-thumbs-up fa-2x"></i>
-                            <div class="likes-count" style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">                           
-                                <p class="has-text-centered" id="likes-count" style="color: white;">0</p>
-                            </div>
-                        </div>
-                    </td>  
-                    <td class="">Paris 13</td>
-                </tr>
+                <% i += 2 %><% j += 1 %>
+                <% end %>
+
                 </tbody>
             </table>
         </div> 
-<!-----------------------------Likes ------------------------------------------------!>
+
     </div>	
 </section>
