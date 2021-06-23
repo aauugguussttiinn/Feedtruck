@@ -24,7 +24,7 @@
                                 <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
                                 </p>
                                 <div class="box-footer mt-3 mb-2">
-                                    <button  id="show-order-button", class="button show-order-button is-rounded is-pink", style= "border: transparent" >
+                                    <button  id="show-order-button", class="button show-order-button is-rounded is-primary", style= "border: transparent" >
                                         Voir plus
                                     </button>
                                 </div>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="column has-text-centered is-12">
                                         <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-pink ", style: "border: transparent" do %>
+                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary ", style: "border: transparent" do %>
                                             <span>La commande est prête</span>
                                         <% end %>       
 

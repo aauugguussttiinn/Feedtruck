@@ -32,14 +32,14 @@
                                 <% if !current_customer_has_location? %>
                                     <p>Vous devez renseigner une localisation pour pouvoir voter</p>
                                 <% elsif current_customer_has_location? && !voted_once? %>
-                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-rounded is-pink like-button", style:"border: transparent" do%>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-rounded is-primary like-button", style:"border: transparent" do%>
                                         <span class="icon is-small"><%= image_tag("like.png")%></span>
                                         <p>Viens chez moi</p>
                                     <% end %>
                                 <% elsif current_customer_has_location? && !last_vote_over_24? %>
                                     <p>Veuillez attendre 24 heures pour voter à nouveau</p>
                                 <% elsif current_customer_has_location? && last_vote_over_24? %>
-                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-primary like-button", style:"border: transparent" do%>
                                         <span class="icon is-small"><%= image_tag("like.png")%></span>
                                         <p>Viens chez moi</p>
                                     <% end %>
@@ -53,7 +53,7 @@
                     <%=link_to  edit_myfoodtruck_foodtruck_path, class:"button edit-profil-btn is-success mb-4", style:"border: transparent;" do%>
                         <span>Modifier mon profil</span>
                     <%end%>
-                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button edit-profil-btn is-pink", style:"border: transparent;"  do%>
+                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button edit-profil-btn is-primary", style:"border: transparent;"  do%>
                         <span>Editer mes identifiants</span>
                     <% end %>
                 </div>
