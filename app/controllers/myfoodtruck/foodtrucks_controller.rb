@@ -13,6 +13,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
 
   # PATCH/PUT /foodtruck/foodtrucks/1 or /foodtruck/foodtrucks/1.json
   def update
+    p myfoodtruck_foodtruck_params
     respond_to do |format|
       if @myfoodtruck_foodtruck.update(myfoodtruck_foodtruck_params)
         format.html { redirect_to @myfoodtruck_foodtruck, notice: "Foodtruck was successfully updated." }
@@ -32,8 +33,8 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def foodtruck_foodtruck_params
-      params.fetch(:myfoodtruck_foodtruck, {})
+    def myfoodtruck_foodtruck_params
+      params.require(:myfoodtruck_foodtruck).permit(:email, :password, :description, :name)
     end
 
 end
