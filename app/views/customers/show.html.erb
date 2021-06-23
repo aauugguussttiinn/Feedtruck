@@ -31,12 +31,11 @@
             </div>
             <div class="column is-5">
                 <div class="monthy-expenses box">
-                    <p class="title is-size-5"> Dépensé ce mois-ci</p>
+                    <p class="title is-size-4"> Mes dépenses de ce mois</p>
                     <p class="is-size-3">399€</p>
                 </div>
                 <div class="monthy-expenses box">
-                    <p class="title is-size-5"> Mes votes</p>
-
+                    <p class="title is-size-4"> Mes votes</p>
                     <% if !current_customer_has_location? %>
                         <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
                     <% elsif current_customer_has_location? && !voted_once? %>   
@@ -50,7 +49,7 @@
                 </div>
                 <div class="profile-my-orders box">
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
-                        <p class="title is-size-5"> Ma dernière commande</p>
+                        <p class="title is-size-4"> Ma dernière commande</p>
                         <div class="show-orders-btn pb-4">
                             <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-link is-rounded", style: "border: transparent" %>
                         </div>
@@ -70,7 +69,7 @@
                                     </p>
                                 </div>
                                 <div class="box-img is-hidden-mobile image">    
-                                    <img src="https://images.pexels.com/photos/2518078/pexels-photo-2518078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="foodtruck-img" class="foodtruck-img">                    
+                                    <img class="foodtruck-img" src="<%= rails_blob_url(current_customer.orders.last.foodtruck.pictures) %>" />                     
                                 </div>                                   
                             </div>
                         <%end%>

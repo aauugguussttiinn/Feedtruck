@@ -19,33 +19,35 @@
 <!-- ********************** Vote/like section ********************************** -->
                
                 
-            <%if !current_myfoodtruck_foodtruck %>
-                <div class="like-section column is-3">
-                    <div class="box mt-5 has-text-centered">
-                        <div class="price">
-                            <p class="title is-size-5">
-                                Je vote pour mon foodtruck préféré
-                            </p>
-                        </div>
-                        <div class="subtile py-5 is-size-6">
-                            <% if !current_customer_has_location? %>
-                                <p>Vous devez renseigner une localisation pour pouvoir voter</p>
-                            <% elsif current_customer_has_location? && !voted_once? %>   
-                                <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
-                                    <span class="icon is-small"><%= image_tag("like.png")%></span>
-                                    <p>Viens chez moi</p>
+            <% if !current_myfoodtruck_foodtruck %>
+                <% if customer_signed_in? %>
+                    <div class="like-section column is-3">
+                        <div class="box mt-5 has-text-centered">
+                            <div class="price">
+                                <p class="title is-size-5">
+                                    Je vote pour mon foodtruck préféré
+                                </p>
+                            </div>
+                            <div class="subtile py-5 is-size-6">
+                                <% if !current_customer_has_location? %>
+                                    <p>Vous devez renseigner une localisation pour pouvoir voter</p>
+                                <% elsif current_customer_has_location? && !voted_once? %>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-rounded is-pink like-button", style:"border: transparent" do%>
+                                        <span class="icon is-small"><%= image_tag("like.png")%></span>
+                                        <p>Viens chez moi</p>
+                                    <% end %>
+                                <% elsif current_customer_has_location? && !last_vote_over_24? %>
+                                    <p>Veuillez attendre 24 heures pour voter à nouveau</p>
+                                <% elsif current_customer_has_location? && last_vote_over_24? %>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                                        <span class="icon is-small"><%= image_tag("like.png")%></span>
+                                        <p>Viens chez moi</p>
+                                    <% end %>
                                 <% end %>
-                            <% elsif current_customer_has_location? && !last_vote_over_24? %>
-                                <p>Veuillez attendre 24 heures pour voter à nouveau</p>
-                            <% elsif current_customer_has_location? && last_vote_over_24? %>
-                                <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
-                                    <span class="icon is-small"><%= image_tag("like.png")%></span>
-                                    <p>Viens chez moi</p>
-                                <% end %>
-                            <% end %>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <% end %>
             <%else%>
                 <div class="edit-profil-section" , style="padding: 1rem 2rem;">
                     <%=link_to  edit_myfoodtruck_foodtruck_path, class:"button edit-profil-btn is-success mb-4", style:"border: transparent;" do%>
@@ -56,6 +58,7 @@
                     <% end %>
                 </div>
             <% end %>
+
         </div>
 
 
