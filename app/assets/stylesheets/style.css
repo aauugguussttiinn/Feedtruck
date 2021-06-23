@@ -333,6 +333,28 @@
 
 
 
+  .stripe-button-el {
+    width: 10em;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    font-weight: normal !important;
+    border-radius: 1rem !important;
+}
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1em !important;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    background-image: none !important;
+    background: #ff517f !important;
+    background-color: #ff517f !important;
+}
+
 /* Content below is for footer */
 
 html,
@@ -359,6 +381,7 @@ body > footer {
 
 
 /* Content below is only for mobile devices */
+
 
 @media screen and (max-width: 768px) {
 
