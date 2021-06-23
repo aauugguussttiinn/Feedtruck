@@ -21,10 +21,10 @@
                     </div>
                     <div class="buttons">
                         <div class="update-profile-btn mr-5">
-                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-success is-rounded", style: "border: transparent" %>
+                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-info is-rounded", style: "border: transparent" %>
                         </div>
                         <div class="update-id-btn">
-                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-pink is-rounded", style: "border: transparent" %>
+                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-warning is-rounded", style: "border: transparent" %>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
                         <p class="title is-size-4"> Ma dernière commande</p>
                         <div class="show-orders-btn pb-4">
-                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-link is-rounded", style: "border: transparent" %>
+                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded", style: "border: transparent" %>
                         </div>
                     </div>
                     <%if current_customer.orders.count > 0 %>
