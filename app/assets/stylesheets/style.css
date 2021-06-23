@@ -466,6 +466,15 @@ body > footer {
             flex-direction: column;
             align-items: center;
         }
+
+        .menu-item-img {
+            width: 7em;
+            height: 7em;
+            border-radius: 1em;
+            object-fit: cover;
+            margin-bottom: 1em;
+        }
+        
     }
       /* End of small mobile css */
   
@@ -546,4 +555,8 @@ input[type=number] {
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
+}
+
+.pink-shadow {
+    box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
 }
