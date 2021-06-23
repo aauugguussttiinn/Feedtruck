@@ -33,7 +33,7 @@
                             </p>
                             <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
                                 <%if !current_myfoodtruck_foodtruck %>
-                                    <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-pink mr-2" do %>
+                                    <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-rounded is-pink mr-2" do %>
                                         <span>Voir plus</span>
                                     <% end %>
                                     <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button cart-button is-pink mr-2", style:"border: transparent", method:'post', remote: true do %>

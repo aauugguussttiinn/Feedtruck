@@ -31,8 +31,8 @@
                             <div class="subtile py-5 is-size-6">
                                 <% if !current_customer_has_location? %>
                                     <p>Vous devez renseigner une localisation pour pouvoir voter</p>
-                                <% elsif current_customer_has_location? && !voted_once? %>   
-                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                                <% elsif current_customer_has_location? && !voted_once? %>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-rounded is-pink like-button", style:"border: transparent" do%>
                                         <span class="icon is-small"><%= image_tag("like.png")%></span>
                                         <p>Viens chez moi</p>
                                     <% end %>
