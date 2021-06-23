@@ -33,11 +33,16 @@
                             </p>
                             <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
                                 <%if !current_myfoodtruck_foodtruck %>
-                                    <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button pink-button" do %>
+                                    <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button" do %>
                                         <span>Voir plus</span>
                                     <% end %>
+                                    <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button cart-button is-pink", style:"border: transparent", method:'post', remote: true do %>
+                                        <span class="icon is-small">
+                                            <%= image_tag("bag.png")%>
+                                        </span>
+                                    <% end %>
                                 <%else%>
-                                    <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button edit-food-button pink-button" do %>
+                                    <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button edit-food-button" do %>
                                         <span>Modifier ce plat là</span>
                                     <% end %>
                                 <%end%>

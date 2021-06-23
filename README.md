@@ -6,7 +6,7 @@
   </p>
   The Hacking project is an intensive tech bootcamp that works without teacher nor school. The strength of THP is its community. Indeed, THP relies on peer-learning to pass on skills and knowledges. To know more, click on the link on the banner.
 </div>
-</br>
+</br></br>
 
 <p align="center" >
   <a href="https://feedtruck.herokuapp.com"><img src="https://github.com/aauugguussttiinn/Feedtruck/blob/readme/app/assets/images/banniere_feedtruck.png" alt="banniere_feedtruck"/></a>
@@ -41,4 +41,15 @@ It allows to develop a close relationship with the restaurant owners and to deve
 
 
 ## How to use it :
- - Go to the [FeedTruck app](https://feedtruck.herokuapp.com) and enjoy the experience
+ - In development, clone the repository on your machine, and run:
+  ```
+  bundle install
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails server
+  ```
+  
+  Then, access the app in your browser at http://localhost:3000/ 
+
+ - In production, go to the [FeedTruck app](https://feedtruck.herokuapp.com) and enjoy the experience
