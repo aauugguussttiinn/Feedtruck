@@ -34,9 +34,8 @@
                     <p class="title is-size-4"> Mes dépenses de ce mois</p>
                     <p class="is-size-3">399€</p>
                 </div>
-                                <div class="monthy-expenses box">
+                <div class="monthy-expenses box">
                     <p class="title is-size-4"> Mes votes</p>
-
                     <% if !current_customer_has_location? %>
                         <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
                     <% elsif current_customer_has_location? && !voted_once? %>   
