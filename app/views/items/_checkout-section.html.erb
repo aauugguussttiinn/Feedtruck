@@ -13,26 +13,18 @@
             <p class="price is-size-4">
             <%=item.price%>€
             </p>
-            <div class="quantity is-flex is-align-items-center">
-                <div class="mr-5">
-                    <button class="plus-btn" type="button" name="button" style="width: 30px;">
-                    <i class="fas fa-plus"></i>
-                    </button>
-                    <input type="text" name="name" value="1" class="is-normal has-text-centered" style="width: 40px; height: 25px;">
-                    <button class="minus-btn" type="button" name="button"  style="width: 30px;">
-                    <i class="fas fa-minus"></i>
-                    </button>
-                </div>
-                <%= link_to customer_cart_cart_contents_path(item: item.id), class: "button cart-button is-pink", style:"border: transparent", method:'post', remote: true do %>
-                    <span class="icon is-small">
-                    <%= image_tag("bag.png")%>
-                    </span>
-                    <span>Ajouter au panier</span>
+            <div class="quantity is-flex is-align-items-center mt-4">
+                <%= form_with  url: customer_cart_cart_contents_path(item: item.id) do |f| %>
+                    <div class="is-flex is-align-items-center">
+                        <span class= "is-rounded button" , style= " width: 30px;", id="plus-btn"><i class="fas fa-plus"></i></span>
+                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2", style: "width: 50px", value: '1' %>
+                        <span class= "is-rounded button" , style= " width: 30px;", id="minus-btn"><i class="fas fa-minus"></i></span>
+                    </div>
+                    <div class="actions mt-4">
+                        <%= f.submit "Ajouter au panier", class: "button cart-button is-pink" %>
+                    </div>
                 <% end %>
-
             </div>
-
-            
         </div>
     </div>
 
@@ -64,6 +56,4 @@
 
         </div>
     </div>
-
-
 </div>

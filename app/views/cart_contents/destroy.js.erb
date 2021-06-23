@@ -2,7 +2,6 @@ document.getElementById('<%= @cart_content.created_at %>').remove();
 document.getElementById("cart-count").innerText = "<%= current_customer.cart.items.count %>";
 document.getElementById("cart-total-price").innerText = "<%= sprintf('%.2f',  current_customer.cart.total_price) %>€";
 
-
 if (<%= current_customer.cart.items.count %> <= 1 ) {
   document.getElementById("cart-nb-article").innerText = "<%= current_customer.cart.items.count %> article";
 }

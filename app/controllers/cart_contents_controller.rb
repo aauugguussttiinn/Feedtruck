@@ -4,7 +4,7 @@ class CartContentsController < ApplicationController
   
   def create
     @item = Item.find(params[:item])
-    @cart_content = CartContent.new(cart: current_customer.cart, item: @item)
+    @cart_content = CartContent.new(cart: current_customer.cart, item: @item, item_quantity: params[:quantity])
     respond_to do |format|
       if is_from_same_foodtruck?(@cart_content) && @cart_content.save
         format.html { redirect_back fallback_location: root_path, flash: { success: "1 #{@cart_content.item.name} à bien été ajouté au panier"}}
@@ -33,7 +33,7 @@ class CartContentsController < ApplicationController
       format.js do
         if @cart_content != nil
           @cart_content.destroy
-          flash.now[:notice] = "L'item a été retiré du panier"
+            flash.now[:notice] = "L'item a été retiré du panier"
         else
           flash[:alert] = "On a un probleme Houston"
         end
