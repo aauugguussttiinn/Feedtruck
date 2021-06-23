@@ -3,7 +3,7 @@
     <div class="show-foodtruck container">
         <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;" > 
         </div>
-        <div class="foodtruck-infos columns box pt-5">
+        <div class="foodtruck-infos columns box pt-5 mt-0 ml-0 mr-0">
             <div class="header column is-9", style="padding: 0 2rem;">
                 <p class="foodtruck-name is-size-3-mobile is-size-2">
                     <%= foodtruck.name %>
@@ -13,6 +13,9 @@
                 </p>
             </div>
 
+
+
+
 <!-- ********************** Vote/like section ********************************** -->
                
                 
@@ -21,22 +24,26 @@
                     <div class="box mt-5 has-text-centered">
                         <div class="price">
                             <p class="title is-size-5">
-                                15€/personne
+                                Je vote pour mon foodtruck préféré
                             </p>
                         </div>
-                        <div class="date">
-                            <p class="subtile py-5 is-size-6">
-                                Demain le 23/04/2021
-                            </p>
+                        <div class="subtile py-5 is-size-6">
+                            <% if !current_customer_has_location? %>
+                                <p>Vous devez renseigner une localisation pour pouvoir voter</p>
+                            <% elsif current_customer_has_location? && !voted_once? %>   
+                                <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                                    <span class="icon is-small"><%= image_tag("like.png")%></span>
+                                    <p>Viens chez moi</p>
+                                <% end %>
+                            <% elsif current_customer_has_location? && !last_vote_over_24? %>
+                                <p>Veuillez attendre 24 heures pour voter à nouveau</p>
+                            <% elsif current_customer_has_location? && last_vote_over_24? %>
+                                <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                                    <span class="icon is-small"><%= image_tag("like.png")%></span>
+                                    <p>Viens chez moi</p>
+                                <% end %>
+                            <% end %>
                         </div>
-
-                    <%=link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
-                    <span class="icon is-small"><%= image_tag("like.png")%></span>
-                    <p>Viens chez moi</p>
-                    <%end%>
-
-
-
                     </div>
                 </div>
             <%else%>
@@ -46,9 +53,9 @@
                     <%end%>
                     <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button edit-profil-btn is-pink", style:"border: transparent;"  do%>
                         <span>Editer mes identifiants</span>
-                    <%end%>
+                    <% end %>
                 </div>
-            <%end%>
+            <% end %>
         </div>
 
 

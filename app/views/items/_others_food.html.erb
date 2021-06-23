@@ -17,7 +17,7 @@
                             <p class="title is-size-4"><%= food.name %></p>
                             <p class="subtitle is-size-6"><%= sprintf('%.2f', food.price) %>€</p>
                             
-                            <%= link_to customer_cart_cart_contents_path(item: food.id), class: "button cart-button mt-5 is-pink", style:"border: transparent", method:'post', remote: true do %>
+                            <%= link_to customer_cart_cart_contents_path(item: food.id, quantity: '1'), class: "button cart-button mt-5 is-pink", style:"border: transparent", method:'post', remote: true do %>
                                 <span class="icon is-small">
                                 <%= image_tag("bag.png")%>
                                 </span>
