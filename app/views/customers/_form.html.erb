@@ -27,11 +27,7 @@
             <%= f.label :location_id, "Localisation", class: "label" %>
             <div class="control">
               <div class="select">
-                <select name="location_id">
-                <% @locations.each_with_index do |location, index| %>
-                  <option value=" <%= location.id %> "><%= index + 1 %>. <%= location.adress %>, <%= location.name %></option>
-                <% end %>
-                </select>
+                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
               </div>
             </div>
           </div>
