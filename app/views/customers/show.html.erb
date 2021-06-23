@@ -39,9 +39,9 @@
                     <% if !current_customer_has_location? %>
                         <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
                     <% elsif current_customer_has_location? && !voted_once? %>   
-                        <p class="is-size-6">Vous n'avez pas encore voté. Veuillez vous rendre sur la page du food truc de votre choix et cliquer sur le bouton viens chez moi</p>
+                        <p class="is-size-6">Vous n'avez pas encore voté. Veuillez vous rendre sur la page du foodtruck de votre choix et cliquer sur le bouton viens chez moi</p>
                     <% elsif current_customer_has_location? && !last_vote_over_24? %>
-                        <p class="is-size-6">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime('%d %m %Y') %></p>
+                        <p class="is-size-6">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime("%d/%m/%Y") %></p>
                         <p class="is-size-6">Veuillez attendre 24 heures pour voter à nouveau</p>
                     <% elsif current_customer_has_location? && last_vote_over_24? %>
                         <p class="is-size-6">Vous pouvez voter à nouveau</p>
