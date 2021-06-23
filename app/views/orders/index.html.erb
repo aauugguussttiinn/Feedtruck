@@ -4,7 +4,7 @@
         <p class="title has-text-centered is-size-4-mobile py-5">
             Voici vos commandes <%= current_customer.first_name %>
         </p>
-        <% @orders.each do |order| %>          
+        <% @orders.sort.reverse.each do |order| %>          
           <div class="box column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items">
               <div class="box-content index-items-content">             
                       <p class="item-title title mb-3 mt-2">

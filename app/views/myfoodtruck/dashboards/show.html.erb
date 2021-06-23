@@ -1,92 +1,98 @@
+<%= render partial: 'header', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
+<%= render partial: 'dashboard_tabs', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
+<%= render partial: 'location', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck}%>
 
-<section class="hero is-medium">
-  <p class="title has-text-centered tenor">Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
+ 
 
-  </div>
-</section>
 
 <section class="section m-1 columns">
-  <div class="column is-7">
-    <h2 class="subtitle tenor has-text-centered">Mes commandes en cours</h2>
-      <% @orders.each do |order| %>          
-        <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
-          <div class="box-content index-items-content">             
-            <p class="item-title title mb-3 mt-2">
-              <%= order.order_contents.first.item.foodtruck.name %>
-            </p>
-            <p class="description">
-              <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
-            </p>
-            <p class="description">
-              <%= order.created_at.strftime("%d/%m/%Y") %>
-            </p>
-            <div class="box-footer mt-3 mb-2">
-              <%= link_to 'Voir plus', myfoodtruck_foodtruck_order_path(order), class: "button checkout-button is-rounded" %>
-            </div>
+    <div class="column is-7">
+      <h2 class="subtitle tenor has-text-centered">Mes commandes en cours</h2>
+        <% @orders.each do |order| %>          
+          <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
+              <div class="box-content index-items-content">             
+                      <p class="item-title title mb-3 mt-2">
+                          <%= order.order_contents.first.item.foodtruck.name %>
+                      </p>
+                      <p class="description">
+                          <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
+                      </p>
+                      <p class="description">
+                          <%= order.created_at.strftime("%d/%m/%Y") %>
+                      </p>
+                      <div class="box-footer mt-3 mb-2">
+                        <%= link_to 'Voir plus', myfoodtruck_foodtruck_order_path(order), class: "button checkout-button is-rounded" %>
+                      </div>
+              </div>
+              <div class="box-content index-items-content">
+                <% if order.order_contents.first.item.picture.attached? %>
+                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                <%else%>
+                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                <%end%>   
+              </div>                              
           </div>
-          <div class="box-content index-items-content">
-            <% if order.order_contents.first.item.picture.attached? %>
-              <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-            <%else%>
-              <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-            <%end%>   
-          </div>                              
-        </div>
-      <%end%> 
-  </div>
-  <div class="column is-5-desktop">
-    <h2 class="subtitle tenor ml-4 has-text-centered">Mes ventes</h2>
-    <div class="box">
-      <div class="box box-dashboard">
-        <div class="box-content mb-3">
+        <%end%> 
+    </div>
+    <div class="column is-5-desktop">
+      <h2 class="subtitle tenor ml-4 has-text-centered">Mes ventes</h2>
+      <div class="box">
+        <div class="box box-dashboard">
+          <div class="box-content mb-3">
             <h3 class="title tenor has-text-centered is-underlined">Aujourd'hui</h3>
-        </div>  
-        <div class="box-footer">
-          <h3 class="subtitle manrope has-text-centered">Total des ventes : 870,60€</h3>
-        </div>  
-      </div>
-      <div class="box box-dashboard">
-        <div class="box-content mb-3">
-          <h3 class="title tenor has-text-centered is-underlined">Ce mois</h3>
-        </div>  
-        <div class="box-footer">  
-          <h3 class="subtitle manrope has-text-centered">Total des ventes : 1870,60€</h3>
-        </div>  
+          </div>  
+          <div class="box-footer">
+            <h3 class="subtitle manrope has-text-centered">Total des ventes : 870,60€</h3>
+          </div>  
+        </div>
+        <div class="box box-dashboard">
+          <div class="box-content mb-3">
+            <h3 class="title tenor has-text-centered is-underlined">Ce mois</h3>
+          </div>  
+          <div class="box-footer">  
+            <h3 class="subtitle manrope has-text-centered">Total des ventes : 1870,60€</h3>
+          </div>  
+        </div>
       </div>
     </div>
-  </div>
+
+
 </section>
 
-<section class="section m-1 columns" style="min-height: 25em;">
-  
-  <div class="column is-7 ">
-    <div class="is-flex is-flex-direction-column ">
-      <h2 class="subtitle tenor ml-4 has-text-centered">Aujourd'hui vous êtes attendu à </h2>
-      <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>  
-  </div>
-  <div class="column is-5 is-12-mobile">
-    <div class="columns is-flex-direction-column is-align-items-center">
-      <h2 class="column is-12 subtitle tenor ml-4 has-text-centered">Mes likes pour demain</h2>
-      <table class="table is-fullwidth">
-        <tbody>
-          <tr class="border-dashboard">
-            <th class="">1.</th>
-            <td class=""><i class="fas fa-thumbs-up"></i></td>
-            <td class="">Paris 20</td>
-          </tr>
-          <tr class="border-dashboard">
-            <th class="">2.</th>
-            <td class=""><i class="fas fa-thumbs-up"></i></td>
-            <td class="">Paris 12</td>
-          </tr>
-          <tr class="border-dashboard">
-            <th class="">3.</th>
-            <td class=""><i class="fas fa-thumbs-up"></i></td>
-            <td class="">Paris 13</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>  
-  </div>
-</section>
+      <div class="column is-5-desktop">
+        <h2 class="subtitle tenor ml-4 has-text-centered">Mes votes sur les dernieres 24h</h2>
+        <div class="box">
+          <div class="box box-dashboard">
+            <div class="box-content mb-3">
+              <h3 class="title tenor has-text-centered is-underlined">Aujourd'hui</h3>
+            </div>  
+            <div class="box-footer">
+              <h3 class="subtitle manrope has-text-centered"><%= @number_of_votes %> votes </h3>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="column is-5-desktop">
+        <h2 class="subtitle tenor ml-4 has-text-centered">Classement des votes</h2>
+        <div class="box">
+          <div class="box box-dashboard">
+            <div class="box-content mb-3">
+            </div>  
+            <div class="box-footer">
+              <% i = 0  %>
+              <% j = 0  %>
+              <% until i >= @votes_ranking.length-1 %>
+              
+              <h3 class="subtitle manrope has-text-centered"><%= j+1 %>. <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %> - <%= @votes_ranking[i+1] %>  votes </h3>
+              <% i += 2 %><% j += 1 %>
+              <% end %>
+              
+            </div>  
+          </div>
+        </div>
+      </div>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> development

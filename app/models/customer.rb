@@ -19,6 +19,8 @@ class Customer < ApplicationRecord
   has_one :location
   has_many :orders
   has_one :cart
+  has_many :votes
+
 
   def add_cart
     self.cart = Cart.create(customer: self)
@@ -27,4 +29,5 @@ class Customer < ApplicationRecord
   def welcome_send
     CustomerMailer.welcome_email(self).deliver_now
   end
+
 end

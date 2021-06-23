@@ -6,10 +6,10 @@
             </p>
         <%else%>
             <div class="menu-foodtruck has-text-centered mb-5 is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center">
-                <<p class="title mb-2 mr-2 is-size-3-mobile is-size-2 ">
+                <p class="title mb-2 mr-2 is-size-3-mobile is-size-2 ">
                     Mes plats
                 </p>
-                <%=link_to root_path, class:"button add-food-btn is-link", style:"border: transparent;" do%>
+                <%=link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button add-food-btn is-link", style:"border: transparent;" do%>
                     <span>Rajouter un plat</span>
                 <%end%>
             </div>
@@ -38,8 +38,8 @@
                                     </span>
                                 <% end %>
                             <%else%>
-                                <%= link_to edit_foodtruck_item_path(foodtruck.id, item.id), class: "button edit-food-button" do %>
-                                    <span>Modifier ce plat</span>
+                                <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button edit-food-button" do %>
+                                    <span>Modifier ce plat là</span>
                                 <% end %>
                             <%end%>
                         </div>

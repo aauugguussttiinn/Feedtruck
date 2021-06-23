@@ -12,6 +12,10 @@
                     <%= foodtruck.description %>
                 </p>
             </div>
+
+<!-- ********************** Vote/like section ********************************** -->
+               
+                
             <%if !current_myfoodtruck_foodtruck %>
                 <div class="like-section column is-3">
                     <div class="box mt-5 has-text-centered">
@@ -25,12 +29,14 @@
                                 Demain le 23/04/2021
                             </p>
                         </div>
-                        <button class="button like-button">
-                            <span class="icon is-small">
-                            <%= image_tag("like.png")%>
-                            </span>
-                            <span>Viens chez moi</span>
-                        </button>
+
+                    <%=link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-pink like-button", style:"border: transparent" do%>
+                    <span class="icon is-small"><%= image_tag("like.png")%></span>
+                    <p>Viens chez moi</p>
+                    <%end%>
+
+
+
                     </div>
                 </div>
             <%else%>
@@ -44,6 +50,8 @@
                 </div>
             <%end%>
         </div>
+
+
     </div>
 </div>
 

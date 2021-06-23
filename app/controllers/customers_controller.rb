@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    @locations = Location.all 
   end
 
   # POST /customers
@@ -60,6 +61,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.permit(:email, :password, :location_id, :first_name, :last_name)
+      params.require(:customer).permit(:email, :password, :location_id, :first_name, :last_name)
     end
 end

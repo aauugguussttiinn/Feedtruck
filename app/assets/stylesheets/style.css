@@ -319,7 +319,41 @@
     object-fit: cover;
 }
 
+.foodtruck-cover {
+    height: 10em;
+    
+    
+}
 
+.footruck-picture {
+    object-fit: cover;
+    max-height: 100%;
+    width: 100%;
+}
+
+
+
+  .stripe-button-el {
+    width: 10em;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    font-weight: normal !important;
+    border-radius: 1rem !important;
+}
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1em !important;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    background-image: none !important;
+    background: #ff517f !important;
+    background-color: #ff517f !important;
+}
 
 /* Content below is for footer */
 
@@ -343,11 +377,18 @@ body > footer {
   font-family: 'Manrope', sans-serif;
 }
 
+/* Content below is only for tablet devices */
+
+
 /* Content below is only for mobile devices */
 
+
 @media screen and (max-width: 768px) {
+
+    
     .footer-column {
-        align-items: left;
+        align-items: center;
+        text-align: center;
     }
 
     .footer-picture {
@@ -479,4 +520,13 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.dashboard-header{
+    width: 100%;
+    height: 100%;
+    @include background-image();
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
 }

@@ -2,7 +2,7 @@
   <div class="column is-half is-offset-one-quarter">
     <h2 class="title has-text-centered">Editez votre identité</h2>
 
-      <%= form_with url: customer_path(@customers), method: "patch", local: true do |f| %>
+      <%= form_with(model: customer, local: true) do |f| %>
           <div class="field mx-5 my-3">
             <%= f.label :first_name, "Prénom", class: "label" %>
             <div class="control has-icons-left my-3">
@@ -22,6 +22,16 @@
               </span>
              </div> 
           </div>
+
+          <div class="field mx-5 my-3">
+            <%= f.label :location_id, "Localisation", class: "label" %>
+            <div class="control">
+              <div class="select">
+                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
+              </div>
+            </div>
+          </div>
+
         <div class="is-flex is-justify-content-center my-5">
           <%= f.submit "Mettre à jour", class: "button is-pink is-rounded"%>
         </div>
