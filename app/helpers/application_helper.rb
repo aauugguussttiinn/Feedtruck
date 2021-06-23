@@ -16,4 +16,11 @@ module ApplicationHelper
       end
     end
   end
+
+  def not_logged_in?
+    if customer_signed_in? || myfoodtruck_foodtruck_signed_in?
+      redirect_back fallback_location: root_path
+      flash[:alert] = "Vous devez vous déconnecter de votre compte actuel avant de continuer"
+    end
+  end
 end
