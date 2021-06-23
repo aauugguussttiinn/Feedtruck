@@ -11,7 +11,7 @@
             <%=item.description%>
             </p>
             <p class="price is-size-4">
-            <%=item.price%>€
+            <%= sprintf('%.2f',  item.price) %>€
             </p>
             <div class="quantity is-flex is-align-items-center">
                 <div class="mr-5">
