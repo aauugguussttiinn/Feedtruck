@@ -251,6 +251,39 @@
 
 /* Content above are buttons */
 
+/* Content below is text color */
+
+.is-text-primary {
+    color: #ff3068;
+}
+
+.is-text-secondary {
+    color: #D1BCE3;
+}
+
+.is-text-info {
+    color: #4C86A8;
+}
+
+.is-text-success {
+    color: #7DDE92;
+}
+
+.is-text-warning {
+    color: #ffc914;
+}
+
+.is-text-danger {
+    color: #e31102;
+}
+
+/* Content above is text color */
+
+
+.select select:not([multiple]) {
+    width: 150rem !important;
+}
+
 .cart-item>.box-body>.box-img>img{
     object-fit: cover;
     height: 5rem;
