@@ -82,7 +82,6 @@
     border: transparent;
     font-family: 'Manrope', sans-serif;
     font-size: 15px;
-
 }
 
 
@@ -355,6 +354,14 @@
     background-color: #ff517f !important;
 }
 
+.pink-button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+}
+
 /* Content below is for footer */
 
 html,
@@ -377,7 +384,13 @@ body > footer {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Content below is only for tablet devices */
+
+.item-picture {
+    object-fit: cover;
+    border-radius: 0.5rem;
+    max-height: 10rem;
+    height: 100%;
+}
 
 
 /* Content below is only for mobile devices */
