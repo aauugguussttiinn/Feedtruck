@@ -82,7 +82,6 @@
     border: transparent;
     font-family: 'Manrope', sans-serif;
     font-size: 15px;
-
 }
 
 
@@ -353,6 +352,14 @@
     background-image: none !important;
     background: #ff517f !important;
     background-color: #ff517f !important;
+}
+
+.pink-button{
+    background-color:#ff3068;
+    color: white;
+    border: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
 }
 
 /* Content below is for footer */
