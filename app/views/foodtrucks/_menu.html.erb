@@ -25,7 +25,7 @@
                             <%= sprintf "%.2f", item.price %><span> €</span>
                         </p>
                         <p class="description mb-5">
-                            <%= item.description.truncate_words(6)%>
+                            <%= item.description.truncate(12)%>
                         </p>
                         <div class="box-footer">
                             <%if !current_myfoodtruck_foodtruck %>
