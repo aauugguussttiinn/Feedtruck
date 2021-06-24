@@ -38,10 +38,13 @@ class Myfoodtruck::OrdersController < ApplicationController
   # PATCH/PUT /foodtruck/orders/1 or /foodtruck/orders/1.json
   def update
 
+    if @foodtruck_order.is_ready != true
+      @foodtruck_order.update(is_ready: true)
+    end
 
     respond_to do |format|
       if @foodtruck_order.update(foodtruck_order_params)
-        format.html { redirect_to @foodtruck_order, notice: "Order was successfully updated." }
+        format.html { redirect_to root_path, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @foodtruck_order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,6 +70,6 @@ class Myfoodtruck::OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def foodtruck_order_params
-      params.fetch(:foodtruck_order, {})
+      params.permit(:id, :is_ready)
     end
 end
