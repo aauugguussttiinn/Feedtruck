@@ -20,8 +20,15 @@
               <span class="icon is-small is-left">
                 <i class="fas fa-child icon-primary-color"></i>
               </span>
-             </div> 
+            </div>
+            <%= f.label :location_id, "Localisation", class: "label" %>
+            <div class="control">
+              <div class="select">
+                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
+              </div>
+            </div>
           </div>
+
 
           <div class="file mx-5 my-1 is-flex is-flex-direction-column">
             <%= f.label :pictures, "Image", class: "label my-0" %><br/>

@@ -8,6 +8,7 @@ class Myfoodtruck::FoodtrucksController < ApplicationController
 
   # GET /foodtruck/foodtrucks/1/edit
   def edit
+    @locations = Location.all
   end
 
 
