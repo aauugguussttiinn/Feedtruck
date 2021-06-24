@@ -23,7 +23,7 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # POST /foodtruck/items or /foodtruck/items.json
   def create
-    @foodtruck_item = Item.new(foodtruck_item_params).picture.attach(:picture)
+    @foodtruck_item = Item.new(foodtruck_item_params)
 
     respond_to do |format|
       if @foodtruck_item.save
