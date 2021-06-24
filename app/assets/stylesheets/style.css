@@ -42,7 +42,7 @@ body {
 /* $$$$$$$$$$$$$$$$$$$$ Content BELOW is buttons $$$$$$$$$$$$$$$$$$$$ */
 
 .is-primary {
-    color : white !important;
+    color : #ffffff !important;
     background-color: #ff3068 !important;
     border: transparent !important;
 }
@@ -78,7 +78,7 @@ body {
 }
 
 .is-primary:hover{
-    color : #330a15 !important;
+    color : #ffffff !important;
     background-color: #cc2653 !important;
     border: transparent !important;
 }
@@ -90,7 +90,7 @@ body {
 }
 
 .is-info:hover{
-    color : #0f1b22 !important;
+    color : #ffffff !important;
     background-color: #3d6b86 !important;
     border: transparent !important;
 }
@@ -122,6 +122,46 @@ body {
     height: 2rem;
     padding: 0.5rem;
 }
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+.stripe-button-el {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+    
+}
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    box-shadow: none !important;
+}
+
+.stripe-button-el:hover {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #cc2653 !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+    
+}
+
+.stripe-button-el span:hover {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #cc2653 !important;
+    box-shadow: none !important;
+}
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
@@ -162,6 +202,7 @@ body {
 .is-text-darker {
     color: #0b0b0b;
 }
+
 .is-text-white {
     color: #ffffff;
 }
@@ -293,33 +334,6 @@ body {
     }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of small mobile css $$$$$$$$$$$$$$$$$$$$ */
-
-
-
-
-
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
-
-.stripe-button-el {
-    width: 16.5em;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    border-radius: 2rem !important;
-    height: 2.5rem;
-    
-}
-
-.stripe-button-el span {
-    font-family: 'Manrope', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    font-weight: normal !important;
-    font-size: 1rem !important;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    box-shadow: none !important;
-}
-
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
 
 
 
