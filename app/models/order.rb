@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   after_save :transfer_from_cart
   after_save :order_send
-  after_commit :order_ready_send
+  after_update :order_ready_send
 
   belongs_to :customer
   belongs_to :foodtruck
