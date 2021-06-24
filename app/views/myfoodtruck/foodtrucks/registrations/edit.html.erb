@@ -54,14 +54,14 @@
       </div>
 
       <div class="actions is-flex is-justify-content-center my-4">
-        <%= f.submit "Valider", class: "button is-success is-rounded mx-3"%>
-        <%= link_to "Retour", :back, class:"button is-secondary is-rounded mx-3" %>
+        <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-3"%>
+        <%= link_to "Retour", :back, class:"button is-secondary is-rounded is-normalest-btn mx-3" %>
       </div>
       
     <% end %>
     <div class="has-text-centered my-6">
       <h3 class="title is-5">Si vraiment vous voulez nous quitter ...</h3>
-      <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "button is-danger is-rounded is-largest my-2", data: { confirm: "Etes vous sur ?" }, method: :delete %>
+      <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "button is-danger is-rounded is-largest-btn my-2", data: { confirm: "Etes vous sur ?" }, method: :delete %>
     </div>
 
   </div>

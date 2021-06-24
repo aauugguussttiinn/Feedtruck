@@ -128,11 +128,11 @@ body {
     border: transparent !important;
 }
 
-.is-largest {
+.is-largest-btn {
     min-width: 15rem !important;
 }
 
-.is-normalest {
+.is-normalest-btn {
     mind-width: 10rem !important;
 }
 
