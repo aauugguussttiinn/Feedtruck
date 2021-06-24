@@ -12,9 +12,7 @@
   <tbody>
     <% @foodtruck_foodtrucks.each do |foodtruck_foodtruck| %>
       <tr>
-        <td><%= link_to 'Show', foodtruck_foodtruck %></td>
-        <td><%= link_to 'Edit', edit_foodtruck_foodtruck_path(foodtruck_foodtruck) %></td>
-        <td><%= link_to 'Destroy', foodtruck_foodtruck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
