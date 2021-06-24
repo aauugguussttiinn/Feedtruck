@@ -344,7 +344,6 @@ body {
 .banner-img {
     width: 100%;
     height: 100%;
-    @include background-image();
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
@@ -528,7 +527,6 @@ input[type=number] {
 .dashboard-header{
     width: 100%;
     height: 100%;
-    @include background-image();
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;

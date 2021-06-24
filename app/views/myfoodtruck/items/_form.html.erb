@@ -25,19 +25,32 @@
           <div class="field mx-5 my-3">
             <%= f.label :price, "Prix", class: "label" %>
             <div class="control has-icons-left my-3">
-              <%= f.text_field :price, autofocus: true, class: "input", placeholder: "Description" %>
+              <%= f.text_field :price, autofocus: true, class: "input", placeholder: "Prix" %>
               <span class="icon is-small is-left">
                 <i class="fas fa-child icon-primary-color"></i>
               </span>
-             </div> 
+            </div> 
           </div>
+          <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+            <%= f.label :picture, "Image", class: "label my-0" %><br/>
+            <div class="column columns">
+              <label class="button is-primary is-rounded">
+              Ajoutez une image
+              <span style="display:none;">
+                <%= f.file_field :picture, class: ""%>
+              </span>
+            </label>
+            </div> 
+          </div>
+
+
 
         <div class="is-flex is-justify-content-center my-5">
           <%= f.submit "Mettre à jour", class: "button is-primary is-rounded"%>
         </div>
 
         <div class="pt-4 has-text-centered">
-          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path %>
+          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path, class: "button is-primary is-rounded" %>
         </div> 
       <% end %>
   </div>
