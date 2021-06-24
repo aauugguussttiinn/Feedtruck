@@ -31,14 +31,7 @@
                                     <button class="button is-rounded is-primary" id="show-order-button">
                                         Voir plus
                                     </button>
-                                </div>
-                                <div class="box-content index-items-content">
-                                    <% if order.order_contents.first.item.picture.attached? %>
-                                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-                                    <%else%>
-                                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-                                    <%end%>   
-                                </div>                
+                                </div>             
                             </div>
                             <div class="box-content index-items-content">
                                 <% if order.order_contents.first.item.picture.attached? %>
