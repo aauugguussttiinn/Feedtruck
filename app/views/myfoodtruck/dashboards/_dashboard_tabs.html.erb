@@ -13,27 +13,24 @@
             </div>
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
-                    <% if current_myfoodtruck_foodtruck.orders.empty? %>
-                        <h2 class="title is-2 is-size-3-mobile is-text-primary">Vous n'avez pas encore de commandes</h2>
-                    <% else %>
-                        <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes</h2>
-                        <% @orders.sort.reverse.each do |order| %>        
-                            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
-                                <div class="box-content index-items-content">             
-                                    <p class="item-title title is-3 mb-3 mt-2 is-text-info">
-                                        Commande #<%= order.id %>
-                                    </p>
-                                    <p class="description subtitle is-5 m-0">
-                                        <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
-                                    </p>
-                                    <p class="description subtitle is-5 m-0">
-                                        Payé: <%= sprintf "%.2f", order.total_price %> €
-                                    </p>
-                                    <div class="mt-3 mb-2">
-                                        <button class="button is-rounded is-primary" id="show-order-button">
-                                            Voir plus
-                                        </button>
-                                    </div>
+                    <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes en cours</h2>
+                    <% @orders.sort.reverse.each do |order| %>  
+                        <% if order.is_ready == false %>      
+                        <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
+                            <div class="box-content index-items-content">             
+                                <p class="item-title title is-3 mb-3 mt-2 is-text-info">
+                                    Commande #<%= order.id %>
+                                </p>
+                                <p class="description subtitle is-5 m-0">
+                                    <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
+                                </p>
+                                <p class="description subtitle is-5 m-0">
+                                    Payé: <%= sprintf "%.2f", order.total_price %> €
+                                </p>
+                                <div class="mt-3 mb-2">
+                                    <button class="button is-rounded is-primary" id="show-order-button">
+                                        Voir plus
+                                    </button>
                                 </div>
                                 <div class="box-content index-items-content">
                                     <% if order.order_contents.first.item.picture.attached? %>
@@ -43,10 +40,22 @@
                                     <%end%>   
                                 </div>                
                             </div>
-                            <div class="modal" id="foodtruck-show-order">
-                                <div class="modal-background">
-                                </div>
-                                <div class="modal-content has-background-white py-5 px-5">
+                            <div class="box-content index-items-content">
+                                <% if order.order_contents.first.item.picture.attached? %>
+                                <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                                <%else%>
+                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                                <%end%>   
+                            </div>                
+                        </div>
+                         
+
+
+                       
+                        <div class="modal" id="foodtruck-show-order">
+                            <div class="modal-background">
+                            </div>
+                            <div class="modal-content has-background-white py-5 px-5">
 
                                     <div class="columns is-centered is-multiline " >   
                                         <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
@@ -78,19 +87,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <%end%> 
-                                        </div>
-                                        <div class="column has-text-centered is-12">
-                                            <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                            <%= link_to myfoodtruck_dashboard_path, class: "button order-ready-button is-rounded is-primary " do %>
-                                                La commande est prête
-                                            <% end %>       
-                                        </div>
+                                            </div>
+                                        <%end%> 
+                                    </div>
+                                    <div class="column has-text-centered is-12">
+                                        <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
+                                        
+                                        <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary " do %>
+                                            La commande est prête
+                                        <% end %>           
+
                                     </div>
                                 </div>
-                            </div> 
-                        <%end%>
-                    <% end %> 
+                            </div>
+                        </div> 
+                        <% end %>   
+                    <%end%> 
                 </div>
                 <div id="sales" class="column is-hidden p-0">
                     <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes ventes</h2>
