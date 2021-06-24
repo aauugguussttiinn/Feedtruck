@@ -16,12 +16,9 @@ window.addEventListener('turbolinks:load', () => {
                 else{
                     box.classList.add('is-hidden');
                 }
-        
-            
             })
         });
     });
-
 })
 
 //show order dashboard foodtruck
@@ -47,21 +44,8 @@ window.addEventListener('turbolinks:load', () => {
                     mdl.classList.remove('is-active')
                     
                     });
-
                 });
-
             });
-
         });
-
     });
-
-
-         
-
-
-
 })
-
-
-

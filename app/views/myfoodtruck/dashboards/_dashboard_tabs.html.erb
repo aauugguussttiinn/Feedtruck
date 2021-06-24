@@ -1,6 +1,6 @@
 <section class="section">
-    <div class="columns">
-        <div class="column is-7  box">
+    <div class="columns is-justify-content-space-around">
+        <div class="column is-7 box m-2">
             <div class="tabs dashboard-tabs is-boxed">
                 <ul>
                     <li class="is-active" data-to_select="orders">
@@ -13,89 +13,91 @@
             </div>
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
-                    <h2 class="title is-size-3-mobile is-text-primary">Mes commandes</h2>
-                    <% @orders.sort.reverse.each do |order| %>        
-                        <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
-                            <div class="box-content index-items-content">             
-                                <p class="item-title title is-size-5 mb-3 mt-2">
-                                <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
-                                </p>
-                                <p class="description subtitle mt-2">
-                                <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
-                                </p>
-                                <div class="mt-3 mb-2">
-                                    <button class="button is-rounded is-primary">
-                                        Voir plus
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="box-content index-items-content">
-                                <% if order.order_contents.first.item.picture.attached? %>
-                                <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-                                <%else%>
-                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-                                <%end%>   
-                            </div>                
-                        </div>
-
-
-                       
-                        <div class="modal" id="foodtruck-show-order">
-                            <div class="modal-background">
-                            </div>
-                            <div class="modal-content has-background-white py-5 px-5">
-
-                                <div class="columns is-centered is-multiline " >   
-                                    <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
-                                        <p class="title is-size-4">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
-                                        <p class="subtitle">Par <%= order.customer.first_name %></p>
-                                        <% order.order_contents.each do |content| %>
-                                            <div class=" my-order-item box column is-12 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
-                                                <div class="box-body my-2 is-flex is-align-items-center is-flex-wrap-wrap">
-                                                    <figure class="box-img image pb-2 mr-5">
-                                                        <%if content.item.picture.attached?%>
-                                                            <%= image_tag content.item.picture %>
-                                                        <%else%>
-                                                            <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                                                        <%end%>    
-                                                    </figure>
-                                                    <div class="box-content mr-5">             
-                                                        <p class="item-title title is-size-5">
-                                                            <%=content.item.name%>
-                                                        </p>
-                                                        <p class="item-price subtitle">
-                                                            <%=sprintf "%.2f", content.item.price%>€
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="is-flex my-2 is-align-items-center">
-                                                    <div class="quantity has-text-centered mr-5">
-                                                        <p class="title mb-1 is-size-6">Quantité</p>
-                                                        <p class="button is-outlined"><%= content.item_quantity %></p>  
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <%end%> 
-                                    </div>
-                                    <div class="column has-text-centered is-12">
-                                        <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary " do %>
-                                            <span>La commande est prête</span>
-                                        <% end %>       
-
+                    <% if current_myfoodtruck_foodtruck.orders.empty? %>
+                        <h2 class="title is-2 is-size-3-mobile is-text-primary">Vous n'avez pas encore de commandes</h2>
+                    <% else %>
+                        <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes</h2>
+                        <% @orders.sort.reverse.each do |order| %>        
+                            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
+                                <div class="box-content index-items-content">             
+                                    <p class="item-title title is-3 mb-3 mt-2 is-text-info">
+                                        Commande #<%= order.id %>
+                                    </p>
+                                    <p class="description subtitle is-5 m-0">
+                                        <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
+                                    </p>
+                                    <p class="description subtitle is-5 m-0">
+                                        Payé: <%= sprintf "%.2f", order.total_price %> €
+                                    </p>
+                                    <div class="mt-3 mb-2">
+                                        <button class="button is-rounded is-primary" id="show-order-button">
+                                            Voir plus
+                                        </button>
                                     </div>
                                 </div>
+                                <div class="box-content index-items-content">
+                                    <% if order.order_contents.first.item.picture.attached? %>
+                                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                                    <%else%>
+                                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                                    <%end%>   
+                                </div>                
                             </div>
-                        </div> 
+                            <div class="modal" id="foodtruck-show-order">
+                                <div class="modal-background">
+                                </div>
+                                <div class="modal-content has-background-white py-5 px-5">
 
-                    <%end%> 
+                                    <div class="columns is-centered is-multiline " >   
+                                        <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
+                                            <p class="title is-size-4">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
+                                            <p class="subtitle">Par <%= order.customer.first_name %></p>
+                                            <% order.order_contents.each do |content| %>
+                                                <div class=" my-order-item box column is-12 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                                                    <div class="box-body my-2 is-flex is-align-items-center is-flex-wrap-wrap">
+                                                        <figure class="box-img image pb-2 mr-5">
+                                                            <%if content.item.picture.attached?%>
+                                                                <%= image_tag content.item.picture %>
+                                                            <%else%>
+                                                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                                                            <%end%>    
+                                                        </figure>
+                                                        <div class="box-content mr-5">             
+                                                            <p class="item-title title is-size-5">
+                                                                <%=content.item.name%>
+                                                            </p>
+                                                            <p class="item-price subtitle">
+                                                                <%=sprintf "%.2f", content.item.price%>€
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="is-flex my-2 is-align-items-center">
+                                                        <div class="quantity has-text-centered mr-5">
+                                                            <p class="title mb-1 is-size-6">Quantité</p>
+                                                            <p class="button is-outlined"><%= content.item_quantity %></p>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <%end%> 
+                                        </div>
+                                        <div class="column has-text-centered is-12">
+                                            <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
+                                            <%= link_to myfoodtruck_dashboard_path, class: "button order-ready-button is-rounded is-primary " do %>
+                                                La commande est prête
+                                            <% end %>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%>
+                    <% end %> 
                 </div>
-                <div id="sales" class="column is-hidden">
-                    <h2 class="title is-size-3-mobile is-text-primary">Mes ventes</h2>
-                    <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+                <div id="sales" class="column is-hidden p-0">
+                    <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes ventes</h2>
+                    <div class="is-flex is-justify-content-space-around is-flex-wrap-wrap">
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Aujourd'hui</h3>
+                                <h3 class="title is-size-4-mobile is-text-info">Aujourd'hui</h3>
                             </div>  
                             <div>
                                 <h3 class="subtitle">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_day) %>€</h3>
@@ -103,7 +105,7 @@
                         </div>
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Ce mois</h3>
+                                <h3 class="title is-size-4-mobile is-text-info">Ce mois</h3>
                             </div>  
                             <div>  
                                 <h3 class="subtitle">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_month) %>€</h3>
@@ -115,38 +117,34 @@
         </div>
 
 
-        <div class="column is-5 ">
-            <h2 class="title is-size-4 ml-4 has-text-centered is-text-primary">Mes votes sur les dernieres 24h</h2>
-            <table class="table is-fullwidth dashboard-table">
-                <tbody>
-                
-                
-                <% i = 0  %><% j = 0  %>
-                <% until i >= 5 %>
+        <div class="column is-4 panel m-2 p-0">
 
-                <tr class="border-dashboard">
-                    <th class="is-vcentered"><%= j+1 %>.</th>
-                    <td class="is-vcentered">
-                        <div class="is-flex is-align-items-center">
-                            <% if @votes_ranking[i+1] != nil %>
+                <p class="panel-heading title has-text-centered is-primary mb-0">
+                    Mes votes sur les dernières 24h
+                </p>
+                <% i = 0  %><% j = 0  %>
+                <% until i >= 5 %> 
+                    <div class="panel-block">                  
+                        <p class="is-size-5 pt-3 mr-2">
+                            <%= j+1 %>.                      
+                        </p>
+                        <% if @votes_ranking[i+1] != nil %>                        
+                            <div class="is-flex is-align-items-center mr-5">
                                 <i class="fas fa-thumbs-up fa-2x"></i>
                                 <div class="likes-count likes-style">
                                     <p class="has-text-centered" id="likes-count"><%= @votes_ranking[i+1] %></p>   
-                                </div>
-                            <% end %>
-                        </div>
-                    </td>  
-                    <td class="is-vcentered">
-                        <% if @votes_ranking[i+1] != nil %>
-                            <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
-                        <% end %>
-                    </td>
-                </tr>
+                                </div>       
+                            </div>
+                            <p>
+                                <% if @votes_ranking[i+1] != nil %>
+                                    <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
+                                <% end %>                       
+                            </p>
+                        <%end%>
+                    </div>
                 <% i += 2 %><% j += 1 %>
                 <% end %>
 
-                </tbody>
-            </table>
         </div> 
 
     </div>	

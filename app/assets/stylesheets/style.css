@@ -155,8 +155,15 @@ body {
     color: #ff0000;
 }
 
-.is-text-black {
+.is-text-dark {
+    color: #4a4a4a;
+}
+
+.is-text-darker {
     color: #0b0b0b;
+}
+.is-text-white {
+    color: #ffffff;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is text color $$$$$$$$$$$$$$$$$$$$ */
@@ -587,4 +594,20 @@ input[type=number] {
 
 .style-subscription-image{
     width: 20rem;
+}
+
+.foodtruck-index-header{
+    background-image: url("https://images.pexels.com/photos/1308940/pexels-photo-1308940.jpeg?cs=srgb&dl=pexels-chris-molloy-1308940.jpg&fm=jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20rem;
+    
+}
+
+.foodtruck-index-header>.jumbotron-body{
+    margin-top: 5rem;
+}
+.foodtruck-search-bar{
+    width: 12rem;
 }

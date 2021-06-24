@@ -1,8 +1,12 @@
 
 <div class="section">
     <div class="show-foodtruck container">
-        <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;" > 
-        </div>
+
+        <% if foodtruck.pictures.attached? %>
+            <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;" >
+            </div>
+        <% end %>
+
         <div class="foodtruck-infos columns box pt-5 mt-0 ml-0 mr-0">
             <div class="header column is-9 padding-header-foodtruck">
                 <p class="foodtruck-name is-text-primary title is-size-3-mobile is-size-2">
@@ -50,11 +54,11 @@
                 <% end %>
             <%else%>
                 <div class="edit-profil-section padding-profil-section-foodtruck">
-                    <%=link_to  edit_myfoodtruck_foodtruck_path, class:"button is-rounded edit-profil-btn is-success mb-4" do%>
+                    <%=link_to edit_myfoodtruck_foodtruck_path, class:"button is-rounded edit-profil-btn is-success mb-4" do%>
                         <span>Modifier mon profil</span>
                     <%end%>
                     <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button is-rounded edit-profil-btn is-primary" do%>
-                        <span>Editer mes identifiants</span>
+                        <span>Éditer mes identifiants</span>
                     <% end %>
                 </div>
             <% end %>

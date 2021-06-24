@@ -1,6 +1,6 @@
 <div class="columns mt-6">
   <div class="column is-half is-offset-one-quarter">
-    <h2 class="title has-text-centered">Editez votre identité</h2>
+    <h2 class="title has-text-centered">Modifier votre profil</h2>
 
       <%= form_with(model: foodtruck, local: true) do |f| %>
           <div class="field mx-5 my-3">
@@ -22,12 +22,12 @@
               </span>
              </div> 
           </div>
-        <div class="is-flex is-justify-content-center my-5">
-          <%= f.submit "Mettre à jour", class: "button is-primary is-rounded"%>
+        <div class="is-flex is-justify-content-center mt-5">
+          <%= f.submit "Mettre à jour", class: "button is-success is-rounded" %>
         </div>
 
         <div class="pt-4 has-text-centered">
-          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path %>
+          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path, class: "button is-primary is-rounded" %>
         </div> 
       <% end %>
   </div>
