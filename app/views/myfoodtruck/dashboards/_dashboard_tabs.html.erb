@@ -13,15 +13,18 @@
             </div>
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
-                    <h2 class="title is-size-3-mobile is-text-primary">Mes commandes</h2>
+                    <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes en cours</h2>
                     <% @orders.sort.reverse.each do |order| %>        
                         <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
                             <div class="box-content index-items-content">             
-                                <p class="item-title title is-size-5 mb-3 mt-2">
-                                <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
+                                <p class="item-title title is-3 mb-3 mt-2 is-text-info">
+                                    Commande #<%= order.id %>
                                 </p>
-                                <p class="description subtitle mt-2">
-                                <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
+                                <p class="description subtitle is-5 m-0">
+                                    <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
+                                </p>
+                                <p class="description subtitle is-5 m-0">
+                                    Payé: <%= sprintf "%.2f", order.total_price %> €
                                 </p>
                                 <div class="mt-3 mb-2">
                                     <button class="button is-rounded is-primary" id="show-order-button">
@@ -80,7 +83,7 @@
                                     <div class="column has-text-centered is-12">
                                         <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
                                         <%= link_to root_path, class: "button order-ready-button is-rounded is-primary " do %>
-                                            <span>La commande est prête</span>
+                                            La commande est prête
                                         <% end %>       
 
                                     </div>
@@ -91,11 +94,11 @@
                     <%end%> 
                 </div>
                 <div id="sales" class="column is-hidden">
-                    <h2 class="title is-size-3-mobile is-text-primary">Mes ventes</h2>
+                    <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes ventes</h2>
                     <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Aujourd'hui</h3>
+                                <h3 class="title is-size-4-mobile is-text-info">Aujourd'hui</h3>
                             </div>  
                             <div>
                                 <h3 class="subtitle">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_day) %>€</h3>
@@ -103,7 +106,7 @@
                         </div>
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Ce mois</h3>
+                                <h3 class="title is-size-4-mobile is-text-info">Ce mois</h3>
                             </div>  
                             <div>  
                                 <h3 class="subtitle">Total des ventes : <%= sprintf('%.2f', current_myfoodtruck_foodtruck.total_price_orders_current_month) %>€</h3>
