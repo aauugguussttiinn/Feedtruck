@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="column has-text-centered is-12">
                                         <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary " do %>
+                                        <%= link_to myfoodtruck_dashboard_path, class: "button order-ready-button is-rounded is-primary " do %>
                                             La commande est prête
                                         <% end %>       
 
