@@ -2,29 +2,37 @@
 <div class="section">
     <div class="container grid-list-display">
         <% foodtrucks.each do |foodtruck| %>
-            <%= link_to foodtruck_path(foodtruck.id) do %>
-            <div class="card index-card">
-                <div class="card-image foodtruck-cover">
-                    <% if foodtruck.pictures.attached? %>
-                        <%= image_tag foodtruck.pictures, alt: "Thumbnail [100%x225]", class:"footruck-picture" %>
-                    <%else%>
-                        <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                    <%end%>
-                </div>       
-                <div class="card-content">                    
-                    <div class="card-media is-flex is-align-items-center ">                        
-                        <div class="foodtruck-banner">
-                            <figure class="image is-48x48">
-                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                            </figure>
-                        </div>               
-                        <div class="foodtruck-info ml-5">
-                            <p class="title is-size-5"><%= foodtruck.name %></p>
-                        </div>
-                    </div>      
-                </div>                
-            </div>
-            <%end%> 
+
+            <% if foodtruck.name != nil && foodtruck.description != nil && foodtruck.location_id != nil && foodtruck.pictures.attached? %>
+        
+
+
+
+
+                <%= link_to foodtruck_path(foodtruck.id) do %>
+                <div class="card index-card">
+                    <div class="card-image foodtruck-cover">
+                        <% if foodtruck.pictures.attached? %>
+                            <%= image_tag foodtruck.pictures, alt: "Thumbnail [100%x225]", class:"footruck-picture" %>
+                        <%else%>
+                            <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                        <%end%>
+                    </div>       
+                    <div class="card-content">                    
+                        <div class="card-media is-flex is-align-items-center ">                        
+                            <div class="foodtruck-banner">
+                                <figure class="image is-48x48">
+                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                </figure>
+                            </div>               
+                            <div class="foodtruck-info ml-5">
+                                <p class="title is-size-5"><%= foodtruck.name %></p>
+                            </div>
+                        </div>      
+                    </div>                
+                </div>
+                <%end%> 
+            <% end %>
         <%end%>             
     </div>
 </div>
