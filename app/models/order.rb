@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   after_save :transfer_from_cart
   after_save :order_send
+  after_update :order_ready_send
 
   belongs_to :customer
   belongs_to :foodtruck
@@ -9,8 +10,14 @@ class Order < ApplicationRecord
 
 
   def order_send
-    CustomerMailer.order_email(self.customer).deliver_now
-    FoodtruckMailer.order_email(self.foodtruck).deliver_now
+    if self.is_ready == false
+      CustomerMailer.order_email(self.customer).deliver_now
+      FoodtruckMailer.order_email(self.foodtruck).deliver_now
+    end
+  end
+
+  def order_ready_send
+    CustomerMailer.order_ready_email(self.customer).deliver_now
   end
 
   def total_price

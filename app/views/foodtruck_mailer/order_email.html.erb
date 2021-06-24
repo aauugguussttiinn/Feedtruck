@@ -1,7 +1,7 @@
 
 <p>Cher partenaire !</p>
 </br>
-<p>Vous avez reçu une nouvelle commande.</p>
+<p>Vous avez reçu une nouvelle commande. Il s'agit de la commande #<%= @order.id %>.</p>
 <p>Voici le contenu de la commande :</p>
 <ul>
   <% @order_contents.map do |order_content| %>
