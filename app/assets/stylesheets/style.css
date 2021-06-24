@@ -22,6 +22,21 @@ body {
 
 
 
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
+
+.nav-cart-button {
+    background-color: black;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
 
 .hero-body{
@@ -241,20 +256,25 @@ body {
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for form styling $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for icon styling $$$$$$$$$$$$$$$$$$$$ */
 
 .icon-primary-color {
-    color: #ff3068;
-  }
-  .icon-color {
-      color: #00C4A7;
-  }
-  
-  .select select:not([multiple]) {
-      width: 150rem !important;
-  }
+  color: #ff3068;
+}
 
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for form styling $$$$$$$$$$$$$$$$$$$$ */
+.icon-color {
+  color: #00C4A7;
+}
+
+.select select:not([multiple]) {
+  width: 150rem !important;
+}
+
+.icon-small-size {
+    max-height: 80px;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for icon styling $$$$$$$$$$$$$$$$$$$$ */
 
 
 
@@ -566,10 +586,6 @@ input[type=number] {
 
 .pink-shadow {
     box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
-}
-
-.image-form-edit {
-    max-height: 80px;
 }
 
 .new-session-image {

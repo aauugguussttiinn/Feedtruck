@@ -2,7 +2,7 @@
     <div class="navbar-brand is-flex is-align-items-center">
         <%= link_to root_path do %>
             <span class="navbar-item">
-               <%= image_tag("logo.png", style:"max-height: 80px")%>
+               <%= image_tag("logo.png", class:"icon-small-size")%>
                 <div>
                     <p class="is-size-3 title is-text-dark has-text-weight-bold">FeedTruck</p>
                 </div>
@@ -24,8 +24,8 @@
                             <div class="cart-icon">
                                 <%= image_tag("bag-dark.png", alt:"cart-icon")%>
                             </div>
-                            <div class="cart-items-count"  style="background-color: black; border-radius: 50%; width: 25px; height: 25px;">
-                                <p class="has-text-centered" id="cart-count" style="color: white;"><%= current_customer.cart.items.count %></p>
+                            <div class="cart-items-count nav-cart-button">
+                                <p class="has-text-centered is-text-white" id="cart-count"><%= current_customer.cart.items.count %></p>
                             </div>
                         </div>
                     <%end%>
