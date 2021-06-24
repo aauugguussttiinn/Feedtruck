@@ -24,7 +24,7 @@
                                 <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
                                 </p>
                                 <div class="mt-3 mb-2">
-                                    <button class="button is-rounded is-primary">
+                                    <button class="button is-rounded is-primary" id="show-order-button">
                                         Voir plus
                                     </button>
                                 </div>
@@ -116,37 +116,33 @@
 
 
         <div class="column is-5 ">
-            <h2 class="title is-size-4 ml-4 has-text-centered is-text-primary">Mes votes sur les dernieres 24h</h2>
-            <table class="table is-fullwidth dashboard-table">
-                <tbody>
-                
-                
+            <div class="panel">
+                <p class="panel-heading title has-text-centered is-primary">
+                    Mes votes sur les dernieres 24h
+                </p>
                 <% i = 0  %><% j = 0  %>
-                <% until i >= 5 %>
-
-                <tr class="border-dashboard">
-                    <th class="is-vcentered"><%= j+1 %>.</th>
-                    <td class="is-vcentered">
-                        <div class="is-flex is-align-items-center">
-                            <% if @votes_ranking[i+1] != nil %>
+                <% until i >= 5 %> 
+                    <div class="panel-block">                  
+                        <p class="is-size-5 pt-3 mr-2">
+                            <%= j+1 %>.                      
+                        </p>
+                        <% if @votes_ranking[i+1] != nil %>                        
+                            <div class="is-flex is-align-items-center mr-5">
                                 <i class="fas fa-thumbs-up fa-2x"></i>
                                 <div class="likes-count likes-style">
                                     <p class="has-text-centered" id="likes-count"><%= @votes_ranking[i+1] %></p>   
-                                </div>
-                            <% end %>
-                        </div>
-                    </td>  
-                    <td class="is-vcentered">
-                        <% if @votes_ranking[i+1] != nil %>
-                            <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
-                        <% end %>
-                    </td>
-                </tr>
+                                </div>       
+                            </div>
+                            <p>
+                                <% if @votes_ranking[i+1] != nil %>
+                                    <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
+                                <% end %>                       
+                            </p>
+                        <%end%>
+                    </div>
                 <% i += 2 %><% j += 1 %>
                 <% end %>
-
-                </tbody>
-            </table>
+            </div>
         </div> 
 
     </div>	
