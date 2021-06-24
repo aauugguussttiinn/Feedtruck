@@ -1,10 +1,9 @@
 <div class="section">
         <div class="columns shopping-cart">
-            
             <div class="column box cart-box is-8 mx-3 mb-0 mt-3 is-flex is-flex-direction-column is-align-items-center">
-                <p class="title">Mon Panier</p>
+                <p class="title is-text-primary">Mon Panier</p>
                 <% cart_content.sort.each do |content| %>
-                    <div class="cart-item box column is-8 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap", id="<%= content.created_at %>">
+                    <div class="cart-item box column is-8 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap mb-5", id="<%= content.created_at %>">
                         <div class="box-body my-2 is-flex is-flex-wrap-wrap is-align-items-center">
                             <figure class="box-img mb-2 cart-item image mr-5">
                                 <% if content.item.picture.attached? %>
@@ -14,12 +13,12 @@
                                 <%end%>
                             </figure>
                             <div class="box-content mr-5">             
-                                <p class="item-title title is-size-5">
+                                <p class="item-title is-text-primary title is-size-5">
                                     <%= content.item.name %>
                                 </p>
                                 <div class="is-flex my-1 is-align-items-center">
                                     <div class="quantity mr-5">
-                                        <p class="item-price subtitle">
+                                        <p class="item-price is-6 subtitle">
                                             <%=content.item.description.truncate(12)%>
                                         </p>
                                     </div>                      
@@ -41,15 +40,17 @@
                             <div class="quantity-x-item-price is-size-4 mr-5 is-flex is-align-items-center">
                                 <p class="is-size-5 has-text-weight-bold"><%= sprintf "%.2f", content.item.price %>€</p>
                                 <p class="ml-4 is-size-5">x<%= content.item_quantity %></p>
-                            </div> 
-                            <%=button_to customer_cart_cart_content_path(content.id), class: "delete-btn", method: :delete, remote: true do%>
-                                <i class="fas fa-trash"></i>
-                            <%end%>
+                            </div>
+                            <%= link_to customer_cart_cart_content_path(content.id), class: "button is-rounded is-danger mr-2", method: :delete, remote: true do %>
+                                <span class="icon is-small">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                            <% end %>
                         </div>
                     </div> 
                 <%end%>                                 
             </div>
-            <div class="column is-flex is-flex-direction-column order-infos box ml-3 mt-3">
+            <div class="column is-flex is-flex-direction-column checkout-infos box ml-3 mt-3">
                 <div class="my-4">
                     <% if @cart.items.count > 1 %>
                         <p class="mb-2 is-size-5" id="cart-nb-article"><%= @cart.items.count %> articles</p>
@@ -80,7 +81,7 @@
                     <% end %>
                 <% end %>
                 <div class="my-4">
-                    <%= link_to 'Continuer mon shopping', foodtrucks_path, class: "button is-rounded is-info font-equal" %> 
+                    <%= link_to 'Continuer mon shopping', foodtrucks_path, class: "button is-rounded is-info" %> 
                 </div>                            
             </div>              
         </div>

@@ -13,18 +13,18 @@
             </div>
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
-                    <h2 class="title is-size-3-mobile tenor">Mes commandes</h2>
+                    <h2 class="title is-size-3-mobile is-text-primary">Mes commandes</h2>
                     <% @orders.sort.reverse.each do |order| %>        
                         <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
                             <div class="box-content index-items-content">             
-                                <p class="item-title has-text-centered title is-size-5 mb-3 mt-2">
+                                <p class="item-title title is-size-5 mb-3 mt-2">
                                 <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
                                 </p>
                                 <p class="description subtitle mt-2">
                                 <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
                                 </p>
-                                <div class="box-footer mt-3 mb-2">
-                                    <button  id="show-order-button", class="button show-order-button is-rounded is-primary">
+                                <div class="mt-3 mb-2">
+                                    <button class="button is-rounded is-primary">
                                         Voir plus
                                     </button>
                                 </div>
@@ -46,9 +46,9 @@
                             <div class="modal-content has-background-white py-5 px-5">
 
                                 <div class="columns is-centered is-multiline " >   
-                                    <div class="column is-12 my-order-content m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
-                                        <p class="title is-size-4 has-text-centered">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
-                                        <p class="subtitle has-text-centered">Par <%= order.customer.first_name %></p>
+                                    <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
+                                        <p class="title is-size-4">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
+                                        <p class="subtitle">Par <%= order.customer.first_name %></p>
                                         <% order.order_contents.each do |content| %>
                                             <div class=" my-order-item box column is-12 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
                                                 <div class="box-body my-2 is-flex is-align-items-center is-flex-wrap-wrap">
@@ -91,22 +91,22 @@
                     <%end%> 
                 </div>
                 <div id="sales" class="column is-hidden">
-                    <h2 class="title tenor is-size-3-mobile">Mes ventes</h2>
+                    <h2 class="title is-size-3-mobile is-text-primary">Mes ventes</h2>
                     <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title tenor is-size-4-mobile is-underlined">Aujourd'hui</h3>
+                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Aujourd'hui</h3>
                             </div>  
-                            <div class="box-footer">
-                                <h3 class="subtitle manrope ">Total des ventes : 870,60€</h3>
+                            <div>
+                                <h3 class="subtitle">Total des ventes : 870,60€</h3>
                             </div>  
                         </div>
                         <div class="box box-dashboard pink-shadow">
                             <div class="box-content mb-3">
-                                <h3 class="title tenor is-size-4-mobile is-underlined">Ce mois</h3>
+                                <h3 class="title is-size-4-mobile is-underlined is-text-info">Ce mois</h3>
                             </div>  
-                            <div class="box-footer">  
-                                <h3 class="subtitle manrope">Total des ventes : 1870,60€</h3>
+                            <div>  
+                                <h3 class="subtitle">Total des ventes : 1870,60€</h3>
                             </div>  
                         </div>
                     </div>
@@ -116,7 +116,7 @@
 
 
         <div class="column is-5 ">
-            <h2 class="title is-size-4 tenor ml-4 has-text-centered">Mes votes sur les dernieres 24h</h2>
+            <h2 class="title is-size-4 ml-4 has-text-centered is-text-primary">Mes votes sur les dernieres 24h</h2>
             <table class="table is-fullwidth dashboard-table">
                 <tbody>
                 

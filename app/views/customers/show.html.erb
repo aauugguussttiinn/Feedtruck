@@ -21,10 +21,10 @@
                     </div>
                     <div class="buttons">
                         <div class="update-profile-btn mr-5">
-                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-info is-rounded transparent-border" %>
+                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-info is-rounded" %>
                         </div>
                         <div class="update-id-btn">
-                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-warning is-rounded transparent-border" %>
+                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-warning is-rounded" %>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             <div class="column is-5 is-flex is-flex-direction-column is-justify-content-space-between">
                 <div class="monthy-expenses box">
                     <p class="title is-size-4"> Mes dépenses dans les 30 derniers jours</p>
-                    <p class="is-size-3"><%=sprintf "%.2f",current_customer.monthly_expenses%>€</p>
+                    <p class="is-size-5"><%=sprintf "%.2f",current_customer.monthly_expenses%>€</p>
                 </div>
                 <div class="monthy-expenses box">
                     <p class="title is-size-4"> Mes votes</p>
@@ -51,17 +51,17 @@
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
                         <p class="title is-size-4"> Ma dernière commande</p>
                         <div class="show-orders-btn pb-4">
-                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded transparent-border" %>
+                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded" %>
                         </div>
                     </div>
                     <%if current_customer.orders.count > 0 %>
                         <%= link_to customer_order_path(current_customer.orders.last) do %>
                             <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
                                 <div class="box-content">             
-                                    <p class="foodtruck-name title">
+                                    <p class="foodtruck-name is-size-5 title">
                                         <%= current_customer.orders.last.foodtruck.name%>
                                     </p>
-                                    <p class="order-date subtitle">
+                                    <p class="order-date is-size-6 subtitle">
                                         Le  <%= current_customer.orders.last.created_at.strftime("%d/%m/%Y") %>
                                     </p>
                                     <p class="order-cost is-size-6 mb-5">

@@ -1,180 +1,45 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Source+Serif+Pro:wght@700&family=Tenor+Sans&display=swap');
-.brand-name{
-    font-family: 'Source Serif Pro', serif;
-    font-size: 100px ;
-    color: rgb(37, 37, 37);
-}
-.login-button{
-    border: transparent;
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is general styling $$$$$$$$$$$$$$$$$$$$ */
+
+html,
+body {
     font-family: 'Manrope', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.signup-button{
-    background-color: #ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
- 
+.title {
+    font-family: 'K2D', sans-serif !important;
 }
-.hero>.hero-body{
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is general styling $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
+
+.hero-body{
     padding: 0 0 3em 1.5em;
 }
-.hero>.hero-body>.hero-content{
-    padding: 10px;
-    width: 600px;
-    margin-top: 0;
 
-}
-.hero>.hero-body>.hero-content>.title{
-    font-family: 'Source Serif Pro', serif;
-    color: rgb(59, 59, 59);
-    font-size: 60px;
-}
-.hero>.hero-body>.hero-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    color: black;
-    font-size: 20px;
-} 
-.hero-image img{
+.hero-image img {
     width: 900px;
-    border-radius: 36px 51px 27px 59px / 0px 0px 0px 62px; 
- 
-}
-.foodtrucks-list{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-	grid-gap: 80px;
+    border-radius: 0 0 0 2rem; 
 }
 
-.foodtrucks-list>.index-card{
-	height: max-content;
-}
-.foodtrucks-list>.index-card>.card-content>.card-media>.foodtruck-info>.title{
-    font-family: 'Tenor sans', sans-serif;
-}
-.foodtrucks-list>.index-card>.card-content>.card-media>.foodtruck-info>.subtitle{
-    font-family: 'Manrope', sans-serif;
-}
-
-.item-list>.box{
-    padding: 15px 25px;
-}
-
-.item-list>.box>.box-img>img{
-    object-fit: cover;
-    height: 10rem;
-    width: 10rem;
-    border-radius: 5px;
-}
-.item-list>.box>.box-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-.item-list>.box>.box-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-}
-.item-list>.box>.box-content>.box-footer>.button{
-    background-color:#ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-}
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
 
 
-.orders-item-list>.box{
-    padding: 15px 25px;
-}
-
-.orders-item-list>.box>.box-img>img{
-    object-fit: cover;
-    height: 7rem;
-    width: 7rem;
-    border-radius: 5px;
-}
-.orders-item-list>.box>.box-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-.orders-item-list>.box>.box-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-}
-.orders-item-list>.box>.box-content>.box-footer>.button{
-    background-color:#ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-
-}
-.others-food-list{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
-	grid-gap: 80px;
-}
-.others-food-list>.card>.card-content>.cart-button{
-    background-color:#ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-}
-.others-food-list>.card>.card-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-
-}
-.others-food-list>.card>.card-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-
-}
-.show-foodtruck>.banner-img{
-    width: 100%;
-    height: 100%;
-    @include background-image();
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
- 
-}
-.show-foodtruck>.foodtruck-infos>.like-section>.box>button{
-    background-color:#ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-
-}
-.show-foodtruck>.foodtruck-infos>.header>.foodtruck-name{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-}
-.show-foodtruck>.foodtruck-infos>.header>.speciality{
-    font-family: 'Manrope', sans-serif;
-}
-.show-foodtruck>.foodtruck-infos>.header>.options{
-    font-family: 'Manrope', sans-serif;
-}
-.show-foodtruck>.foodtruck-infos>.like-section>.box{
-    font-family: 'Manrope', sans-serif;
-}
 
 
-.web-color{
-  color: #ff3068;
-}
-.icon-color{
-    color: #00C4A7;
-}
 
-/* Content below are buttons */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is buttons $$$$$$$$$$$$$$$$$$$$ */
 
 .is-primary{
     color : white !important;
@@ -208,7 +73,7 @@
 
 .is-danger{
     color : #ffffff !important;
-    background-color: #e31102 !important;
+    background-color: #ff0000 !important;
     border: transparent !important;
 }
 
@@ -244,14 +109,27 @@
 
 .is-danger:hover{
     color : #ffffff !important;
-    background-color: #b60e02 !important;
+    background-color: #ff0000 !important;
     border: transparent !important;
 }
 
+.quantity-button {
+    background-color:#ffffff !important;
+    border-color: #cc2653;
+    border-width: 0.1rem;
+    border-radius: 10rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+}
 
-/* Content above are buttons */
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
-/* Content below is text color */
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is text color $$$$$$$$$$$$$$$$$$$$ */
 
 .is-text-primary {
     color: #ff3068;
@@ -274,121 +152,20 @@
 }
 
 .is-text-danger {
-    color: #e31102;
+    color: #ff0000;
 }
 
-/* Content above is text color */
-
-
-.select select:not([multiple]) {
-    width: 150rem !important;
+.is-text-black {
+    color: #0b0b0b;
 }
 
-.cart-item>.box-body>.box-img>img{
-    object-fit: cover;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 5px;
-}
-.cart-item>.quantity>button{
-    background-color:#c0c0c0;
-    border: transparent;
-    border-radius: 5px;
-
-}
-.shopping-cart>.order-infos>.checkout-button{
-    background-color: #ff3068;
-    color: white;
-    font-family: 'Manrope', sans-serif;
-    border: transparent;
-}
-.shopping-cart>.cart-box{
-    padding-bottom: 80px;
-}
-
-.shopping-cart>.order-infos{
-    max-height: 15rem;
-    min-width: 5rem;
-   
-}
-
-.user-avatar>img{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
-
-.user-infos{
-    margin-bottom: 100px;
-}
-
-.profile-my-orders>a>.box{
-    padding: 15px 25px;
-}
-
-.profile-my-orders>a>.box>.box-img>img{
-    object-fit: cover;
-    height: 6rem;
-    width: 8rem;
-    border-radius: 5px;
-}
-.profile-my-orders>a>.box>.box-content>.title{
-    font-family: 'Tenor sans', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-}
-.profile-my-orders>a>.box>.box-content>.subtitle{
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-}
-.profile-my-orders>a>.box>.box-content>.box-footer>.button{
-    background-color:#ff517f;
-    color: white;
-    border: transparent;
-    
-    font-size: 15px;
-
-}
-.login-form>.title{
-    font-family: 'Tenor sans', sans-serif;
-    
-}
-.login-form{
-    font-family: 'Manrope', sans-serif;
-}
-.signup-form>.title{
-    font-family: 'Tenor sans', sans-serif;
-    
-}
-.signup-form{
-    font-family: 'Manrope', sans-serif;
-}
-.my-order-content{
-    padding: 40px;
-}
-.my-order-item>.box-body>.box-img>img{
-    object-fit: cover;
-    height: 8rem;
-    width: 8rem;
-    border-radius: 5px;
-}
-
-.team-list{
-    padding: 15px 25px;
-    box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
-
-}
-
-.team-column-right{
-    text-align: right;
-}
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is text color $$$$$$$$$$$$$$$$$$$$ */
 
 
-.team-list-image {
 
-    display: flex;
-    justify-content: center;
-}
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for ordered and sub-ordered list $$$$$$$$$$$$$$$$$$$$ */
 
 .ol-1 {
     counter-reset: item
@@ -404,115 +181,34 @@
     font-weight: bold
 }
 
-.home-pictures-container {
-    object-fit: cover;
-    max-width: 25rem;
-    max-height: 25rem;
-    border-radius: 1rem;
-}
-
-.home-pictures-column-right{
-    text-align: right;
-}
-
-.homepage-list{
-    padding: 15px 25px;
-    box-shadow:none;
-}
-
-.image-fit {
-    object-fit: cover;
-}
-
-.foodtruck-cover {
-    height: 10em;
-    
-    
-}
-
-.footruck-picture {
-    object-fit: cover;
-    max-height: 100%;
-    width: 100%;
-}
-
-.dashboard-header-text {
-    color: white;
-    background-color: #ff3068;
-    line-height: 2.5rem;
-    font-size: 1.5rem;
-}
-
-  .stripe-button-el {
-    width: 16.5em;
-    border-radius: 0.2em !important;
-    border: 0 !important;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    font-weight: normal !important;
-    border-radius: 1rem !important;
-}
-
-.stripe-button-el span {
-    font-family: 'Manrope', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    font-weight: normal !important;
-    font-size: 1rem !important;
-    border-radius: 0.2em !important;
-    border: 0 !important;
-    background-image: none !important;
-    background: #ff517f !important;
-    background-color: #ff517f !important;
-}
-
-.pink-button{
-    background-color:#ff3068;
-    color: white;
-    border: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-}
-
-.item-picture {
-    object-fit: cover;
-    border-radius: 0.5rem;
-    max-height: 10rem;
-    height: 100%;
-}
-
-.font-equal {
-    font-size: 1rem !important;
-}
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for ordered and sub-ordered list $$$$$$$$$$$$$$$$$$$$ */
 
 
-/* Content below is for footer */
-
-html,
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-body > footer {
-    margin-top: auto;
-}
-
-/* Content below are fonts */
-
-.tenor {
-  font-family: 'Tenor sans', sans-serif;
-}
-
-.manrope {
-  font-family: 'Manrope', sans-serif;
-}
 
 
-/* Content below is only for mobile devices */
 
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for form styling $$$$$$$$$$$$$$$$$$$$ */
+
+.icon-primary-color {
+    color: #ff3068;
+  }
+  .icon-color {
+      color: #00C4A7;
+  }
+  
+  .select select:not([multiple]) {
+      width: 150rem !important;
+  }
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for form styling $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is only for mobile devices $$$$$$$$$$$$$$$$$$$$ */
 
 @media screen and (max-width: 768px) {
-
     
     .footer-column {
         align-items: center;
@@ -526,7 +222,6 @@ body > footer {
         margin-right: auto;
         width: 20%;
     }
-
 
     .team-column{
         align-items: center;
@@ -557,15 +252,18 @@ body > footer {
     }
   }
 
-  /* End of mobile css */
+/* $$$$$$$$$$$$$$$$$$$$ End of mobile css $$$$$$$$$$$$$$$$$$$$ */
 
-    /* Content below is only for small mobile devices */
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is only for small mobile devices $$$$$$$$$$$$$$$$$$$$ */
 
     @media screen and (max-width: 500px) {
         .index-items {
             display: flex;
             flex-wrap: wrap-reverse;
-    
         }
     
         .index-items>* {
@@ -579,39 +277,200 @@ body > footer {
         }
 
         .menu-item-img {
-            width: 7em;
-            height: 7em;
+            width: 8em;
+            height: 8em;
             border-radius: 1em;
             object-fit: cover;
             margin-bottom: 1em;
         }
-        
     }
-      /* End of small mobile css */
-  
-.title{
-    font-family: 'Tenor sans', sans-serif;
+
+/* $$$$$$$$$$$$$$$$$$$$ End of small mobile css $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+
+.stripe-button-el {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+    
 }
-.subtitle{
-    font-family: 'Manrope', sans-serif;
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    box-shadow: none !important;
 }
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is about foodtruck index $$$$$$$$$$$$$$$$$$$$ */
+
+.grid-list-display {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+	grid-gap: 80px;
+}
+
+.index-card{
+	height: max-content;
+}
+
+.order-item-box-padding {
+    padding: 1rem 1.5rem;
+}
+
+.banner-img{
+    width: 100%;
+    height: 100%;
+    @include background-image();
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+ 
+}
+
+.checkout-infos {
+    max-height: 15rem;
+    min-width: 5rem;
+   
+}
+
+.item-list>.box>.box-img>img{
+    object-fit: cover;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5px;
+}
+
+.cart-item>.box-body>.box-img>img{
+    object-fit: cover;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5px;
+}
+
+
+.profile-my-orders>a>.box>.box-img>img{
+    object-fit: cover;
+    height: 6rem;
+    width: 8rem;
+    border-radius: 5px;
+}
+
+.my-order-item>.box-body>.box-img>img{
+    object-fit: cover;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 5px;
+}
+
+.user-avatar>img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.user-infos {
+    margin-bottom: 100px;
+}
+
+.team-list {
+    padding: 15px 25px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
+
+}
+
+.team-column-right{
+    text-align: right;
+}
+
+.team-list-image {
+    display: flex;
+    justify-content: center;
+}
+
+.home-pictures-container {
+    object-fit: cover;
+    max-width: 25rem;
+    max-height: 25rem;
+    border-radius: 1rem;
+}
+
+.home-pictures-column-right{
+    text-align: right;
+}
+
+.homepage-list{
+    padding: 15px 25px;
+    box-shadow:none;
+}
+
+.image-fit {
+    object-fit: cover;
+}
+
+.foodtruck-cover {
+    height: 10em;
+}
+
+.footruck-picture {
+    object-fit: cover;
+    max-height: 100%;
+    width: 100%;
+}
+
+.dashboard-header-text {
+    color: white;
+    background-color: #ff3068;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.item-picture {
+    object-fit: cover;
+    border-radius: 0.5rem;
+    max-height: 10rem;
+    height: 100%;
+}
+
+.quantity-counter {
+    width: 3rem;
+}
+
+/* Content BELOW is for footer */
+
+body > footer {
+    margin-top: auto;
+}
+
 .subscriptions-link{
     background-color: #ffe0e7;
 }
 
 .menu-item-img {
-    width: 7em;
-    height: 7em;
+    width: 8em;
+    height: 8em;
     border-radius: 1em;
     object-fit: cover;
 }
 
 .box-dashboard {
     height: 10em;
-}
-
-.is-underlined {
-    text-decoration: underline;
 }
 
 .container-iframe {
@@ -676,10 +535,6 @@ input[type=number] {
     max-height: 80px;
 }
 
-.transparent-border {
-    border: transparent;
-}
-
 .new-session-image {
     max-height: 500px;
     border-radius: 5px 0px 0px 5px;
@@ -695,14 +550,6 @@ input[type=number] {
 
 .no-borders{
     border:0;
-}
-
-.width-30{
-    width: 30px;
-}
-
-.width-50{
-    width: 50px;
 }
 
 .checkout-section-image {
@@ -722,14 +569,14 @@ input[type=number] {
     min-height: 15rem;
 }
 
-.likes-style{
+.likes-style {
     background-color: black; 
     border-radius: 50%; 
     width: 25px; 
     height: 25px;
 }
 
-#likes-count{
+#likes-count {
     color: white;
 }
 
@@ -737,9 +584,6 @@ input[type=number] {
     min-height: 20em;
 }
 
-.width-image-jumbotron{
-    width: 600px;
-}
 
 .style-subscription-image{
     width: 20rem;

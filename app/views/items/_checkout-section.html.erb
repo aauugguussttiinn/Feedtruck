@@ -11,17 +11,17 @@
             <%=item.description%>
             </p>
             <p class="price is-size-4">
-            <%= sprintf('%.2f',  item.price) %>€
+            <%= sprintf('%.2f', item.price) %>€
             </p>
             <div class="quantity is-flex is-align-items-center mt-4">
                 <%= form_with  url: customer_cart_cart_contents_path(item: item.id) do |f| %>
                     <div class="is-flex is-align-items-center">
-                        <span class= "is-rounded button width-30" , id="plus-btn"><i class="fas fa-plus"></i></span>
-                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 width-50", value: '1' %>
-                        <span class= "is-rounded button width-30" , id="minus-btn"><i class="fas fa-minus"></i></span>
+                        <span class= "button quantity-button", id="minus-btn"><i class="fas fa-minus"></i></span>
+                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 button is-outlined quantity-counter", value: '1' %>
+                        <span class= "button quantity-button", id="plus-btn"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="actions mt-4">
-                        <%= f.submit "Ajouter au panier", class: "button cart-button is-rounded is-primary" %>
+                        <%= f.submit "Ajouter au panier", class: "button is-rounded is-primary" %>
                     </div>
                 <% end %>
             </div>
@@ -42,13 +42,13 @@
         <div id="item-tab-content" class="px-2">
             <div id="product-description">
                 <h3 class="is-size-5 title">A propos du plat</h3>
-                <p class="manrope">
+                <p>
                     <%= item.description %>
                 </p>
             </div>
             <div id="additionnal-infos" class="is-hidden">
                 <h3 class="is-size-5 title"> Autres infos</h3>
-                <p class="manrope">
+                <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum omnis 
                     porro tempore hic minima nihil odio sunt fugit, ipsam similique!
                 </p>

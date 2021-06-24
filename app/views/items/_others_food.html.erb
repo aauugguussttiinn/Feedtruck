@@ -3,13 +3,13 @@
         <div class="title mb-5">
         Les autres plats de ce chef
         </div>
-        <div class="columns is-centered others-food-list">
+        <div class="columns is-centered grid-list-display">
             <%item.foodtruck.items.sample(3).each do |food| %>
                
                     <div class="card column other-food-card">
                     <%= link_to foodtruck_item_path(food.foodtruck.id, food.id) do %>
                         <div class="card-image">
-                            <figure class="image  is-4by3">
+                            <figure class="image is-4by3">
                                 <%= image_tag(food.picture, alt: "food-img", class: "item-other-image")%>
                             </figure>
                         </div>       
@@ -17,7 +17,7 @@
                             <p class="title is-size-4"><%= food.name %></p>
                             <p class="subtitle is-size-6"><%= sprintf('%.2f', food.price) %>€</p>
                             
-                            <%= link_to customer_cart_cart_contents_path(item: food.id, quantity: '1'), class: "button cart-button mt-5 is-primary is-rounded", method:'post', remote: true do %>
+                            <%= link_to customer_cart_cart_contents_path(item: food.id, quantity: '1'), class: "button mt-5 is-primary is-rounded", method:'post', remote: true do %>
                                 <span class="icon is-small">
                                 <%= image_tag("bag.png")%>
                                 </span>

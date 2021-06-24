@@ -1,7 +1,7 @@
 <section class="section m-1 columns is-centered dashboard-location-section"> 
     <div class="column is-7 ">
         <div class="is-flex is-flex-direction-column ">
-            <h2 class="title has-text-centered is-size-4  tenor ml-4">Aujourd'hui vous êtes attendu à <%= Location.find(current_myfoodtruck_foodtruck.location_id).adress%></h2>
+            <h2 class="title has-text-centered is-size-4 ml-4">Aujourd'hui vous êtes attendu à <%= Location.find(current_myfoodtruck_foodtruck.location_id).adress%></h2>
             <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="no-borders" allowfullscreen="" loading="lazy"></iframe>
         </div>  
     </div>

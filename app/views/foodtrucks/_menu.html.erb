@@ -6,7 +6,7 @@
             </p>
         <%else%>
             <div class="menu-foodtruck has-text-centered mb-5 is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center">
-                <p class="title mb-2 mr-2 is-size-3-mobile is-size-2 ">
+                <p class="title is-text-primary mb-2 mr-2 is-size-3-mobile is-size-2 ">
                     Mes plats
                 </p>
             </div>
@@ -17,15 +17,15 @@
         <%end%>
         
         <% foodtruck.items.each do |item| %>
-            <div class="box column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items pink-shadow">
+            <div class="box p-5 column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items pink-shadow">
                 <div class="box-content index-items-content">             
-                    <p class="title is-5 mb-2 web-color tenor">
+                    <p class="title is-5 mb-2 is-text-primary">
                         <%= item.name %>
                     </p>
-                    <p class="subtitle is-5 mt-2 manrope">
+                    <p class="subtitle is-5 mt-2">
                         <%= sprintf "%.2f", item.price %> €                 
                     </p>
-                    <p class="description mb-5 manrope">
+                    <p class="description mb-5">
                         <%=item.description.truncate(20)%>
                     </p>
                     <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
@@ -33,7 +33,7 @@
                             <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-rounded is-primary mr-2" do %>
                                 <span>Voir plus</span>
                             <% end %>
-                            <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button cart-button is-primary mr-2", method:'post', remote: true do %>
+                            <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button is-rounded is-primary mr-2", method:'post', remote: true do %>
                                 <span class="icon is-small">
                                     <%= image_tag("bag.png")%>
                                 </span>
