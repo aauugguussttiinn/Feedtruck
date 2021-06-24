@@ -15,6 +15,11 @@
                 <p class="speciality is-size-6-mobile is-size-6">
                     <%= foodtruck.description %>
                 </p>
+                <% if foodtruck.location_id !=nil %>
+                    <p class="speciality is-size-6-mobile is-size-6 my-2">
+                        <b class="is-text-info"> Localisation du jour : </b> <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+                    </p>
+                <% end %>
             </div>
 
 
