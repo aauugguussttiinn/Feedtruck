@@ -33,7 +33,3 @@ Rails.application.routes.draw do
   end
 
 end
-
-# devise_for :foodtrucks,
-# path: 'myfoodtruck/foodtrucks',
-# controllers: { sessions: 'myfoodtruck/sessions', registrations: 'myfoodtruck/registrations', passwords: 'myfoodtruck/passwords' }
