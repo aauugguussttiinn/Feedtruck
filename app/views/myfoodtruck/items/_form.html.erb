@@ -2,7 +2,7 @@
   <div class="column is-half is-offset-one-quarter">
     <h2 class="title has-text-centered">Modifier votre plat</h2>
 
-      <%= form_for myfoodtruck_foodtruck_item_path(@foodtruck_item.id), {:url => myfoodtruck_foodtruck_item_path, :method => :put } do |f| %>
+      <%= form_for [@myfoodtruck, @item] do |f| %>
           <div class="field mx-5 my-3">
             <%= f.label :name, "Nom du produit", class: "label" %>
             <div class="control has-icons-left my-3">
@@ -22,6 +22,16 @@
               </span>
              </div> 
           </div>
+          <div class="field mx-5 my-3">
+            <%= f.label :price, "Prix", class: "label" %>
+            <div class="control has-icons-left my-3">
+              <%= f.text_field :price, autofocus: true, class: "input", placeholder: "Description" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-child icon-primary-color"></i>
+              </span>
+             </div> 
+          </div>
+
         <div class="is-flex is-justify-content-center my-5">
           <%= f.submit "Mettre à jour", class: "button is-primary is-rounded"%>
         </div>
@@ -32,4 +42,5 @@
       <% end %>
   </div>
  </div> 
+
 

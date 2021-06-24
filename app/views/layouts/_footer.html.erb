@@ -22,14 +22,16 @@
                 <h4 class="title">RESSOURCES</h4>
                 <%=link_to  faq_path, class: "is-text-primary" do %>FAQ<%end%>
                 <%=link_to  cgv_path, class: "is-text-primary" do %>CGV<%end%>
-                <p class="mb-1">Jobs</p>
+                <%=link_to  jobs_path, class: "is-text-primary" do %>Jobs<%end%>
+
             </div>
             <div class="column is-half-mobile is-offset-one-quarter-mobile footer-column">
                 <h4 class="has-text-centered mb-6 title">NOS RÉSEAUX SOCIAUX</h4>
                 <div class="is-flex is-flex-direction-row is-justify-content-space-around">
-                  <i class="icon-primary-color fab fa-facebook-square fa-3x pr-2"></i>
-                  <i class="icon-primary-color fab fa-instagram fa-3x pr-2"></i>
-                  <i class="icon-primary-color fab fa-twitter-square fa-3x"></i>            
+                    <%= link_to "", "https://www.facebook.com/profile.php?id=100070054593311", class: "icon-primary-color fab fa-facebook-square fa-3x pr-2", :target => "_blank" %></td>
+                    <%= link_to "", "https://www.instagram.com/equipe_feedtruck/", class: "icon-primary-color fab fa-instagram fa-3x pr-2", :target => "_blank" %></td>
+                    <%= link_to "", "https://twitter.com/feed_truck", class: "icon-primary-color fab fa-twitter-square fa-3x", :target => "_blank" %></td>
+                    <i class=></i>              
                 </div>     
             </div>
 

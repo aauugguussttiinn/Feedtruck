@@ -17,7 +17,8 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # GET /foodtruck/items/1/edit
   def edit
-  
+    @myfoodtruck = current_myfoodtruck_foodtruck
+    @item = Item.find(params[:id])
   end
 
   # POST /foodtruck/items or /foodtruck/items.json
@@ -40,7 +41,7 @@ class Myfoodtruck::ItemsController < ApplicationController
     p params
     respond_to do |format|
       if @foodtruck_item.update(foodtruck_item_params)
-        format.html { redirect_to root_path, notice: "Item was successfully updated." }
+        format.html { redirect_to @myfoodtruck, notice: "Item was successfully updated." }
         format.json { render :show, status: :ok, location: @foodtruck_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +62,7 @@ class Myfoodtruck::ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foodtruck_item
-      @foodtruck_item = Item.find(params[:id])
+      @item = Item.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
