@@ -123,6 +123,46 @@ body {
     padding: 0.5rem;
 }
 
+/* Content BELOW overwrite default stripe button style */
+.stripe-button-el {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+    
+}
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    box-shadow: none !important;
+}
+
+.stripe-button-el:hover {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #cc2653 !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+}
+
+.stripe-button-el span:hover {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #cc2653 !important;
+    box-shadow: none !important;
+    color : #330a15 !important;
+}
+/*  Content ABOVE overwrite default stripe button style */
+
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
 
@@ -286,33 +326,6 @@ body {
     }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of small mobile css $$$$$$$$$$$$$$$$$$$$ */
-
-
-
-
-
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
-
-.stripe-button-el {
-    width: 16.5em;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    border-radius: 2rem !important;
-    height: 2.5rem;
-    
-}
-
-.stripe-button-el span {
-    font-family: 'Manrope', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    font-weight: normal !important;
-    font-size: 1rem !important;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    box-shadow: none !important;
-}
-
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
 
 
 
