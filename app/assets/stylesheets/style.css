@@ -271,7 +271,7 @@ body {
 }
 
 .icon-small-size {
-    max-height: 80px;
+    max-height: 80px !important;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for icon styling $$$$$$$$$$$$$$$$$$$$ */
