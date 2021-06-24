@@ -37,18 +37,14 @@ body {
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage jumbotron hero $$$$$$$$$$$$$$$$$$$$ */
 
-.hero-body{
-    padding: 0 0 3em 1.5em;
-}
+.jumbotron {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url(https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+    background-size: cover;
+  }
 
-.hero-image img {
-    width: 900px;
-    border-radius: 0 0 0 2rem; 
-}
-
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for homepage jumbotron hero $$$$$$$$$$$$$$$$$$$$ */
 
 
 
@@ -303,6 +299,12 @@ body {
 /* $$$$$$$$$$$$$$$$$$$$ Content BELOW is only for mobile devices $$$$$$$$$$$$$$$$$$$$ */
 
 @media screen and (max-width: 768px) {
+
+    .jumbotron {
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url(https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+        background-size: cover;
+        max-height: 15rem;
+      }
     
     .footer-column {
         align-items: center;
