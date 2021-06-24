@@ -3,7 +3,7 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # GET /foodtruck/items or /foodtruck/items.json
   def index
-    @foodtruck_items = Foodtruck::Item.all
+    @foodtruck_items = Item.all
   end
 
   # GET /foodtruck/items/1 or /foodtruck/items/1.json
@@ -12,7 +12,7 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # GET /foodtruck/items/new
   def new
-    @foodtruck_item = Myfoodtruck::Item.new
+    @foodtruck_item = Item.new.picture.attach(:picture)
   end
 
   # GET /foodtruck/items/1/edit
@@ -23,11 +23,11 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # POST /foodtruck/items or /foodtruck/items.json
   def create
-    @foodtruck_item = Foodtruck::Item.new(foodtruck_item_params)
+    @foodtruck_item = Item.new(foodtruck_item_params)
 
     respond_to do |format|
       if @foodtruck_item.save
-        format.html { redirect_to @foodtruck_item, notice: "Item was successfully created." }
+        format.html { redirect_to current_myfoodtruck_foodtruck, notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @foodtruck_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,6 +67,6 @@ class Myfoodtruck::ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def foodtruck_item_params
-      params.permit(:id, :name, :description, :price, :picture)
+      params.permit(:id, :name, :description, :price, :picture).merge(foodtruck_id: current_myfoodtruck_foodtruck.id)
     end
 end

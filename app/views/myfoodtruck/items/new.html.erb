@@ -1,5 +1,54 @@
-<h1>New Foodtruck Item</h1>
 
-<%= render 'form', foodtruck_item: @foodtruck_item %>
+<div class="columns mt-6">
+  <div class="column is-half is-offset-one-quarter">
+    <h2 class="title has-text-centered">Ajoutez un nouveau plat</h2>
+    <%= form_with model: @item, url: { action: "create" }, local: true do |f| %>
+      <div class="field mx-5 my-3">
+        <%= f.label :name, "Nom du produit", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :name, autofocus: true, class: "input", placeholder: "Nom" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-child icon-primary-color"></i>
+          </span>
+        </div> 
+      </div>
+      <div class="field mx-5 my-3">
+        <%= f.label :description, "Description du produit", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :description, autofocus: true, class: "input", placeholder: "Description" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-child icon-primary-color"></i>
+          </span>
+        </div> 
+      </div>
 
-<%= link_to 'Back', foodtruck_items_path %>
+      <div class="field mx-5 my-3">
+        <%= f.label :price, "Fixez votre prix", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :price, autofocus: true, class: "input", placeholder: "Prix" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-child icon-primary-color"></i>
+          </span>
+        </div> 
+      </div>
+      <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+        <%= f.label :picture, "Image", class: "label my-0" %><br/>
+        <div class="column columns">
+          <label class="button is-primary is-rounded">
+          Ajoutez une image
+          <span style="display:none;">
+            <%= f.file_field :picture, class: ""%>
+          </span>
+          </label>
+        </div> 
+      </div>
+
+      <div class="actions is-flex is-justify-content-center my-4">
+        <%= f.submit "Valider", class: "button is-primary is-rounded" %>
+      </div>
+      <div class="pt-4 has-text-centered">
+        <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path, class: "button is-primary is-rounded" %>
+      </div>
+    <% end %>
+  </div>
+ </div> 
