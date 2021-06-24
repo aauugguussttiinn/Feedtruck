@@ -11,13 +11,16 @@ class CustomerMailer < ApplicationMailer
     @customer = customer
     @order = @customer.orders.last
     @foodtruck = @order.foodtruck
-    @cart = @customer.cart
     @order_contents = @order.order_contents   
     @total_price = @order.total_price
     @url = 'https://feedtruck.herokuapp.com/customer/orders'
     mail(to: @customer.email, subject: 'Confirmation de votre commande')
   end
+
+  def order_ready_email(customer)
+    @customer = customer
+    @order = @customer.orders.where(is_ready: true).last
+    @foodtruck = @order.foodtruck
+    mail(to: @customer.email, subject: 'Votre commande est prête')
+  end
 end
-
-
-

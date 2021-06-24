@@ -1,7 +1,7 @@
 <% if @customer.first_name != nil %>
-  <p>Salut <%= @customer.first_name %> !</p>
+  <p>Bonjour <%= @customer.first_name %> !</p>
 <% else %>
-  <p>Salut !</p>
+  <p>Bonjour !</p>
 <% end %>
 </br>
 <p>Nous avons bien reçu votre commande est l'avons transmise à <%= @foodtruck %> qui va se charger de la préparer.</p>
@@ -14,6 +14,8 @@
 </ul>
 </br>
 <p>Prix total : <%= sprintf "%.2f", @total_price %> €</p>
+</br>
+<p>Le numéro de commande, à communiquer au foodtruck pour récupérer votre commande, est le #<%- @order.id %>.</p>
 </br>
 <p>Vous pouvez également accéder au détail de votre commande depuis votre espace client, dans l'onglet mes commandes : <a href="<%= @url %>">Mes commandes</a>.</p>
 </br>
