@@ -10,8 +10,10 @@ class Order < ApplicationRecord
 
 
   def order_send
-    CustomerMailer.order_email(self.customer).deliver_now
-    FoodtruckMailer.order_email(self.foodtruck).deliver_now
+    if self.is_ready == false
+      CustomerMailer.order_email(self.customer).deliver_now
+      FoodtruckMailer.order_email(self.foodtruck).deliver_now
+    end
   end
 
   def order_ready_send

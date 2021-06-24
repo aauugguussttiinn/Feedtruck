@@ -20,27 +20,30 @@
               <span class="icon is-small is-left">
                 <i class="fas fa-child icon-primary-color"></i>
               </span>
-             </div> 
+            </div>
+            <%= f.label :location_id, "Localisation", class: "label" %>
+            <div class="control">
+              <div class="select">
+                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
+              </div>
+            </div>
           </div>
 
           <div class="file mx-5 my-1 is-flex is-flex-direction-column">
-            <%= f.label :pictures, "Image", class: "label my-0" %><br/>
+            <%= f.label :pictures, "Image", class: "label mb-0 mt-1" %><br/>
             <div class="column columns">
               <label class="button is-primary is-rounded">
               Ajoutez une image
-              <span style="display:none;">
+              <span class="file-add-button">
                 <%= f.file_field :pictures, class: ""%>
               </span>
             </label>
             </div> 
           </div>
         <div class="is-flex is-justify-content-center mt-5">
-          <%= f.submit "Mettre à jour", class: "button is-success is-rounded" %>
+          <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-3" %>
+          <%= link_to 'Retour', myfoodtruck_foodtruck_path, class: "button is-secondary is-rounded is-normalest-btn mx-3" %>
         </div>
-
-        <div class="pt-4 has-text-centered">
-          <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path, class: "button is-primary is-rounded" %>
-        </div> 
       <% end %>
   </div>
  </div> 
