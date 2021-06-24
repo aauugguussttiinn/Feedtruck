@@ -132,6 +132,10 @@ body {
     min-width: 15rem !important;
 }
 
+.is-normalest {
+    mind-width: 10rem !important;
+}
+
 
 .quantity-button {
     background-color:#ffffff !important;
@@ -145,7 +149,7 @@ body {
 
 /* Content BELOW overwrite default stripe button style */
 .stripe-button-el {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #ff517f !important;
     border-radius: 2rem !important;
@@ -164,7 +168,7 @@ body {
 }
 
 .stripe-button-el:hover {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #cc2653 !important;
     border-radius: 2rem !important;

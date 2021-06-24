@@ -48,7 +48,7 @@
                                 <% elsif current_customer_has_location? && !last_vote_over_24? %>
                                     <p>Veuillez attendre 24 heures pour voter à nouveau</p>
                                 <% elsif current_customer_has_location? && last_vote_over_24? %>
-                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-primary" do%>
+                                    <%= link_to foodtruck_votes_path(@foodtruck.id), method: :post, class:"button is-rounded is-primary" do%>
                                         <span class="icon is-small"><%= image_tag("like.png")%></span>
                                         <p>Viens chez moi</p>
                                     <% end %>
@@ -59,10 +59,10 @@
                 <% end %>
             <%else%>
                 <div class="edit-profil-section padding-profil-section-foodtruck">
-                    <%=link_to edit_myfoodtruck_foodtruck_path, class:"button is-rounded edit-profil-btn is-success mb-4" do%>
+                    <%=link_to edit_myfoodtruck_foodtruck_path, class:"button is-rounded edit-profil-btn is-success is-largest my-2" do%>
                         <span>Modifier mon profil</span>
                     <%end%>
-                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button is-rounded edit-profil-btn is-primary" do%>
+                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button is-rounded edit-profil-btn is-primary is-largest my-2" do%>
                         <span>Éditer mes identifiants</span>
                     <% end %>
                 </div>
