@@ -5,6 +5,8 @@ class Vote < ApplicationRecord
   validate :has_customer_voted_last_24h?
 
   validate :customer_has_location?
+
+  
     
   def has_customer_voted_last_24h?
     errors.add(:vote, "Vous avez déjà vote pour la periode en cours.") unless

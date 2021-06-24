@@ -38,13 +38,13 @@ class Myfoodtruck::OrdersController < ApplicationController
   # PATCH/PUT /foodtruck/orders/1 or /foodtruck/orders/1.json
   def update
 
-    if @foodtruck_order.is_ready != true
+    if @foodtruck_order.is_ready == false
       @foodtruck_order.update(is_ready: true)
     end
 
     respond_to do |format|
       if @foodtruck_order.update(foodtruck_order_params)
-        format.html { redirect_to root_path, notice: "Order was successfully updated." }
+        format.html { redirect_to myfoodtruck_dashboard_path, notice: "La commande a été marquée comme prête avec succès." }
         format.json { render :show, status: :ok, location: @foodtruck_order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class Myfoodtruck::OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foodtruck_order
-      @foodtruck_order = ::Order.find(params[:id])
+      @foodtruck_order = Order.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

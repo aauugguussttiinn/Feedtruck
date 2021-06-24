@@ -14,7 +14,8 @@
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
                     <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes en cours</h2>
-                    <% @orders.sort.reverse.each do |order| %>        
+                    <% @orders.sort.reverse.each do |order| %>  
+                        <% if order.is_ready == false %>      
                         <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
                             <div class="box-content index-items-content">             
                                 <p class="item-title title is-3 mb-3 mt-2 is-text-info">
@@ -40,6 +41,7 @@
                                 <%end%>   
                             </div>                
                         </div>
+                         
 
 
                        
@@ -91,7 +93,7 @@
                                 </div>
                             </div>
                         </div> 
-
+                        <% end %>   
                     <%end%> 
                 </div>
                 <div id="sales" class="column is-hidden">

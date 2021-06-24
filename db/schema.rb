@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_110803) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.boolean "is_ready"
+    t.boolean "is_ready", default: false
     t.string "stripe_customer_id"
     t.bigint "customer_id"
     t.bigint "foodtruck_id"
