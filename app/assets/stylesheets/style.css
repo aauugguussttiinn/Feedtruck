@@ -22,6 +22,21 @@ body {
 
 
 
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
+
+.nav-cart-button {
+    background-color: black;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
 
 .hero-body{
@@ -113,6 +128,15 @@ body {
     border: transparent !important;
 }
 
+.is-largest-btn {
+    min-width: 15rem !important;
+}
+
+.is-normalest-btn {
+    mind-width: 10rem !important;
+}
+
+
 .quantity-button {
     background-color:#ffffff !important;
     border-color: #cc2653;
@@ -123,9 +147,9 @@ body {
     padding: 0.5rem;
 }
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+/* Content BELOW overwrite default stripe button style */
 .stripe-button-el {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #ff517f !important;
     border-radius: 2rem !important;
@@ -144,7 +168,7 @@ body {
 }
 
 .stripe-button-el:hover {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #cc2653 !important;
     border-radius: 2rem !important;
@@ -161,7 +185,13 @@ body {
     background-color: #cc2653 !important;
     box-shadow: none !important;
 }
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+/* Content ABOVE overwrite default stripe button style */
+
+/* Content BELOW overwrite default stripe button style */
+.file-add-button {
+    display:none
+}
+/* Content ABOVE overwrite default stripe button style */
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
@@ -235,21 +265,37 @@ body {
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for form styling $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for icon styling $$$$$$$$$$$$$$$$$$$$ */
 
 .icon-primary-color {
-    color: #ff3068;
-  }
-  .icon-color {
-      color: #00C4A7;
-  }
-  
-  .select select:not([multiple]) {
-      width: 150rem !important;
-  }
+  color: #ff3068;
+}
 
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for form styling $$$$$$$$$$$$$$$$$$$$ */
+.icon-color {
+  color: #00C4A7;
+}
 
+.select select:not([multiple]) {
+  width: 150rem !important;
+}
+
+.icon-small-size {
+    max-height: 80px !important;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for icon styling $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for boxes $$$$$$$$$$$$$$$$$$$$ */
+
+.box-cart-min-height {
+    min-height: 15rem;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for boxes $$$$$$$$$$$$$$$$$$$$ */
 
 
 
@@ -298,6 +344,7 @@ body {
     .table-dashboard {
         width: 100%;
     }
+
   }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of mobile css $$$$$$$$$$$$$$$$$$$$ */
@@ -469,7 +516,7 @@ body {
 }
 
 .quantity-counter {
-    width: 3rem;
+    width: 3.5rem;
 }
 
 /* Content BELOW is for footer */
@@ -548,10 +595,6 @@ input[type=number] {
 
 .pink-shadow {
     box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
-}
-
-.image-form-edit {
-    max-height: 80px;
 }
 
 .new-session-image {
