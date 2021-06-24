@@ -22,6 +22,7 @@ class Myfoodtruck::OrdersController < ApplicationController
   # POST /foodtruck/orders or /foodtruck/orders.json
   def create
     @foodtruck_order = Foodtruck::Order.new(foodtruck_order_params)
+    
 
     respond_to do |format|
       if @foodtruck_order.save
@@ -36,6 +37,8 @@ class Myfoodtruck::OrdersController < ApplicationController
 
   # PATCH/PUT /foodtruck/orders/1 or /foodtruck/orders/1.json
   def update
+
+
     respond_to do |format|
       if @foodtruck_order.update(foodtruck_order_params)
         format.html { redirect_to @foodtruck_order, notice: "Order was successfully updated." }
@@ -59,7 +62,7 @@ class Myfoodtruck::OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foodtruck_order
-      @foodtruck_order = Foodtruck::Order.find(params[:id])
+      @foodtruck_order = ::Order.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -79,7 +79,11 @@
                                     </div>
                                     <div class="column has-text-centered is-12">
                                         <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        <%= link_to root_path, class: "button order-ready-button is-rounded is-primary " do %>
+                                        <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary " do %>
+                            
+                                                                        
+                                            
+                                            
                                             <span>La commande est prête</span>
                                         <% end %>       
 
@@ -118,7 +122,7 @@
         <div class="column is-5 ">
             <div class="panel">
                 <p class="panel-heading title has-text-centered is-primary">
-                    Mes votes sur les dernieres 24h
+                    Mes votes sur les dernières 24h
                 </p>
                 <% i = 0  %><% j = 0  %>
                 <% until i >= 5 %> 
