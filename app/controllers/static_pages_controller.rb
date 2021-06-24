@@ -14,4 +14,7 @@ class StaticPagesController < ApplicationController
   def faq
   end
 
+  def jobs
+  end
+
 end
