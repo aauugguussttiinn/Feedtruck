@@ -24,9 +24,6 @@ var showOrderBtn = Array.from(document.querySelectorAll('#show-order-button'));
 var modalBg = document.querySelectorAll('.modal-background');
 var modal = Array.from(document.querySelectorAll('#foodtruck-show-order'));
 
-
-
-
 showOrderBtn.forEach((btn)=>{
     btn.addEventListener('click', ()=>{
         modal.forEach((mdl)=>{
