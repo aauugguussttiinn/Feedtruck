@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, flash: { success: "Plat mis à jour"} }
+        format.html { redirect_to current_myfoodtruck_foodtruck, flash: { success: "Plat mis à jour"} }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
