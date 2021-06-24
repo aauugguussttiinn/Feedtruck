@@ -32,13 +32,7 @@
                                         Voir plus
                                     </button>
                                 </div>
-                                <div class="box-content index-items-content">
-                                    <% if order.order_contents.first.item.picture.attached? %>
-                                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-                                    <%else%>
-                                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
-                                    <%end%>   
-                                </div>                
+             
                             </div>
                             <div class="box-content index-items-content">
                                 <% if order.order_contents.first.item.picture.attached? %>
@@ -52,55 +46,7 @@
 
 
                        
-                        <div class="modal" id="foodtruck-show-order">
-                            <div class="modal-background">
-                            </div>
-                            <div class="modal-content has-background-white py-5 px-5">
-
-                                    <div class="columns is-centered is-multiline " >   
-                                        <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
-                                            <p class="title is-size-4">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
-                                            <p class="subtitle">Par <%= order.customer.first_name %></p>
-                                            <% order.order_contents.each do |content| %>
-                                                <div class=" my-order-item box column is-12 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
-                                                    <div class="box-body my-2 is-flex is-align-items-center is-flex-wrap-wrap">
-                                                        <figure class="box-img image pb-2 mr-5">
-                                                            <%if content.item.picture.attached?%>
-                                                                <%= image_tag content.item.picture %>
-                                                            <%else%>
-                                                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                                                            <%end%>    
-                                                        </figure>
-                                                        <div class="box-content mr-5">             
-                                                            <p class="item-title title is-size-5">
-                                                                <%=content.item.name%>
-                                                            </p>
-                                                            <p class="item-price subtitle">
-                                                                <%=sprintf "%.2f", content.item.price%>€
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="is-flex my-2 is-align-items-center">
-                                                        <div class="quantity has-text-centered mr-5">
-                                                            <p class="title mb-1 is-size-6">Quantité</p>
-                                                            <p class="button is-outlined"><%= content.item_quantity %></p>  
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <%end%> 
-                                    </div>
-                                    <div class="column has-text-centered is-12">
-                                        <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
-                                        
-                                        <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary " do %>
-                                            La commande est prête
-                                        <% end %>           
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
+                       
                         <% end %>   
                     <%end%> 
                 </div>
@@ -161,3 +107,57 @@
 
     </div>	
 </section>
+
+
+<% @orders.sort.reverse.each do |order| %>  
+
+ <div class="modal" id="foodtruck-show-order">
+                            <div class="modal-background">
+                            </div>
+                            <div class="modal-content has-background-white py-5 px-5">
+
+                                    <div class="columns is-centered is-multiline " >   
+                                        <div class="column is-12 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
+                                            <p class="title is-size-4">Passée Le <%= order.created_at.strftime("%d/%m/%Y à %Hh:%M" ) %> </p>
+                                            <p class="subtitle">Par <%= order.customer.first_name %></p>
+                                            <% order.order_contents.each do |content| %>
+                                                <div class=" my-order-item box column is-12 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                                                    <div class="box-body my-2 is-flex is-align-items-center is-flex-wrap-wrap">
+                                                        <figure class="box-img image pb-2 mr-5">
+                                                            <%if content.item.picture.attached?%>
+                                                                <%= image_tag content.item.picture %>
+                                                            <%else%>
+                                                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+                                                            <%end%>    
+                                                        </figure>
+                                                        <div class="box-content mr-5">             
+                                                            <p class="item-title title is-size-5">
+                                                                <%=content.item.name%>
+                                                            </p>
+                                                            <p class="item-price subtitle">
+                                                                <%=sprintf "%.2f", content.item.price%>€
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="is-flex my-2 is-align-items-center">
+                                                        <div class="quantity has-text-centered mr-5">
+                                                            <p class="title mb-1 is-size-6">Quantité</p>
+                                                            <p class="button is-outlined"><%= content.item_quantity %></p>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <%end%> 
+                                    </div>
+                                    <div class="column has-text-centered is-12">
+                                        <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
+                                        
+                                        <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary " do %>
+                                            La commande est prête
+                                        <% end %>           
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+<% end %>
