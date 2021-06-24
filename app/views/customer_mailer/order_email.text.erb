@@ -4,7 +4,7 @@
   Bonjour !
 <% end %>
 
-Nous avons bien reçu votre commande est l'avons transmise à <%= @foodtruck %> qui va se charger de la préparer.
+Nous avons bien reçu votre commande est l'avons transmise à <%= @foodtruck.name %> qui va se charger de la préparer.
 
 Ci dessous vous trouverez le récapitulatif de votre commande :
   <% @order_contents.map do |order_content| %>
@@ -13,7 +13,7 @@ Ci dessous vous trouverez le récapitulatif de votre commande :
 
 Prix total : <%= sprintf "%.2f", @total_price %> €
 
-Le numéro de commande, à communiquer au foodtruck pour récupérer votre commande, est le #<%- @order.id %>.
+Le numéro de commande, à communiquer au foodtruck pour récupérer votre commande, est le #<%= @order.id %>.
 
 Vous pouvez également accéder aux détails de votre commande depuis votre espace client, dans l'onglet mes commandes, via l'adresse suivante : <%= @url %>.
 
