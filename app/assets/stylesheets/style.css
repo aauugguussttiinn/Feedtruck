@@ -195,7 +195,11 @@ body {
     color: #ff0000;
 }
 
-.is-text-black {
+.is-text-dark {
+    color: #4a4a4a;
+}
+
+.is-text-darker {
     color: #0b0b0b;
 }
 
