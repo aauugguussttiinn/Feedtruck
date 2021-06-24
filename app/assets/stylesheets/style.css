@@ -123,46 +123,6 @@ body {
     padding: 0.5rem;
 }
 
-/* Content BELOW overwrite default stripe button style */
-.stripe-button-el {
-    width: 16.5em;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    border-radius: 2rem !important;
-    height: 2.5rem;
-    
-}
-
-.stripe-button-el span {
-    font-family: 'Manrope', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    font-weight: normal !important;
-    font-size: 1rem !important;
-    background-image: none !important;
-    background-color: #ff517f !important;
-    box-shadow: none !important;
-}
-
-.stripe-button-el:hover {
-    width: 16.5em;
-    background-image: none !important;
-    background-color: #cc2653 !important;
-    border-radius: 2rem !important;
-    height: 2.5rem;
-}
-
-.stripe-button-el span:hover {
-    font-family: 'Manrope', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    font-weight: normal !important;
-    font-size: 1rem !important;
-    background-image: none !important;
-    background-color: #cc2653 !important;
-    box-shadow: none !important;
-    color : #330a15 !important;
-}
-/*  Content ABOVE overwrite default stripe button style */
-
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
 
@@ -197,6 +157,9 @@ body {
 
 .is-text-black {
     color: #0b0b0b;
+}
+.is-text-white {
+    color: #ffffff;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is text color $$$$$$$$$$$$$$$$$$$$ */
@@ -326,6 +289,33 @@ body {
     }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of small mobile css $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+
+.stripe-button-el {
+    width: 16.5em;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    border-radius: 2rem !important;
+    height: 2.5rem;
+    
+}
+
+.stripe-button-el span {
+    font-family: 'Manrope', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    background-image: none !important;
+    background-color: #ff517f !important;
+    box-shadow: none !important;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
 
 
 
@@ -600,4 +590,20 @@ input[type=number] {
 
 .style-subscription-image{
     width: 20rem;
+}
+
+.foodtruck-index-header{
+    background-image: url("https://images.pexels.com/photos/1308940/pexels-photo-1308940.jpeg?cs=srgb&dl=pexels-chris-molloy-1308940.jpg&fm=jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20rem;
+    
+}
+
+.foodtruck-index-header>.jumbotron-body{
+    margin-top: 5rem;
+}
+.foodtruck-search-bar{
+    width: 12rem;
 }
