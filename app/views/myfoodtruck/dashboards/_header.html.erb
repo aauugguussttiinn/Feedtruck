@@ -1,5 +1,11 @@
 <section class="hero is-medium">
-  <div class="dashboard-header has-text-centered" , style="background-image: url(<%= rails_blob_url(current_myfoodtruck_foodtruck.pictures) %>); height: 250px;">
+  <% if current_myfoodtruck_foodtruck.pictures? %>
+  <div class="dashboard-header has-text-centered", style="background-image: url(<%= rails_blob_url(current_myfoodtruck_foodtruck.pictures) %>); height: 250px;">
     <p class="title is-size-4-mobile px-3 dashboard-header-text" >Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
   </div>
+  <% else %>
+  <div class="dashboard-header has-text-centered">
+    <p class="title is-size-4-mobile px-3 dashboard-header-text" >Bienvenue sur votre dashboard <%= current_myfoodtruck_foodtruck.name %></p>
+  </div>
+  <% end %>
 </section>

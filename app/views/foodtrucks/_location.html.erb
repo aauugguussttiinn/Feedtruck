@@ -4,6 +4,7 @@
         <% if foodtruck.location_id != nil %>
         <p class="title has-text-centered is-size-3-mobile is-size-4 py-5">
             <%if !current_myfoodtruck_foodtruck %>
+<<<<<<< HEAD
                 Aujourd'hui <%= foodtruck.name %> est à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
             <%else %>
                 Aujourd'hui vous êtes à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
@@ -14,5 +15,25 @@
             <iframe src=" <%= Location.find(foodtruck.location_id).url_map %> " class="responsive-iframe no-borders" allowfullscreen="" loading="lazy"></iframe>
         </div>     
         <% end %>                               
+=======
+                <% if current_myfoodtruck_foodtruck.location_id =nil %>
+                    Ce foodtruck n'a pas renseigné sa position pour aujourd'hui
+                <% else %>
+                    Aujourd'hui <%= foodtruck.name %> est à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+                <% end %>
+            <%else%>
+                <% if current_myfoodtruck_foodtruck.location_id !=nil %>
+                    Aujourd'hui vous êtes à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+                <% else %>
+                    Veuillez renseigner une localisation sur votre profil pour afficher une carte de l'emplacement
+                <% end %>
+            <%end%>
+        </p>
+        <% if current_myfoodtruck_foodtruck.location_id =nil %>
+        <div class="container-iframe">
+            <iframe src=" <%= Location.find(foodtruck.location_id).url_map %> " class="responsive-iframe no-borders" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <% end %>                                   
+>>>>>>> development
     </div>
 </div>
