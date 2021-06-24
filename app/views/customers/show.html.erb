@@ -7,7 +7,7 @@
                         <img src="https://images.unsplash.com/photo-1606383068250-4ac2043f4ff5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
                     </figure>
                     <div class="content">
-                        <p class="title is-size-4">Mon profil</p>
+                        <p class="title is-size-4 is-text-primary">Mon profil</p>
                         <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
                         <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
 
@@ -31,11 +31,11 @@
             </div>
             <div class="column is-5 is-flex is-flex-direction-column is-justify-content-space-between">
                 <div class="monthy-expenses box">
-                    <p class="title is-size-4"> Mes dépenses dans les 30 derniers jours</p>
+                    <p class="title is-size-4 is-text-primary"> Mes dépenses dans les 30 derniers jours</p>
                     <p class="is-size-5"><%=sprintf "%.2f",current_customer.monthly_expenses%>€</p>
                 </div>
                 <div class="monthy-expenses box">
-                    <p class="title is-size-4"> Mes votes</p>
+                    <p class="title is-size-4 is-text-primary"> Mes votes</p>
                     <% if !current_customer_has_location? %>
                         <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
                     <% elsif current_customer_has_location? && !voted_once? %>   
@@ -49,7 +49,7 @@
                 </div>
                 <div class="profile-my-orders box">
                     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
-                        <p class="title is-size-4"> Ma dernière commande</p>
+                        <p class="title is-size-4 is-text-primary"> Ma dernière commande</p>
                         <div class="show-orders-btn pb-4">
                             <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded" %>
                         </div>
@@ -58,7 +58,7 @@
                         <%= link_to customer_order_path(current_customer.orders.last) do %>
                             <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
                                 <div class="box-content">             
-                                    <p class="foodtruck-name is-size-5 title">
+                                    <p class="foodtruck-name is-size-5 is-text-info title">
                                         <%= current_customer.orders.last.foodtruck.name%>
                                     </p>
                                     <p class="order-date is-size-6 subtitle">
