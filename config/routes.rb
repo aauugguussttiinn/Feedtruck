@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'contact', to:'static_pages#contact'
   get 'cgv', to:'static_pages#cgv'
   get 'faq', to:'static_pages#faq'
+  get 'jobs', to:'static_pages#jobs'
 
   devise_for :customers
 
