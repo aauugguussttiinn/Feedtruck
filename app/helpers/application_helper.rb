@@ -42,15 +42,17 @@ module ApplicationHelper
     if signed_in?
       if session[:cart]
         guest_cart = Cart.find(session[:cart])
-        guest_cart.cart_contents.each do |content|
-          if content.item.foodtruck.id == current_shopping_cart.items.last.foodtruck.id
-            CartContent.create(cart_id: current_shopping_cart.id, item_id: content.item.id, item_quantity: content.item_quantity )
+        if guest_cart.items.count > 0
+          if current_shopping_cart.items.count > 0 && guest_cart.items.last.foodtruck.id != current_shopping_cart.items.last.foodtruck.id
+            CartContent.where(cart_id: current_shopping_cart.id).delete_all
           end
+          guest_cart.cart_contents.each { |content| CartContent.create(cart_id: current_shopping_cart.id, item_id: content.item.id, item_quantity: content.item_quantity) }
+          CartContent.where(cart_id: guest_cart.id).delete_all
+          guest_cart.destroy
+          session[:cart] = nil
         end
-        CartContent.where(cart_id: guest_cart.id).delete_all
-        guest_cart.destroy
-        session[:cart] = nil
       end
     end
   end
+
 end

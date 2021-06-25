@@ -3,8 +3,7 @@
     <div class="show-foodtruck container">
 
         <% if foodtruck.pictures.attached? %>
-            <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;" >
-            </div>
+            <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;"></div>
         <% end %>
 
         <div class="foodtruck-infos columns box pt-5 mt-0 ml-0 mr-0">
