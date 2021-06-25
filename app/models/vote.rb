@@ -9,7 +9,7 @@ class Vote < ApplicationRecord
   validate :customer_has_location?
 
   def has_customer_voted_last_24h?
-    errors.add(:vote, "Vous avez déjà vote pour la periode en cours.") unless
+    errors.add(:vote, "Vous avez déjà voté pour la période en cours.") unless
     Vote.where(customer: self.customer).count == 0 || Time.now > Vote.where(customer: self.customer).last.updated_at + 86400
   end
 
