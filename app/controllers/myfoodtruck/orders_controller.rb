@@ -3,7 +3,7 @@ class Myfoodtruck::OrdersController < ApplicationController
 
   # GET /foodtruck/orders or /foodtruck/orders.json
   def index
-    @foodtruck_orders = Foodtruck::Order.all
+    @foodtruck_orders = Myfoodtruck::Order.all
   end
 
   # GET /foodtruck/orders/1 or /foodtruck/orders/1.json
@@ -12,7 +12,7 @@ class Myfoodtruck::OrdersController < ApplicationController
 
   # GET /foodtruck/orders/new
   def new
-    @foodtruck_order = Foodtruck::Order.new
+    @foodtruck_order = Myfoodtruck::Order.new
   end
 
   # GET /foodtruck/orders/1/edit
@@ -21,7 +21,7 @@ class Myfoodtruck::OrdersController < ApplicationController
 
   # POST /foodtruck/orders or /foodtruck/orders.json
   def create
-    @foodtruck_order = Foodtruck::Order.new(foodtruck_order_params)
+    @foodtruck_order = Myfoodtruck::Order.new(foodtruck_order_params)
     
 
     respond_to do |format|
@@ -37,7 +37,6 @@ class Myfoodtruck::OrdersController < ApplicationController
 
   # PATCH/PUT /foodtruck/orders/1 or /foodtruck/orders/1.json
   def update
-
     if @foodtruck_order.is_ready == false
       @foodtruck_order.update(is_ready: true)
     end
@@ -45,10 +44,10 @@ class Myfoodtruck::OrdersController < ApplicationController
     respond_to do |format|
       if @foodtruck_order.update(foodtruck_order_params)
         format.html { redirect_to myfoodtruck_dashboard_path, notice: "La commande a été marquée comme prête avec succès." }
-        format.json { render :show, status: :ok, location: @foodtruck_order }
+        format.js { flash.now[:notice] = "Commande Prête!" }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @foodtruck_order.errors, status: :unprocessable_entity }
+        format.js { flash.now[:alert] = "Problème :'(" }
       end
     end
   end

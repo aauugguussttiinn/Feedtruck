@@ -19,7 +19,7 @@ class Vote < ApplicationRecord
   end
 
   def self.last_24h
-    Vote.where("updated_At > ?", Time.now - 86400)
+    Vote.where("updated_at > ?", Time.now - 86400)
   end
 
 end

@@ -21,9 +21,11 @@
                     <div class="card-content">                    
                         <div class="card-media is-flex is-align-items-center ">                        
                             <div class="foodtruck-banner">
-                                <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                </figure>
+                                <% if foodtruck.logo.attached? %>
+                                    <%= image_tag foodtruck.logo, alt: "Thumbnail [100%x225]", class:"image is-48x48" %>
+                                <%else%>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQu2DMlO0wSOdL36IyORHd0n1FAKfw0_S4jg&usqp=CAU" alt="Placeholder image" class="cards-logo-dimension">
+                                <%end%>
                             </div>               
                             <div class="foodtruck-info ml-5">
                                 <p class="title is-size-5"><%= foodtruck.name %></p>

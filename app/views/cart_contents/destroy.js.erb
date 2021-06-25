@@ -12,7 +12,7 @@ else {
 
 // removes stripe button from dom if price of 0
 stripeBtn = document.querySelector('.stripe-button-el');
-if (<%= current_shopping_cart.total_price <= 0 %>){
+if (<%= current_shopping_cart.total_price <= 0 %>) {
   stripeBtn.remove();
 }
 

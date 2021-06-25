@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :myfoodtruck do
-    root 'myfoodtruck#dashboard'
+    root 'dashboards#show'
     devise_for :foodtrucks
     resource :dashboard, only: [:show]
     resource :foodtruck, only: [:show, :edit, :update, :destroy] do
