@@ -50,11 +50,18 @@
                     <% else %>
                         <p class="mb-2 is-size-5" id="cart-nb-article"><%= current_shopping_cart.items.count %> article</p>
                     <% end %>
-
                     <p class="is-size-5">Total TTC : <strong id="cart-total-price"><%= sprintf('%.2f',  current_shopping_cart.total_price) %>€</strong></p>
                 </div>
-                <%= render partial: '_payment', locals: {cart_content: @cart_contents}%>
-                <div class="my-4">
+                <% if customer_signed_in? && current_shopping_cart.total_price > 0 %>
+                    <%= render partial: 'carts/stripe', locals: {current_shopping_cart: current_shopping_cart, total_price: current_shopping_cart.total_price }%>
+                <% elsif current_shopping_cart.total_price > 0%>
+                <div class="my-2">
+                    <button class="button is-small-tablet is-rounded is-primary is-largest-btn">
+                        <span>Procéder au paiement</span>
+                    </button>
+                    </div>
+                <% end %>
+                <div class="my-2">
                     <%= link_to 'Continuer mon shopping', foodtrucks_path, class: "button is-small-tablet is-rounded is-info is-largest-btn" %> 
                 </div>                            
             </div>              

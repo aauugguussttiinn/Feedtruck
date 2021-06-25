@@ -1,18 +1,18 @@
 document.getElementById('<%= @cart_content.created_at %>').remove();
-document.getElementById("cart-count").innerText = "<%= current_customer.cart.items.count %>";
-document.getElementById("cart-total-price").innerText = "<%= sprintf('%.2f',  current_customer.cart.total_price) %>€";
+document.getElementById("cart-count").innerText = "<%= current_shopping_cart.items.count %>";
+document.getElementById("cart-total-price").innerText = "<%= sprintf('%.2f',  current_shopping_cart.total_price) %>€";
 
 // pluralize article
-if (<%= current_customer.cart.items.count %> <= 1 ) {
-  document.getElementById("cart-nb-article").innerText = "<%= current_customer.cart.items.count %> article";
+if (<%= current_shopping_cart.items.count %> <= 1 ) {
+  document.getElementById("cart-nb-article").innerText = "<%= current_shopping_cart.items.count %> article";
 }
 else {
-  document.getElementById("cart-nb-article").innerText = "<%= current_customer.cart.items.count %> articles";
+  document.getElementById("cart-nb-article").innerText = "<%= current_shopping_cart.items.count %> articles";
 }
 
 // removes stripe button from dom if price of 0
 stripeBtn = document.querySelector('.stripe-button-el');
-if (<%= current_customer.cart.total_price <= 0 %>){
+if (<%= current_shopping_cart.total_price <= 0 %>){
   stripeBtn.remove();
 }
 
