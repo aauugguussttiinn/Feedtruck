@@ -623,3 +623,8 @@ input[type=number] {
 .foodtruck-search-bar{
     width: 12rem;
 }
+
+/* Make the vote panel as big as its content */
+.dashboard-vote-panel{
+    height: 100%
+}
