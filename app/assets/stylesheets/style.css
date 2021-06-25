@@ -494,7 +494,7 @@ body {
     border-radius: 5px;
 }
 
-.user-avatar>img {
+.user-avatar {
     border-radius: 50%;
     width: 100px;
     height: 100px;

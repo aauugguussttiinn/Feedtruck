@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
   has_many :orders
   has_one :cart
   has_many :votes
+  has_one_attached :avatar
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
   validates :password, presence: true, length: { in: 6..20 }, on: :create
