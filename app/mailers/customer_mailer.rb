@@ -20,7 +20,7 @@ class CustomerMailer < ApplicationMailer
   def order_ready_email(customer)
     @customer = customer
     p @customer
-    @order = @customer.orders.where(is_ready: true).last
+    @order = @customer.orders.where(is_ready: true).where("updated_at > ?", Time.now - 3).last
     @foodtruck = @order.foodtruck
     mail(to: @customer.email, subject: 'Votre commande est prête')
   end
