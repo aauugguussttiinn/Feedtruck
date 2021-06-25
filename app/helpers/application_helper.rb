@@ -38,4 +38,14 @@ module ApplicationHelper
     end
   end
 
+  def transfer_guest_cart_to_customer_cart
+    if session[:cart]
+      guest_cart = Cart.find(session[:cart])
+      guest_cart.cart_contents.each { |content| CartContent.create(cart: current_shopping_cart.id, item: cart_content.item )}
+      CartContent.where(cart: guest_cart.id).delete_all
+      guest_cart.destroy
+      session[:shopping_cart] = nil
+    end
+  end
+
 end
