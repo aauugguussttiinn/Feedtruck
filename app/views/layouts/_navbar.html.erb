@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow is-white"   hrole="navigation" aria-label="main navigation">
     <div class="navbar-brand is-flex is-align-items-center">
         <% if myfoodtruck_foodtruck_signed_in?%>
-            <%= link_to myfoodtruck_dashboard_path do %>
+            <%= link_to myfoodtruck_root_path do %>
                 <span class="navbar-item">
                 <%= image_tag("logo.png", class:"icon-small-size")%>
                     <div>
