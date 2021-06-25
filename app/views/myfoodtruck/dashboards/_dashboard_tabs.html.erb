@@ -135,7 +135,7 @@
                             </div>       
                         </div>
                         <p>
-                            <% if @votes_ranking[i+1] != nil %>
+                            <% if @votes_ranking[i+1] != nil && Location.find(@votes_ranking[i]) != nil && %>
                                 <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
                             <% end %>                       
                         </p>
