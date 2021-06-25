@@ -25,9 +25,9 @@ module ApplicationHelper
   end
 
   def current_shopping_cart
-    if signed_in?
+    if customer_signed_in?
       @shopping_cart = current_customer.cart
-    else
+    elsif !myfoodtruck_foodtruck_signed_in?
       if session[:cart]
         @shopping_cart = Cart.find(session[:cart])
       else
@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def transfer_guest_cart_to_customer_cart
-    if signed_in?
+    if customer_signed_in?
       if session[:cart]
         guest_cart = Cart.find(session[:cart])
         if guest_cart.items.count > 0
