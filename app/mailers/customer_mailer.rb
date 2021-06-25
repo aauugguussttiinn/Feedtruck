@@ -19,6 +19,7 @@ class CustomerMailer < ApplicationMailer
 
   def order_ready_email(customer)
     @customer = customer
+    p @customer
     @order = @customer.orders.where(is_ready: true).last
     @foodtruck = @order.foodtruck
     mail(to: @customer.email, subject: 'Votre commande est prête')

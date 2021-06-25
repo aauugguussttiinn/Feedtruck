@@ -8,7 +8,9 @@ class Order < ApplicationRecord
   has_many :order_contents
   has_many :items, through: :order_contents
 
-
+  validates :customer, presence: true
+  validates :foodtruck, presence: true
+  
   def order_send
     if self.is_ready == false
       CustomerMailer.order_email(self.customer).deliver_now
@@ -34,4 +36,5 @@ class Order < ApplicationRecord
       cart_content.destroy
     end
   end
+  
 end
