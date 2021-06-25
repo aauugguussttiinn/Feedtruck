@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :transfer_guest_cart_to_customer_cart
 
   def after_sign_in_path_for(customer)
-    unless current_customer || current_myfoodtruck_foodtruck
+    if current_customer && %w(create).include?(self.action_name)
       flash[:notice] = 'Connecté en tant que Gourmet'
       foodtrucks_path
     else
