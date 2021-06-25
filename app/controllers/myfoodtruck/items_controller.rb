@@ -1,6 +1,5 @@
 class Myfoodtruck::ItemsController < ApplicationController
   before_action :set_foodtruck_item, only: %i[ show edit update destroy ]
-  before_action :is_foodtruck_owner?, only: %i[ edit update destroy create new]
 
   # GET /foodtruck/items or /foodtruck/items.json
   def index
