@@ -14,7 +14,7 @@
             <%= sprintf('%.2f', item.price) %>€
             </p>
             <div class="quantity is-flex is-align-items-center mt-4">
-                <%= form_with  url: customer_cart_cart_contents_path(item: item.id) do |f| %>
+                <%= form_with  url: cart_cart_contents_path(item: item.id) do |f| %>
                     <div class="is-flex is-align-items-center">
                         <span class= "button quantity-button", id="minus-btn"><i class="fas fa-minus"></i></span>
                             <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 button is-outlined quantity-counter", value: '1' %>

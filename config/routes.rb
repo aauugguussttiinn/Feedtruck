@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
  
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "static_pages#homepage"
   get 'team', to: 'static_pages#team'
@@ -10,11 +13,13 @@ Rails.application.routes.draw do
 
   devise_for :customers
 
+  resource :cart, only: [:show, :create] do
+    resources :cart_contents, only: [:show, :new, :create, :destroy]
+  end
+
+
   resource :customer do
     resources :orders, except: [:destroy]
-    resource :cart, only: [:show, :create] do
-      resources :cart_contents, only: [:show, :new, :create, :destroy]
-    end
   end
   resources :foodtrucks do
     resources :votes, only: [:show, :create]

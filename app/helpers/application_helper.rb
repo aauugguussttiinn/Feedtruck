@@ -23,4 +23,19 @@ module ApplicationHelper
       flash[:alert] = "Vous devez vous déconnecter de votre compte actuel avant de continuer"
     end
   end
+
+  def current_shopping_cart
+    if signed_in?
+      @shopping_cart = current_customer.cart
+    else
+      if session[:cart]
+        @shopping_cart = Cart.find(session[:cart])
+      else
+        @new_cart = Cart.create
+        session[:cart] = @new_cart.id
+        @shopping_cart = Cart.find(session[:cart])
+      end
+    end
+  end
+
 end

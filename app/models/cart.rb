@@ -1,9 +1,7 @@
 class Cart < ApplicationRecord
-  belongs_to :customer
+  belongs_to :customer, optional: true
   has_many :cart_contents
   has_many :items, through: :cart_contents
-
-  validates :customer, presence: true
 
   def total_price
     unless self.items.first.nil?

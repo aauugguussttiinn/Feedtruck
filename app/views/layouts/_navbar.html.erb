@@ -17,15 +17,15 @@
            
     <div id="main-navbar" class="navbar-menu">
         <div class="navbar-end is-flex is-align-items-center is-justify-content-center ">           
-            <% if current_customer %>
+            <% if !myfoodtruck_foodtruck_signed_in? %>
                 <div class="navbar-item">
-                    <%= link_to customer_cart_path do%>
+                    <%= link_to cart_path do%>
                         <div class="cart is-flex">
                             <div class="cart-icon">
                                 <%= image_tag("bag-dark.png", alt:"cart-icon")%>
                             </div>
                             <div class="cart-items-count nav-cart-button">
-                                <p class="has-text-centered is-text-white" id="cart-count"><%= current_customer.cart.items.count %></p>
+                                <p class="has-text-centered is-text-white" id="cart-count"><%= current_shopping_cart.cart_contents.count %></p>
                             </div>
                         </div>
                     <%end%>
