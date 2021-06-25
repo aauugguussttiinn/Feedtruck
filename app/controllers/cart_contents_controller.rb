@@ -1,10 +1,10 @@
 class CartContentsController < ApplicationController
   include CartContentHelper
-  before_action :authenticate_cust!, only: %i[ create destroy ]
+  before_action :current_shopping_cart, only: %i[ create destroy ]
   
   def create
     @item = Item.find(params[:item])
-    @cart_content = CartContent.new(cart: current_customer.cart, item: @item, item_quantity: params[:quantity])
+    @cart_content = CartContent.new(cart: current_shopping_cart, item: @item, item_quantity: params[:quantity])
     respond_to do |format|
       if is_from_same_foodtruck?(@cart_content) && @cart_content.save
         format.html { redirect_back fallback_location: root_path, flash: { success: "1 #{@cart_content.item.name} à bien été ajouté au panier"}}

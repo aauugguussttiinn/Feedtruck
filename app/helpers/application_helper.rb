@@ -23,4 +23,34 @@ module ApplicationHelper
       flash[:alert] = "Vous devez vous déconnecter de votre compte actuel avant de continuer"
     end
   end
+
+  def current_shopping_cart
+    if signed_in?
+      @shopping_cart = current_customer.cart
+    else
+      if session[:cart]
+        @shopping_cart = Cart.find(session[:cart])
+      else
+        @new_cart = Cart.create
+        session[:cart] = @new_cart.id
+        @shopping_cart = Cart.find(session[:cart])
+      end
+    end
+  end
+
+  def transfer_guest_cart_to_customer_cart
+    if signed_in?
+      if session[:cart]
+        guest_cart = Cart.find(session[:cart])
+        guest_cart.cart_contents.each do |content|
+          if content.item.foodtruck.id == current_shopping_cart.items.last.foodtruck.id
+            CartContent.create(cart_id: current_shopping_cart.id, item_id: content.item.id, item_quantity: content.item_quantity )
+          end
+        end
+        CartContent.where(cart_id: guest_cart.id).delete_all
+        guest_cart.destroy
+        session[:cart] = nil
+      end
+    end
+  end
 end

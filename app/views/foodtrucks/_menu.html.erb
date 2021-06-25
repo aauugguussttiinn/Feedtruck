@@ -33,7 +33,7 @@
                             <%= link_to foodtruck_item_path(foodtruck.id, item.id), class: "button show-button is-rounded is-primary mr-2" do %>
                                 <span>Voir plus</span>
                             <% end %>
-                            <%= link_to customer_cart_cart_contents_path(item: item.id, quantity: '1'), class: "button is-rounded is-primary mr-2", method:'post', remote: true do %>
+                            <%= link_to cart_cart_contents_path(item: item.id, quantity: '1'), class: "button is-rounded is-primary mr-2", method:'post', remote: true do %>
                                 <span class="icon is-small">
                                     <%= image_tag("bag.png")%>
                                 </span>
