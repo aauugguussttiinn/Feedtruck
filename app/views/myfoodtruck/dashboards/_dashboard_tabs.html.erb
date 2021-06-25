@@ -16,7 +16,7 @@
                     <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes en cours</h2>
                     <% @orders.sort.reverse.each do |order| %>  
                         <% if order.is_ready == false %>      
-                            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items">
+                            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items" id="<%= order.created_at %>">
                                 <div class="box-content index-items-content">             
                                     <p class="item-title title is-3 mb-3 mt-2 is-text-info">
                                         Commande #<%= order.id %>
@@ -80,7 +80,7 @@
                                         <div class="column has-text-centered is-12">
                                             <p class="title is-size-4 ">Payée: <%=sprintf "%.2f", order.total_price %>€ </p>
                                             
-                                            <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary " do %>
+                                            <%= link_to myfoodtruck_foodtruck_order_path(order.id), method: :patch, class: "button order-ready-button is-rounded is-primary ", remote: true do %>
                                                 La commande est prête
                                             <% end %>           
                                         </div>
