@@ -36,7 +36,7 @@
         <div class="column columns">
           <label class="button is-primary is-rounded">
           Ajoutez une image
-          <span style="display:none;">
+          <span class="file-add-button">
             <%= f.file_field :picture, class: ""%>
           </span>
           </label>
@@ -44,10 +44,8 @@
       </div>
 
       <div class="actions is-flex is-justify-content-center my-4">
-        <%= f.submit "Valider", class: "button is-primary is-rounded" %>
-      </div>
-      <div class="pt-4 has-text-centered">
-        <%= link_to 'Retournez sur le profil', myfoodtruck_foodtruck_path, class: "button is-primary is-rounded" %>
+        <%= f.submit "Valider", class: "button is-primary is-rounded is-normalest-btn mx-3" %>
+        <%= link_to 'Retour', myfoodtruck_foodtruck_path, class: "button is-secondary is-rounded is-normalest-btn mx-3" %>
       </div>
     <% end %>
   </div>

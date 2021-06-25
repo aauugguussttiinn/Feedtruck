@@ -1,5 +1,6 @@
 class Foodtruck < ApplicationRecord
   after_create :welcome_send
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,8 +9,12 @@ class Foodtruck < ApplicationRecord
   has_many :items
   has_many :orders
   has_one_attached :pictures
+  has_one_attached :logo
   has_one :location
   has_many :votes
+
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
+  validates :password, presence: true, length: { in: 6..20 }, on: :create
 
   def welcome_send
     FoodtruckMailer.welcome_email(self).deliver_now

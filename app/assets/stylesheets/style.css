@@ -16,24 +16,49 @@ body {
     font-family: 'K2D', sans-serif !important;
 }
 
+.is-bg-pastel{
+    background-color: #ffe0e7;
+}
+
+.is-bg-white{
+    background-color: #ffffff;
+}
+
+.col-sizing-home {
+    max-height: 30rem;
+    width: 50%;
+}
+
+
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is general styling $$$$$$$$$$$$$$$$$$$$ */
 
 
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
 
-.hero-body{
-    padding: 0 0 3em 1.5em;
+.nav-cart-button {
+    background-color: black;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.hero-image img {
-    width: 900px;
-    border-radius: 0 0 0 2rem; 
-}
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for navbar styling $$$$$$$$$$$$$$$$$$$$ */
 
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for homepage hero $$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for homepage jumbotron hero $$$$$$$$$$$$$$$$$$$$ */
+
+.jumbotron {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url(https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+    background-size: cover;
+  }
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for homepage jumbotron hero $$$$$$$$$$$$$$$$$$$$ */
 
 
 
@@ -113,6 +138,15 @@ body {
     border: transparent !important;
 }
 
+.is-largest-btn {
+    min-width: 15rem !important;
+}
+
+.is-normalest-btn {
+    min-width: 10rem !important;
+}
+
+
 .quantity-button {
     background-color:#ffffff !important;
     border-color: #cc2653;
@@ -123,9 +157,9 @@ body {
     padding: 0.5rem;
 }
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+/* Content BELOW overwrite default stripe button style */
 .stripe-button-el {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #ff517f !important;
     border-radius: 2rem !important;
@@ -144,7 +178,7 @@ body {
 }
 
 .stripe-button-el:hover {
-    width: 16.5em;
+    min-width: 15rem !important;
     background-image: none !important;
     background-color: #cc2653 !important;
     border-radius: 2rem !important;
@@ -161,7 +195,13 @@ body {
     background-color: #cc2653 !important;
     box-shadow: none !important;
 }
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE overwrite default stripe button style $$$$$$$$$$$$$$$$$$$$ */
+/* Content ABOVE overwrite default stripe button style */
+
+/* Content BELOW overwrite default stripe button style */
+.file-add-button {
+    display:none
+}
+/* Content ABOVE overwrite default stripe button style */
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is buttons $$$$$$$$$$$$$$$$$$$$ */
 
@@ -235,28 +275,67 @@ body {
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for form styling $$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for icon styling $$$$$$$$$$$$$$$$$$$$ */
 
 .icon-primary-color {
-    color: #ff3068;
-  }
-  .icon-color {
-      color: #00C4A7;
-  }
-  
-  .select select:not([multiple]) {
-      width: 150rem !important;
-  }
+  color: #ff3068;
+}
 
-/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for form styling $$$$$$$$$$$$$$$$$$$$ */
+.icon-color {
+  color: #00C4A7;
+}
+
+.select select:not([multiple]) {
+  width: 150rem !important;
+}
+
+.icon-small-size {
+    max-height: 80px !important;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for icon styling $$$$$$$$$$$$$$$$$$$$ */
 
 
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$ Content BELOW is for boxes $$$$$$$$$$$$$$$$$$$$ */
+
+.box-cart-min-height {
+    min-height: 15rem;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for boxes $$$$$$$$$$$$$$$$$$$$ */
+
+
+@media screen and (max-width: 1160px) {
+    .home-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .home-wrap-reverse {
+        display: flex;
+        flex-wrap: wrap-reverse;
+    }
+
+    .col-sizing-home {
+        width: 100%;
+    }
+
+}
 
 
 
 /* $$$$$$$$$$$$$$$$$$$$ Content BELOW is only for mobile devices $$$$$$$$$$$$$$$$$$$$ */
 
 @media screen and (max-width: 768px) {
+
+    .jumbotron {
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url(https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+        background-size: cover;
+        max-height: 20rem;
+      }
     
     .footer-column {
         align-items: center;
@@ -298,6 +377,17 @@ body {
     .table-dashboard {
         width: 100%;
     }
+
+    .home-subscription-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .text-center-reducted {
+        width: 50%;
+        margin: auto;
+    }
+
   }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of mobile css $$$$$$$$$$$$$$$$$$$$ */
@@ -331,6 +421,11 @@ body {
             object-fit: cover;
             margin-bottom: 1em;
         }
+
+        .margin-top-section-mobile {
+            margin-top: 5rem;
+        }
+
     }
 
 /* $$$$$$$$$$$$$$$$$$$$ End of small mobile css $$$$$$$$$$$$$$$$$$$$ */
@@ -399,7 +494,7 @@ body {
     border-radius: 5px;
 }
 
-.user-avatar>img {
+.user-avatar {
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -440,6 +535,11 @@ body {
     box-shadow:none;
 }
 
+.image-container-fit {
+    width: 100%;
+    height: 100%;
+}
+
 .image-fit {
     object-fit: cover;
 }
@@ -469,7 +569,7 @@ body {
 }
 
 .quantity-counter {
-    width: 3rem;
+    width: 3.5rem;
 }
 
 /* Content BELOW is for footer */
@@ -478,9 +578,7 @@ body > footer {
     margin-top: auto;
 }
 
-.subscriptions-link{
-    background-color: #ffe0e7;
-}
+
 
 .menu-item-img {
     width: 8em;
@@ -548,10 +646,6 @@ input[type=number] {
 
 .pink-shadow {
     box-shadow: 0 0.5em 1em -0.125em rgba(255, 48, 104, 0.4);
-}
-
-.image-form-edit {
-    max-height: 80px;
 }
 
 .new-session-image {

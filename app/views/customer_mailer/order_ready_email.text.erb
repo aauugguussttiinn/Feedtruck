@@ -1,0 +1,10 @@
+<% if @customer.first_name != nil %>
+  Bonjour <%= @customer.first_name %> !
+<% else %>
+  Bonjour !
+<% end %>
+
+Votre commande #<%= @order.id %> est prête.
+Vous pouvez des maintenant la récupérer au près de notre partenaire <%= @foodtruck.name %>.
+
+À très bientôt, l'équipe FeedTruck !
