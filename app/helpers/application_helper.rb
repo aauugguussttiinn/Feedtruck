@@ -43,7 +43,9 @@ module ApplicationHelper
       if session[:cart]
         guest_cart = Cart.find(session[:cart])
         guest_cart.cart_contents.each do |content|
-          CartContent.create(cart_id: current_shopping_cart.id, item_id: content.item.id, item_quantity: content.item_quantity )
+          if content.item.foodtruck.id == current_shopping_cart.items.last.foodtruck.id
+            CartContent.create(cart_id: current_shopping_cart.id, item_id: content.item.id, item_quantity: content.item_quantity )
+          end
         end
         CartContent.where(cart_id: guest_cart.id).delete_all
         guest_cart.destroy
