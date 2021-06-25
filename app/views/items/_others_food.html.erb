@@ -1,11 +1,12 @@
 <div class="section">
     <div class="container">
         <div class="title mb-5">
-        Les autres plats de ce chef
+            Les autres plats de ce chef
         </div>
+
+        <%if item.foodtruck.items.count > 3%>
         <div class="columns is-centered grid-list-display">
             <%item.foodtruck.items.sample(3).each do |food| %>
-               
                     <div class="card column other-food-card">
                     <%= link_to foodtruck_item_path(food.foodtruck.id, food.id) do %>
                         <div class="card-image">
@@ -26,7 +27,7 @@
                         </div> 
                     <%end%>             
                     </div>
-               
+                <%end%>
             <%end%>
         </div>
     </div>
