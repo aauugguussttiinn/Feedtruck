@@ -33,9 +33,21 @@
             <%= f.label :pictures, "Image", class: "label mb-0 mt-1" %><br/>
             <div class="column columns">
               <label class="button is-primary is-rounded">
-              Ajoutez une image
+              Ajoutez une bannière
               <span class="file-add-button">
                 <%= f.file_field :pictures, class: ""%>
+              </span>
+            </label>
+            </div> 
+          </div>
+
+          <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+            <%= f.label :logo, "Logo", class: "label mb-0 mt-1" %><br/>
+            <div class="column columns">
+              <label class="button is-success is-rounded">
+              Ajoutez un logo
+              <span class="file-add-button">
+                <%= f.file_field :logo, class: ""%>
               </span>
             </label>
             </div> 
