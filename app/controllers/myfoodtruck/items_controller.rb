@@ -1,5 +1,6 @@
 class Myfoodtruck::ItemsController < ApplicationController
   before_action :set_foodtruck_item, only: %i[ show edit update destroy ]
+  before_action :is_foodtruck_owner?, only: %i[ edit update destroy create new]
 
   # GET /foodtruck/items or /foodtruck/items.json
   def index
@@ -12,6 +13,7 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # GET /foodtruck/items/new
   def new
+    p params.inspect
     @foodtruck_item = Item.new.picture.attach(:picture)
   end
 
