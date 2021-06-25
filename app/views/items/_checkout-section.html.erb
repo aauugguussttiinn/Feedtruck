@@ -1,9 +1,9 @@
-<div class="section">
+<div class="section pb-2">
     <div class="columns is-variable is-0 is-centered is-vcentered is-multiline checkout-section">
         <div class="column has-text-centered is-6">
             <%= image_tag(item.picture, alt:"image", class:"checkout-section-image")%>
         </div>
-        <div class="column is-6">
+        <div class="column is-6 pl-3">
             <p class="title">
                 <%=item.name%>
             </p>
@@ -28,32 +28,4 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="tabs item-tabs is-boxed">
-            <ul>
-                <li class="is-active" data-target="product-description">
-                    <a>A propos du plat</a>
-                </li>
-                <li data-target="additionnal-infos">
-                    <a>Autres infos</a>
-                </li>
-            </ul>
-        </div>
-        <div id="item-tab-content" class="px-2">
-            <div id="product-description">
-                <h3 class="is-size-5 title">A propos du plat</h3>
-                <p>
-                    <%= item.description %>
-                </p>
-            </div>
-            <div id="additionnal-infos" class="is-hidden">
-                <h3 class="is-size-5 title"> Autres infos</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum omnis 
-                    porro tempore hic minima nihil odio sunt fugit, ipsam similique!
-                </p>
-            </div>
-
-        </div>
-    </div>
 </div>

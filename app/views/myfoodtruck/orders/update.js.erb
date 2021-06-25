@@ -1,0 +1,19 @@
+document.getElementById('<%= @foodtruck_order.created_at %>').remove();
+
+// render flash
+navbar = document.querySelector(".navbar");
+section = document.querySelector(".hero");
+body = document.body;
+
+flash = document.createElement("div")
+flash.setAttribute("id", "flash")
+flash.innerHTML = "<%= j render partial: "layouts/flash", locals: { flash: flash } %>"
+
+
+if (body.childNodes[3] == section) {
+  body.insertBefore(flash, navbar.nextSibling);
+  setTimeout(() => document.getElementById('flash').remove(), 10000)
+} else {
+  document.getElementById('flash').remove();
+  body.insertBefore(flash, navbar.nextSibling);
+}
