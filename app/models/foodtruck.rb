@@ -24,14 +24,18 @@ class Foodtruck < ApplicationRecord
     Vote.last_24h.where(foodtruck: self).count
   end
 
-  def location_most_voted
+  def locations_most_voted
     votes = Vote.last_24h.where(foodtruck: self)
     votes = votes.map do |vote|
       if vote.customer != nil
         vote = vote.customer.location_id
       end
     end
-    freq = votes.inject(Hash.new(0)) { |k,v| k[v] += 1; k }
+
+    #Removing the nil values that may arise from a deleted customer profile
+    freq = votes.inject(Hash.new(0)) { |k,v| k[v] += 1; k }.delete_if { |k, v| k.nil? || v.nil? }
+
+    #Sorting the hashes by values, the locations with the most votes first, and then convert the hashes into an array
     freq = freq.sort_by{|k, v| -v}.flatten
   end
 

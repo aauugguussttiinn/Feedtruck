@@ -48,6 +48,10 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   def destroy
     @customer.destroy
+    # @customer.votes.map{|vote| vote.destroy}
+    @customer.votes.last.destroy
+
+
     respond_to do |format|
       format.html { redirect_to customers_url, flash: { success: "Profil détruit"} }
     end

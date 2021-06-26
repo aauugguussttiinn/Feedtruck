@@ -127,7 +127,7 @@
                     <p class="is-size-5 pt-3 mr-2">
                         <%= j+1 %>.                      
                     </p>
-                    <% if @votes_ranking[i+1] != nil %>                        
+                    <% if @votes_ranking[i] != nil && @votes_ranking[i+1] != nil %>                        
                         <div class="is-flex is-align-items-center mr-5">
                             <i class="fas fa-thumbs-up fa-2x"></i>
                             <div class="likes-count likes-style">
@@ -135,9 +135,7 @@
                             </div>       
                         </div>
                         <p>
-                            <% if @votes_ranking[i+1] != nil %>
-                                <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
-                            <% end %>                       
+                            <%= Location.find(@votes_ranking[i]).adress %>, <%= Location.find(@votes_ranking[i]).name %>
                         </p>
                     <%end%>
                 </div>
