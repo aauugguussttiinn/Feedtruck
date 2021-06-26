@@ -362,6 +362,7 @@ body {
 
     .team-column-right {
         align-items: center;
+        text-align: center;
     }
     .team-list {
         margin-left: 1em ;

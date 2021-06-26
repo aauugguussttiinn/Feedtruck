@@ -4,7 +4,7 @@
             <div class="column is-5 is-flex">
                 <div class="box box-content is-flex is-justify-content-space-around  is-flex-direction-column">
                     <% if @customer.avatar.attached? %>
-                        <%= image_tag @customer.avatar, alt: "Thumbnail [100%x225]", class: "user-avatar is-128x128" %>
+                        <%= image_tag @customer.avatar, alt: "Thumbnail [100%x225]", class: "user-avatar is-128x128 image-fit" %>
                     <%else%>
                         <img src="https://images.unsplash.com/photo-1606383068250-4ac2043f4ff5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="food-img" class="user-avatar is-128x128">
                     <%end%>
