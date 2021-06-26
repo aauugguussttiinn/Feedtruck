@@ -1,3 +1,9 @@
+<% if is_current_foodtruck_profile_completed? == false %>
+  <div class="m-3">
+    <p class="is-text-info">Pour que votre profil soit visible des utilisateurs, veuillez renseigner vos informations, ainsi que completer votre menu</p>
+  </div>
+<% end %>
+
 <%= render partial: 'header', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck} %>
 <%= render partial: 'dashboard_tabs', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck} %>
 <%= render partial: 'location', locals: {current_myfoodtruck_foodtruck: current_myfoodtruck_foodtruck} %>

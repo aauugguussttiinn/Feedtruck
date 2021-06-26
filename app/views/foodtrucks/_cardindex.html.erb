@@ -1,9 +1,8 @@
 
 <div class="section">
-    <div class="container grid-list-display">
-        <% foodtrucks.each do |foodtruck| %>
-
-            <% if foodtruck.name != nil && foodtruck.description != nil && foodtruck.location_id != nil && foodtruck.pictures.attached? %>
+  <div class="container grid-list-display">
+    <% foodtrucks.each do |foodtruck| %>
+      <% if is_foodtruck_profile_completed?(foodtruck) %>
         
 
 
