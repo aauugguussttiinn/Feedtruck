@@ -1,4 +1,8 @@
 
-<%= render partial: 'foodtrucks/firstsection', locals: {foodtruck: @myfoodtruck_foodtruck} %>
-<%= render partial: 'foodtrucks/menu', locals: {foodtruck: @myfoodtruck_foodtruck} %>
-<%= render partial: 'foodtrucks/location', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+<% if is_foodtruck_profile_completed? %>
+  <%= render partial: 'foodtrucks/firstsection', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+  <%= render partial: 'foodtrucks/menu', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+  <%= render partial: 'foodtrucks/location', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+<% else %>
+  <%= render partial: 'must_complete_profile', locals: {foodtruck: @myfoodtruck_foodtruck} %>
+<% end %>

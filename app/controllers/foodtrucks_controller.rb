@@ -1,5 +1,6 @@
 class FoodtrucksController < ApplicationController
   before_action :set_foodtruck, only: %i[ show edit update destroy ]
+  before_action :is_foodtruck_profile_completed
 
   # GET /foodtrucks
   def index
