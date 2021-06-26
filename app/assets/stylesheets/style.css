@@ -384,9 +384,14 @@ body {
         width: 100%;
     }
 
-    .home-subscription-wrap {
+    .static-pages-subscription-wrap {
         display: flex;
         flex-wrap: wrap;
+    }
+
+    .static-pages-subscription-wrap {
+        display: flex;
+        flex-wrap: wrap-reverse;
     }
 
     .text-center-reducted {
