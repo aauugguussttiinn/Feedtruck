@@ -67,14 +67,14 @@ fr:
     attributes:
       customer:
         email: "Email"
-        password: "- Votre mot de passe"
-        password_confirmation: "- Vos deux mots de passe"
-        current_password: "- Votre mot de passe actuel"
+        password: "Votre mot de passe"
+        password_confirmation: "Vos deux mots de passe"
+        current_password: "Votre mot de passe actuel"
       foodtruck:
         email: "Email"
-        password: "- Votre mot de passe"
-        password_confirmation: "- Vos deux mots de passe"
-        current_password: "- Votre mot de passe actuel"
+        password: "Votre mot de passe"
+        password_confirmation: "Vos deux mots de passe"
+        current_password: "Votre mot de passe actuel"
     errors:
       models:
         customer:
