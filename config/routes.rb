@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   resource :customer do
-    resources :orders, except: [:destroy]
+    resources :orders, except:
   end
   resources :foodtrucks do
     resources :votes, only: [:show, :create]
