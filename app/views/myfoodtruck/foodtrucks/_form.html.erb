@@ -2,60 +2,53 @@
   <div class="column is-half is-offset-one-quarter">
     <h2 class="title has-text-centered">Modifier votre profil</h2>
 
-      <%= form_with(model: foodtruck, local: true) do |f| %>
-          <div class="field mx-5 my-3">
-            <%= f.label :name, "Nom de votre foodtruck", class: "label" %>
-            <div class="control has-icons-left my-3">
-              <%= f.text_field :name, autofocus: true, class: "input", placeholder: "Nom" %>
-              <span class="icon is-small is-left">
-                <i class="fas fa-child icon-primary-color"></i>
-              </span>
-            </div> 
-          </div>
+    <%= form_with(model: foodtruck, local: true) do |f| %>
+      <div class="field mx-5 my-3">
+        <%= f.label :name, "Nom de votre foodtruck", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :name, autofocus: true, class: "input", placeholder: "Nom" %>
+          <span class="icon is-small is-left"><i class="fas fa-child icon-primary-color"></i></span>
+        </div> 
+      </div>
 
-          <div class="field mx-5 my-3">
-            <%= f.label :description, "Votre description", class: "label" %>
-            <div class="control has-icons-left my-3">
-              <%= f.text_field :description, autofocus: true, class: "input", placeholder: "Description" %>
-              <span class="icon is-small is-left">
-                <i class="fas fa-child icon-primary-color"></i>
-              </span>
-            </div>
-            <%= f.label :location_id, "Localisation", class: "label" %>
-            <div class="control">
-              <div class="select">
-                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
-              </div>
-            </div>
-          </div>
-
-          <div class="file mx-5 my-1 is-flex is-flex-direction-column">
-            <%= f.label :pictures, "Image", class: "label mb-0 mt-1" %><br/>
-            <div class="column columns">
-              <label class="button is-primary is-rounded">
-              Ajoutez une bannière
-              <span class="file-add-button">
-                <%= f.file_field :pictures, class: ""%>
-              </span>
-            </label>
-            </div> 
-          </div>
-
-          <div class="file mx-5 my-1 is-flex is-flex-direction-column">
-            <%= f.label :logo, "Logo", class: "label mb-0 mt-1" %><br/>
-            <div class="column columns">
-              <label class="button is-success is-rounded">
-              Ajoutez un logo
-              <span class="file-add-button">
-                <%= f.file_field :logo, class: ""%>
-              </span>
-            </label>
-            </div> 
-          </div>
-        <div class="is-flex is-justify-content-center mt-5">
-          <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-3" %>
-          <%= link_to 'Retour', myfoodtruck_foodtruck_path, class: "button is-secondary is-rounded is-normalest-btn mx-3" %>
+      <div class="field mx-5 my-3">
+        <%= f.label :description, "Votre description", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :description, autofocus: true, class: "input", placeholder: "Description" %>
+          <span class="icon is-small is-left"><i class="fas fa-child icon-primary-color"></i></span>
         </div>
-      <% end %>
+        
+        <%= f.label :location_id, "Localisation", class: "label" %>
+        <div class="control">
+          <div class="select">
+            <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+        <%= f.label :pictures, "Image", class: "label mb-0 mt-1" %><br/>
+        <div class="column columns">
+          <label class="button is-primary is-rounded">
+            Ajoutez une bannière
+              <span class="file-add-button"><%= f.file_field :pictures %></span>
+          </label>
+        </div> 
+      </div>
+
+      <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+        <%= f.label :logo, "Logo", class: "label mb-0 mt-1" %><br/>
+        <div class="column columns">
+          <label class="button is-success is-rounded">
+            Ajoutez un logo
+            <span class="file-add-button"><%= f.file_field :logo %></span>
+          </label>
+        </div> 
+      </div>
+      <div class="is-flex is-justify-content-center mt-5">
+        <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-3" %>
+        <%= link_to 'Retour', myfoodtruck_foodtruck_path, class: "button is-secondary is-rounded is-normalest-btn mx-3" %>
+      </div>
+    <% end %>
   </div>
  </div> 

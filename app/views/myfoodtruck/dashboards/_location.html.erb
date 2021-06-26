@@ -1,14 +1,14 @@
 <section class="section m-1 columns is-centered dashboard-location-section"> 
-    <div class="column is-7 ">
-        <div class="is-flex is-flex-direction-column ">
-        <% if current_myfoodtruck_foodtruck.location_id !=nil %>
-            <h2 class="title has-text-centered is-size-4 ml-4">Aujourd'hui vous êtes attendu à <%= Location.find(current_myfoodtruck_foodtruck.location_id).adress%></h2>
-            <div class="container-iframe">
-                <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="responsive-iframe no-borders" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        <% else %>
-            <h2 class="title has-text-centered is-size-4 ml-4">Veuillez renseigner une localisation sur votre profil pour afficher une carte de l'emplacement</h2>
-        <% end %>
+  <div class="column is-7 ">
+    <div class="is-flex is-flex-direction-column ">
+      <% if current_myfoodtruck_foodtruck.location_id !=nil %>
+        <h2 class="title has-text-centered is-size-4 ml-4">Aujourd'hui vous êtes attendu à <%= Location.find(current_myfoodtruck_foodtruck.location_id).adress%></h2>
+        <div class="container-iframe">
+          <iframe src=" <%= Location.find(current_myfoodtruck_foodtruck.location_id).url_map %> " class="responsive-iframe no-borders" allowfullscreen="" loading="lazy"></iframe>
         </div>
+      <% else %>
+        <h2 class="title has-text-centered is-size-4 ml-4">Veuillez renseigner une localisation sur votre profil pour afficher une carte de l'emplacement</h2>
+      <% end %>
     </div>
+  </div>
 </section>

@@ -1,4 +1,4 @@
-<nav class="navbar has-shadow is-white"   hrole="navigation" aria-label="main navigation">
+<nav class="navbar has-shadow is-white is-fixed-top"   hrole="navigation" aria-label="main navigation">
   <div class="navbar-brand is-flex is-align-items-center">
     <% if myfoodtruck_foodtruck_signed_in? %>
       <%= link_to myfoodtruck_root_path do %>
@@ -19,140 +19,124 @@
         </span>
       <% end %>
     <% else %>           
-            <%= link_to root_path do %>
-                <span class="navbar-item">
-                <%= image_tag("logo.png", class:"icon-small-size")%>
-                <div>
-                    <p class="is-size-3 title is-text-dark has-text-weight-bold">FeedTruck</p>
-                </div>
-                </span>
-            <%end%>
-        <% end %>         
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
+      <%= link_to root_path do %>
+        <span class="navbar-item">
+          <%= image_tag("logo.png", class:"icon-small-size") %>
+          <div>
+            <p class="is-size-3 title is-text-dark has-text-weight-bold">FeedTruck</p>
+          </div>
+        </span>
+      <%end%>
+    <% end %>         
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
            
-    <div id="main-navbar" class="navbar-menu">
-        <div class="navbar-end is-flex is-align-items-center is-justify-content-center ">           
-            <% if !myfoodtruck_foodtruck_signed_in? %>
-                <div class="navbar-item">
-                    <%= link_to cart_path do%>
-                        <div class="cart is-flex">
-                            <div class="cart-icon">
-                                <%= image_tag("bag-dark.png", alt:"cart-icon")%>
-                            </div>
-                            <div class="cart-items-count nav-cart-button">
-                                <p class="has-text-centered is-text-white" id="cart-count"><%= current_shopping_cart.cart_contents.count %></p>
-                            </div>
-                        </div>
-                    <%end%>
-                </div> 
-            <% end %>
-            <%if !customer_signed_in? && !myfoodtruck_foodtruck_signed_in? %>           
-                <div class="navbar-item">
-                    <div class="dropdown drop_but1">
-                        <div class="dropdown-trigger">
-                            <button class="button is-primary is-rounded mr-2" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>S'inscrire</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>        
-                        </div>   
-                          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <%= link_to "Gourmet", new_customer_registration_path, class: "dropdown-item" %>
-                                <%= link_to "Foodtruck", new_myfoodtruck_foodtruck_registration_path, class: "dropdown-item" %>
-                            </div>
-                        </div>                     
-                    </div>
-                    <div class="dropdown drop_but2">
-                        <div class="dropdown-trigger">
-                            <button class="button login-button is-rounded is-light" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>Se connecter</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>        
-                        </div>   
-                          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content is-rounded">
-                                <%= link_to "Gourmet", new_customer_session_path, class: "dropdown-item" %>
-                                <%= link_to "Foodtruck", new_myfoodtruck_foodtruck_session_path, class: "dropdown-item" %>
-                            </div>
-                        </div>                     
-                    </div>
-                </div>
-            <%elsif customer_signed_in? && !myfoodtruck_foodtruck_signed_in?%>
-                <div class="navbar-item">
-                    <div class="dropdown customer-profile is-hoverable is-right  ">
-                        <div class="dropdown-trigger">
-                            <div class="profile-button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <i class="fas fa-user-circle fa-2x"></i>               
-                                <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <%=link_to  customer_path, class: "dropdown-item" do %>
-                                Mes infos
-                                <%end%>
-                                <%=link_to  customer_orders_path, class: "dropdown-item" do %>
-                                Mes commandes passées
-                                <%end%>
-                                <hr class="dropdown-divider">
-                                <%=link_to destroy_customer_session_path, class: "dropdown-item", method: :delete do %>
-                                <i class="fas fa-power-off"></i>
-                                Déconnexion
-                                <%end%>
-                            </div>
-                        </div>
-                    </div>        
-                </div>
-            <% elsif !customer_signed_in? && myfoodtruck_foodtruck_signed_in? %> 
-                <div class="navbar-item">
-                    <div class="dropdown customer-profile is-hoverable is-right  ">
-                        <div class="dropdown-trigger">
-                            <div class="profile-button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <i class="fas fa-user-circle fa-2x"></i>               
-                                <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <%=link_to  myfoodtruck_foodtruck_path, class: "dropdown-item" do %>
-                                    Mes infos
-                                <%end%>
-                                <%=link_to  myfoodtruck_dashboard_path, class: "dropdown-item" do %>
-                                    Mon dashboard
-                                <%end%>
-                                <hr class="dropdown-divider">
-                                <%=link_to destroy_myfoodtruck_foodtruck_session_path, class: "dropdown-item", method: :delete do %>
-                                <i class="fas fa-power-off"></i>
-                                    Déconnexion
-                                <%end%>
-                            </div>
-                        </div>
-                    </div>        
-                </div>
-            <% else %>         
-                <%=button_to destroy_myfoodtruck_foodtruck_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
-                    <i class="fas fa-power-off"></i>
-                    Déco_Foodtruck
-                <%end%>               
-                <%=button_to destroy_customer_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
-                    <i class="fas fa-power-off"></i>
-                    Déco_Customer
-                <%end%>
-            <%end%>
+  <div id="main-navbar" class="navbar-menu">
+    <div class="navbar-end is-flex is-align-items-center is-justify-content-center ">           
+      <% if !myfoodtruck_foodtruck_signed_in? %>
+        <div class="navbar-item">
+          <%= link_to cart_path do %>
+            <div class="cart is-flex">
+              <div class="cart-icon">
+                <%= image_tag("bag-dark.png", alt:"cart-icon") %>
+              </div>
+              <div class="cart-items-count nav-cart-button">
+                <p class="has-text-centered is-text-white" id="cart-count"><%= current_shopping_cart.cart_contents.count %></p>
+              </div>
+            </div>
+          <% end %>
+        </div> 
+      <% end %>
+      <%if !customer_signed_in? && !myfoodtruck_foodtruck_signed_in? %>           
+        <div class="navbar-item">
+          <div class="dropdown drop_but1">
+            <div class="dropdown-trigger">
+              <button class="button is-primary is-rounded mr-2" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>S'inscrire</span>
+                <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
+              </button>        
+            </div>   
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <%= link_to "Gourmet", new_customer_registration_path, class: "dropdown-item" %>
+                <%= link_to "Foodtruck", new_myfoodtruck_foodtruck_registration_path, class: "dropdown-item" %>
+              </div>
+            </div>                     
+          </div>
+          <div class="dropdown drop_but2">
+            <div class="dropdown-trigger">
+              <button class="button login-button is-rounded is-light" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Se connecter</span>
+                <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
+              </button>        
+            </div>   
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content is-rounded">
+                <%= link_to "Gourmet", new_customer_session_path, class: "dropdown-item" %>
+                <%= link_to "Foodtruck", new_myfoodtruck_foodtruck_session_path, class: "dropdown-item" %>
+              </div>
+            </div>                     
+          </div>
         </div>
+      <% elsif customer_signed_in? && !myfoodtruck_foodtruck_signed_in? %>
+        <div class="navbar-item">
+          <div class="dropdown customer-profile is-hoverable is-right  ">
+            <div class="dropdown-trigger">
+              <div class="profile-button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <i class="fas fa-user-circle fa-2x"></i>               
+                <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <%= link_to  customer_path, class: "dropdown-item" do %>Mes infos<% end %>
+                <%= link_to  customer_orders_path, class: "dropdown-item" do %>Mes commandes passées<% end %>
+                <hr class="dropdown-divider">
+                <%= link_to destroy_customer_session_path, class: "dropdown-item", method: :delete do %>
+                  <i class="fas fa-power-off"></i>
+                  Déconnexion
+                <% end %>
+              </div>
+            </div>
+          </div>        
+        </div>
+      <% elsif !customer_signed_in? && myfoodtruck_foodtruck_signed_in? %> 
+        <div class="navbar-item">
+          <div class="dropdown customer-profile is-hoverable is-right  ">
+            <div class="dropdown-trigger">
+              <div class="profile-button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <i class="fas fa-user-circle fa-2x"></i>               
+                <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <%= link_to  myfoodtruck_foodtruck_path, class: "dropdown-item" do %>Mes infos<% end %>
+                <%= link_to  myfoodtruck_dashboard_path, class: "dropdown-item" do %>Mon dashboard<%end%>
+                <hr class="dropdown-divider">
+                <%= link_to destroy_myfoodtruck_foodtruck_session_path, class: "dropdown-item", method: :delete do %>
+                  <i class="fas fa-power-off"></i>
+                  Déconnexion
+                <% end %>
+              </div>
+            </div>
+          </div>        
+        </div>
+      <% else %>         
+        <%= button_to destroy_myfoodtruck_foodtruck_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
+          <i class="fas fa-power-off"></i>
+          Déco_Foodtruck
+        <% end %>               
+        <%= button_to destroy_customer_session_path, class: "button login-button is-rounded is-light", method: :delete do %>
+          <i class="fas fa-power-off"></i>
+          Déco_Customer
+        <% end %>
+      <% end %>
     </div>
+  </div>
 </nav>
 

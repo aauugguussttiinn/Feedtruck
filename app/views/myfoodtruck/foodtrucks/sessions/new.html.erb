@@ -1,57 +1,51 @@
 <div class="section">
-    <div class="container">
-        <div class=" columns is-centered mt-6">
-            <div class="column is-flex is-justify-content-center is-flex-wrap-wrap">
-                <%= image_tag("truck-dude.jpg", class:"box-image is-hidden-touch is-hidden-tablet-only new-session-image")%>
-            <div class=" column is-5 box login-form">
-                <div class="box-content">
-                    <div class="box-header has-text-centered mb-5">
-                        <%=image_tag ("mini-truck.png")%>
-                        <p class="title is-5"> Bon retour parmi nous !</p>
-                    </div>
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                            <%= render "myfoodtruck/foodtrucks/shared/error_messages", resource: resource %>
-
-                            <div class="field mx-5">
-                                <%= f.label :email, class: "label" %>
-                                <div class="control has-icons-left">
-                                    <%= f.email_field :email, autofocus: true, class: "input", autocomplete: "email", placeholder: "Email" %>
-                                    <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope icon-primary-color"></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="field mx-5">
-                                <%= f.label :password, "Mot de passe", class: "label" %>
-                                <div class="control has-icons-left">
-                                    <%= f.password_field :password, class: "input", autocomplete: "current-password", placeholder: "Mot de passe"%>
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-lock icon-primary-color"></i>
-                                    </span>
-                                </div> 
-                            </div>
-
-                            <% if devise_mapping.rememberable? %>
-                                <div class="field mx-5">
-                                        <%= f.check_box :remember_me %>
-                                        <%= f.label :remember_me, "Se souvenir de moi" %>
-                                </div>
-                            <% end %>
-
-                            <div class="actions is-flex is-justify-content-center my-4">
-                                <%= f.submit "Connexion", class: "button is-primary is-rounded" %>
-                            </div>
-
-                    <% end %>
-
-                    <div class="has-text-centered my-4">
-                        <p>Pas encore inscrit : <%= render "myfoodtruck/foodtrucks/shared/links" %></p>
-                    </div>
-                    
-                </div>                
+  <div class="container">
+    <div class=" columns is-centered mt-6">
+      <div class="column is-flex is-justify-content-center is-flex-wrap-wrap">
+        <%= image_tag("truck-dude.jpg", class:"box-image is-hidden-touch is-hidden-tablet-only new-session-image") %>
+        <div class=" column is-5 box login-form">
+          <div class="box-content">
+            <div class="box-header has-text-centered mb-5">
+              <%= image_tag ("mini-truck.png") %>
+                <p class="title is-5"> Bon retour parmi nous !</p>
             </div>
-            </div> 
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= render "myfoodtruck/foodtrucks/shared/error_messages", resource: resource %>
+              <div class="field mx-5">
+                <%= f.label :email, class: "label" %>
+                <div class="control has-icons-left">
+                  <%= f.email_field :email, autofocus: true, class: "input", autocomplete: "email", placeholder: "Email" %>
+                  <span class="icon is-small is-left"><i class="fas fa-envelope icon-primary-color"></i></span>
+                </div>
+              </div>
+
+              <div class="field mx-5">
+                <%= f.label :password, "Mot de passe", class: "label" %>
+                <div class="control has-icons-left">
+                  <%= f.password_field :password, class: "input", autocomplete: "current-password", placeholder: "Mot de passe" %>
+                  <span class="icon is-small is-left"><i class="fas fa-lock icon-primary-color"></i></span>
+                </div> 
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="field mx-5">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, "Se souvenir de moi" %>
+                </div>
+              <% end %>
+
+              <div class="actions is-flex is-justify-content-center my-4">
+                <%= f.submit "Connexion", class: "button is-primary is-rounded" %>
+              </div>
+            <% end %>
+
+            <div class="has-text-centered my-4">
+              <p>Pas encore inscrit : <%= render "myfoodtruck/foodtrucks/shared/links" %></p>
+            </div>
+                    
+          </div>                
         </div>
+      </div> 
     </div>
+  </div>
 </div>

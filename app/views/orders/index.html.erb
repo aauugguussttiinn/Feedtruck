@@ -1,33 +1,25 @@
 
 <div class="section">
-    <div class=" container py-5 box is-flex is-flex-direction-column is-align-items-center"> 
-        <p class="title is-text-primary has-text-centered is-2 is-size-3-mobile py-5">
-            Voici vos commandes <%= current_customer.first_name %>
-        </p>
-        <% @orders.sort.reverse.each do |order| %>          
-          <div class="box order-item-box-padding column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items">
-              <div class="box-content index-items-content">             
-                      <p class="item-title title is-text-primary is-size-4-mobile mb-3 mt-2">
-                          <%= order.order_contents.first.item.foodtruck.name %>
-                      </p>
-                      <p class="description">
-                          <span>Payé: <%= sprintf "%.2f", order.total_price %> €</span>
-                      </p>
-                      <p class="description">
-                          <%= order.created_at.strftime("%d/%m/%Y") %>
-                      </p>
-                      <div class="mt-3 mb-2">
-                        <%= link_to 'Voir plus', customer_order_path(order), class: "button is-primary is-rounded" %>
-                      </div>
-              </div>
-              <div class="box-content index-items-content">
-                <% if order.order_contents.first.item.picture.attached? %>
-                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
-                <%else%>
-                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg", class: "menu-item-img" >
-                <%end%>   
-              </div>                              
+  <div class=" container py-5 box is-flex is-flex-direction-column is-align-items-center"> 
+    <p class="title is-text-primary has-text-centered is-2 is-size-3-mobile py-5">Voici vos commandes <%= current_customer.first_name %></p>
+    <% @orders.sort.reverse.each do |order| %>          
+      <div class="box order-item-box-padding column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items">
+        <div class="box-content index-items-content">             
+          <p class="item-title title is-text-primary is-size-4-mobile mb-3 mt-2"><%= order.order_contents.first.item.foodtruck.name %></p>
+          <p class="description"><span>Payé: <%= sprintf "%.2f", order.total_price %> €</span></p>
+          <p class="description"><%= order.created_at.strftime("%d/%m/%Y") %></p>
+          <div class="mt-3 mb-2">
+            <%= link_to 'Voir plus', customer_order_path(order), class: "button is-primary is-rounded" %>
           </div>
-        <%end%>                                             
-    </div>
+        </div>
+        <div class="box-content index-items-content">
+          <% if order.order_contents.first.item.picture.attached? %>
+            <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+          <% else %>
+            <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg", class: "menu-item-img" >
+          <% end %>   
+        </div>                              
+      </div>
+    <% end %>                                             
+  </div>
 </div>

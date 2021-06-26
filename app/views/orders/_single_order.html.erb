@@ -1,49 +1,42 @@
 <div class="section">
-    <div class="columns is-centered is-flex is-flex-wrap-wrap " >   
-        <div class="column box is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
-            <p class="title is-size-4 has-text-centered is-text-primary mb-1">Ma commande du <%= order.created_at.strftime("%d/%m/%Y") %> </p>
-            <p class="subtitle has-text-centered mt-1 mb-1">
-                <%= link_to foodtruck_path(order.order_contents.first.item.foodtruck.id), class: "is-text-secondary" do %>
-                    Chez <%= order.order_contents.first.item.foodtruck.name %>
-                <% end %>
-            </p>
-            <p class="subtitle has-text-centered mt-1 mb-5 is-text-secondary">
-                Total T.T.C : <%= sprintf "%.2f",order.total_price %>€
-            </p>
-            <% order.order_contents.each do |content| %>
-                <div class=" my-order-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap mb-5">
-                    <div class="box-body my-2 is-flex is-align-items-center">
-                        <figure class="box-img image mr-5">
-                            <% if content.item.picture.attached? %>
-                                <%= image_tag content.item.picture %>
-                            <% else %>
-                                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                            <% end %>    
-                        </figure>
-                        <div class="box-content mr-5">             
-                            <p class="item-title title is-text-primary is-4">
-                                <%=content.item.name%>
-                            </p>
-                            <p class="item-price subtitle">
-                                <%= sprintf "%.2f", content.item.price %>€
-                            </p>
-                        </div>
-                    </div>
-                    <div class="is-flex my-2 is-align-items-center">
-                        <div class="quantity mr-5">
-                            <p class="button is-outlined">
-                            <%= content.item_quantity %>
-                            </p>
-                        </div>
-                        <div class="quantity-x-item-price mr-5">
-                            <p class="is-size-5 has-text-weight-bold "><%=sprintf "%.2f",content.item.price %>€</p>
-                        </div>
-                        <%= link_to foodtruck_item_path(content.item.foodtruck.id, content.item.id ), class: "button show-item-button is-rounded is-info is-light" do %>
-                            <span>Voir le plat</span>
-                        <% end %>
-                    </div>
-                </div>
-            <% end %>                            
+  <div class="columns is-centered is-flex is-flex-wrap-wrap " >   
+    <div class="column box is-8 m-3 is-flex is-flex-direction-column is-align-items-center mb-auto">
+      <p class="title is-size-4 has-text-centered is-text-primary mb-1">Ma commande du <%= order.created_at.strftime("%d/%m/%Y") %> </p>
+      <p class="subtitle has-text-centered mt-1 mb-1">
+        <%= link_to foodtruck_path(order.order_contents.first.item.foodtruck.id), class: "is-text-secondary" do %>
+          Chez <%= order.order_contents.first.item.foodtruck.name %>
+        <% end %>
+      </p>
+      <p class="subtitle has-text-centered mt-1 mb-5 is-text-secondary">Total T.T.C : <%= sprintf "%.2f",order.total_price %>€</p>
+      
+      <% order.order_contents.each do |content| %>
+        <div class=" my-order-item box column is-10 is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap mb-5">
+          <div class="box-body my-2 is-flex is-align-items-center">
+            <figure class="box-img image mr-5">
+              <% if content.item.picture.attached? %>
+                <%= image_tag content.item.picture %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+              <% end %>    
+            </figure>
+            <div class="box-content mr-5">             
+              <p class="item-title title is-text-primary is-4"><%=content.item.name%></p>
+              <p class="item-price subtitle"><%= sprintf "%.2f", content.item.price %>€</p>
+            </div>
+          </div>
+          <div class="is-flex my-2 is-align-items-center">
+            <div class="quantity mr-5">
+              <p class="button is-outlined"><%= content.item_quantity %></p>
+            </div>
+            <div class="quantity-x-item-price mr-5">
+              <p class="is-size-5 has-text-weight-bold "><%=sprintf "%.2f",content.item.price %>€</p>
+            </div>
+            <%= link_to foodtruck_item_path(content.item.foodtruck.id, content.item.id ), class: "button show-item-button is-rounded is-info is-light" do %>
+              <span>Voir le plat</span>
+            <% end %>
+          </div>
         </div>
+      <% end %>                            
     </div>
+  </div>
 </div>
