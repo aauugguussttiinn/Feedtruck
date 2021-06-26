@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   has_one_attached :picture
 
   validates :name, presence: true, length: { in: 3..120 }
-  validates :description, presence: true, length: { in: 20..1000 }
+  validates :description, presence: true, length: { in: 3..1000 }
   validates :price, presence: true, numericality: { greater_than: 0 }
 
 end

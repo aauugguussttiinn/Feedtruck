@@ -28,7 +28,7 @@ class Myfoodtruck::ItemsController < ApplicationController
 
     respond_to do |format|
       if @foodtruck_item.save
-        format.html { redirect_to current_myfoodtruck_foodtruck, notice: "Item was successfully created." }
+        format.html { redirect_to myfoodtruck_foodtruck_path, notice: "Votre plat a bien été créé." }
         format.json { render :show, status: :created, location: @foodtruck_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class Myfoodtruck::ItemsController < ApplicationController
     p params
     respond_to do |format|
       if @foodtruck_item.update(foodtruck_item_params)
-        format.html { redirect_to @myfoodtruck, notice: "Item was successfully updated." }
+        format.html { redirect_to @myfoodtruck, notice: "Votre plat a bien été mise à jour." }
         format.json { render :show, status: :ok, location: @foodtruck_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
