@@ -4,4 +4,5 @@ class Myfoodtruck::SessionsController < Devise::SessionsController
     flash[:notice] = 'Connecté en tant que Foodtruck'
     myfoodtruck_root_path
   end
+  
 end

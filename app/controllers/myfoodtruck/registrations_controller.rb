@@ -4,4 +4,5 @@ class Myfoodtruck::RegistrationsController < Devise::RegistrationsController
     flash[:notice] = 'Bienvenue! Renseignez votre profil pour continuer'
     myfoodtruck_foodtruck_path
   end
+  
 end

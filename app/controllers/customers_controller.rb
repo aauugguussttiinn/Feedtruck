@@ -7,10 +7,6 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
-  # GET /customers/1 
-  def show
-  end
-
   # GET /customers/new
   def new
     @customer = Customer.new
@@ -50,7 +46,6 @@ class CustomersController < ApplicationController
     @customer.destroy
     # @customer.votes.map{|vote| vote.destroy}
     @customer.votes.last.destroy
-
 
     respond_to do |format|
       format.html { redirect_to customers_url, flash: { success: "Profil détruit"} }

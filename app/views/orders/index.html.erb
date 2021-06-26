@@ -2,6 +2,15 @@
 <div class="section">
   <div class=" container py-5 box is-flex is-flex-direction-column is-align-items-center"> 
     <p class="title is-text-primary has-text-centered is-2 is-size-3-mobile py-5">Voici vos commandes <%= current_customer.first_name %></p>
+    
+    <% if current_customer.orders.count == 0 %>
+      <p class="is-text-info has-text-centered is-size-5 my-3">Vous n'avez réalisé aucune commande.</p>
+    <% end %>
+    
+    <div class="mb-6 mt-2">
+      <%= link_to 'Continuer mon shopping', foodtrucks_path, class: "button is-small-tablet is-rounded is-info is-largest-btn" %> 
+    </div>
+
     <% @orders.sort.reverse.each do |order| %>          
       <div class="box order-item-box-padding column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items">
         <div class="box-content index-items-content">             

@@ -8,17 +8,9 @@ class ItemsController < ApplicationController
     @items = Item.all.where(foodtruck_id: @foodtruck.id)
   end
 
-  # GET /items/1
-  def show
-  end
-
   # GET /items/new
   def new
     @item = Item.new
-  end
-
-  # GET /items/1/edit
-  def edit
   end
 
   # POST /items

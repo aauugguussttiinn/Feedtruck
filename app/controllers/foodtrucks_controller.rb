@@ -6,10 +6,6 @@ class FoodtrucksController < ApplicationController
     @foodtrucks = Foodtruck.all
   end
 
-  # GET /foodtrucks/1
-  def show
-  end
-
   # GET /foodtrucks/new
   def new
     @foodtruck = Foodtruck.new
@@ -61,4 +57,5 @@ class FoodtrucksController < ApplicationController
     def foodtruck_params
       params.require(:foodtruck).permit(:email, :password, :name, :description, :pictures, :location_id, :logo)
     end
+    
 end

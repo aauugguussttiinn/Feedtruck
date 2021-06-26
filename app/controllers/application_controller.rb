@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
   before_action :not_logged_in?, only: %i[ new ], if: :devise_controller?
-
   before_action :transfer_guest_cart_to_customer_cart
 
   def after_sign_in_path_for(customer)
@@ -12,4 +11,5 @@ class ApplicationController < ActionController::Base
       super
     end
   end
+
 end

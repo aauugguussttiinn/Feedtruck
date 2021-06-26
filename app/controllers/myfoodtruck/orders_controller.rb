@@ -6,24 +6,15 @@ class Myfoodtruck::OrdersController < ApplicationController
     @foodtruck_orders = Myfoodtruck::Order.all
   end
 
-  # GET /foodtruck/orders/1 or /foodtruck/orders/1.json
-  def show
-  end
-
   # GET /foodtruck/orders/new
   def new
     @foodtruck_order = Myfoodtruck::Order.new
-  end
-
-  # GET /foodtruck/orders/1/edit
-  def edit
   end
 
   # POST /foodtruck/orders or /foodtruck/orders.json
   def create
     @foodtruck_order = Myfoodtruck::Order.new(foodtruck_order_params)
     
-
     respond_to do |format|
       if @foodtruck_order.save
         format.html { redirect_to @foodtruck_order, notice: "Order was successfully created." }
@@ -71,4 +62,5 @@ class Myfoodtruck::OrdersController < ApplicationController
     def foodtruck_order_params
       params.permit(:id, :is_ready)
     end
+    
 end

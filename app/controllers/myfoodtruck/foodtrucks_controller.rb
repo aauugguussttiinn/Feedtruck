@@ -1,16 +1,10 @@
 class Myfoodtruck::FoodtrucksController < ApplicationController
   before_action :set_foodtruck_foodtruck, only: %i[ show edit update destroy ]
 
-  # GET /foodtruck/foodtrucks/1 or /foodtruck/foodtrucks/1.json
-  def show
-
-  end
-
   # GET /foodtruck/foodtrucks/1/edit
   def edit
     @locations = Location.all
   end
-
 
   # PATCH/PUT /foodtruck/foodtrucks/1 or /foodtruck/foodtrucks/1.json
   def update

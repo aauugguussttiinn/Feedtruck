@@ -6,13 +6,8 @@ class Myfoodtruck::ItemsController < ApplicationController
     @foodtruck_items = Item.all
   end
 
-  # GET /foodtruck/items/1 or /foodtruck/items/1.json
-  def show
-  end
-
   # GET /foodtruck/items/new
   def new
-    p params.inspect
     @foodtruck_item = Item.new.picture.attach(:picture)
   end
 
@@ -70,4 +65,5 @@ class Myfoodtruck::ItemsController < ApplicationController
     def foodtruck_item_params
       params.permit(:id, :name, :description, :price, :picture).merge(foodtruck_id: current_myfoodtruck_foodtruck.id)
     end
+    
 end
