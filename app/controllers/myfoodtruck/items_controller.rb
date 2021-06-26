@@ -39,10 +39,9 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # PATCH/PUT /foodtruck/items/1 or /foodtruck/items/1.json
   def update
-    p params
     respond_to do |format|
       if @foodtruck_item.update(foodtruck_item_params)
-        format.html { redirect_to @myfoodtruck, notice: "Votre plat a bien été mise à jour." }
+        format.html { redirect_to @myfoodtruck, notice: "Votre plat a bien été mis à jour." }
         format.json { render :show, status: :ok, location: @foodtruck_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,9 +52,10 @@ class Myfoodtruck::ItemsController < ApplicationController
 
   # DELETE /foodtruck/items/1 or /foodtruck/items/1.json
   def destroy
+    @foodtruck_item = Item.find(params[:id])
     @foodtruck_item.destroy
     respond_to do |format|
-      format.html { redirect_to foodtruck_items_url, notice: "Item was successfully destroyed." }
+      format.html { redirect_to myfoodtruck_foodtruck_path, notice: "Votre plat a bien été supprimé" }
       format.json { head :no_content }
     end
   end

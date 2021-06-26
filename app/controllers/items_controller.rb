@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
   before_action :set_foodtruck, only: %i[ show edit update destroy index new]
+  before_action :authenticate_foodtruck_owner, only: %i[ update ]
 
   # GET /items
   def index
@@ -66,4 +67,14 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :description, :price, :picture, :foodtruck_id, :id)
     end
+
+    def authenticate_foodtruck_owner
+      @item = Item.find(params[:id])
+      @item_owner = @item.foodtruck.id
+      unless @item_owner == current_myfoodtruck_foodtruck.id
+        flash[:alert] = "Désolé, mais vous ne pouvez pas modifier un plat qui n'est pas le vôtre !"
+        redirect_to myfoodtruck_foodtruck_path
+      end
+    end
+
 end

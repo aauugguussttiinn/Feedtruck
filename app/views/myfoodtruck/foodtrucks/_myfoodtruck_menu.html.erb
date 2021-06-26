@@ -1,42 +1,45 @@
 <div class="section">
-    <div class=" container box is-flex is-flex-direction-column is-align-items-center item-list"> 
-        <div class="menu-foodtruck has-text-centered mb-5 is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center">
-            <p class="title is-text-primary mb-2 mr-2 is-size-3-mobile is-size-2 ">
-                Mes plats
-            </p>
-        </div>
-        <%=link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button is-rounded is-secondary add-food-btn is-link" do%>
-            <span>Ajouter un plat</span>
-        <%end%>
-        </br>
-        <% foodtruck.items.each do |item| %>
-            <div class="box p-5 column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items pink-shadow">
-                <div class="box-content index-items-content">             
-                    <p class="title is-5 mb-2 is-text-primary">
-                        <%= item.name %>
-                    </p>
-                    <p class="subtitle is-5 mt-2">
-                        <%= sprintf "%.2f", item.price %> €                 
-                    </p>
-                    <p class="description mb-5">
-                        <%=item.description.truncate(20)%>
-                    </p>
-                    <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
-                      <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button is-rounded is-primary edit-food-button" do %>
-                          <span>Modifier</span>
-                      <% end %>
-                    </div>
-                </div>
-                <div class="box-content index-items-content">
-                    <% if item.picture.attached? %>
-                        <%= image_tag item.picture, alt: "Thumbnail [100%x225]", class: "menu-item-img" %>
-                    <%else%>
-                        <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                    <%end%>
-                </div>                        
-            </div>
-        <%end%>                                             
+  <div class=" container box is-flex is-flex-direction-column is-align-items-center item-list"> 
+    <div class="menu-foodtruck has-text-centered mb-5 is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center">
+      <p class="title is-text-primary mb-2 mr-2 is-size-3-mobile is-size-2 ">
+        Mes plats
+      </p>
     </div>
+    <%= link_to new_myfoodtruck_foodtruck_item_path(foodtruck.id), class:"button is-rounded is-secondary add-food-btn is-link" do %>
+      Ajouter un plat
+    <% end %>
+    </br>
+    <% foodtruck.items.each do |item| %>
+      <div class="box p-5 column is-7 is-10-mobile is-flex is-align-items-center is-justify-content-space-between index-items pink-shadow">
+        <div class="box-content index-items-content">             
+          <p class="title is-5 mb-2 is-text-primary">
+            <%= item.name %>
+          </p>
+          <p class="subtitle is-5 mt-2">
+            <%= sprintf "%.2f", item.price %> €                 
+          </p>
+          <p class="description mb-5">
+            <%= item.description.truncate(20) %>
+          </p>
+          <div class="is-flex my-2 is-flex-wrap-wrap is-align-items-center">                         
+            <%= link_to edit_myfoodtruck_foodtruck_item_path(item.id), class: "button is-rounded is-primary edit-food-button mr-2" do %>
+              <span>Modifier</span>
+            <% end %>
+            <%= link_to myfoodtruck_foodtruck_item_path(item.id), data: { confirm: "Etes vous sur ?" }, method: :delete, class: "button is-rounded is-danger edit-food-button" do %>
+              <span>Supprimer</span>
+            <% end %>
+          </div>
+        </div>
+        <div class="box-content index-items-content">
+          <% if item.picture.attached? %>
+            <%= image_tag item.picture, alt: "Thumbnail [100%x225]", class: "menu-item-img" %>
+          <% else %>
+            <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+          <% end %>
+        </div>                        
+      </div>
+    <% end %>                                             
+  </div>
 </div>
 
 
