@@ -583,18 +583,11 @@ body {
     width: 3.5rem;
 }
 
-.cards-logo-dimension {
-    width: 48px; 
-    height: 48px;
-}
-
 /* Content BELOW is for footer */
 
 body > footer {
     margin-top: auto;
 }
-
-
 
 .menu-item-img {
     width: 8em;

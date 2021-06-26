@@ -14,7 +14,7 @@
                     </p>
                 <% else %>
                     <p class="foodtruck-name title is-size-5-mobile is-size-4">
-                        Le nom de votre foodtruck n'est toujours pas renseigné.
+                        Le nom du foodtruck n'est pas encore renseigné.
                     </p>
                 <% end %>
                 <% if foodtruck.description !=nil && foodtruck.description != "" %>
@@ -23,7 +23,7 @@
                     </p>
                 <% else %>  
                     <p class="foodtruck-name title is-size-5-mobile is-size-4">
-                        La description de votre foodtruck n'est toujours pas renseignée.
+                        La description du foodtruck n'est pas encore renseignée.
                     </p>
                 <% end %>
                 <% if foodtruck.location_id !=nil %>
@@ -32,12 +32,10 @@
                     </p>
                 <% else %>
                     <p class="foodtruck-name title is-size-5-mobile is-size-4">
-                        La localisation de votre foodtruck n'est toujours pas renseignée.
+                        La localisation du foodtruck n'est pas encore renseignée.
                     </p>
                 <% end %>
             </div>
-
-
 
 
 <!-- ********************** Vote/like section ********************************** -->
@@ -72,21 +70,20 @@
                         </div>
                     </div>
                 <% end %>
-            <%else%>
-                <div class="edit-profil-section padding-profil-section-foodtruck">
-                    <%=link_to edit_myfoodtruck_foodtruck_path, class:"button is-rounded edit-profil-btn is-success is-largest-btn my-2" do%>
-                        <span>Modifier mon profil</span>
-                    <%end%>
-                    <%=link_to edit_myfoodtruck_foodtruck_registration_path, class:"button is-rounded edit-profil-btn is-primary is-largest-btn my-2" do%>
-                        <span>Éditer mes identifiants</span>
-                    <% end %>
+            <% else %>
+                <div class="column is-3 is-flex is-justify-content-center">
+                    <div class="is-flex is-align-items-center">
+                        <% if foodtruck.logo.attached? %>
+                            <%= image_tag foodtruck.logo, alt: "Thumbnail [100%x225]", class:"image is-96x96" %>
+                        <%else%>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQu2DMlO0wSOdL36IyORHd0n1FAKfw0_S4jg&usqp=CAU" alt="Placeholder image" class="image is-96x96 cards-logo-dimension">
+                        <%end%>
+                    </div>
                 </div>
             <% end %>
-
         </div>
-
-
     </div>
 </div>
+
 
 

@@ -2,7 +2,7 @@
     <div class=" container is-flex is-flex-direction-column is-align-items-center item-list"> 
         <% if foodtruck.location_id != nil %>
             <p class="title has-text-centered is-size-3-mobile is-size-4 py-5">
-                Aujourd'hui <%= foodtruck.name %> est à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+                    Aujourd'hui vous êtes à cette adresse : <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
             </p>
             <div class="container-iframe">
                 <iframe src=" <%= Location.find(foodtruck.location_id).url_map %> " class="responsive-iframe no-borders" allowfullscreen="" loading="lazy"></iframe>

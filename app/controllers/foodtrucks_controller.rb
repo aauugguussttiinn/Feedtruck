@@ -25,7 +25,7 @@ class FoodtrucksController < ApplicationController
 
     respond_to do |format|
       if @foodtruck.save
-        format.html { redirect_to @foodtruck, flash: { success: "Profil créé"} }
+        format.html { redirect_to myfoodtruck_foodtruck_path, flash: { success: "Profil créé"} }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -36,7 +36,7 @@ class FoodtrucksController < ApplicationController
   def update
     respond_to do |format|
       if @foodtruck.update(foodtruck_params)
-        format.html { redirect_to @foodtruck, flash: { success: "Profil mis à jour"} }
+        format.html { redirect_to myfoodtruck_foodtruck_path, flash: { success: "Profil mis à jour"} }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

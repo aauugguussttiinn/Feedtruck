@@ -4,20 +4,35 @@
 
         <% if foodtruck.pictures.attached? %>
             <div class="banner-img", style="background-image: url(<%= rails_blob_url(foodtruck.pictures) %>); height: 300px;"></div>
-        
         <% end %>
 
         <div class="foodtruck-infos columns box pt-5 mt-0 ml-0 mr-0">
             <div class="header column is-9 padding-header-foodtruck">
-                <p class="foodtruck-name is-text-primary title is-size-3-mobile is-size-2">
-                    <%= foodtruck.name %>
-                </p>
-                <p class="speciality is-size-6-mobile is-size-6">
-                    <%= foodtruck.description %>
-                </p>
+                <% if foodtruck.name !=nil && foodtruck.name != ""%>
+                    <p class="foodtruck-name is-text-primary title is-size-3-mobile is-size-2">
+                        <%= foodtruck.name %>
+                    </p>
+                <% else %>
+                    <p class="foodtruck-name title is-size-5-mobile is-size-4">
+                        Le nom de votre foodtruck n'est pas encore renseigné.
+                    </p>
+                <% end %>
+                <% if foodtruck.description !=nil && foodtruck.description != "" %>
+                    <p class="speciality is-size-6-mobile is-size-6">
+                        <%= foodtruck.description %>
+                    </p>
+                <% else %>  
+                    <p class="foodtruck-name title is-size-5-mobile is-size-4">
+                        La description de votre foodtruck n'est pas encore renseignée.
+                    </p>
+                <% end %>
                 <% if foodtruck.location_id !=nil %>
                     <p class="speciality is-size-6-mobile is-size-6 my-2">
                         <b class="is-text-info"> Localisation du jour : </b> <%= Location.find(foodtruck.location_id).adress %>, <%= Location.find(foodtruck.location_id).name %>
+                    </p>
+                <% else %>
+                    <p class="foodtruck-name title is-size-5-mobile is-size-4">
+                        La localisation de votre foodtruck n'est pas encore renseignée.
                     </p>
                 <% end %>
             </div>
@@ -32,5 +47,6 @@
         </div>
     </div>
 </div>
+
 
 
