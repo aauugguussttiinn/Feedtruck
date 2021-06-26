@@ -4,17 +4,20 @@
             <div class="tabs dashboard-tabs is-boxed">
                 <ul>
                     <li class="is-active" data-to_select="orders">
-                        <a>Mes commandes</a>
+                        <a>Commandes en cours</a>
                     </li>
                     <li data-to_select="sales">
                         <a>Mes ventes</a>
+                    </li>
+                    <li data-to_select="ready">
+                        <a>Historique des commandes</a>
                     </li>
                 </ul>
             </div>
             <div class="px-2" id="dashboard-tab-content">
                 <div id="orders">
                     <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes en cours</h2>
-                    <% if @orders.count == 0 %>
+                    <% if @orders.where(is_ready: false).all.count == 0 %>
                         <p class="is-size-6 pb-2"> Vous n'avez aucune commande pour le moment </p>
                     <% end %>
                     <% @orders.sort.reverse.each do |order| %>  
@@ -114,6 +117,39 @@
                         </div>
                     </div>
                 </div>
+                <div id="ready" class="column is-hidden p-0">
+                    <h2 class="title is-2 is-size-3-mobile is-text-primary">Mes commandes terminées</h2>
+                    <% if @orders.where(is_ready: true).all.count == 0 %>
+                        <p class="is-size-6 pb-2"> Vous n'avez aucune commande terminée pour le moment </p>
+                    <% end %>
+                    <% @orders.sort.reverse.each do |order| %>  
+                        <% if order.is_ready == true %>      
+                            <div class="box column is-12 is-flex is-align-items-center is-justify-content-space-between index-items" id="<%= order.created_at %>">
+                                <div class="box-content index-items-content">             
+                                    <p class="item-title title is-3 mb-3 mt-2 is-text-info">
+                                        Commande #<%= order.id %>
+                                    </p>
+                                    <p class="description subtitle is-5 m-0">
+                                        <%= order.created_at.strftime("Passée le %d/%m/%Y à %Hh:%M") %>
+                                    </p>
+                                    <p class="description subtitle is-5 m-0">
+                                        Payé : <%= sprintf "%.2f", order.total_price %> €
+                                    </p>
+                                    <p class="description subtitle is-5 m-0">
+                                        <%= order.updated_at.strftime("Prête le %d/%m/%Y à %Hh:%M") %>
+                                    </p>         
+                                </div>
+                                <div class="box-content index-items-content">
+                                    <% if order.order_contents.first.item.picture.attached? %>
+                                    <%= image_tag order.order_contents.first.item.picture, alt: "food-img", class: "menu-item-img" %>
+                                    <%else%>
+                                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" >
+                                    <%end%>   
+                                </div>                
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </div>
 
@@ -144,3 +180,4 @@
         </div> 
     </div>	
 </section>
+
