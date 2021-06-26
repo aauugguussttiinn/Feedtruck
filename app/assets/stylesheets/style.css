@@ -146,6 +146,12 @@ body {
     min-width: 10rem !important;
 }
 
+.is-homepage-cta-btn {
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
+}
+
 
 .quantity-button {
     background-color:#ffffff !important;
