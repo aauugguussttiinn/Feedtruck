@@ -4,9 +4,9 @@
       <h2><%= pluralize(foodtruck.errors.count, "error") %> prohibited this foodtruck from being saved:</h2>
 
       <ul>
-      <% foodtruck.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% foodtruck.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -14,4 +14,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

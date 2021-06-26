@@ -1,30 +1,24 @@
 <div class="section pb-2">
-    <div class="columns is-variable is-0 is-centered is-vcentered is-multiline checkout-section">
-        <div class="column has-text-centered is-6">
-            <%= image_tag(item.picture, alt:"image", class:"checkout-section-image")%>
-        </div>
-        <div class="column is-4">
-            <p class="title">
-                <%=item.name%>
-            </p>
-            <p class="subtitle">
-            <%=item.description%>
-            </p>
-            <p class="price is-size-4">
-            <%= sprintf('%.2f', item.price) %>€
-            </p>
-            <div class="quantity is-flex is-align-items-center mt-4">
-                <%= form_with  url: cart_cart_contents_path(item: item.id) do |f| %>
-                    <div class="is-flex is-align-items-center">
-                        <span class= "button quantity-button", id="minus-btn"><i class="fas fa-minus"></i></span>
-                            <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 button is-outlined quantity-counter", value: '1' %>
-                        <span class= "button quantity-button", id="plus-btn"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="actions mt-4">
-                        <%= f.submit "Ajouter au panier", class: "button is-rounded is-primary" %>
-                    </div>
-                <% end %>
-            </div>
-        </div>
+  <div class="columns is-variable is-0 is-centered is-vcentered is-multiline checkout-section">
+    <div class="column has-text-centered is-6">
+      <%= image_tag(item.picture, alt:"image", class:"checkout-section-image")%>
     </div>
+    <div class="column is-4">
+      <p class="title"><%=item.name%></p>
+      <p class="subtitle"><%=item.description%></p>
+      <p class="price is-size-4"><%= sprintf('%.2f', item.price) %>€</p>
+      <div class="quantity is-flex is-align-items-center mt-4">
+        <%= form_with  url: cart_cart_contents_path(item: item.id) do |f| %>
+          <div class="is-flex is-align-items-center">
+            <span class= "button quantity-button", id="minus-btn"><i class="fas fa-minus"></i></span>
+              <%= f.number_field 'quantity', min: 1, step: 1, class:"mx-2 button is-outlined quantity-counter", value: '1' %>
+            <span class= "button quantity-button", id="plus-btn"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="actions mt-4">
+            <%= f.submit "Ajouter au panier", class: "button is-rounded is-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

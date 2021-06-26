@@ -1,18 +1,18 @@
 <%= form_tag customer_orders_path do %>
-    <article>
+  <article>
     <% if flash[:error].present? %>
-        <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-        </div>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
     <% end %>
-    </article>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-label="Procéder au paiement"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="Paiement de votre commande"
-    data-amount="<%= current_shopping_cart.total_price*100 %>"
-    data-email=<%= current_customer.email %>
-    data-locale="auto"
-    data-currency="eur">
-    </script>
+  </article>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-label="Procéder au paiement"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Paiement de votre commande"
+          data-amount="<%= current_shopping_cart.total_price*100 %>"
+          data-email=<%= current_customer.email %>
+          data-locale="auto"
+          data-currency="eur">
+  </script>
 <% end %>

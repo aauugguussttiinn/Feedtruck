@@ -2,52 +2,55 @@
   <div class="column is-half is-offset-one-quarter">
     <h2 class="title has-text-centered">Éditez votre identité</h2>
 
-      <%= form_with(model: customer, local: true) do |f| %>
-          <div class="field mx-5 my-3">
-            <%= f.label :first_name, "Prénom", class: "label" %>
-            <div class="control has-icons-left my-3">
-              <%= f.text_field :first_name, autofocus: true, class: "input", placeholder: "Prénom" %>
-              <span class="icon is-small is-left">
-                <i class="fas fa-child icon-primary-color"></i>
-              </span>
-            </div> 
-          </div>
+    <%= form_with(model: customer, local: true) do |f| %>
+      <div class="field mx-5 my-3">
+        <%= f.label :first_name, "Prénom", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :first_name, autofocus: true, class: "input", placeholder: "Prénom" %>
+          <span class="icon is-small is-left"><i class="fas fa-child icon-primary-color"></i></span>
+        </div> 
+      </div>
 
-          <div class="field mx-5 my-3">
-            <%= f.label :last_name, "Nom de famille", class: "label" %>
-            <div class="control has-icons-left my-3">
-              <%= f.text_field :last_name, autofocus: true, class: "input", placeholder: "Nom de famille" %>
-              <span class="icon is-small is-left">
-                <i class="fas fa-child icon-primary-color"></i>
-              </span>
-             </div> 
-          </div>
+      <div class="field mx-5 my-3">
+        <%= f.label :last_name, "Nom de famille", class: "label" %>
+        <div class="control has-icons-left my-3">
+          <%= f.text_field :last_name, autofocus: true, class: "input", placeholder: "Nom de famille" %>
+          <span class="icon is-small is-left"><i class="fas fa-child icon-primary-color"></i></span>
+        </div> 
+      </div>
 
-          <div class="field mx-5 my-3">
-            <%= f.label :location_id, "Localisation", class: "label" %>
-            <div class="control">
-              <div class="select">
-                <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
-              </div>
-            </div>
+      <div class="field mx-5 my-3">
+        <%= f.label :location_id, "Localisation", class: "label" %>
+        <div class="control">
+          <div class="select">
+            <%= f.select :location_id, @locations.collect { |location| ["#{location.adress} - #{location.name}", location.id] } %>
           </div>
+        </div>
+      </div>
 
-          <div class="file mx-5 my-1 is-flex is-flex-direction-column">
-            <%= f.label :avatar, "Avatar", class: "label my-0" %><br/>
-            <div class="column columns">
-              <label class="button is-primary is-rounded">
-              Ajoutez un Avatar
-              <span class="file-add-button">
-                <%= f.file_field :avatar, class: ""%>
-              </span>
-            </label>
-            </div> 
-          </div>
+      <div class="file mx-5 my-1 is-flex is-flex-direction-column">
+        <%= f.label :avatar, "Avatar", class: "label my-0" %><br/>
+        <div class="column columns">
+          <label class="button is-primary is-rounded">
+            Ajoutez un Avatar
+            <span class="file-add-button"><%= f.file_field :avatar %></span>
+          </label>
+        </div> 
+      </div>
 
+<<<<<<< HEAD
         <div class="is-flex is-justify-content-center mt-5">
           <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-2" %>
           <%= link_to 'Retour', customer_path, class: "button is-secondary is-rounded is-normalest-btn mx-2" %>
         </div>
       <% end %>
+=======
+      <div class="is-flex is-justify-content-center mt-5">
+        <%= f.submit "Valider", class: "button is-success is-rounded is-normalest-btn mx-3" %>
+        <%= link_to 'Retour', customer_path, class: "button is-secondary is-rounded is-normalest-btn mx-3" %>
+      </div>
+    <% end %>
+    
+>>>>>>> development
   </div>
  </div> 
