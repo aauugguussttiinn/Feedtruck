@@ -1,40 +1,38 @@
 <footer class="footer py-4">
-    <div class="content">
+  <div class="content">
         
-        <div class="columns">
-            <%= image_tag("logo.png", style:"max-height: 100px",alt: "logo", class:"is-flex footer-picture")%>
-            <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">  
-                <h4 class="title">Feedtruck SAS</h4>
-                <p class="mb-1">8 rue Jeanne d’Asnières</p>
-                <p class="mb-1">92110 Clichy</p>
-                <p class="mb-1">01 84 20 22 46</p>  
-            </div>
-            <div class="column  is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
-                <h4 class="title">PLAN DU SITE</h4>
-                <%=link_to  root_path, class: "is-text-primary" do %>Accueil<%end%>
-                <% if current_customer %>
-                    <%=link_to  customer_path, class: "is-text-primary" do %>Mon compte<%end%>
-                <% end %>
-                <%=link_to  contact_path, class: "is-text-primary" do %>Nous contacter<%end%>
-                <%=link_to  team_path, class: "is-text-primary" do %>Notre équipe<%end%>
-            </div>
-            <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
-                <h4 class="title">RESSOURCES</h4>
-                <%=link_to  faq_path, class: "is-text-primary" do %>FAQ<%end%>
-                <%=link_to  cgv_path, class: "is-text-primary" do %>CGV<%end%>
-                <%=link_to  jobs_path, class: "is-text-primary" do %>Jobs<%end%>
-
-            </div>
-            <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
-                <h4 class="title">NOS RÉSEAUX SOCIAUX</h4>
-                <div class="is-flex is-flex-direction-row">
-                    <%= link_to "", "https://www.facebook.com/profile.php?id=100070054593311", class: "mr-5 icon-primary-color fab fa-facebook-square fa-3x pr-2", :target => "_blank" %></td>
-                    <%= link_to "", "https://www.instagram.com/equipe_feedtruck/", class: "mr-5 icon-primary-color fab fa-instagram fa-3x pr-2", :target => "_blank" %></td>
-                    <%= link_to "", "https://twitter.com/feed_truck", class: "mr-5 icon-primary-color fab fa-twitter-square fa-3x", :target => "_blank" %></td>             
-                </div>     
-            </div>
-
+    <div class="columns">
+      <%= image_tag("logo.png", style:"max-height: 100px",alt: "logo", class:"is-flex footer-picture")%>
+        <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">  
+          <h4 class="title">Feedtruck SAS</h4>
+          <p class="mb-1">8 rue Jeanne d’Asnières</p>
+          <p class="mb-1">92110 Clichy</p>
+          <p class="mb-1">01 84 20 22 46</p>  
         </div>
-    
+        <div class="column  is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
+          <h4 class="title">PLAN DU SITE</h4>
+          <%= link_to root_path, class: "is-text-primary" do %>Accueil<% end %>
+          <% if current_customer %>
+              %= link_to  customer_path, class: "is-text-primary" do %>Mon compte<% end %>
+          <% end %>
+          <%= link_to  contact_path, class: "is-text-primary" do %>Nous contacter<% end %>
+          <%= link_to  team_path, class: "is-text-primary" do %>Notre équipe<% end %>
+        </div>
+        <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
+          <h4 class="title">RESSOURCES</h4>
+          <%= link_to  faq_path, class: "is-text-primary" do %>FAQ<% end %>
+          <%= link_to  cgv_path, class: "is-text-primary" do %>CGV<% end %>
+          <%= link_to  jobs_path, class: "is-text-primary" do %>Jobs<% end %>
+        </div>
+        <div class="column is-flex is-flex-direction-column is-half-mobile is-offset-one-quarter-mobile footer-column">
+          <h4 class="title">NOS RÉSEAUX SOCIAUX</h4>
+          <div class="is-flex is-flex-direction-row">
+          <%= link_to "", "https://www.facebook.com/profile.php?id=100070054593311", class: "mr-5 icon-primary-color fab fa-facebook-square fa-3x pr-2", :target => "_blank" %></td>
+          <%= link_to "", "https://www.instagram.com/equipe_feedtruck/", class: "mr-5 icon-primary-color fab fa-instagram fa-3x pr-2", :target => "_blank" %></td>
+          <%= link_to "", "https://twitter.com/feed_truck", class: "mr-5 icon-primary-color fab fa-twitter-square fa-3x", :target => "_blank" %></td>             
+        </div>     
+      </div>
     </div>
+    
+  </div>
 </footer>   

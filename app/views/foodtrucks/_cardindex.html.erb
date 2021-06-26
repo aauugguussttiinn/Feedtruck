@@ -4,33 +4,33 @@
     <% foodtrucks.each do |foodtruck| %>
       <% if is_foodtruck_profile_completed?(foodtruck) %>
         <%= link_to foodtruck_path(foodtruck.id) do %>
-                <div class="card index-card">
-                    <div class="card-image foodtruck-cover">
-                        <% if foodtruck.pictures.attached? %>
-                            <%= image_tag foodtruck.pictures, alt: "Thumbnail [100%x225]", class:"footruck-picture" %>
-                        <%else%>
-                            <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
-                        <%end%>
-                    </div>       
-                    <div class="card-content">                    
-                        <div class="card-media is-flex is-align-items-center ">                        
-                            <div class="foodtruck-banner">
-                                <% if foodtruck.logo.attached? %>
-                                    <%= image_tag foodtruck.logo, alt: "Thumbnail [100%x225]", class:"image is-48x48" %>
-                                <%else%>
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQu2DMlO0wSOdL36IyORHd0n1FAKfw0_S4jg&usqp=CAU" alt="Placeholder image" class="image is-48x48">
-                                <%end%>
-                            </div>               
-                            <div class="foodtruck-info ml-5">
-                                <p class="title is-size-5"><%= foodtruck.name %></p>
-                            </div>
-                        </div>      
-                    </div>                
+          <div class="card index-card">
+            <div class="card-image foodtruck-cover">
+              <% if foodtruck.pictures.attached? %>
+                <%= image_tag foodtruck.pictures, alt: "Thumbnail [100%x225]", class:"footruck-picture" %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?cs=srgb&dl=pexels-foodie-factor-566566.jpg&fm=jpg" alt="food-img" class="menu-item-img">
+              <% end %>
+            </div>       
+            <div class="card-content">                    
+              <div class="card-media is-flex is-align-items-center ">                        
+                <div class="foodtruck-banner">
+                  <% if foodtruck.logo.attached? %>
+                    <%= image_tag foodtruck.logo, alt: "Thumbnail [100%x225]", class:"image is-48x48" %>
+                  <% else %>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQu2DMlO0wSOdL36IyORHd0n1FAKfw0_S4jg&usqp=CAU" alt="Placeholder image" class="image is-48x48">
+                  <% end %>
+                </div>               
+                <div class="foodtruck-info ml-5">
+                  <p class="title is-size-5"><%= foodtruck.name %></p>
                 </div>
-                <%end%> 
-            <% end %>
-        <%end%>             
-    </div>
+              </div>      
+            </div>                
+          </div>
+        <% end %> 
+      <% end %>
+    <% end %>             
+  </div>
 </div>
 
     
