@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to myfoodtruck_foodtruck_path, flash: { success: "Plat mis à jour"} }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_back(fallback_location: edit_myfoodtruck_foodtruck_item_path(@item.id), flash: { alert: "Le séparateur entre les euros et les centimes doit être exprimé sous forme de point (exemple: '11.50')" }) }
       end
     end
   end
