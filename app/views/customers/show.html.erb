@@ -1,85 +1,92 @@
 <div class="section  ">
-    <div class="container user-infos">
-        <div class="columns is-flex is-flex-wrap-wrap is-centered "> 
-            <div class="column is-5 is-flex">
-                <div class="box box-content is-flex is-justify-content-space-around  is-flex-direction-column">
-                    <% if @customer.avatar.attached? %>
-                        <%= image_tag @customer.avatar, alt: "Thumbnail [100%x225]", class: "user-avatar is-128x128" %>
-                    <%else%>
-                        <img src="https://images.unsplash.com/photo-1606383068250-4ac2043f4ff5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="food-img" class="user-avatar is-128x128">
-                    <%end%>
-                    <div class="content">
-                        <p class="title is-size-4 is-text-primary">Mon profil</p>
-                        <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
-                        <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
+  <div class="container user-infos">
+    <div class="columns is-flex is-flex-wrap-wrap is-centered "> 
+      
+      <div class="column is-5 is-flex">
+        <div class="box box-content is-flex is-justify-content-space-around  is-flex-direction-column">
+          
+          <% if @customer.avatar.attached? %>
+            <%= image_tag @customer.avatar, alt: "Thumbnail [100%x225]", class: "user-avatar is-128x128" %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1606383068250-4ac2043f4ff5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="food-img" class="user-avatar is-128x128">
+          <% end %>
 
-                        <% if current_customer_has_location? %>
-                            <p class="is-size-6">Localisation : <%= Location.find(@current_customer.location_id).adress %>, <%= Location.find(@current_customer.location_id).name %></p>
-                        <% else %>
-                         <p class="is-size-6">Localisation :</p>
-                        <% end %>
+          <div class="content">
+            <p class="title is-size-4 is-text-primary">Mon profil</p>
+            <p class="is-size-6">Nom : <%= @current_customer.last_name%></p>
+            <p class="is-size-6">Prénom : <%= @current_customer.first_name %></p>
 
-                        <p class="is-size-6">Email : <%= @current_customer.email %></p>
-                    </div>
-                    <div class="buttons">
-                        <div class="update-profile-btn mr-5">
-                            <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-info is-rounded is-largest-btn my-2" %>
-                        </div>
-                        <div class="update-id-btn">
-                            <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-warning is-rounded is-largest-btn my-2" %>
-                        </div>
-                    </div>
-                </div>
+            <% if current_customer_has_location? %>
+              <p class="is-size-6">Localisation : <%= Location.find(@current_customer.location_id).adress %>, <%= Location.find(@current_customer.location_id).name %></p>
+            <% else %>
+              <p class="is-size-6">Localisation :</p>
+            <% end %>
+
+            <p class="is-size-6">Email : <%= @current_customer.email %></p>
+          </div>
+        
+          <div class="buttons">
+            <div class="update-profile-btn mr-5">
+              <%= link_to "Mettre à jour mon profil", edit_customer_path, class: "button is-info is-rounded is-largest-btn my-2" %>
             </div>
-            <div class="column is-5 is-flex is-flex-direction-column is-justify-content-space-between">
-                <div class="monthy-expenses box">
-                    <p class="title is-size-4 is-text-primary"> Mes dépenses du mois</p>
-                    <p class="is-size-5"><%=sprintf "%.2f",current_customer.monthly_expenses%>€</p>
-                </div>
-                <div class="monthy-expenses box">
-                    <p class="title is-size-4 is-text-primary"> Mes votes</p>
-                    <% if !current_customer_has_location? %>
-                        <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
-                    <% elsif current_customer_has_location? && !voted_once? %>   
-                        <p class="is-size-6">Vous n'avez pas encore voté. Veuillez vous rendre sur la page du foodtruck de votre choix et cliquer sur le bouton viens chez moi</p>
-                    <% elsif current_customer_has_location? && !last_vote_over_24? %>
-                        <p class="is-size-6">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime("%d/%m/%Y") %></p>
-                        <p class="is-size-6">Veuillez attendre 24 heures pour voter à nouveau</p>
-                    <% elsif current_customer_has_location? && last_vote_over_24? %>
-                        <p class="is-size-6">Vous pouvez voter à nouveau</p>
-                    <% end %>
-                </div>
-                <div class="profile-my-orders box">
-                    <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
-                        <p class="title is-size-4 is-text-primary"> Ma dernière commande</p>
-                        <div class="show-orders-btn pb-4">
-                            <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded" %>
-                        </div>
-                    </div>
-                    <%if current_customer.orders.count > 0 %>
-                        <%= link_to customer_order_path(current_customer.orders.last) do %>
-                            <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
-                                <div class="box-content">             
-                                    <p class="foodtruck-name is-size-5 is-text-info title">
-                                        <%= current_customer.orders.last.foodtruck.name%>
-                                    </p>
-                                    <p class="order-date is-size-6 subtitle">
-                                        Le  <%= current_customer.orders.last.created_at.strftime("%d/%m/%Y") %>
-                                    </p>
-                                    <p class="order-cost is-size-6 mb-5">
-                                        Payé:  <%= sprintf "%.2f", current_customer.orders.last.total_price%>€
-                                    </p>
-                                </div>
-                                <div class="box-img is-hidden-mobile image">    
-                                    <img class="foodtruck-img" src="<%= rails_blob_url(current_customer.orders.last.foodtruck.pictures) %>" />                     
-                                </div>                                   
-                            </div>
-                        <%end%>
-                    <%end%>
-                </div>
-            </div> 
+            <div class="update-id-btn">
+              <%= link_to "Modifier mes identifiants", edit_customer_registration_path, class: "button is-warning is-rounded is-largest-btn my-2" %>
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      <div class="column is-5 is-flex is-flex-direction-column is-justify-content-space-between">
+        <div class="monthy-expenses box">
+          <p class="title is-size-4 is-text-primary"> Mes dépenses du mois</p>
+          <p class="is-size-5"><%= sprintf "%.2f",current_customer.monthly_expenses %>€</p>
+        </div>
+        
+        <div class="monthy-expenses box">
+          <p class="title is-size-4 is-text-primary"> Mes votes</p>
+
+          <% if !current_customer_has_location? %>
+            <p class="is-size-6">Vous devez renseigner une localisation pour pouvoir voter</p>
+          <% elsif current_customer_has_location? && !voted_once? %>   
+            <p class="is-size-6">Vous n'avez pas encore voté. Veuillez vous rendre sur la page du foodtruck de votre choix et cliquer sur le bouton viens chez moi</p>
+          <% elsif current_customer_has_location? && !last_vote_over_24? %>
+            <p class="is-size-6">Vous avez voté pour : <%= @current_customer.votes.last.foodtruck.name %> le <%= @current_customer.votes.last.updated_at.strftime("%d/%m/%Y") %></p>
+            <p class="is-size-6">Veuillez attendre 24 heures pour voter à nouveau</p>
+          <% elsif current_customer_has_location? && last_vote_over_24? %>
+            <p class="is-size-6">Vous pouvez voter à nouveau</p>
+          <% end %>
+        </div>
+
+        <div class="profile-my-orders box">
+          <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
+            <p class="title is-size-4 is-text-primary"> Ma dernière commande</p>
+            <div class="show-orders-btn pb-4">
+              <%= link_to "Voir toutes mes commandes", customer_orders_path, class: "button is-small is-info is-rounded" %>
+            </div>
+          </div>
+                    
+          <%if current_customer.orders.count > 0 %>
+            <%= link_to customer_order_path(current_customer.orders.last) do %>
+              <div class="box is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+                <div class="box-content">             
+                  <p class="foodtruck-name is-size-5 is-text-info title">
+                    <%= current_customer.orders.last.foodtruck.name %>
+                  </p>
+                  <p class="order-date is-size-6 subtitle">Le <%= current_customer.orders.last.created_at.strftime("%d/%m/%Y") %></p>
+                  <p class="order-cost is-size-6 mb-5">Payé : <%= sprintf "%.2f", current_customer.orders.last.total_price%>€</p>
+                </div>
+                <div class="box-img is-hidden-mobile image">    
+                  <img class="foodtruck-img" src="<%= rails_blob_url(current_customer.orders.last.foodtruck.pictures) %>" />                     
+                </div>                                   
+              </div>
+            <% end %>
+          <% end %>
+
+        </div>
+      </div> 
     </div>
+  </div>
 </div>
 
     

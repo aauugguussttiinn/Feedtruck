@@ -3,7 +3,7 @@
   <div class="container grid-list-display">
     <% foodtrucks.each do |foodtruck| %>
       <% if is_foodtruck_profile_completed?(foodtruck) %>
-                <%= link_to foodtruck_path(foodtruck.id) do %>
+        <%= link_to foodtruck_path(foodtruck.id) do %>
                 <div class="card index-card">
                     <div class="card-image foodtruck-cover">
                         <% if foodtruck.pictures.attached? %>
