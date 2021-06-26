@@ -58,7 +58,7 @@ fr:
       already_confirmed: "a déjà été validé(e), veuillez essayer de vous connecter"
       confirmation_period_expired: "à confirmer dans les %{period}, merci de faire une nouvelle demande"
       expired: "a expiré, merci d'en faire une nouvelle demande"
-      not_found: "n'a pas été trouvé(e)"
+      not_found: "introuvable"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
         one: "1 erreur est survenue :"
@@ -70,12 +70,18 @@ fr:
         password: "- Votre mot de passe"
         password_confirmation: "- Vos deux mots de passe"
         current_password: "- Votre mot de passe actuel"
+      foodtruck:
+        email: "Email"
+        password: "- Votre mot de passe"
+        password_confirmation: "- Vos deux mots de passe"
+        current_password: "- Votre mot de passe actuel"
     errors:
       models:
         customer:
           attributes:
             email:
               invalid: "invalide"
+              taken: "déjà utilisé par un autre compte"
             password:
               blank: "doit obligatoirement être renseigné"
               too_short: "renseigné est trop court"
@@ -83,4 +89,17 @@ fr:
               blank : "doit obligatoirement être renseigné"
               invalid: "ne correspond pas à celui que vous avez renseigné"
             password_confirmation:
-              confirmation: "doivent être les mêmes"  
+              confirmation: "doivent être les mêmes" 
+        foodtruck:
+          attributes:
+            email:
+              invalid: "invalide"
+              taken: "déjà utilisé par un autre compte"
+            password:
+              blank: "doit obligatoirement être renseigné"
+              too_short: "renseigné est trop court"
+            current_password:
+              blank : "doit obligatoirement être renseigné"
+              invalid: "ne correspond pas à celui que vous avez renseigné"
+            password_confirmation:
+              confirmation: "doivent être les mêmes" 
