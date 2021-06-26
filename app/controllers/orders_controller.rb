@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!, only: %i[ create ]
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :authenticate_customer_order_owner, only: %i[ show ]
 
   # GET /orders
   def index
@@ -63,4 +64,14 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:is_ready, :stripe_customer_id, :customer_id, :foodtruck_id)
     end
+
+    def authenticate_customer_order_owner
+      @order = Order.find(params[:id])
+      @order_owner = @order.customer.id
+      unless @order_owner == current_customer.id
+        flash[:alert] = "Désolé, mais cette commande n'est pas la vôtre !"
+        redirect_to customer_orders_path
+      end
+    end
+
 end
