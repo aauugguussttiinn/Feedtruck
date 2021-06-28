@@ -10,6 +10,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
+}
+
+.is-fixed-top {
+
 }
 
 .title {
@@ -310,6 +315,16 @@ body {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$ Content ABOVE is for boxes $$$$$$$$$$$$$$$$$$$$ */
+
+
+@media screen and (max-width: 1023px) {
+  .navbar.is-fixed-top .navbar-menu, .navbar.is-fixed-top-touch .navbar-menu {
+    overflow: unset !important;
+  }
+}
+
+
+
 
 
 @media screen and (max-width: 1160px) {
